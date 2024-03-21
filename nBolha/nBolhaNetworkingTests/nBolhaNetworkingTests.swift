@@ -1,14 +1,14 @@
 //
-//  nBolhaUITests.swift
-//  nBolhaUITests
+//  nBolhaNetworkingTests.swift
+//  nBolhaNetworkingTests
 //
-//  Created by Adel Burekovic on 20. 03. 24.
+//  Created by Adel Burekovic on 21. 03. 24.
 //
 
 import XCTest
-@testable import nBolhaUI
+@testable import nBolhaNetworking
 
-final class nBolhaUITests: XCTestCase {
+final class nBolhaNetworkingTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
