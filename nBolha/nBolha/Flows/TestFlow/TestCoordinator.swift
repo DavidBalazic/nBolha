@@ -20,17 +20,20 @@ final class TestCoordinator: Coordinator, TestNavigationDelegate {
     @discardableResult
     func start() -> UIViewController {
         let view = TestView(viewModel: .init(navigationDelegate: self))
-//        navigationController?.setViewControllers([view.asViewController], animated: false)
+        navigationController?.setViewControllers(
+            [view.asViewController],
+            animated: false
+        )
         return navigationController ?? UIViewController()
     }
     
     // MARK: - TestNavigationDelegate
     
     func showTestDetailsScreen() {
-        //
+        // TODO: Push view controller to another screen
     }
     
     func showTestInfoScreen(info: String) {
-        //
+        // TODO: Push view controller to another screen
     }
 }

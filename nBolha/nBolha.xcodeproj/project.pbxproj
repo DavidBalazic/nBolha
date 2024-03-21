@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8A22BAB1C03002B089B /* AppDelegate.swift */; };
-		126BA8A52BAB1C03002B089B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8A42BAB1C03002B089B /* SceneDelegate.swift */; };
-		126BA8A72BAB1C03002B089B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8A62BAB1C03002B089B /* ViewController.swift */; };
 		126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AB2BAB1C04002B089B /* Assets.xcassets */; };
 		126BA8AF2BAB1C04002B089B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */; };
 		126BA8BA2BAB1C04002B089B /* nBolhaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8B92BAB1C04002B089B /* nBolhaTests.swift */; };
@@ -25,6 +23,8 @@
 		126BA8F92BAB274C002B089B /* nBolhaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 126BA8E92BAB274C002B089B /* nBolhaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		126BA8FC2BAB274C002B089B /* nBolhaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */; };
 		126BA8FD2BAB274C002B089B /* nBolhaUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E32BACDEA90018438B /* View+Extensions.swift */; };
+		128B42E62BACDEE60018438B /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E52BACDEE60018438B /* HostingController.swift */; };
 		12C3A7EE2BAC6CBF00C3FEE7 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E72BAC6CBF00C3FEE7 /* HttpRequest.swift */; };
 		12C3A7EF2BAC6CBF00C3FEE7 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E82BAC6CBF00C3FEE7 /* Decodable+Extensions.swift */; };
 		12C3A7F02BAC6CBF00C3FEE7 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */; };
@@ -38,6 +38,8 @@
 		12C3A7FE2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FA2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift */; };
 		12C3A7FF2BAC6D4800C3FEE7 /* BasePaginationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FB2BAC6D4800C3FEE7 /* BasePaginationWorker.swift */; };
 		12C3A8002BAC6D4800C3FEE7 /* BaseResponseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FC2BAC6D4800C3FEE7 /* BaseResponseWorker.swift */; };
+		12C3A9872BAC715000C3FEE7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 12C3A9862BAC715000C3FEE7 /* Lottie */; };
+		12C3A98A2BAC718100C3FEE7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12C3A9892BAC718100C3FEE7 /* SnapKit */; };
 		12E641B82BAC304C00C7005E /* nBolhaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; };
 		12E641BF2BAC304C00C7005E /* nBolhaCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E641BE2BAC304C00C7005E /* nBolhaCoreTests.swift */; };
 		12E641C02BAC304C00C7005E /* nBolhaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E641B22BAC304B00C7005E /* nBolhaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -170,8 +172,6 @@
 /* Begin PBXFileReference section */
 		126BA89F2BAB1C03002B089B /* nBolha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBolha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		126BA8A42BAB1C03002B089B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		126BA8A62BAB1C03002B089B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		126BA8AB2BAB1C04002B089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		126BA8AE2BAB1C04002B089B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,6 +189,8 @@
 		126BA8E92BAB274C002B089B /* nBolhaUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nBolhaUI.h; sourceTree = "<group>"; };
 		126BA8F02BAB274C002B089B /* nBolhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8F72BAB274C002B089B /* nBolhaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaUITests.swift; sourceTree = "<group>"; };
+		128B42E32BACDEA90018438B /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		128B42E52BACDEE60018438B /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		12C3A7E72BAC6CBF00C3FEE7 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		12C3A7E82BAC6CBF00C3FEE7 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
 		12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
@@ -242,7 +244,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12C3A98A2BAC718100C3FEE7 /* SnapKit in Frameworks */,
 				12E641CF2BAC32E600C7005E /* nBolhaCore.framework in Frameworks */,
+				12C3A9872BAC715000C3FEE7 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,8 +331,6 @@
 				126BA8D32BAB1CAD002B089B /* Resources */,
 				126BA8D42BAB1CE2002B089B /* Utilities */,
 				126BA8A22BAB1C03002B089B /* AppDelegate.swift */,
-				126BA8A42BAB1C03002B089B /* SceneDelegate.swift */,
-				126BA8A62BAB1C03002B089B /* ViewController.swift */,
 				126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */,
 				126BA8B02BAB1C04002B089B /* Info.plist */,
 			);
@@ -355,8 +357,8 @@
 		126BA8D22BAB1CA7002B089B /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				126BA8DB2BAB1F69002B089B /* TestFlow */,
 				126BA8D82BAB1DC4002B089B /* AppLaunch */,
+				126BA8DB2BAB1F69002B089B /* TestFlow */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -423,8 +425,26 @@
 		126BA9052BAB2788002B089B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				128B42E22BACDE5A0018438B /* Extensions */,
+				128B42E12BACDE550018438B /* Views */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		128B42E12BACDE550018438B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				128B42E52BACDEE60018438B /* HostingController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		128B42E22BACDE5A0018438B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				128B42E32BACDEA90018438B /* View+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		12C3A7E52BAC6C9200C3FEE7 /* Worker */ = {
@@ -615,6 +635,10 @@
 				12E641D22BAC32E600C7005E /* PBXTargetDependency */,
 			);
 			name = nBolhaUI;
+			packageProductDependencies = (
+				12C3A9862BAC715000C3FEE7 /* Lottie */,
+				12C3A9892BAC718100C3FEE7 /* SnapKit */,
+			);
 			productName = nBolhaUI;
 			productReference = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */;
 			productType = "com.apple.product-type.framework";
@@ -768,6 +792,10 @@
 				Base,
 			);
 			mainGroup = 126BA8962BAB1C03002B089B;
+			packageReferences = (
+				12C3A9852BAC715000C3FEE7 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				12C3A9882BAC718100C3FEE7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 126BA8A02BAB1C03002B089B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -861,11 +889,9 @@
 				126BA8DF2BAB1FAF002B089B /* TestView.swift in Sources */,
 				126BA8D72BAB1D22002B089B /* Coordinator.swift in Sources */,
 				126BA8E12BAB1FB7002B089B /* TestViewModel.swift in Sources */,
-				126BA8A72BAB1C03002B089B /* ViewController.swift in Sources */,
 				126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */,
 				126BA8DA2BAB1DE2002B089B /* AppLaunchCoordinator.swift in Sources */,
 				126BA8DD2BAB1F78002B089B /* TestCoordinator.swift in Sources */,
-				126BA8A52BAB1C03002B089B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,6 +916,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				128B42E62BACDEE60018438B /* HostingController.swift in Sources */,
+				128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1341,6 +1369,7 @@
 		126BA9032BAB274C002B089B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1357,6 +1386,7 @@
 		126BA9042BAB274C002B089B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1666,6 +1696,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12C3A9852BAC715000C3FEE7 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
+		12C3A9882BAC718100C3FEE7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		12C3A9862BAC715000C3FEE7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12C3A9852BAC715000C3FEE7 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		12C3A9892BAC718100C3FEE7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12C3A9882BAC718100C3FEE7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 126BA8972BAB1C03002B089B /* Project object */;
 }

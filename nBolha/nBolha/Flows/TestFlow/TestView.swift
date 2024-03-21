@@ -21,6 +21,9 @@ struct TestView: View {
             Text("TEST VIEW")
         }
         .background(Color.red)
+        .onAppear {
+            print("test")
+        }
     }
 }
 
