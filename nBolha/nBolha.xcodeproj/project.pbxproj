@@ -53,7 +53,6 @@
 		12E641E92BAC63F200C7005E /* nBolhaNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12E641EC2BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; };
 		12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C4183E952BADC34C00D001DB /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4183E942BADC34C00D001DB /* TestView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,7 +213,6 @@
 		12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nBolhaNetworking.h; sourceTree = "<group>"; };
 		12E641E02BAC63F200C7005E /* nBolhaNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaNetworkingTests.swift; sourceTree = "<group>"; };
-		C4183E942BADC34C00D001DB /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,7 +357,6 @@
 		126BA8D22BAB1CA7002B089B /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				C4183E932BADC33C00D001DB /* Teste */,
 				126BA8D82BAB1DC4002B089B /* AppLaunch */,
 				126BA8DB2BAB1F69002B089B /* TestFlow */,
 			);
@@ -401,8 +398,8 @@
 		126BA8DB2BAB1F69002B089B /* TestFlow */ = {
 			isa = PBXGroup;
 			children = (
-				126BA8DE2BAB1FAF002B089B /* TestView.swift */,
 				126BA8DC2BAB1F78002B089B /* TestCoordinator.swift */,
+				126BA8DE2BAB1FAF002B089B /* TestView.swift */,
 				126BA8E02BAB1FB7002B089B /* TestViewModel.swift */,
 			);
 			path = TestFlow;
@@ -533,14 +530,6 @@
 				12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		C4183E932BADC33C00D001DB /* Teste */ = {
-			isa = PBXGroup;
-			children = (
-				C4183E942BADC34C00D001DB /* TestView2.swift */,
-			);
-			path = Teste;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -897,7 +886,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4183E952BADC34C00D001DB /* TestView2.swift in Sources */,
 				126BA8DF2BAB1FAF002B089B /* TestView.swift in Sources */,
 				126BA8D72BAB1D22002B089B /* Coordinator.swift in Sources */,
 				126BA8E12BAB1FB7002B089B /* TestViewModel.swift in Sources */,
