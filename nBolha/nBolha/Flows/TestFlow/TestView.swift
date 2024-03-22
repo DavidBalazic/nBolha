@@ -19,6 +19,7 @@ struct TestView: View {
     var body: some View {
         VStack {
             Text("TEST VIEW")
+                .foregroundStyle(Color.white)
         }
         .background(Color.red)
         .onAppear {

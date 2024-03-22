@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     private var coordinator: AppLaunchCoordinator?
+    var nvc: UINavigationController?
 
     func application(
         _ application: UIApplication,
@@ -26,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.coordinator = coordinator
         coordinator.start()
-        window.makeKeyAndVisible()
         return true
     }
 }

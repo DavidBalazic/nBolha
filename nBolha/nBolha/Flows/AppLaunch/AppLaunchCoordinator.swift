@@ -19,6 +19,7 @@ final class AppLaunchCoordinator: NSObject {
 
     func start() {
         navigationController = UINavigationController()
+        navigationController?.view.backgroundColor = .yellow
         window.rootViewController = navigationController
         TestCoordinator(navigationController: navigationController)
             .start()
