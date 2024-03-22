@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.coordinator = coordinator
         coordinator.start()
+        window.makeKeyAndVisible()
         return true
     }
 }
