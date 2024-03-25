@@ -53,6 +53,10 @@
 		12E641E92BAC63F200C7005E /* nBolhaNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12E641EC2BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; };
 		12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BA4E32BADCF7D00FE9F5A /* LoginView.swift */; };
+		50907A722BB17567004301C5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A712BB17567004301C5 /* LoginViewModel.swift */; };
+		50907A762BB17B9F004301C5 /* NoConnectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A752BB17B9F004301C5 /* NoConnectionScreen.swift */; };
+		50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A772BB19B2C004301C5 /* LoginCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +217,10 @@
 		12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nBolhaNetworking.h; sourceTree = "<group>"; };
 		12E641E02BAC63F200C7005E /* nBolhaNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaNetworkingTests.swift; sourceTree = "<group>"; };
+		505BA4E32BADCF7D00FE9F5A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		50907A712BB17567004301C5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		50907A752BB17B9F004301C5 /* NoConnectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionScreen.swift; sourceTree = "<group>"; };
+		50907A772BB19B2C004301C5 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +365,7 @@
 		126BA8D22BAB1CA7002B089B /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				505BA4E22BADCF6800FE9F5A /* LoginFlow */,
 				126BA8D82BAB1DC4002B089B /* AppLaunch */,
 				126BA8DB2BAB1F69002B089B /* TestFlow */,
 			);
@@ -530,6 +539,17 @@
 				12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		505BA4E22BADCF6800FE9F5A /* LoginFlow */ = {
+			isa = PBXGroup;
+			children = (
+				505BA4E32BADCF7D00FE9F5A /* LoginView.swift */,
+				50907A712BB17567004301C5 /* LoginViewModel.swift */,
+				50907A752BB17B9F004301C5 /* NoConnectionScreen.swift */,
+				50907A772BB19B2C004301C5 /* LoginCoordinator.swift */,
+			);
+			path = LoginFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -887,8 +907,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				126BA8DF2BAB1FAF002B089B /* TestView.swift in Sources */,
+				50907A762BB17B9F004301C5 /* NoConnectionScreen.swift in Sources */,
+				50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */,
+				505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */,
 				126BA8D72BAB1D22002B089B /* Coordinator.swift in Sources */,
 				126BA8E12BAB1FB7002B089B /* TestViewModel.swift in Sources */,
+				50907A722BB17567004301C5 /* LoginViewModel.swift in Sources */,
 				126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */,
 				126BA8DA2BAB1DE2002B089B /* AppLaunchCoordinator.swift in Sources */,
 				126BA8DD2BAB1F78002B089B /* TestCoordinator.swift in Sources */,
