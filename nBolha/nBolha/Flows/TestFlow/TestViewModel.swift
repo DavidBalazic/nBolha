@@ -14,6 +14,8 @@ protocol TestNavigationDelegate: AnyObject {
 
 final class TestViewModel: ObservableObject {
     private let navigationDelegate: TestNavigationDelegate?
+    @Published var nameText = ""
+    @Published var errorText: String?
 
     init(navigationDelegate: TestNavigationDelegate?) {
         self.navigationDelegate = navigationDelegate
