@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NChainUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
+
+        StartupProcessService().execute()
 
         let coordinator = AppLaunchCoordinator(
             window: window
