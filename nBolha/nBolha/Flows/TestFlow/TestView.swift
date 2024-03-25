@@ -7,21 +7,37 @@
 
 import SwiftUI
 import Combine
-import nBolhaUI
+import NChainUI
 
 struct TestView: View {
     @ObservedObject private var viewModel: TestViewModel
+    @FocusState private var isFirstFieldFocused: Bool
 
     init(viewModel: TestViewModel) {
         self.viewModel = viewModel
     }
 
     var body: some View {
-        VStack {
-            Text("TEST VIEW")
-                .foregroundStyle(Color.white)
+        VStack(spacing: NCConstants.Margins.medium.rawValue) {
+            SwiftUITextInput(
+                title: "Name",
+                type: .primary,
+                text: $viewModel.nameText,
+                errorText: $viewModel.errorText,
+                isFocused: $isFirstFieldFocused
+            )
+            
+            SwiftUIButton(
+                text: "Click me",
+                tapped: {
+                    print("hello")
+                }
+            )
         }
-        .background(Color.red)
+        .padding(
+            .horizontal,
+            NCConstants.Margins.huge.rawValue
+        )
         .onAppear {
             print("test")
         }
