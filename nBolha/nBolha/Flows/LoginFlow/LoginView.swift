@@ -7,56 +7,65 @@
 
 import SwiftUI
 import nBolhaUI
+import NChainUI
 
 struct LoginView: View {
-//    @State private var email: String = ""
-//    @State private var password: String = ""
     @ObservedObject private var viewModel: LoginViewModel
+    @FocusState private var isFirstFieldFocused: Bool
 
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
     }
-    
     var body: some View {
-        VStack(spacing: 44) {
+        VStack(spacing: NCConstants.Margins.veryHuge.rawValue) {
             Image("logo")
-            VStack(spacing: 12) {
+            VStack(spacing: NCConstants.Margins.medium.rawValue) {
                 Text("Welcome")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .fontWeight(.semibold)
+                    .font(Font(UIFont.title05))
+                    .foregroundStyle(Color(UIColor.text01!))
                 Text("To log in, please provide your company email address and password.")
-                    .font(.subheadline)
-                    .fontWeight(.thin)
+                    .font(Font(UIFont.body03))
                     .multilineTextAlignment(.center)
-                    .padding(.horizontal, 39)
+                    .foregroundStyle(Color(UIColor.text02!))
+                    
             }
             Image("Illustrations")
-            VStack(spacing: 16) {
-                TextField("Email", text: $viewModel.email)
-                SecureField("Password", text: $viewModel.password)
+            VStack(spacing: NCConstants.Margins.large.rawValue) {
+                SwiftUITextInput(
+                    title: "Email",
+                    type: .primary,
+                    text: $viewModel.email,
+                    errorText: $viewModel.errorEmailText,
+                    isFocused: $isFirstFieldFocused
+                )
+                SwiftUITextInput(
+                    title: "Password",
+                    type: .password,
+                    text: $viewModel.password,
+                    errorText: $viewModel.errorPasswordText,
+                    isFocused: $isFirstFieldFocused
+                )
             }
-            .textFieldStyle(.roundedBorder)
-            VStack(spacing: 48) {
-                Button("Log in", action: viewModel.loginButtonTapped)
-                    .fontWeight(.medium)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .foregroundColor(Color(white: 1.0))
-                    .background(Color(red: 0.0, green: 0.2823529411764706, blue: 0.3764705882352941))
-                    .cornerRadius(5.0)
-                
-                Text("By continuing, I agree to the Terms & Conditions & Privacy policy.")
-                    .multilineTextAlignment(.center)
+            VStack(spacing: NCConstants.Margins.giant.rawValue) {
+                SwiftUIButton(
+                    text: "Log in",
+                    tapped: {
+                        viewModel.loginTapped()
+                    }
+                )
+                TermsAndConditionsView(
+                    termsTapped: viewModel.termsTapped,
+                    privacyTapped: viewModel.privacyTapped,
+                    textFont: UIFont.body03,
+                    buttonFont: UIFont.underline02,
+                    textColor: UIColor.text01!,
+                    buttonColor: UIColor.link01!
+                )
             }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, NCConstants.Margins.large.rawValue)
     }
 }
-
-func logIn() {
-    
-}
-
 
 //#Preview {
 //    LoginView()

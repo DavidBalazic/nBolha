@@ -31,6 +31,17 @@ final class LoginCoordinator: Coordinator, LoginNavigationDelegate {
     
     func showHomeScreen() {
         // TODO: Push view controller to another screen
+        print("Login tapped")
+    }
+    
+    func showTermsScreen() {
+        // TODO: implement when feature defined
+        print("Terms tapped")
+    }
+    
+    func showPrivacyScreen() {
+        // TODO: implement when feature defined
+        print("Privacy tapped")
     }
     
 }
