@@ -11,14 +11,15 @@ import NChainUI
 
 struct LoginView: View {
     @ObservedObject private var viewModel: LoginViewModel
-    @FocusState private var isFirstFieldFocused: Bool
+    @FocusState private var isEmailFocused: Bool
+    @FocusState private var isPasswordFocused: Bool
 
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
     }
     var body: some View {
         VStack(spacing: NCConstants.Margins.veryHuge.rawValue) {
-            Image("logo")
+            Image(.logo)
             VStack(spacing: NCConstants.Margins.medium.rawValue) {
                 Text("Welcome")
                     .font(Font(UIFont.title05))
@@ -29,22 +30,23 @@ struct LoginView: View {
                     .foregroundStyle(Color(UIColor.text02!))
                     
             }
-            Image("Illustrations")
+            Image(.illustrations)
             VStack(spacing: NCConstants.Margins.large.rawValue) {
                 SwiftUITextInput(
                     title: "Email",
                     type: .primary,
                     text: $viewModel.email,
                     errorText: $viewModel.errorEmailText,
-                    isFocused: $isFirstFieldFocused
+                    isFocused: $isEmailFocused
                 )
                 SwiftUITextInput(
                     title: "Password",
                     type: .password,
                     text: $viewModel.password,
                     errorText: $viewModel.errorPasswordText,
-                    isFocused: $isFirstFieldFocused
+                    isFocused: $isPasswordFocused
                 )
+                //.customized(for: .password)
             }
             VStack(spacing: NCConstants.Margins.giant.rawValue) {
                 SwiftUIButton(
@@ -53,6 +55,7 @@ struct LoginView: View {
                         viewModel.loginTapped()
                     }
                 )
+                .disabled(!viewModel.isButtonEnabled)
                 TermsAndConditionsView(
                     termsTapped: viewModel.termsTapped,
                     privacyTapped: viewModel.privacyTapped,

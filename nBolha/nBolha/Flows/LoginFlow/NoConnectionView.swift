@@ -16,7 +16,7 @@ struct NoConnectionView: View {
     }
     var body: some View {
         VStack(spacing: NCConstants.Margins.extraLarge.rawValue) {
-            Image("Illustrations2")
+            Image(.illustrations2)
             VStack(spacing: NCConstants.Margins.medium.rawValue) {
                 Text("No connection")
                     .font(Font(UIFont.title05))

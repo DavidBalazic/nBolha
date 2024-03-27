@@ -55,6 +55,8 @@
 		12E641E92BAC63F200C7005E /* nBolhaNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12E641EC2BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; };
 		12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5032D5292BB41813005FFF15 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */; };
+		5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5032D52A2BB460BE005FFF15 /* NChainUI */; };
 		505547482BB2D28900566B99 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505547472BB2D28900566B99 /* UnderlineButton.swift */; };
 		5055474A2BB2D2B800566B99 /* TermsAndConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505547492BB2D2B800566B99 /* TermsAndConditionView.swift */; };
 		505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BA4E32BADCF7D00FE9F5A /* LoginView.swift */; };
@@ -226,6 +228,7 @@
 		12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nBolhaNetworking.h; sourceTree = "<group>"; };
 		12E641E02BAC63F200C7005E /* nBolhaNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaNetworkingTests.swift; sourceTree = "<group>"; };
+		5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extensions.swift"; sourceTree = "<group>"; };
 		505547472BB2D28900566B99 /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
 		505547492BB2D2B800566B99 /* TermsAndConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionView.swift; sourceTree = "<group>"; };
 		505BA4E32BADCF7D00FE9F5A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12E641CF2BAC32E600C7005E /* nBolhaCore.framework in Frameworks */,
+				5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +525,7 @@
 		12E641CB2BAC32C100C7005E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5032D5272BB4167D005FFF15 /* Extensions */,
 				12E641CC2BAC32D200C7005E /* Globals.swift */,
 				1218ED1B2BB1A37100B3445B /* StartupProcess.swift */,
 			);
@@ -565,6 +570,14 @@
 				12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		5032D5272BB4167D005FFF15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		505BA4E22BADCF6800FE9F5A /* LoginFlow */ = {
@@ -685,6 +698,7 @@
 			);
 			name = nBolhaUI;
 			packageProductDependencies = (
+				5032D52A2BB460BE005FFF15 /* NChainUI */,
 			);
 			productName = nBolhaUI;
 			productReference = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */;
@@ -988,6 +1002,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12E641CD2BAC32D200C7005E /* Globals.swift in Sources */,
+				5032D5292BB41813005FFF15 /* Publisher+Extensions.swift in Sources */,
 				1218ED1C2BB1A37100B3445B /* StartupProcess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1754,6 +1769,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		128241E22BB19F5B0008B8C6 /* NChainUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NChainUI;
+		};
+		5032D52A2BB460BE005FFF15 /* NChainUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NChainUI;
 		};
