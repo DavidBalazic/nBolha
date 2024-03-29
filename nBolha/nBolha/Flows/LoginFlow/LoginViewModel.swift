@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 import nBolhaCore
-import nBolhaUI
 
 protocol LoginNavigationDelegate: AnyObject {
     func showHomeScreen()
@@ -25,16 +24,11 @@ final class LoginViewModel: ObservableObject {
     @Published var errorEmailText: String?
     @Published var errorPasswordText: String?
     @Published private(set) var isButtonEnabled = false
-    private let notificationService: WindowNotificationService
-    private let errorSubject = PassthroughSubject<Error, Never>()
-    private var bag = Set<AnyCancellable>()
     
     init(
-        navigationDelegate: LoginNavigationDelegate?,
-        notificationService: WindowNotificationService = DefaultWindowNotificationService()
+        navigationDelegate: LoginNavigationDelegate?
     ) {
         self.navigationDelegate = navigationDelegate
-        self.notificationService = notificationService
         initializeObserving()
     }
     
@@ -71,8 +65,7 @@ final class LoginViewModel: ObservableObject {
     
     //@MainActor
     private func login() {
-        notificationService.notify.send(NotificationView.Notification(type: .warning, errorMessage: "Login failed", errorDescription: "Incorrect email and password combination was entered. Please verify them and try again."))
-//        notificationService.notify.send(NotificationView.Notification(type: .warning, errorMessage: "Something went wrong", errorDescription: "Please try again later."))
         navigationDelegate?.showHomeScreen()
+
     }
  }

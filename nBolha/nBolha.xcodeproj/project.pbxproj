@@ -57,20 +57,13 @@
 		12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5032D5292BB41813005FFF15 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */; };
 		5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5032D52A2BB460BE005FFF15 /* NChainUI */; };
-		5044F2512BB59E2A000AE10A /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5044F2502BB59E2A000AE10A /* Task+Extensions.swift */; };
 		505547482BB2D28900566B99 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505547472BB2D28900566B99 /* UnderlineButton.swift */; };
 		5055474A2BB2D2B800566B99 /* TermsAndConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505547492BB2D2B800566B99 /* TermsAndConditionView.swift */; };
 		505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BA4E32BADCF7D00FE9F5A /* LoginView.swift */; };
 		50907A722BB17567004301C5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A712BB17567004301C5 /* LoginViewModel.swift */; };
 		50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A752BB17B9F004301C5 /* NoConnectionView.swift */; };
 		50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A772BB19B2C004301C5 /* LoginCoordinator.swift */; };
-		50BBE6202BB5576E004AA5BB /* WindowNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */; };
-		50BBE6222BB557D8004AA5BB /* WindowNotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */; };
-		50BBE6282BB560DB004AA5BB /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE6272BB560DB004AA5BB /* NotificationView.swift */; };
-		50BBE62B2BB570F9004AA5BB /* WindowNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE6292BB570F9004AA5BB /* WindowNotificationService.swift */; };
-		50BBE62C2BB570F9004AA5BB /* WindowNotificationInstallation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE62A2BB570F9004AA5BB /* WindowNotificationInstallation.swift */; };
 		50D50B072BB2FE3D00748CC3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D50B062BB2FE3D00748CC3 /* Globals.swift */; };
-		50F0E1182BB6BAD30065242A /* WindowNotificationStartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F0E1172BB6BAD30065242A /* WindowNotificationStartupProcess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,20 +229,13 @@
 		12E641E02BAC63F200C7005E /* nBolhaNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaNetworkingTests.swift; sourceTree = "<group>"; };
 		5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extensions.swift"; sourceTree = "<group>"; };
-		5044F2502BB59E2A000AE10A /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
 		505547472BB2D28900566B99 /* UnderlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineButton.swift; sourceTree = "<group>"; };
 		505547492BB2D2B800566B99 /* TermsAndConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionView.swift; sourceTree = "<group>"; };
 		505BA4E32BADCF7D00FE9F5A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		50907A712BB17567004301C5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		50907A752BB17B9F004301C5 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
 		50907A772BB19B2C004301C5 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
-		50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationsView.swift; sourceTree = "<group>"; };
-		50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationViewModel.swift; sourceTree = "<group>"; };
-		50BBE6272BB560DB004AA5BB /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
-		50BBE6292BB570F9004AA5BB /* WindowNotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowNotificationService.swift; sourceTree = "<group>"; };
-		50BBE62A2BB570F9004AA5BB /* WindowNotificationInstallation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowNotificationInstallation.swift; sourceTree = "<group>"; };
 		50D50B062BB2FE3D00748CC3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
-		50F0E1172BB6BAD30065242A /* WindowNotificationStartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationStartupProcess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +319,6 @@
 			children = (
 				1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */,
 				1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */,
-				50F0E1172BB6BAD30065242A /* WindowNotificationStartupProcess.swift */,
 			);
 			path = Startup;
 			sourceTree = "<group>";
@@ -458,7 +443,6 @@
 		126BA8E82BAB274C002B089B /* nBolhaUI */ = {
 			isa = PBXGroup;
 			children = (
-				50BBE6182BB55680004AA5BB /* Utilities */,
 				126BA9052BAB2788002B089B /* Source */,
 				126BA8E92BAB274C002B089B /* nBolhaUI.h */,
 			);
@@ -486,7 +470,6 @@
 		128B42E12BACDE550018438B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				50BBE61E2BB55746004AA5BB /* WindowsNotifications */,
 				128B42E52BACDEE60018438B /* HostingController.swift */,
 				505547472BB2D28900566B99 /* UnderlineButton.swift */,
 				505547492BB2D2B800566B99 /* TermsAndConditionView.swift */,
@@ -593,7 +576,6 @@
 			isa = PBXGroup;
 			children = (
 				5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */,
-				5044F2502BB59E2A000AE10A /* Task+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -607,33 +589,6 @@
 				50907A772BB19B2C004301C5 /* LoginCoordinator.swift */,
 			);
 			path = LoginFlow;
-			sourceTree = "<group>";
-		};
-		50BBE6182BB55680004AA5BB /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				50BBE6192BB5569B004AA5BB /* WindowsNotifications */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		50BBE6192BB5569B004AA5BB /* WindowsNotifications */ = {
-			isa = PBXGroup;
-			children = (
-				50BBE62A2BB570F9004AA5BB /* WindowNotificationInstallation.swift */,
-				50BBE6292BB570F9004AA5BB /* WindowNotificationService.swift */,
-			);
-			path = WindowsNotifications;
-			sourceTree = "<group>";
-		};
-		50BBE61E2BB55746004AA5BB /* WindowsNotifications */ = {
-			isa = PBXGroup;
-			children = (
-				50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */,
-				50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */,
-				50BBE6272BB560DB004AA5BB /* NotificationView.swift */,
-			);
-			path = WindowsNotifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -990,7 +945,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50F0E1182BB6BAD30065242A /* WindowNotificationStartupProcess.swift in Sources */,
 				126BA8DF2BAB1FAF002B089B /* TestView.swift in Sources */,
 				1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */,
 				50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */,
@@ -1028,15 +982,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				128B42E62BACDEE60018438B /* HostingController.swift in Sources */,
-				50BBE62B2BB570F9004AA5BB /* WindowNotificationService.swift in Sources */,
-				50BBE6222BB557D8004AA5BB /* WindowNotificationViewModel.swift in Sources */,
 				128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */,
 				5055474A2BB2D2B800566B99 /* TermsAndConditionView.swift in Sources */,
 				50D50B072BB2FE3D00748CC3 /* Globals.swift in Sources */,
-				50BBE62C2BB570F9004AA5BB /* WindowNotificationInstallation.swift in Sources */,
-				50BBE6202BB5576E004AA5BB /* WindowNotificationsView.swift in Sources */,
 				505547482BB2D28900566B99 /* UnderlineButton.swift in Sources */,
-				50BBE6282BB560DB004AA5BB /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,7 +1003,6 @@
 			files = (
 				12E641CD2BAC32D200C7005E /* Globals.swift in Sources */,
 				5032D5292BB41813005FFF15 /* Publisher+Extensions.swift in Sources */,
-				5044F2512BB59E2A000AE10A /* Task+Extensions.swift in Sources */,
 				1218ED1C2BB1A37100B3445B /* StartupProcess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1304,7 +1252,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1334,7 +1281,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
