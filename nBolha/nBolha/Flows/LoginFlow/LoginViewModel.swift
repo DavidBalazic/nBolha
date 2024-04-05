@@ -9,10 +9,12 @@ import Foundation
 import Combine
 import nBolhaCore
 import nBolhaUI
+import nBolhaNetworking
+import UIKit
 
 protocol LoginNavigationDelegate: AnyObject {
     func showHomeScreen()
-    //func showNoConnectionScreen()
+    func showNoConnectionScreen()
     func showTermsScreen()
     func showPrivacyScreen()
 }
@@ -24,10 +26,7 @@ final class LoginViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var errorEmailText: String?
     @Published var errorPasswordText: String?
-    @Published private(set) var isButtonEnabled = false
     private let notificationService: WindowNotificationService
-    private let errorSubject = PassthroughSubject<Error, Never>()
-    private var bag = Set<AnyCancellable>()
     
     init(
         navigationDelegate: LoginNavigationDelegate?,
@@ -38,9 +37,11 @@ final class LoginViewModel: ObservableObject {
         initializeObserving()
     }
     
-    //@MainActor
-    func loginTapped() {
-        login()
+    @MainActor
+    func loginTapped() async {
+        validateFields()
+        guard !email.isEmpty, !password.isEmpty else { return }
+        await login()
     }
     
     func termsTapped() {
@@ -49,6 +50,11 @@ final class LoginViewModel: ObservableObject {
     
     func privacyTapped() {
         navigationDelegate?.showPrivacyScreen()
+    }
+    
+    func validateFields() {
+        errorEmailText = email.isEmpty ? "Please fill in your email" : nil
+        errorPasswordText = password.isEmpty ? "Please fill in your password" : nil
     }
     
     private func initializeObserving() {
@@ -61,18 +67,26 @@ final class LoginViewModel: ObservableObject {
             .dropFirst()
             .map { $0.isEmpty ? "Please fill in your password" : nil }
             .assign(to: &$errorPasswordText)
-        
-        $email.notEmptyPublisher
-            .combineLatest( $password.notEmptyPublisher)
-            .map { $0 && $1}
-            .receive(on: DispatchQueue.main)
-            .assign(to: &$isButtonEnabled)
     }
     
-    //@MainActor
-    private func login() {
-        notificationService.notify.send(NotificationView.Notification(type: .warning, errorMessage: "Login failed", errorDescription: "Incorrect email and password combination was entered. Please verify them and try again."))
-//        notificationService.notify.send(NotificationView.Notification(type: .warning, errorMessage: "Something went wrong", errorDescription: "Please try again later."))
-        navigationDelegate?.showHomeScreen()
+    @MainActor
+    private func login() async {
+        guard !isLoading else { return }
+        isLoading = true
+        defer { isLoading = false }
+        
+        let loginWorker = LoginWorker(username: email, password: password)
+        loginWorker.execute { (response, error) in
+            if let response = response {
+                print("Token: \(response)")
+                self.navigationDelegate?.showHomeScreen()
+            } else if error is NetworkingBadRequestError { //NetworkingNotFoundError
+                self.notificationService.notify.send(NotificationView.Notification.LoginFailed)
+            } else if response == nil, error == nil { // else if error is NetworkingNoConnectionError
+                self.navigationDelegate?.showNoConnectionScreen()
+            } else {
+                self.notificationService.notify.send(NotificationView.Notification.Other)
+            }
+        }
     }
  }

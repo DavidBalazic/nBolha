@@ -9,11 +9,6 @@ import SwiftUI
 import NChainUI
 
 struct NoConnectionView: View {
-    @ObservedObject private var viewModel: LoginViewModel
-    
-    init(viewModel: LoginViewModel) {
-        self.viewModel = viewModel
-    }
     var body: some View {
         VStack(spacing: NCConstants.Margins.extraLarge.rawValue) {
             Image(.illustrations2)

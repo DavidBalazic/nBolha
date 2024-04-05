@@ -15,7 +15,14 @@ public extension Publisher where Output == String, Failure == Never {
         self
             .map { !$0.isEmpty }
             .eraseToAnyPublisher()
-    }    
+    }
+    var validEmailPublisher: AnyPublisher<Bool, Never> {
+            map { email in
+                let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+                let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+                return emailPredicate.evaluate(with: email)
+            }.eraseToAnyPublisher()
+        }
 }
 
 public extension Publisher where Self.Failure == Never {

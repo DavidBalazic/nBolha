@@ -1,39 +1,30 @@
 //
-//  TestCoordinator.swift
+//  HomeCoordinator.swift
 //  nBolha
 //
-//  Created by Adel Burekovic on 20. 03. 24.
+//  Created by David Balažic on 5. 4. 24.
 //
 
+import Foundation
 import UIKit
-import nBolhaUI
 
-final class TestCoordinator: Coordinator, TestNavigationDelegate {
+final class HomeCoordinator: Coordinator, HomeNavigationDelegate {
     private weak var navigationController: UINavigationController?
-
+    
     init(
         navigationController: UINavigationController? = nil
     ) {
         self.navigationController = navigationController
     }
-
+    
     @discardableResult
     func start() -> UIViewController {
-        let view = TestView(viewModel: .init(navigationDelegate: self))
+        let view = HomeView(viewModel: .init(navigationDelegate: self))
         navigationController?.setViewControllers(
             [view.asViewController],
             animated: false
         )
+        
         return navigationController ?? UIViewController()
-    }
-    
-    // MARK: - TestNavigationDelegate
-    
-    func showTestDetailsScreen() {
-        // TODO: Push view controller to another screen
-    }
-    
-    func showTestInfoScreen(info: String) {
-        // TODO: Push view controller to another screen
     }
 }

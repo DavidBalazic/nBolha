@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NChainUI
 
 public struct TermsAndConditionsView: View {
     private let termsTapped: Action
@@ -32,12 +33,12 @@ public struct TermsAndConditionsView: View {
     }
     
     public var body: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: NCConstants.Margins.extraSmall.rawValue) {
             Text("By continuing, I agree to the ")
                 .font(Font(textFont))
                 .foregroundStyle(Color(textColor))
                  
-            HStack(spacing: 4) {
+            HStack(spacing: NCConstants.Margins.extraSmall.rawValue) {
                 UnderlineButton(
                     text: "Terms & Conditions",
                     tapped: termsTapped,
