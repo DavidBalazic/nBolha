@@ -38,6 +38,7 @@ struct LoginView: View {
                                 .font(Font(UIFont.body03))
                                 .multilineTextAlignment(.center)
                                 .foregroundStyle(Color(UIColor.text02!))
+                                .padding(.horizontal, 39)
                         }
                         Image(.illustrations)
                             .resizable()
