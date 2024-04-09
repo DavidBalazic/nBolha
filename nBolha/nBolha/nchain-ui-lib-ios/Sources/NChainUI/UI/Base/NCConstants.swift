@@ -26,6 +26,8 @@ public struct NCConstants {
         case huge = 32
         /// 40
         case extraHuge = 40
+        /// 44
+        case veryHuge = 44
         /// 48
         case giant = 48
         /// 64

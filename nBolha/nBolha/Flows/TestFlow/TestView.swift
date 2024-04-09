@@ -44,8 +44,8 @@ struct TestView: View {
     }
 }
 
-#Preview {
-    TestView(
-        viewModel: TestViewModel(navigationDelegate: nil)
-    )
-}
+//#Preview {
+//    TestView(
+//        viewModel: TestViewModel(navigationDelegate: nil)
+//    )
+//}
