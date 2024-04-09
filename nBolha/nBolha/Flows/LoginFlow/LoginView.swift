@@ -14,9 +14,12 @@ struct LoginView: View {
     @FocusState private var isEmailFocused: Bool
     @FocusState private var isPasswordFocused: Bool
 
-    init(viewModel: LoginViewModel) {
+    init(
+        viewModel: LoginViewModel
+    ) {
         self.viewModel = viewModel
     }
+    
     var body: some View {
         VStack(spacing: NCConstants.Margins.veryHuge.rawValue) {
             Image(.logo)
