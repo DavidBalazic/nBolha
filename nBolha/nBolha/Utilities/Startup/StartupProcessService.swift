@@ -9,7 +9,8 @@ import UIKit
 import nBolhaCore
 
 final class StartupProcessService {
-    func execute() {
+    func execute(window: UIWindow) {
+        WindowNotificationsStartupProcess(window: window).run()
         FontLoadStartupProcess().run()
     }
 }

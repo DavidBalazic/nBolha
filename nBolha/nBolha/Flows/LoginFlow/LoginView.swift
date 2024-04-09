@@ -49,7 +49,6 @@ struct LoginView: View {
                     errorText: $viewModel.errorPasswordText,
                     isFocused: $isPasswordFocused
                 )
-                //.customized(for: .password)
             }
             VStack(spacing: NCConstants.Margins.giant.rawValue) {
                 SwiftUIButton(

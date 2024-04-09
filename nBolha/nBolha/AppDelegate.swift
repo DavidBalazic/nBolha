@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-
-        StartupProcessService().execute()
+        
+        StartupProcessService().execute(window: window)
 
         let coordinator = AppLaunchCoordinator(
             window: window
