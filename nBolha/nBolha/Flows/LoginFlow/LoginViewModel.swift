@@ -9,6 +9,7 @@ import Foundation
 
 protocol LoginNavigationDelegate: AnyObject {
     func showHomeScreen()
+    //TODO: implement show no screen
     //func showNoConnectionScreen()
     func showTermsScreen()
     func showPrivacyScreen()

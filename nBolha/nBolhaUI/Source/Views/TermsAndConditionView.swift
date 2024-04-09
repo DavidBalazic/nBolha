@@ -8,12 +8,12 @@
 import SwiftUI
 
 public struct TermsAndConditionsView: View {
-    private let termsTapped: Action
-    private let privacyTapped: Action
     private var textFont: UIFont
     private var buttonFont: UIFont
     private var textColor: UIColor
     private var buttonColor: UIColor
+    private let termsTapped: Action
+    private let privacyTapped: Action
 
     public init(
         termsTapped: @escaping Action,
