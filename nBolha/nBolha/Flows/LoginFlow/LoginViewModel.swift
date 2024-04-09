@@ -39,7 +39,6 @@ final class LoginViewModel: ObservableObject {
         initializeObserving()
     }
     
-    //@MainActor
     func loginTapped() {
         login()
     }
@@ -70,10 +69,8 @@ final class LoginViewModel: ObservableObject {
             .assign(to: &$isButtonEnabled)
     }
     
-    //@MainActor
     private func login() {
         notificationService.notify.send(NotificationView.Notification(type: .warning, errorMessage: "Login failed", errorDescription: "Incorrect email and password combination was entered. Please verify them and try again."))
-//        notificationService.notify.send(NotificationView.Notification(type: .warning, errorMessage: "Something went wrong", errorDescription: "Please try again later."))
         navigationDelegate?.showHomeScreen()
     }
  }
