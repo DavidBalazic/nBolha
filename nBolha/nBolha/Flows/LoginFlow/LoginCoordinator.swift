@@ -7,6 +7,7 @@
 
 import UIKit
 import nBolhaUI
+import nBolhaNetworking
 
 final class LoginCoordinator: Coordinator, LoginNavigationDelegate {
     private weak var navigationController: UINavigationController?
@@ -24,24 +25,48 @@ final class LoginCoordinator: Coordinator, LoginNavigationDelegate {
             [view.asViewController],
             animated: false
         )
+        // Hide the navigation bar
+        navigationController?.isNavigationBarHidden = true
+        
         return navigationController ?? UIViewController()
     }
     
     // MARK: - LoginNavigationDelegate
     
     func showHomeScreen() {
-        // TODO: Push view controller to another screen
-        print("Login tapped")
+        HomeCoordinator(
+            navigationController: navigationController
+        ).start()
     }
     
     func showTermsScreen() {
-        // TODO: implement when feature defined
-        print("Terms tapped")
+        let webView = WebView(
+            url: DocumentURL.terms.url
+        )
+        navigationController?.pushViewController(
+            webView.asViewController,
+            animated: true
+        )
     }
     
     func showPrivacyScreen() {
-        // TODO: implement when feature defined
-        print("Privacy tapped")
+        let webView = WebView(
+            url: DocumentURL.privacyPolicy.url
+        )
+      
+        navigationController?.pushViewController(
+            webView.asViewController,
+            animated: true
+        )
+    }
+    
+    func showNoConnectionScreen() {
+        let view = NoConnectionView()
+        
+        navigationController?.pushViewController(
+            view.asViewController,
+            animated: true
+        )
     }
     
 }

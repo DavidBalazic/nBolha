@@ -123,7 +123,8 @@ class HTTPRequest {
         httpResponse.data = data
         
         if let data = data, let responseString = String(data: data, encoding: .utf8) {
-            httpResponse.responseValue = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            //httpResponse.responseValue = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            httpResponse.responseValue = responseString
             httpResponse.responseString = responseString
         }
         

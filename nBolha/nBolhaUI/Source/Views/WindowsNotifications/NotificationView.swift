@@ -13,6 +13,22 @@ public struct NotificationView: View {
         public let type: `Type`
         public let errorMessage: String
         public let errorDescription: String
+        
+        public static var LoginFailed: Notification {
+            return Notification(
+                type: .warning,
+                errorMessage: "Login failed",
+                errorDescription: "Incorrect email or password was entered. Please verify them and try again."
+            )
+        }
+      
+        public static var Other: Notification {
+            return Notification(
+                type: .warning,
+                errorMessage: "Something went wrong",
+                errorDescription: "Please try again later."
+            )
+        }
 
         public init(
             type: `Type`,
@@ -47,7 +63,7 @@ public struct NotificationView: View {
                         .foregroundColor(Color(notification.type.color))
                     Text(notification.errorMessage)
                         .textStyle(.subtitle02)
-                        .foregroundStyle(Color(.inverseError!))
+                        .foregroundStyle(Color(notification.type.color))
                     Spacer()
                     Button(action: dismissAction) {
                         Image(uiImage: .icnClose ?? UIImage())
@@ -63,7 +79,7 @@ public struct NotificationView: View {
                 .padding(NCConstants.Margins.large.rawValue)
             }
             .background(Color(.inverseBackground!))
-            .cornerRadius(8, corners: .allCorners)
+            .cornerRadius(NCConstants.Margins.small.rawValue, corners: .allCorners)
             .padding(NCConstants.Margins.large.rawValue)
 
     }

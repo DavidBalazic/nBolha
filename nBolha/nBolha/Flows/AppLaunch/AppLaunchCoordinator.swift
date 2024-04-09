@@ -20,6 +20,8 @@ final class AppLaunchCoordinator: NSObject {
     func start() {
         navigationController = UINavigationController()
         window.rootViewController = navigationController
-        LoginCoordinator(navigationController: navigationController).start()
+        LoginCoordinator(
+            navigationController: navigationController
+        ).start()
     }
 }
