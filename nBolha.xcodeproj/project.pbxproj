@@ -199,10 +199,10 @@
 		1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLoadStartupProcess.swift; sourceTree = "<group>"; };
 		1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcessService.swift; sourceTree = "<group>"; };
 		126BA89F2BAB1C03002B089B /* nBolha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBolha.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nBolha/AppDelegate.swift; sourceTree = "<group>"; };
 		126BA8AB2BAB1C04002B089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		126BA8AE2BAB1C04002B089B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = nBolha/Info.plist; sourceTree = "<group>"; };
 		126BA8B52BAB1C04002B089B /* nBolhaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8B92BAB1C04002B089B /* nBolhaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaTests.swift; sourceTree = "<group>"; };
 		126BA8BF2BAB1C04002B089B /* nBolhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,7 +214,7 @@
 		126BA8E92BAB274C002B089B /* nBolhaUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nBolhaUI.h; sourceTree = "<group>"; };
 		126BA8F02BAB274C002B089B /* nBolhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8F72BAB274C002B089B /* nBolhaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaUITests.swift; sourceTree = "<group>"; };
-		128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "nchain-ui-lib-ios"; sourceTree = "<group>"; };
+		128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "nchain-ui-lib-ios"; path = "nBolha/nchain-ui-lib-ios"; sourceTree = "<group>"; };
 		128B42E32BACDEA90018438B /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		128B42E52BACDEE60018438B /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		12C3A7E72BAC6CBF00C3FEE7 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
@@ -404,7 +404,8 @@
 			children = (
 				126BA8B92BAB1C04002B089B /* nBolhaTests.swift */,
 			);
-			path = nBolhaTests;
+			name = nBolhaTests;
+			path = nBolha/nBolhaTests;
 			sourceTree = "<group>";
 		};
 		126BA8C22BAB1C04002B089B /* nBolhaUITests */ = {
@@ -413,7 +414,8 @@
 				126BA8C32BAB1C04002B089B /* nBolhaUITests.swift */,
 				126BA8C52BAB1C04002B089B /* nBolhaUITestsLaunchTests.swift */,
 			);
-			path = nBolhaUITests;
+			name = nBolhaUITests;
+			path = nBolha/nBolhaUITests;
 			sourceTree = "<group>";
 		};
 		126BA8D22BAB1CA7002B089B /* Flows */ = {
@@ -423,7 +425,7 @@
 				505BA4E22BADCF6800FE9F5A /* LoginFlow */,
 				126BA8D82BAB1DC4002B089B /* AppLaunch */,
 			);
-			path = Flows;
+			name = Flows;
 			sourceTree = "<group>";
 		};
 		126BA8D32BAB1CAD002B089B /* Resources */ = {
@@ -431,7 +433,8 @@
 			children = (
 				126BA8AB2BAB1C04002B089B /* Assets.xcassets */,
 			);
-			path = Resources;
+			name = Resources;
+			path = nBolha/Resources;
 			sourceTree = "<group>";
 		};
 		126BA8D42BAB1CE2002B089B /* Utilities */ = {
@@ -440,7 +443,8 @@
 				1218ED1D2BB1A39300B3445B /* Startup */,
 				126BA8D52BAB1D13002B089B /* Protocols */,
 			);
-			path = Utilities;
+			name = Utilities;
+			path = nBolha/Utilities;
 			sourceTree = "<group>";
 		};
 		126BA8D52BAB1D13002B089B /* Protocols */ = {
@@ -456,7 +460,8 @@
 			children = (
 				126BA8D92BAB1DE2002B089B /* AppLaunchCoordinator.swift */,
 			);
-			path = AppLaunch;
+			name = AppLaunch;
+			path = nBolha/Flows/AppLaunch;
 			sourceTree = "<group>";
 		};
 		126BA8E82BAB274C002B089B /* nBolhaUI */ = {
@@ -466,7 +471,8 @@
 				126BA9052BAB2788002B089B /* Source */,
 				126BA8E92BAB274C002B089B /* nBolhaUI.h */,
 			);
-			path = nBolhaUI;
+			name = nBolhaUI;
+			path = nBolha/nBolhaUI;
 			sourceTree = "<group>";
 		};
 		126BA8F62BAB274C002B089B /* nBolhaUITests */ = {
@@ -474,7 +480,8 @@
 			children = (
 				126BA8F72BAB274C002B089B /* nBolhaUITests.swift */,
 			);
-			path = nBolhaUITests;
+			name = nBolhaUITests;
+			path = nBolha/nBolhaUITests;
 			sourceTree = "<group>";
 		};
 		126BA9052BAB2788002B089B /* Source */ = {
@@ -533,7 +540,8 @@
 				12E641CB2BAC32C100C7005E /* Source */,
 				12E641B22BAC304B00C7005E /* nBolhaCore.h */,
 			);
-			path = nBolhaCore;
+			name = nBolhaCore;
+			path = nBolha/nBolhaCore;
 			sourceTree = "<group>";
 		};
 		12E641BD2BAC304C00C7005E /* nBolhaCoreTests */ = {
@@ -541,7 +549,8 @@
 			children = (
 				12E641BE2BAC304C00C7005E /* nBolhaCoreTests.swift */,
 			);
-			path = nBolhaCoreTests;
+			name = nBolhaCoreTests;
+			path = nBolha/nBolhaCoreTests;
 			sourceTree = "<group>";
 		};
 		12E641CB2BAC32C100C7005E /* Source */ = {
@@ -567,7 +576,8 @@
 				12E641F42BAC63F600C7005E /* Source */,
 				12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */,
 			);
-			path = nBolhaNetworking;
+			name = nBolhaNetworking;
+			path = nBolha/nBolhaNetworking;
 			sourceTree = "<group>";
 		};
 		12E641E62BAC63F200C7005E /* nBolhaNetworkingTests */ = {
@@ -575,7 +585,8 @@
 			children = (
 				12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */,
 			);
-			path = nBolhaNetworkingTests;
+			name = nBolhaNetworkingTests;
+			path = nBolha/nBolhaNetworkingTests;
 			sourceTree = "<group>";
 		};
 		12E641F42BAC63F600C7005E /* Source */ = {
@@ -613,7 +624,8 @@
 				50907A752BB17B9F004301C5 /* NoConnectionView.swift */,
 				50907A772BB19B2C004301C5 /* LoginCoordinator.swift */,
 			);
-			path = LoginFlow;
+			name = LoginFlow;
+			path = nBolha/Flows/LoginFlow;
 			sourceTree = "<group>";
 		};
 		50BBE6182BB55680004AA5BB /* Utilities */ = {
@@ -650,7 +662,8 @@
 				50C506A22BC0100C0014526C /* HomeViewModel.swift */,
 				50C506A42BC0101A0014526C /* HomeCoordinator.swift */,
 			);
-			path = HomeFlow;
+			name = HomeFlow;
+			path = nBolha/Flows/HomeFlow;
 			sourceTree = "<group>";
 		};
 		50E7180F2BBD764A00B79C9C /* Api */ = {
