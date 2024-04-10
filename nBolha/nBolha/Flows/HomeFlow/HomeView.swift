@@ -18,6 +18,7 @@ struct HomeView: View {
     ) {
         self.viewModel = viewModel
     }
+    
     var body: some View {
         VStack {
             Spacer().frame(height: NCConstants.Margins.medium.rawValue)
@@ -35,12 +36,34 @@ struct HomeView: View {
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(UIColor.brandTertiary!))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    EmptyRecentlyViewedView(viewModel: viewModel)
+                    if viewModel.advertisements.isEmpty {
+                        EmptyRecentlyViewedView(viewModel: viewModel)
+                    } else {
+                        //TODO: implement
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: NCConstants.Margins.large.rawValue) {
+                                ForEach(viewModel.advertisements.suffix(6), id: \.id) { advertisement in
+                                    RecentlyViewedView(advertisement: advertisement)
+                                }
+                            }
+                        }
+                    }
                     Text("Recently added")
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(UIColor.brandTertiary!))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    EmptyRecentlyAddedView()
+                    if viewModel.advertisements.isEmpty {
+                        EmptyRecentlyAddedView()
+                    } else {
+                        let pairs = viewModel.advertisements.suffix(6).reversed().chunked(into: 2)
+                        ForEach(pairs, id: \.self) { pair in
+                            HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
+                                ForEach(pair, id: \.id) { advertisement in
+                                    RecentlyAddedView(advertisement: advertisement)
+                                }
+                            }
+                        }
+                    }
                 }
             }
             .padding(.horizontal, NCConstants.Margins.large.rawValue)

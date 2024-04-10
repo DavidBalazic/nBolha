@@ -78,6 +78,10 @@
 		50C506A52BC0101A0014526C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C506A42BC0101A0014526C /* HomeCoordinator.swift */; };
 		50C506A92BC035FB0014526C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C506A82BC035FB0014526C /* TabBarView.swift */; };
 		50D50B072BB2FE3D00748CC3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D50B062BB2FE3D00748CC3 /* Globals.swift */; };
+		50E2F14E2BC6CEF600553B4F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2F14D2BC6CEF600553B4F /* Array+Extensions.swift */; };
+		50E2F1502BC6CF1600553B4F /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2F14F2BC6CF1600553B4F /* LikeButton.swift */; };
+		50E2F1522BC6CF9300553B4F /* RecentlyViewedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2F1512BC6CF9300553B4F /* RecentlyViewedView.swift */; };
+		50E2F1542BC6CFC100553B4F /* RecentlyAddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2F1532BC6CFC100553B4F /* RecentlyAddedView.swift */; };
 		50E718082BBD3F4F00B79C9C /* NBolhaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E718072BBD3F4F00B79C9C /* NBolhaApi.swift */; };
 		50E718112BBD766B00B79C9C /* DocumentURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E718102BBD766B00B79C9C /* DocumentURL.swift */; };
 		50E718152BBD77AB00B79C9C /* WebViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E718142BBD77AB00B79C9C /* WebViewRepresentable.swift */; };
@@ -270,6 +274,10 @@
 		50C506A42BC0101A0014526C /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		50C506A82BC035FB0014526C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		50D50B062BB2FE3D00748CC3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		50E2F14D2BC6CEF600553B4F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		50E2F14F2BC6CF1600553B4F /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		50E2F1512BC6CF9300553B4F /* RecentlyViewedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyViewedView.swift; sourceTree = "<group>"; };
+		50E2F1532BC6CFC100553B4F /* RecentlyAddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedView.swift; sourceTree = "<group>"; };
 		50E718072BBD3F4F00B79C9C /* NBolhaApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBolhaApi.swift; sourceTree = "<group>"; };
 		50E718102BBD766B00B79C9C /* DocumentURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentURL.swift; sourceTree = "<group>"; };
 		50E718142BBD77AB00B79C9C /* WebViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepresentable.swift; sourceTree = "<group>"; };
@@ -506,6 +514,7 @@
 				50BBE61E2BB55746004AA5BB /* WindowsNotifications */,
 				128B42E52BACDEE60018438B /* HostingController.swift */,
 				50908AB02BC52CF100C5378B /* SearchBar.swift */,
+				50E2F14F2BC6CF1600553B4F /* LikeButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				128B42E32BACDEA90018438B /* View+Extensions.swift */,
+				50E2F14D2BC6CEF600553B4F /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -667,6 +677,8 @@
 				50C506A82BC035FB0014526C /* TabBarView.swift */,
 				50BC47962BC3DC880015522B /* EmptyRecentlyAddedView.swift */,
 				50BC47982BC3E7860015522B /* EmptyRecentlyViewedView.swift */,
+				50E2F1512BC6CF9300553B4F /* RecentlyViewedView.swift */,
+				50E2F1532BC6CFC100553B4F /* RecentlyAddedView.swift */,
 			);
 			path = HomeFlow;
 			sourceTree = "<group>";
@@ -1056,7 +1068,9 @@
 				50C506A32BC0100C0014526C /* HomeViewModel.swift in Sources */,
 				50C506A52BC0101A0014526C /* HomeCoordinator.swift in Sources */,
 				1218ED1F2BB1A3A400B3445B /* FontLoadStartupProcess.swift in Sources */,
+				50E2F1522BC6CF9300553B4F /* RecentlyViewedView.swift in Sources */,
 				50BC47972BC3DC880015522B /* EmptyRecentlyAddedView.swift in Sources */,
+				50E2F1542BC6CFC100553B4F /* RecentlyAddedView.swift in Sources */,
 				50907A722BB17567004301C5 /* LoginViewModel.swift in Sources */,
 				50BC47992BC3E7860015522B /* EmptyRecentlyViewedView.swift in Sources */,
 				126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */,
@@ -1088,6 +1102,7 @@
 				50908AB12BC52CF200C5378B /* SearchBar.swift in Sources */,
 				128B42E62BACDEE60018438B /* HostingController.swift in Sources */,
 				50BBE62B2BB570F9004AA5BB /* WindowNotificationService.swift in Sources */,
+				50E2F14E2BC6CEF600553B4F /* Array+Extensions.swift in Sources */,
 				50BBE6222BB557D8004AA5BB /* WindowNotificationViewModel.swift in Sources */,
 				128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */,
 				50C5069E2BBFDD540014526C /* WebView.swift in Sources */,
@@ -1097,6 +1112,7 @@
 				50BBE6202BB5576E004AA5BB /* WindowNotificationsView.swift in Sources */,
 				505547482BB2D28900566B99 /* UnderlineButton.swift in Sources */,
 				50BBE6282BB560DB004AA5BB /* NotificationView.swift in Sources */,
+				50E2F1502BC6CF1600553B4F /* LikeButton.swift in Sources */,
 				50E718152BBD77AB00B79C9C /* WebViewRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
