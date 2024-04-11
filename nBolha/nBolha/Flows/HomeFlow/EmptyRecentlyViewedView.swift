@@ -36,7 +36,6 @@ struct EmptyRecentlyViewedView: View {
             )
             .fixedSize()
         }
-        .padding(.top, 56)
-        .padding(.bottom, 56)
+        .padding(.vertical, 56)
     }
 }

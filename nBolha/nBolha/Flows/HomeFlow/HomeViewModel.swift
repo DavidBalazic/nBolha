@@ -22,11 +22,11 @@ final class HomeViewModel: ObservableObject {
     ) {
         self.navigationDelegate = navigationDelegate
         Task {
-            await LoadAdvertisements()
+            await loadAdvertisements()
         }
     }
     
-    private func LoadAdvertisements() async{
+    private func loadAdvertisements() async{
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }

@@ -28,15 +28,15 @@ struct RecentlyAddedView: View {
                         )
                         .stroke(Color(UIColor.outline02!), lineWidth: 1)
                     )
-                LikeButton(isLiked: $isLiked, likedImage: .likeBlack, unLikedImage: .likeWhite)
+                LikeButton(isLiked: $isLiked, likedImage: .likeBlack, dislikedImage: .likeWhite)
             }
             VStack () {
-                Text(advertisement.title ?? "Ni opisa")
+                Text(advertisement.title ?? "Title not provided")
                     .textStyle(.subtitle02)
                     .foregroundStyle(Color(UIColor.text01!))
                     .lineLimit(2)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(String(format: "%.2f€", advertisement.price ?? "Po dogovoru"))
+                Text(String(format: "%.2f€", advertisement.price ?? "0"))
                     .textStyle(.body02)
                     .foregroundStyle(Color(UIColor.text02!))
                     .frame(maxWidth: .infinity, alignment: .leading)

@@ -21,7 +21,6 @@ struct EmptyRecentlyAddedView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, NCConstants.Margins.extraLarge.rawValue)
         }
-        .padding(.bottom, 56)
-        .padding(.top, 56)
+        .padding(.vertical, 56)
     }
 }

@@ -28,7 +28,7 @@ struct RecentlyViewedView: View {
                         )
                         .stroke(Color(UIColor.outline02!), lineWidth: 1)
                     )
-                LikeButton(isLiked: $isLiked, likedImage: .likeBlack, unLikedImage: .likeWhite)
+                LikeButton(isLiked: $isLiked, likedImage: .likeBlack, dislikedImage: .likeWhite)
             }
         }
     }
