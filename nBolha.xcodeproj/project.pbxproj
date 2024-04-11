@@ -202,7 +202,7 @@
 		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nBolha/AppDelegate.swift; sourceTree = "<group>"; };
 		126BA8AB2BAB1C04002B089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		126BA8AE2BAB1C04002B089B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = nBolha/Info.plist; sourceTree = "<group>"; };
+		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		126BA8B52BAB1C04002B089B /* nBolhaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8B92BAB1C04002B089B /* nBolhaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaTests.swift; sourceTree = "<group>"; };
 		126BA8BF2BAB1C04002B089B /* nBolhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
