@@ -1,0 +1,37 @@
+name: Distribute testflight
+
+on:
+  workflow_dispatch:
+    inputs:
+      scheme:
+        type: choice
+        description: Scheme to distribute
+        options:
+        - development
+        - staging
+        - production
+      group:
+        type: choice
+        description: External Testing group name (leave none if not needed)
+        options:
+        - none
+        - external
+
+jobs:
+  distribute_testflight:
+    runs-on: macos-14
+
+    steps:
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - uses: actions/checkout@v4
+      - run: fastlane distribute_testflight group:${{ inputs.group }} --verbose
+        env:
+          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          SELECTED_SCHEME: ${{ inputs.scheme }}
