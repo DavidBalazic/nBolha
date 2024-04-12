@@ -10,9 +10,9 @@
 		1218ED1C2BB1A37100B3445B /* StartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1B2BB1A37100B3445B /* StartupProcess.swift */; };
 		1218ED1F2BB1A3A400B3445B /* FontLoadStartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */; };
 		1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */; };
+		126753072BC9468100645915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126753062BC9468100645915 /* LaunchScreen.storyboard */; };
 		126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8A22BAB1C03002B089B /* AppDelegate.swift */; };
 		126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AB2BAB1C04002B089B /* Assets.xcassets */; };
-		126BA8AF2BAB1C04002B089B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */; };
 		126BA8BA2BAB1C04002B089B /* nBolhaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8B92BAB1C04002B089B /* nBolhaTests.swift */; };
 		126BA8C42BAB1C04002B089B /* nBolhaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8C32BAB1C04002B089B /* nBolhaUITests.swift */; };
 		126BA8C62BAB1C04002B089B /* nBolhaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8C52BAB1C04002B089B /* nBolhaUITestsLaunchTests.swift */; };
@@ -198,10 +198,10 @@
 		1218ED1B2BB1A37100B3445B /* StartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcess.swift; sourceTree = "<group>"; };
 		1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLoadStartupProcess.swift; sourceTree = "<group>"; };
 		1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcessService.swift; sourceTree = "<group>"; };
+		126753062BC9468100645915 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126BA89F2BAB1C03002B089B /* nBolha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBolha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nBolha/AppDelegate.swift; sourceTree = "<group>"; };
 		126BA8AB2BAB1C04002B089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		126BA8AE2BAB1C04002B089B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		126BA8B52BAB1C04002B089B /* nBolhaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8B92BAB1C04002B089B /* nBolhaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaTests.swift; sourceTree = "<group>"; };
@@ -392,9 +392,9 @@
 				126BA8D32BAB1CAD002B089B /* Resources */,
 				126BA8D42BAB1CE2002B089B /* Utilities */,
 				126BA8A22BAB1C03002B089B /* AppDelegate.swift */,
-				126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */,
 				126BA8B02BAB1C04002B089B /* Info.plist */,
 				128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */,
+				126753062BC9468100645915 /* LaunchScreen.storyboard */,
 			);
 			path = nBolha;
 			sourceTree = "<group>";
@@ -972,8 +972,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				126BA8AF2BAB1C04002B089B /* LaunchScreen.storyboard in Resources */,
 				126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */,
+				126753072BC9468100645915 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1217,17 +1217,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				126BA8AE2BAB1C04002B089B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		126BA8C72BAB1C04002B089B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1359,7 +1348,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nBolha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1389,7 +1378,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nBolha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
