@@ -20,14 +20,9 @@ public class BaseNBolhaWorker<T: Decodable>: APICallWorker {
     
     public override func processResponse(response: HTTPResponse) {
        guard let data = response.data, response.error == nil else { return }
-       //guard let payload = T.parse(from: data, type: T.self) else { return }
-        if let stringResponse = String(data: data, encoding: .utf8) {
-               result = stringResponse as? T
-           } else {
-               print("Failed to decode plain text response")
-           }
+       guard let payload = T.parse(from: data, type: T.self) else { return }
     
-       //result = payload
+       result = payload
     }
     
     public override func getUrl() -> String {

@@ -19,12 +19,20 @@ final class HomeCoordinator: Coordinator, HomeNavigationDelegate {
     
     @discardableResult
     func start() -> UIViewController {
-        let view = HomeView(viewModel: .init(navigationDelegate: self))
+        let view = TabBarView(viewModel: .init(navigationDelegate: self))
         navigationController?.setViewControllers(
             [view.asViewController],
             animated: false
         )
         
+        navigationController?.isNavigationBarHidden = true
+        
         return navigationController ?? UIViewController()
+    }
+    
+    // MARK: - HomeNavigationDelegate
+    
+    func showCategoriesScreen() {
+        //TODO: implement
     }
 }

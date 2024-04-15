@@ -24,7 +24,7 @@ public class NBolhaApi {
             case .login:
                 return "User/Login"
             case .advertisement:
-                return "Advertisement/PostAdvertisement"
+                return "Advertisement/GetAll"
             }
         }
     }

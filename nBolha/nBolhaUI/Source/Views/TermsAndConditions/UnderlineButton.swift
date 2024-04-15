@@ -9,9 +9,9 @@ import SwiftUI
 
 struct UnderlineButton: View {
     private var text: String?
-    private let tapped: Action
     private var font: UIFont
     private var color: UIColor
+    private let tapped: Action
 
     public init(
         text: String? = nil,
