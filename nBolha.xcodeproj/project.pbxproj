@@ -10,6 +10,7 @@
 		1218ED1C2BB1A37100B3445B /* StartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1B2BB1A37100B3445B /* StartupProcess.swift */; };
 		1218ED1F2BB1A3A400B3445B /* FontLoadStartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */; };
 		1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */; };
+		126753072BC9468100645915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126753062BC9468100645915 /* LaunchScreen.storyboard */; };
 		126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8A22BAB1C03002B089B /* AppDelegate.swift */; };
 		126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AB2BAB1C04002B089B /* Assets.xcassets */; };
 		126BA8BA2BAB1C04002B089B /* nBolhaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8B92BAB1C04002B089B /* nBolhaTests.swift */; };
@@ -25,6 +26,7 @@
 		128241E32BB19F5B0008B8C6 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 128241E22BB19F5B0008B8C6 /* NChainUI */; };
 		128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E32BACDEA90018438B /* View+Extensions.swift */; };
 		128B42E62BACDEE60018438B /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E52BACDEE60018438B /* HostingController.swift */; };
+		12BB7B6B2BC94C7D00F023C8 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5032D52A2BB460BE005FFF15 /* NChainUI */; };
 		12C3A7EE2BAC6CBF00C3FEE7 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E72BAC6CBF00C3FEE7 /* HttpRequest.swift */; };
 		12C3A7EF2BAC6CBF00C3FEE7 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E82BAC6CBF00C3FEE7 /* Decodable+Extensions.swift */; };
 		12C3A7F02BAC6CBF00C3FEE7 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */; };
@@ -52,7 +54,6 @@
 		12E641EC2BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; };
 		12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5032D5292BB41813005FFF15 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */; };
-		5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5032D52A2BB460BE005FFF15 /* NChainUI */; };
 		5044F2512BB59E2A000AE10A /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5044F2502BB59E2A000AE10A /* Task+Extensions.swift */; };
 		5054586F2BBBEA8700BCF7F6 /* PassthroughSubject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054586E2BBBEA8700BCF7F6 /* PassthroughSubject+Extensions.swift */; };
 		505547482BB2D28900566B99 /* UnderlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505547472BB2D28900566B99 /* UnderlineButton.swift */; };
@@ -186,6 +187,7 @@
 		1218ED1B2BB1A37100B3445B /* StartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcess.swift; sourceTree = "<group>"; };
 		1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLoadStartupProcess.swift; sourceTree = "<group>"; };
 		1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcessService.swift; sourceTree = "<group>"; };
+		126753062BC9468100645915 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126BA89F2BAB1C03002B089B /* nBolha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBolha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nBolha/AppDelegate.swift; sourceTree = "<group>"; };
 		126BA8AB2BAB1C04002B089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -284,8 +286,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12BB7B6B2BC94C7D00F023C8 /* NChainUI in Frameworks */,
 				12E641CF2BAC32E600C7005E /* nBolhaCore.framework in Frameworks */,
-				5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +384,7 @@
 				126BA8A22BAB1C03002B089B /* AppDelegate.swift */,
 				126BA8B02BAB1C04002B089B /* Info.plist */,
 				128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */,
+				126753062BC9468100645915 /* LaunchScreen.storyboard */,
 			);
 			path = nBolha;
 			sourceTree = "<group>";
@@ -1328,7 +1331,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nBolha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1359,7 +1362,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nBolha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
