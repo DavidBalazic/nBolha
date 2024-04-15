@@ -10,9 +10,9 @@
 		1218ED1C2BB1A37100B3445B /* StartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1B2BB1A37100B3445B /* StartupProcess.swift */; };
 		1218ED1F2BB1A3A400B3445B /* FontLoadStartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */; };
 		1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */; };
+		1220279C2BCD1C6A00B6222E /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 12E3BEC02BC8F45200901C7D /* NChainUI */; };
 		126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8A22BAB1C03002B089B /* AppDelegate.swift */; };
 		126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AB2BAB1C04002B089B /* Assets.xcassets */; };
-		126BA8AF2BAB1C04002B089B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */; };
 		126BA8BA2BAB1C04002B089B /* nBolhaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8B92BAB1C04002B089B /* nBolhaTests.swift */; };
 		126BA8C42BAB1C04002B089B /* nBolhaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8C32BAB1C04002B089B /* nBolhaUITests.swift */; };
 		126BA8C62BAB1C04002B089B /* nBolhaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8C52BAB1C04002B089B /* nBolhaUITestsLaunchTests.swift */; };
@@ -22,10 +22,10 @@
 		126BA8F82BAB274C002B089B /* nBolhaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8F72BAB274C002B089B /* nBolhaUITests.swift */; };
 		126BA8F92BAB274C002B089B /* nBolhaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 126BA8E92BAB274C002B089B /* nBolhaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		126BA8FC2BAB274C002B089B /* nBolhaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */; };
-		126BA8FD2BAB274C002B089B /* nBolhaUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		128241E32BB19F5B0008B8C6 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 128241E22BB19F5B0008B8C6 /* NChainUI */; };
 		128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E32BACDEA90018438B /* View+Extensions.swift */; };
 		128B42E62BACDEE60018438B /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E52BACDEE60018438B /* HostingController.swift */; };
+		12BB7B6B2BC94C7D00F023C8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		12C3A7EE2BAC6CBF00C3FEE7 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E72BAC6CBF00C3FEE7 /* HttpRequest.swift */; };
 		12C3A7EF2BAC6CBF00C3FEE7 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E82BAC6CBF00C3FEE7 /* Decodable+Extensions.swift */; };
 		12C3A7F02BAC6CBF00C3FEE7 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */; };
@@ -39,7 +39,7 @@
 		12C3A7FE2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FA2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift */; };
 		12C3A7FF2BAC6D4800C3FEE7 /* BasePaginationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FB2BAC6D4800C3FEE7 /* BasePaginationWorker.swift */; };
 		12C3A8002BAC6D4800C3FEE7 /* BaseResponseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FC2BAC6D4800C3FEE7 /* BaseResponseWorker.swift */; };
-		12E3BEC12BC8F45200901C7D /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 12E3BEC02BC8F45200901C7D /* NChainUI */; };
+		12E51AE22BCCF6A600FB4E06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12E51AE12BCCF6A600FB4E06 /* LaunchScreen.storyboard */; };
 		12E641B82BAC304C00C7005E /* nBolhaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; };
 		12E641BF2BAC304C00C7005E /* nBolhaCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E641BE2BAC304C00C7005E /* nBolhaCoreTests.swift */; };
 		12E641C02BAC304C00C7005E /* nBolhaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E641B22BAC304B00C7005E /* nBolhaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,7 +47,6 @@
 		12E641C42BAC304C00C7005E /* nBolhaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12E641CD2BAC32D200C7005E /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E641CC2BAC32D200C7005E /* Globals.swift */; };
 		12E641CF2BAC32E600C7005E /* nBolhaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; };
-		12E641D02BAC32E600C7005E /* nBolhaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		12E641E12BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; };
 		12E641E82BAC63F200C7005E /* nBolhaNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */; };
 		12E641E92BAC63F200C7005E /* nBolhaNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -180,28 +179,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		12E641D32BAC32E600C7005E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				12E641D02BAC32E600C7005E /* nBolhaCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1218ED1B2BB1A37100B3445B /* StartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcess.swift; sourceTree = "<group>"; };
 		1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLoadStartupProcess.swift; sourceTree = "<group>"; };
 		1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcessService.swift; sourceTree = "<group>"; };
+		12309AF22BCD47EB00E4BD00 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		126753062BC9468100645915 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126BA89F2BAB1C03002B089B /* nBolha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBolha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nBolha/AppDelegate.swift; sourceTree = "<group>"; };
 		126BA8AB2BAB1C04002B089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		126BA8AE2BAB1C04002B089B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		126BA8B52BAB1C04002B089B /* nBolhaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8B92BAB1C04002B089B /* nBolhaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaTests.swift; sourceTree = "<group>"; };
 		126BA8BF2BAB1C04002B089B /* nBolhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +217,7 @@
 		12C3A7FA2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePlainResponseWorker.swift; sourceTree = "<group>"; };
 		12C3A7FB2BAC6D4800C3FEE7 /* BasePaginationWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePaginationWorker.swift; sourceTree = "<group>"; };
 		12C3A7FC2BAC6D4800C3FEE7 /* BaseResponseWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponseWorker.swift; sourceTree = "<group>"; };
+		12E51AE12BCCF6A600FB4E06 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12E641B02BAC304B00C7005E /* nBolhaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nBolhaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E641B22BAC304B00C7005E /* nBolhaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nBolhaCore.h; sourceTree = "<group>"; };
 		12E641B72BAC304C00C7005E /* nBolhaCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,8 +284,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1220279C2BCD1C6A00B6222E /* NChainUI in Frameworks */,
+				12BB7B6B2BC94C7D00F023C8 /* (null) in Frameworks */,
 				12E641CF2BAC32E600C7005E /* nBolhaCore.framework in Frameworks */,
-				12E3BEC12BC8F45200901C7D /* NChainUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +354,6 @@
 				12E641DA2BAC63F200C7005E /* nBolhaNetworking */,
 				12E641E62BAC63F200C7005E /* nBolhaNetworkingTests */,
 				126BA8A02BAB1C03002B089B /* Products */,
-				12E3BEBD2BC8F3F400901C7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -390,10 +379,11 @@
 				126BA8D22BAB1CA7002B089B /* Flows */,
 				126BA8D32BAB1CAD002B089B /* Resources */,
 				126BA8D42BAB1CE2002B089B /* Utilities */,
+				12E51AE12BCCF6A600FB4E06 /* LaunchScreen.storyboard */,
+				12309AF22BCD47EB00E4BD00 /* Info.plist */,
 				126BA8A22BAB1C03002B089B /* AppDelegate.swift */,
-				126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */,
-				126BA8B02BAB1C04002B089B /* Info.plist */,
 				128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */,
+				126753062BC9468100645915 /* LaunchScreen.storyboard */,
 			);
 			path = nBolha;
 			sourceTree = "<group>";
@@ -531,13 +521,6 @@
 				12C3A7F52BAC6D4100C3FEE7 /* RequestModels.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		12E3BEBD2BC8F3F400901C7D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		12E641B12BAC304B00C7005E /* nBolhaCore */ = {
@@ -783,7 +766,6 @@
 				126BA8E32BAB274C002B089B /* Sources */,
 				126BA8E42BAB274C002B089B /* Frameworks */,
 				126BA8E52BAB274C002B089B /* Resources */,
-				12E641D32BAC32E600C7005E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -971,8 +953,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				126BA8AF2BAB1C04002B089B /* LaunchScreen.storyboard in Resources */,
 				126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */,
+				12E51AE22BCCF6A600FB4E06 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1216,17 +1198,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				126BA8AE2BAB1C04002B089B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		126BA8C72BAB1C04002B089B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1354,11 +1325,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 53L833R9DC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nBolha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1384,12 +1356,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 53L833R9DC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nBolha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
