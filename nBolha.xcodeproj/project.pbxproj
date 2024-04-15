@@ -10,7 +10,7 @@
 		1218ED1C2BB1A37100B3445B /* StartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1B2BB1A37100B3445B /* StartupProcess.swift */; };
 		1218ED1F2BB1A3A400B3445B /* FontLoadStartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */; };
 		1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */; };
-		126753072BC9468100645915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126753062BC9468100645915 /* LaunchScreen.storyboard */; };
+		1220279C2BCD1C6A00B6222E /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 12E3BEC02BC8F45200901C7D /* NChainUI */; };
 		126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8A22BAB1C03002B089B /* AppDelegate.swift */; };
 		126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AB2BAB1C04002B089B /* Assets.xcassets */; };
 		126BA8BA2BAB1C04002B089B /* nBolhaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8B92BAB1C04002B089B /* nBolhaTests.swift */; };
@@ -22,11 +22,10 @@
 		126BA8F82BAB274C002B089B /* nBolhaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8F72BAB274C002B089B /* nBolhaUITests.swift */; };
 		126BA8F92BAB274C002B089B /* nBolhaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 126BA8E92BAB274C002B089B /* nBolhaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		126BA8FC2BAB274C002B089B /* nBolhaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */; };
-		126BA8FD2BAB274C002B089B /* nBolhaUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		128241E32BB19F5B0008B8C6 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 128241E22BB19F5B0008B8C6 /* NChainUI */; };
 		128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E32BACDEA90018438B /* View+Extensions.swift */; };
 		128B42E62BACDEE60018438B /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E52BACDEE60018438B /* HostingController.swift */; };
-		12BB7B6B2BC94C7D00F023C8 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5032D52A2BB460BE005FFF15 /* NChainUI */; };
+		12BB7B6B2BC94C7D00F023C8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		12C3A7EE2BAC6CBF00C3FEE7 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E72BAC6CBF00C3FEE7 /* HttpRequest.swift */; };
 		12C3A7EF2BAC6CBF00C3FEE7 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E82BAC6CBF00C3FEE7 /* Decodable+Extensions.swift */; };
 		12C3A7F02BAC6CBF00C3FEE7 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */; };
@@ -174,7 +173,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				126BA8FD2BAB274C002B089B /* nBolhaUI.framework in Embed Frameworks */,
 				12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */,
 				12E641C42BAC304C00C7005E /* nBolhaCore.framework in Embed Frameworks */,
 			);
@@ -187,11 +185,11 @@
 		1218ED1B2BB1A37100B3445B /* StartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcess.swift; sourceTree = "<group>"; };
 		1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLoadStartupProcess.swift; sourceTree = "<group>"; };
 		1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcessService.swift; sourceTree = "<group>"; };
+		12309AF22BCD47EB00E4BD00 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		126753062BC9468100645915 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126BA89F2BAB1C03002B089B /* nBolha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBolha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nBolha/AppDelegate.swift; sourceTree = "<group>"; };
 		126BA8AB2BAB1C04002B089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		126BA8B52BAB1C04002B089B /* nBolhaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8B92BAB1C04002B089B /* nBolhaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaTests.swift; sourceTree = "<group>"; };
 		126BA8BF2BAB1C04002B089B /* nBolhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,7 +284,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12BB7B6B2BC94C7D00F023C8 /* NChainUI in Frameworks */,
+				1220279C2BCD1C6A00B6222E /* NChainUI in Frameworks */,
+				12BB7B6B2BC94C7D00F023C8 /* (null) in Frameworks */,
 				12E641CF2BAC32E600C7005E /* nBolhaCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,8 +380,8 @@
 				126BA8D32BAB1CAD002B089B /* Resources */,
 				126BA8D42BAB1CE2002B089B /* Utilities */,
 				12E51AE12BCCF6A600FB4E06 /* LaunchScreen.storyboard */,
+				12309AF22BCD47EB00E4BD00 /* Info.plist */,
 				126BA8A22BAB1C03002B089B /* AppDelegate.swift */,
-				126BA8B02BAB1C04002B089B /* Info.plist */,
 				128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */,
 				126753062BC9468100645915 /* LaunchScreen.storyboard */,
 			);
@@ -775,7 +774,7 @@
 			);
 			name = nBolhaUI;
 			packageProductDependencies = (
-				5032D52A2BB460BE005FFF15 /* NChainUI */,
+				12E3BEC02BC8F45200901C7D /* NChainUI */,
 			);
 			productName = nBolhaUI;
 			productReference = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */;
@@ -1856,7 +1855,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = NChainUI;
 		};
-		5032D52A2BB460BE005FFF15 /* NChainUI */ = {
+		12E3BEC02BC8F45200901C7D /* NChainUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NChainUI;
 		};
