@@ -42,7 +42,7 @@ struct HomeView: View {
                         //TODO: implement
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: NCConstants.Margins.large.rawValue) {
-                                ForEach(viewModel.advertisements.suffix(6), id: \.id) { advertisement in
+                                ForEach(viewModel.advertisements.suffix(6), id: \.advertisement_id) { advertisement in
                                     RecentlyViewedView(advertisement: advertisement)
                                 }
                             }
@@ -58,7 +58,7 @@ struct HomeView: View {
                         let pairs = viewModel.advertisements.suffix(6).reversed().chunked(into: 2)
                         ForEach(pairs, id: \.self) { pair in
                             HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
-                                ForEach(pair, id: \.id) { advertisement in
+                                ForEach(pair, id: \.advertisement_id) { advertisement in
                                     RecentlyAddedView(advertisement: advertisement)
                                 }
                             }
