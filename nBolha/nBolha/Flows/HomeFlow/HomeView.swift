@@ -21,15 +21,7 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            Spacer().frame(height: NCConstants.Margins.medium.rawValue)
-            VStack(spacing: NCConstants.Margins.extraLarge.rawValue) {
-                Image(.logo)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 223, height: 21)
-                SearchBar(text: $search)
-                    .padding(.bottom, NCConstants.Margins.extraLarge.rawValue)
-            }
+            SearchBar(text: $search)
             ScrollView(showsIndicators: false) {
                 VStack {
                     Text("Recently viewed")
@@ -40,13 +32,14 @@ struct HomeView: View {
                         EmptyRecentlyViewedView(viewModel: viewModel)
                     } else {
                         //TODO: implement
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: NCConstants.Margins.large.rawValue) {
-                                ForEach(viewModel.advertisements.suffix(6), id: \.id) { advertisement in
-                                    RecentlyViewedView(advertisement: advertisement)
-                                }
-                            }
-                        }
+//                        ScrollView(.horizontal, showsIndicators: false) {
+//                            HStack(spacing: NCConstants.Margins.large.rawValue) {
+//                                ForEach(viewModel.advertisements.suffix(6), id: \.id) { advertisement in
+//                                    RecentlyViewedView(advertisement: advertisement)
+//                                }
+//                            }
+//                        }
+                        EmptyRecentlyViewedView(viewModel: viewModel)
                     }
                     Text("Recently added")
                         .textStyle(.subtitle02)

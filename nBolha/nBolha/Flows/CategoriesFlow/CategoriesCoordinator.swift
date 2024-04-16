@@ -1,15 +1,14 @@
 //
-//  HomeCoordinator.swift
+//  CategoriesCoordinator.swift
 //  nBolha
 //
-//  Created by David Balažic on 5. 4. 24.
+//  Created by David Balažic on 11. 4. 24.
 //
 
 import Foundation
 import UIKit
-import Combine
 
-final class HomeCoordinator: NSObject, Coordinator, HomeNavigationDelegate, UINavigationControllerDelegate {
+final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
     
     init(
@@ -20,23 +19,23 @@ final class HomeCoordinator: NSObject, Coordinator, HomeNavigationDelegate, UINa
     
     @discardableResult
     func start() -> UIViewController {
-        let viewModel = HomeViewModel(
+        let viewModel = CategoriesViewModel(
             navigationDelegate: self
         )
-        let view = HomeView(viewModel: viewModel)
+        let view = CategoriesView(viewModel: viewModel)
         
         let navController = navigationController ?? UINavigationController()
         navigationController = navController
         navigationController?.delegate = self
-    
+        
         navController.pushViewController(view.asViewController, animated: true)
         return navController
     }
     
-    // MARK: - HomeNavigationDelegate
-    
-    func showCategoriesScreen() {
-        CategoriesCoordinator(navigationController: navigationController).start()
+    // MARK: - CategoriesNavigationDelegate
+        
+    func showCategoriesDetailView() {
+        //TODO: implement
     }
     
     // MARK: - UINavigationControllerDelegate
