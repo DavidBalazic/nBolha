@@ -8,19 +8,29 @@
 import SwiftUI
 import nBolhaNetworking
 import NChainUI
-import nBolhaUI
 
-struct RecentlyAddedView: View {
+public struct AdvertisementItemsView: View {
     @State private var isLiked = false
+    let likedImage: UIImage
+    let dislikedImage: UIImage
     let advertisement: Advertisement
     
-    var body: some View {
+    public init(
+        likedImage: UIImage,
+        dislikedImage: UIImage,
+        advertisement: Advertisement
+    ) {
+        self.likedImage = likedImage
+        self.dislikedImage = dislikedImage
+        self.advertisement = advertisement
+    }
+    
+    public var body: some View {
         VStack(spacing: NCConstants.Margins.small.rawValue) {
             ZStack(alignment: .topTrailing) {
-                Image(.illustrations3)
+                Image(uiImage: .checkmark)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 163, height: 163)
                     .background(
                         RoundedRectangle(
                             cornerRadius: NCConstants.Radius.small.rawValue,
@@ -28,7 +38,7 @@ struct RecentlyAddedView: View {
                         )
                         .stroke(Color(UIColor.outline02!), lineWidth: 1)
                     )
-                LikeButton(isLiked: $isLiked, likedImage: .likeBlack, dislikedImage: .likeWhite)
+                LikeButton(isLiked: $isLiked, likedImage: likedImage, dislikedImage: dislikedImage)
             }
             VStack () {
                 Text(advertisement.title ?? "Title not provided")

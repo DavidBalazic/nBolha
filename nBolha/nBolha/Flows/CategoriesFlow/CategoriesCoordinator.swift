@@ -33,8 +33,24 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
     }
     
     // MARK: - CategoriesNavigationDelegate
+    
+    func showCategoriesDetailScreen() {
+        let viewModel = CategoriesViewModel(
+            navigationDelegate: self
+        )
+        let view = CategoriesDetailView(viewModel: viewModel)
         
-    func showCategoriesDetailView() {
+        navigationController?.pushViewController(
+            view.asViewController,
+            animated: true
+        )
+    }
+    
+    func showCategoriesScreen() {
+        //TODO: implement
+    }
+    
+    func showFilterScreen() {
         //TODO: implement
     }
     
