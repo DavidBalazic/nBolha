@@ -60,10 +60,10 @@ public struct NotificationView: View {
             VStack(alignment: .leading, spacing: NCConstants.Margins.small.rawValue) {
                 HStack {
                     notification.type.titleImage
-                        .foregroundColor(Color(notification.type.color))
+                        .foregroundColor(notification.type.color)
                     Text(notification.errorMessage)
                         .textStyle(.subtitle02)
-                        .foregroundStyle(Color(notification.type.color))
+                        .foregroundStyle(notification.type.color)
                     Spacer()
                     Button(action: dismissAction) {
                         Image(uiImage: .icnClose ?? UIImage())
