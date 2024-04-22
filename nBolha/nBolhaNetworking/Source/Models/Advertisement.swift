@@ -13,7 +13,7 @@ public struct Advertisement: Codable, Hashable {
     public let description: String?
     public let price: Double?
     public let condition: String?
-    public let created_At: Date?
+    public let created_At: String?
     public let user_id_FK: Int?
     public let category_id_FK: Int?
     public let address: Int?

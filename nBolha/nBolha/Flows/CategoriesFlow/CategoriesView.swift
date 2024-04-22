@@ -20,6 +20,22 @@ struct CategoriesView: View {
     }
     
     var body: some View {
-       Text("Categories screen")
+        VStack {
+            SearchBar(text: $search)
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: NCConstants.Margins.large.rawValue) {
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Home", categoryImage: .homeCategory)
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Construction", categoryImage: .constructionCategory)
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Automotive", categoryImage: .automotiveCategory)
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Sport", categoryImage: .sportCategory)
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Audiovisual", categoryImage: .audiovisualCategory)
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Literature", categoryImage: .literatureCategory)
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Hobbies", categoryImage: .hobbiesCategory)
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Apparel", categoryImage: .apparelCategory)
+                    CategoriesItemView(viewModel: viewModel, categoryTitle: "Services", categoryImage: .servicesCategory)
+                }
+            }
+            .padding(.horizontal, NCConstants.Margins.large.rawValue)
+        }
     }
 }

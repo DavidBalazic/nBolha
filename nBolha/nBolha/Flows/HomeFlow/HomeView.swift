@@ -32,13 +32,6 @@ struct HomeView: View {
                         EmptyRecentlyViewedView(viewModel: viewModel)
                     } else {
                         //TODO: implement
-//                        ScrollView(.horizontal, showsIndicators: false) {
-//                            HStack(spacing: NCConstants.Margins.large.rawValue) {
-//                                ForEach(viewModel.advertisements.suffix(6), id: \.id) { advertisement in
-//                                    RecentlyViewedView(advertisement: advertisement)
-//                                }
-//                            }
-//                        }
                         EmptyRecentlyViewedView(viewModel: viewModel)
                     }
                     Text("Recently added")
@@ -52,7 +45,7 @@ struct HomeView: View {
                         ForEach(pairs, id: \.self) { pair in
                             HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
                                 ForEach(pair, id: \.advertisement_id) { advertisement in
-                                    RecentlyAddedView(advertisement: advertisement)
+                                    AdvertisementItemsView(likedImage: .likeBlack, dislikedImage: .likeWhite, advertisement: advertisement)
                                 }
                             }
                         }
