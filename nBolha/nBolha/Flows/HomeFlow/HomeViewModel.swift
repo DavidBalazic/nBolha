@@ -7,6 +7,7 @@
 
 import Foundation
 import nBolhaNetworking
+import UIKit
 
 protocol HomeNavigationDelegate: AnyObject {
     func showCategoriesScreen()

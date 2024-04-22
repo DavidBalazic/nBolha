@@ -20,7 +20,7 @@ final class AppLaunchCoordinator: NSObject {
     func start() {
         navigationController = UINavigationController()
         window.rootViewController = navigationController
-        HomeCoordinator(
+        TabBarCoordinator(
             navigationController: navigationController
         ).start()
     }
