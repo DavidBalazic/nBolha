@@ -51,7 +51,7 @@ struct HomeView: View {
                         let pairs = viewModel.advertisements.suffix(6).reversed().chunked(into: 2)
                         ForEach(pairs, id: \.self) { pair in
                             HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
-                                ForEach(pair, id: \.id) { advertisement in
+                                ForEach(pair, id: \.advertisement_id) { advertisement in
                                     RecentlyAddedView(advertisement: advertisement)
                                 }
                             }
