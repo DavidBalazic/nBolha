@@ -11,6 +11,7 @@ import UIKit
 
 protocol HomeNavigationDelegate: AnyObject {
     func showCategoriesScreen()
+    func showDetailScreen(selectedAdvertisement: Advertisement)
 }
 
 final class HomeViewModel: ObservableObject {
@@ -44,5 +45,9 @@ final class HomeViewModel: ObservableObject {
     
     func startExploringTapped() {
         navigationDelegate?.showCategoriesScreen()
+    }
+    
+    func advertisementItemTapped(selectedAdvertisement: Advertisement) {
+        navigationDelegate?.showDetailScreen(selectedAdvertisement: selectedAdvertisement)
     }
 }

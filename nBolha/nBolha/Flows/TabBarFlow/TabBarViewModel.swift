@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 protocol TabBarNavigationDelegate: AnyObject {
-    
+    func showCategories()
 }
 
 final class TabBarViewModel {
@@ -53,12 +53,18 @@ final class TabBarViewModel {
         
         switch tab.item {
         case .home:
-            let coordinator = HomeCoordinator()
+            let coordinator = HomeCoordinator { [weak self] in
+                self?.switchTab()
+            }
             return setup(coordinator.start())
             
         case .categories:
             let coordinator = CategoriesCoordinator()
             return setup(coordinator.start())
         }
+    }
+    
+    func switchTab() {
+        navigationDelegate?.showCategories()
     }
 }

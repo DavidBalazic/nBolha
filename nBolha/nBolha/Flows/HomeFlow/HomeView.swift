@@ -44,8 +44,15 @@ struct HomeView: View {
                         let pairs = viewModel.advertisements.suffix(6).reversed().chunked(into: 2)
                         ForEach(pairs, id: \.self) { pair in
                             HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
-                                ForEach(pair, id: \.advertisement_id) { advertisement in
-                                    AdvertisementItemsView(likedImage: .likeBlack, dislikedImage: .likeWhite, advertisement: advertisement)
+                                ForEach(pair, id: \.advertisementId) { advertisement in
+                                    AdvertisementItemsView(
+                                        likedImage: .likeBlack,
+                                        dislikedImage: .likeWhite,
+                                        advertisement: advertisement,
+                                        itemTapped: {
+                                            viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
+                                        }
+                                    )
                                 }
                             }
                         }
