@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Constants {
-    static var keychainServiceIdentifier: String = "nbolha.sessionToken"
+public struct Constants {
+    public static var keychainServiceIdentifier: String = "nbolha.sessionToken"
 }

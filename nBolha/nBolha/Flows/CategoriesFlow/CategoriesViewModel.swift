@@ -54,6 +54,10 @@ final class CategoriesViewModel: ObservableObject {
     }
     
     func advertisementItemTapped(selectedAdvertisement: Advertisement) {
+        let advertisementId = selectedAdvertisement.advertisementId!
+        let advertisementViewedWorker = AdvertisementViewedWorker(advertisementId: advertisementId)
+        advertisementViewedWorker.execute()
+        
         navigationDelegate?.showDetailScreen(selectedAdvertisement: selectedAdvertisement)
     }
 }

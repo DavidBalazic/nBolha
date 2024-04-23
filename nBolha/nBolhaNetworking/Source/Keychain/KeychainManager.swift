@@ -14,7 +14,7 @@ protocol KeychainManagable {
     func remove(_ key: String)
 }
 
-class KeyChainManager: KeychainManagable {
+public class KeyChainManager: KeychainManagable {
     
     enum KeychainAction: String {
         case get
@@ -26,11 +26,11 @@ class KeyChainManager: KeychainManagable {
 
     var onErrorCallback: ((Error) -> Void)?
     
-    init(service: String) {
+    public init(service: String) {
         self.keychain = Keychain(service: service)
     }
 
-    func set(_ value: String, forKey key: String) {
+    public func set(_ value: String, forKey key: String) {
         defer { onFinish() }
         
         do {
@@ -40,7 +40,7 @@ class KeyChainManager: KeychainManagable {
         }
     }
 
-    func get(forKey key: String) -> String? {
+    public func get(forKey key: String) -> String? {
         defer { onFinish() }
         
         do {
@@ -51,7 +51,7 @@ class KeyChainManager: KeychainManagable {
         }
     }
 
-    func remove(_ key: String) {
+    public func remove(_ key: String) {
         defer { onFinish() }
         
         do {

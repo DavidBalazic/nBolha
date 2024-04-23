@@ -18,15 +18,25 @@ public class NBolhaApi {
     
     public enum Endpoint {
         case login
-        case advertisement
+        case advertisements
+        case advertisementRecentlyAdded
+        case advertisementRecentlyViewed
+        case advertisement(id: Int)
         
         var path: String {
             switch self {
             case .login:
                 return "User/Login"
-            case .advertisement:
+            case .advertisements:
                 return "Advertisement/GetAll"
+            case .advertisementRecentlyAdded:
+                return "Advertisement/Recent"
+            case .advertisementRecentlyViewed:
+                return "Advertisement/RecentViewed"
+            case .advertisement(id: let id):
+                return "Advertisement/\(id)"
             }
+            
         }
     }
 }
