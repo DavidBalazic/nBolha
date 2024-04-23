@@ -54,6 +54,7 @@
 		12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5032D5292BB41813005FFF15 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */; };
 		5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5032D52A2BB460BE005FFF15 /* NChainUI */; };
+		503454862BD7ABC80040EC16 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503454852BD7ABC80040EC16 /* LoginResponse.swift */; };
 		503E51CB2BCFAE9400D97655 /* AdvertisementItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E51CA2BCFAE9400D97655 /* AdvertisementItemsView.swift */; };
 		5044F2512BB59E2A000AE10A /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5044F2502BB59E2A000AE10A /* Task+Extensions.swift */; };
 		50491C522BCE4D0A00FDB8DA /* TabBarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50491C512BCE4D0A00FDB8DA /* TabBarTab.swift */; };
@@ -72,6 +73,10 @@
 		50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A752BB17B9F004301C5 /* NoConnectionView.swift */; };
 		50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A772BB19B2C004301C5 /* LoginCoordinator.swift */; };
 		50908AB12BC52CF200C5378B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50908AB02BC52CF100C5378B /* SearchBar.swift */; };
+		50A5AD6F2BD78BFE00ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD6E2BD78BFE00ED17A9 /* KeychainAccess */; };
+		50A5AD712BD78DC400ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD702BD78DC400ED17A9 /* KeychainAccess */; };
+		50A5AD742BD796AE00ED17A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5AD732BD796AE00ED17A9 /* Constants.swift */; };
+		50A5AD752BD7971900ED17A9 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */; };
 		50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE146D2BD6976900B4EF77 /* DetailCoordinator.swift */; };
 		50AE14702BD6A6BE00B4EF77 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE146F2BD6A6BE00B4EF77 /* DetailView.swift */; };
 		50AE14722BD6A6CA00B4EF77 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14712BD6A6CA00B4EF77 /* DetailViewModel.swift */; };
@@ -265,6 +270,7 @@
 		12E641E02BAC63F200C7005E /* nBolhaNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaNetworkingTests.swift; sourceTree = "<group>"; };
 		5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extensions.swift"; sourceTree = "<group>"; };
+		503454852BD7ABC80040EC16 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		503E51CA2BCFAE9400D97655 /* AdvertisementItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementItemsView.swift; sourceTree = "<group>"; };
 		5044F2502BB59E2A000AE10A /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
 		50491C512BCE4D0A00FDB8DA /* TabBarTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarTab.swift; sourceTree = "<group>"; };
@@ -284,6 +290,8 @@
 		50907A752BB17B9F004301C5 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
 		50907A772BB19B2C004301C5 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		50908AB02BC52CF100C5378B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		50A5AD732BD796AE00ED17A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		50AE146D2BD6976900B4EF77 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		50AE146F2BD6A6BE00B4EF77 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		50AE14712BD6A6CA00B4EF77 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -325,6 +333,7 @@
 				12E641EC2BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */,
 				12E641C32BAC304C00C7005E /* nBolhaCore.framework in Frameworks */,
 				128241E32BB19F5B0008B8C6 /* NChainUI in Frameworks */,
+				50A5AD712BD78DC400ED17A9 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +387,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50A5AD6F2BD78BFE00ED17A9 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +502,8 @@
 			children = (
 				1218ED1D2BB1A39300B3445B /* Startup */,
 				126BA8D52BAB1D13002B089B /* Protocols */,
+				50A5AD732BD796AE00ED17A9 /* Constants.swift */,
+				50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -581,6 +593,7 @@
 				12C3A7F62BAC6D4100C3FEE7 /* Generic.swift */,
 				12C3A7F52BAC6D4100C3FEE7 /* RequestModels.swift */,
 				50BC479C2BC4026E0015522B /* Advertisement.swift */,
+				503454852BD7ABC80040EC16 /* LoginResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -829,6 +842,7 @@
 			name = nBolha;
 			packageProductDependencies = (
 				128241E22BB19F5B0008B8C6 /* NChainUI */,
+				50A5AD702BD78DC400ED17A9 /* KeychainAccess */,
 			);
 			productName = nBolha;
 			productReference = 126BA89F2BAB1C03002B089B /* nBolha.app */;
@@ -963,6 +977,9 @@
 			dependencies = (
 			);
 			name = nBolhaNetworking;
+			packageProductDependencies = (
+				50A5AD6E2BD78BFE00ED17A9 /* KeychainAccess */,
+			);
 			productName = nBolhaNetworking;
 			productReference = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1043,6 +1060,7 @@
 			);
 			mainGroup = 126BA8962BAB1C03002B089B;
 			packageReferences = (
+				50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 126BA8A02BAB1C03002B089B /* Products */;
 			projectDirPath = "";
@@ -1141,6 +1159,7 @@
 				1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */,
 				50805A872BC80207003EB2CC /* CategoriesViewModel.swift in Sources */,
 				50491C542BCE63F700FDB8DA /* TabBarCoordinator.swift in Sources */,
+				50A5AD742BD796AE00ED17A9 /* Constants.swift in Sources */,
 				50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */,
 				50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */,
 				50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */,
@@ -1161,6 +1180,7 @@
 				50491C5A2BCEBC3100FDB8DA /* EmptyCategoriesView.swift in Sources */,
 				50BC47992BC3E7860015522B /* EmptyRecentlyViewedView.swift in Sources */,
 				50491C582BCEBBE500FDB8DA /* CategoriesItemView.swift in Sources */,
+				50A5AD752BD7971900ED17A9 /* KeychainManager.swift in Sources */,
 				50CE314D2BCD66F5004F9566 /* TabBarController.swift in Sources */,
 				126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */,
 				126BA8DA2BAB1DE2002B089B /* AppLaunchCoordinator.swift in Sources */,
@@ -1255,6 +1275,7 @@
 				12C3A7F72BAC6D4100C3FEE7 /* RequestModels.swift in Sources */,
 				12C3A7F42BAC6CBF00C3FEE7 /* NetworkingError.swift in Sources */,
 				12C3A7F32BAC6CBF00C3FEE7 /* HTTPRequestHelpers.swift in Sources */,
+				503454862BD7ABC80040EC16 /* LoginResponse.swift in Sources */,
 				12C3A7EE2BAC6CBF00C3FEE7 /* HttpRequest.swift in Sources */,
 				50E718082BBD3F4F00B79C9C /* NBolhaApi.swift in Sources */,
 				12C3A7FD2BAC6D4800C3FEE7 /* APICallWorker.swift in Sources */,
@@ -1997,6 +2018,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		128241E22BB19F5B0008B8C6 /* NChainUI */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2005,6 +2037,16 @@
 		5032D52A2BB460BE005FFF15 /* NChainUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NChainUI;
+		};
+		50A5AD6E2BD78BFE00ED17A9 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		50A5AD702BD78DC400ED17A9 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

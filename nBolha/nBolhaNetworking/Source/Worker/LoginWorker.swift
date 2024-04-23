@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class LoginWorker: BaseNBolhaWorker<String> {
+public class LoginWorker: BaseNBolhaWorker<LoginResponse> {
     var username: String
     var password: String
 
