@@ -83,7 +83,7 @@ final class LoginViewModel: ObservableObject {
                 let sessionTokenId = "sessionTokenID"
                 self.keychaninManager.set(token, forKey: sessionTokenId)
                 self.navigationDelegate?.showHomeScreen()
-            } else if error is NetworkingNotFoundError {
+            } else if error is NetworkingBadRequestError {
                 self.notificationService.notify.send(NotificationView.Notification.LoginFailed)
             } else if response == nil, error == nil {
                 //TODO: handle no internet connection

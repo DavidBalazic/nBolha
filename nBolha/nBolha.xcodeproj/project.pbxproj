@@ -60,6 +60,7 @@
 		503D19D92BD7C8C1009AA8DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5AD732BD796AE00ED17A9 /* Constants.swift */; };
 		503D19DB2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D19DA2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift */; };
 		503D19DD2BD7D5C5009AA8DD /* AdvertisementViewedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D19DC2BD7D5C5009AA8DD /* AdvertisementViewedWorker.swift */; };
+		503D19E22BD7E3B3009AA8DD /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D19E12BD7E3B3009AA8DD /* FilterView.swift */; };
 		503E51CB2BCFAE9400D97655 /* AdvertisementItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E51CA2BCFAE9400D97655 /* AdvertisementItemsView.swift */; };
 		5044F2512BB59E2A000AE10A /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5044F2502BB59E2A000AE10A /* Task+Extensions.swift */; };
 		50491C522BCE4D0A00FDB8DA /* TabBarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50491C512BCE4D0A00FDB8DA /* TabBarTab.swift */; };
@@ -86,6 +87,7 @@
 		50AE14742BD6A6F500B4EF77 /* CarouselViewDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14732BD6A6F500B4EF77 /* CarouselViewDialog.swift */; };
 		50AE14762BD6A70600B4EF77 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14752BD6A70600B4EF77 /* CarouselView.swift */; };
 		50AE14782BD6A81400B4EF77 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14772BD6A81400B4EF77 /* CloseButton.swift */; };
+		50B746282BD8DD580077CFCB /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B746272BD8DD580077CFCB /* RadioButton.swift */; };
 		50BBE6202BB5576E004AA5BB /* WindowNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */; };
 		50BBE6222BB557D8004AA5BB /* WindowNotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */; };
 		50BBE6282BB560DB004AA5BB /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE6272BB560DB004AA5BB /* NotificationView.swift */; };
@@ -277,6 +279,7 @@
 		503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementRecentlyAddedWorker.swift; sourceTree = "<group>"; };
 		503D19DA2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementRecentlyViewedWorker.swift; sourceTree = "<group>"; };
 		503D19DC2BD7D5C5009AA8DD /* AdvertisementViewedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementViewedWorker.swift; sourceTree = "<group>"; };
+		503D19E12BD7E3B3009AA8DD /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		503E51CA2BCFAE9400D97655 /* AdvertisementItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementItemsView.swift; sourceTree = "<group>"; };
 		5044F2502BB59E2A000AE10A /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
 		50491C512BCE4D0A00FDB8DA /* TabBarTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarTab.swift; sourceTree = "<group>"; };
@@ -304,6 +307,7 @@
 		50AE14732BD6A6F500B4EF77 /* CarouselViewDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewDialog.swift; sourceTree = "<group>"; };
 		50AE14752BD6A70600B4EF77 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		50AE14772BD6A81400B4EF77 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		50B746272BD8DD580077CFCB /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationsView.swift; sourceTree = "<group>"; };
 		50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationViewModel.swift; sourceTree = "<group>"; };
 		50BBE6272BB560DB004AA5BB /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -485,6 +489,7 @@
 		126BA8D22BAB1CA7002B089B /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				503D19E02BD7E390009AA8DD /* FilterFlow */,
 				50AE146C2BD6974F00B4EF77 /* DetailFlow */,
 				50CE31472BCD66A2004F9566 /* TabBarFlow */,
 				50805A832BC801B3003EB2CC /* CategoriesFlow */,
@@ -564,6 +569,7 @@
 				50BBE61E2BB55746004AA5BB /* WindowsNotifications */,
 				128B42E52BACDEE60018438B /* HostingController.swift */,
 				50908AB02BC52CF100C5378B /* SearchBar.swift */,
+				50B746272BD8DD580077CFCB /* RadioButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -691,6 +697,14 @@
 				50A5AD732BD796AE00ED17A9 /* Constants.swift */,
 			);
 			path = Keychain;
+			sourceTree = "<group>";
+		};
+		503D19E02BD7E390009AA8DD /* FilterFlow */ = {
+			isa = PBXGroup;
+			children = (
+				503D19E12BD7E3B3009AA8DD /* FilterView.swift */,
+			);
+			path = FilterFlow;
 			sourceTree = "<group>";
 		};
 		503E51C92BCFAE6B00D97655 /* Advertisements */ = {
@@ -1078,6 +1092,7 @@
 			mainGroup = 126BA8962BAB1C03002B089B;
 			packageReferences = (
 				50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				503D19E32BD7EDFA009AA8DD /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 126BA8A02BAB1C03002B089B /* Products */;
 			projectDirPath = "";
@@ -1181,6 +1196,7 @@
 				50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */,
 				50AE14742BD6A6F500B4EF77 /* CarouselViewDialog.swift in Sources */,
 				50491C522BCE4D0A00FDB8DA /* TabBarTab.swift in Sources */,
+				503D19E22BD7E3B3009AA8DD /* FilterView.swift in Sources */,
 				505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */,
 				50C506A12BBFE80A0014526C /* HomeView.swift in Sources */,
 				50805A852BC801E0003EB2CC /* CategoriesView.swift in Sources */,
@@ -1233,6 +1249,7 @@
 				50AE14782BD6A81400B4EF77 /* CloseButton.swift in Sources */,
 				50C5069E2BBFDD540014526C /* WebView.swift in Sources */,
 				5055474A2BB2D2B800566B99 /* TermsAndConditionView.swift in Sources */,
+				50B746282BD8DD580077CFCB /* RadioButton.swift in Sources */,
 				50D50B072BB2FE3D00748CC3 /* Globals.swift in Sources */,
 				50BBE62C2BB570F9004AA5BB /* WindowNotificationInstallation.swift in Sources */,
 				50BBE6202BB5576E004AA5BB /* WindowNotificationsView.swift in Sources */,
@@ -2039,6 +2056,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		503D19E32BD7EDFA009AA8DD /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.9;
+			};
+		};
 		50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
