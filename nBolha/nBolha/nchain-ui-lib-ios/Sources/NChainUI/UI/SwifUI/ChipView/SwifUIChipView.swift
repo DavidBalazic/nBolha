@@ -15,6 +15,7 @@ public struct SwifUIChipView: View {
     private let leadingIcon: Image?
     private let trailingIcon: Image?
     private let tapped: Action?
+    private let trailingIconTapped: Action?
     @State public var state: SwifUIChipView.ChipState
     
     private var tintColor: Color {
@@ -57,7 +58,8 @@ public struct SwifUIChipView: View {
         state: SwifUIChipView.ChipState = .unselected,
         leadingIcon: Image? = nil,
         trailingIcon: Image? = nil,
-        tapped: Action? = nil
+        tapped: Action? = nil,
+        trailingIconTapped: Action? = nil
     ) {
         self.title = title
         self.size = size
@@ -66,6 +68,7 @@ public struct SwifUIChipView: View {
         self.leadingIcon = leadingIcon
         self.trailingIcon = trailingIcon
         self.tapped = tapped
+        self.trailingIconTapped = trailingIconTapped
     }
 
     public var body: some View {
@@ -96,6 +99,9 @@ public struct SwifUIChipView: View {
                     maxHeight: size.iconSize
                 )
                 .foregroundColor(tintColor)
+                .onTapGesture {
+                    trailingIconTapped?()
+                }
         }
         .padding(.horizontal, size.hPadding)
         .background {

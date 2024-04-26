@@ -60,4 +60,8 @@ final class CategoriesViewModel: ObservableObject {
         
         navigationDelegate?.showDetailScreen(selectedAdvertisement: selectedAdvertisement)
     }
+    
+    func showFilterTapped() {
+        navigationDelegate?.showFilterScreen()
+    }
 }
