@@ -11,19 +11,13 @@ import NChainUI
 
 public struct AdvertisementItemsView: View {
     @State private var isLiked = false
-    let likedImage: UIImage
-    let dislikedImage: UIImage
     let advertisement: Advertisement
     let itemTapped: () -> Void
     
     public init(
-        likedImage: UIImage,
-        dislikedImage: UIImage,
         advertisement: Advertisement,
         itemTapped: @escaping () -> Void
     ) {
-        self.likedImage = likedImage
-        self.dislikedImage = dislikedImage
         self.advertisement = advertisement
         self.itemTapped = itemTapped
     }
@@ -44,7 +38,7 @@ public struct AdvertisementItemsView: View {
                             )
                             .stroke(Color(UIColor.outline02!), lineWidth: 1)
                         )
-                    LikeButton(isLiked: $isLiked, likedImage: likedImage, dislikedImage: dislikedImage)
+                    LikeButton(isLiked: $isLiked)
                 }
                 VStack () {
                     Text(advertisement.title ?? "Title not provided")

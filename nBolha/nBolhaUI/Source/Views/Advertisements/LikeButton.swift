@@ -10,17 +10,11 @@ import NChainUI
 
 public struct LikeButton: View {
     @Binding var isLiked: Bool
-    let likedImage: UIImage
-    let dislikedImage: UIImage
     
     public init(
-        isLiked: Binding<Bool>,
-        likedImage: UIImage,
-        dislikedImage: UIImage
+        isLiked: Binding<Bool>
     ) {
         self._isLiked = isLiked
-        self.likedImage = likedImage
-        self.dislikedImage = dislikedImage
     }
     
     public var body: some View {
@@ -32,7 +26,7 @@ public struct LikeButton: View {
                     .foregroundColor(.white)
                     .frame(width: NCConstants.Margins.extraLarge.rawValue, height: NCConstants.Margins.extraLarge.rawValue)
                     .shadow(radius: 36, x: 0, y: NCConstants.Margins.small.rawValue)
-                Image(uiImage: isLiked ? likedImage : dislikedImage)
+                Image(uiImage: isLiked ? .likeBlack : .likeWhite)
             }
         }
         .padding(.top, NCConstants.Margins.small.rawValue)
