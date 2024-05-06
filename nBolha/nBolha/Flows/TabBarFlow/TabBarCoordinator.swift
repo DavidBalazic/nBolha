@@ -11,6 +11,7 @@ import SwiftUI
 
 final class TabBarCoordinator: Coordinator, TabBarNavigationDelegate {
     private weak var navigationController: UINavigationController?
+    private var tabBarController: TabBarController?
     
     init(
         navigationController: UINavigationController?
@@ -26,6 +27,7 @@ final class TabBarCoordinator: Coordinator, TabBarNavigationDelegate {
         let tabBarController = TabBarController(
             viewModel: viewModel
         )
+        self.tabBarController = tabBarController
         navigationController?.isNavigationBarHidden = true
         navigationController?.setViewControllers([tabBarController], animated: animated)
         
@@ -35,5 +37,9 @@ final class TabBarCoordinator: Coordinator, TabBarNavigationDelegate {
     @discardableResult
     func start() -> UIViewController {
         return start(animated: true)
+    }
+    
+    func showCategories() {
+        tabBarController?.selectedIndex = 1
     }
 }

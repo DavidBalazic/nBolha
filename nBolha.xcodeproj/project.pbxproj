@@ -71,6 +71,12 @@
 		50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A752BB17B9F004301C5 /* NoConnectionView.swift */; };
 		50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A772BB19B2C004301C5 /* LoginCoordinator.swift */; };
 		50908AB12BC52CF200C5378B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50908AB02BC52CF100C5378B /* SearchBar.swift */; };
+		50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE146D2BD6976900B4EF77 /* DetailCoordinator.swift */; };
+		50AE14702BD6A6BE00B4EF77 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE146F2BD6A6BE00B4EF77 /* DetailView.swift */; };
+		50AE14722BD6A6CA00B4EF77 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14712BD6A6CA00B4EF77 /* DetailViewModel.swift */; };
+		50AE14742BD6A6F500B4EF77 /* CarouselViewDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14732BD6A6F500B4EF77 /* CarouselViewDialog.swift */; };
+		50AE14762BD6A70600B4EF77 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14752BD6A70600B4EF77 /* CarouselView.swift */; };
+		50AE14782BD6A81400B4EF77 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14772BD6A81400B4EF77 /* CloseButton.swift */; };
 		50BBE6202BB5576E004AA5BB /* WindowNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */; };
 		50BBE6222BB557D8004AA5BB /* WindowNotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */; };
 		50BBE6282BB560DB004AA5BB /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE6272BB560DB004AA5BB /* NotificationView.swift */; };
@@ -266,6 +272,12 @@
 		50907A752BB17B9F004301C5 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
 		50907A772BB19B2C004301C5 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		50908AB02BC52CF100C5378B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		50AE146D2BD6976900B4EF77 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		50AE146F2BD6A6BE00B4EF77 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		50AE14712BD6A6CA00B4EF77 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		50AE14732BD6A6F500B4EF77 /* CarouselViewDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewDialog.swift; sourceTree = "<group>"; };
+		50AE14752BD6A70600B4EF77 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		50AE14772BD6A81400B4EF77 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationsView.swift; sourceTree = "<group>"; };
 		50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationViewModel.swift; sourceTree = "<group>"; };
 		50BBE6272BB560DB004AA5BB /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -448,6 +460,7 @@
 		126BA8D22BAB1CA7002B089B /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				50AE146C2BD6974F00B4EF77 /* DetailFlow */,
 				50CE31472BCD66A2004F9566 /* TabBarFlow */,
 				50805A832BC801B3003EB2CC /* CategoriesFlow */,
 				50C5069F2BBFE7E80014526C /* HomeFlow */,
@@ -648,6 +661,7 @@
 			children = (
 				50E2F14F2BC6CF1600553B4F /* LikeButton.swift */,
 				503E51CA2BCFAE9400D97655 /* AdvertisementItemsView.swift */,
+				50AE14772BD6A81400B4EF77 /* CloseButton.swift */,
 			);
 			path = Advertisements;
 			sourceTree = "<group>";
@@ -676,6 +690,18 @@
 			);
 			name = CategoriesFlow;
 			path = nBolha/Flows/CategoriesFlow;
+			sourceTree = "<group>";
+		};
+		50AE146C2BD6974F00B4EF77 /* DetailFlow */ = {
+			isa = PBXGroup;
+			children = (
+				50AE146F2BD6A6BE00B4EF77 /* DetailView.swift */,
+				50AE14712BD6A6CA00B4EF77 /* DetailViewModel.swift */,
+				50AE146D2BD6976900B4EF77 /* DetailCoordinator.swift */,
+				50AE14752BD6A70600B4EF77 /* CarouselView.swift */,
+				50AE14732BD6A6F500B4EF77 /* CarouselViewDialog.swift */,
+			);
+			path = DetailFlow;
 			sourceTree = "<group>";
 		};
 		50BBE6182BB55680004AA5BB /* Utilities */ = {
@@ -1106,12 +1132,15 @@
 			files = (
 				50CE31492BCD66C8004F9566 /* TabBarViewModel.swift in Sources */,
 				50F0E1182BB6BAD30065242A /* WindowNotificationStartupProcess.swift in Sources */,
+				50AE14722BD6A6CA00B4EF77 /* DetailViewModel.swift in Sources */,
 				50491C5C2BCEBC5200FDB8DA /* CategoriesDetailView.swift in Sources */,
 				1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */,
 				50805A872BC80207003EB2CC /* CategoriesViewModel.swift in Sources */,
 				50491C542BCE63F700FDB8DA /* TabBarCoordinator.swift in Sources */,
 				50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */,
+				50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */,
 				50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */,
+				50AE14742BD6A6F500B4EF77 /* CarouselViewDialog.swift in Sources */,
 				50491C522BCE4D0A00FDB8DA /* TabBarTab.swift in Sources */,
 				505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */,
 				50C506A12BBFE80A0014526C /* HomeView.swift in Sources */,
@@ -1120,6 +1149,7 @@
 				50C506A32BC0100C0014526C /* HomeViewModel.swift in Sources */,
 				50C506A52BC0101A0014526C /* HomeCoordinator.swift in Sources */,
 				1218ED1F2BB1A3A400B3445B /* FontLoadStartupProcess.swift in Sources */,
+				50AE14702BD6A6BE00B4EF77 /* DetailView.swift in Sources */,
 				50805A892BC8036F003EB2CC /* CategoriesCoordinator.swift in Sources */,
 				50E2F1522BC6CF9300553B4F /* RecentlyViewedView.swift in Sources */,
 				50BC47972BC3DC880015522B /* EmptyRecentlyAddedView.swift in Sources */,
@@ -1130,6 +1160,7 @@
 				50CE314D2BCD66F5004F9566 /* TabBarController.swift in Sources */,
 				126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */,
 				126BA8DA2BAB1DE2002B089B /* AppLaunchCoordinator.swift in Sources */,
+				50AE14762BD6A70600B4EF77 /* CarouselView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1160,6 +1191,7 @@
 				50E2F14E2BC6CEF600553B4F /* Array+Extensions.swift in Sources */,
 				50BBE6222BB557D8004AA5BB /* WindowNotificationViewModel.swift in Sources */,
 				128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */,
+				50AE14782BD6A81400B4EF77 /* CloseButton.swift in Sources */,
 				50C5069E2BBFDD540014526C /* WebView.swift in Sources */,
 				5055474A2BB2D2B800566B99 /* TermsAndConditionView.swift in Sources */,
 				50D50B072BB2FE3D00748CC3 /* Globals.swift in Sources */,
