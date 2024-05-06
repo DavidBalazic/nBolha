@@ -34,7 +34,7 @@ final class LoginCoordinator: Coordinator, LoginNavigationDelegate {
     // MARK: - LoginNavigationDelegate
     
     func showHomeScreen() {
-        HomeCoordinator(
+        TabBarCoordinator(
             navigationController: navigationController
         ).start()
     }

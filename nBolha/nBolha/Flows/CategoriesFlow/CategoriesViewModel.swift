@@ -12,12 +12,14 @@ protocol CategoriesNavigationDelegate: AnyObject {
     func showCategoriesDetailScreen()
     func showCategoriesScreen()
     func showFilterScreen()
+    func showDetailScreen(selectedAdvertisement: Advertisement)
 }
 
 final class CategoriesViewModel: ObservableObject {
     private let navigationDelegate: CategoriesNavigationDelegate?
     @Published var isLoading = false
     @Published var advertisements: [Advertisement] = []
+    @Published var selectedAdvertisement: Advertisement?
     
     init(
         navigationDelegate: CategoriesNavigationDelegate?
@@ -49,5 +51,9 @@ final class CategoriesViewModel: ObservableObject {
     
     func browseCategoriesTapped() {
         navigationDelegate?.showCategoriesScreen()
+    }
+    
+    func advertisementItemTapped(selectedAdvertisement: Advertisement) {
+        navigationDelegate?.showDetailScreen(selectedAdvertisement: selectedAdvertisement)
     }
 }

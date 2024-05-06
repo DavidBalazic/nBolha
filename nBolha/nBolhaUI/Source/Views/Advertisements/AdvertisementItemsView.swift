@@ -14,42 +14,49 @@ public struct AdvertisementItemsView: View {
     let likedImage: UIImage
     let dislikedImage: UIImage
     let advertisement: Advertisement
+    let itemTapped: () -> Void
     
     public init(
         likedImage: UIImage,
         dislikedImage: UIImage,
-        advertisement: Advertisement
+        advertisement: Advertisement,
+        itemTapped: @escaping () -> Void
     ) {
         self.likedImage = likedImage
         self.dislikedImage = dislikedImage
         self.advertisement = advertisement
+        self.itemTapped = itemTapped
     }
     
     public var body: some View {
-        VStack(spacing: NCConstants.Margins.small.rawValue) {
-            ZStack(alignment: .topTrailing) {
-                Image(uiImage: .checkmark)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .background(
-                        RoundedRectangle(
-                            cornerRadius: NCConstants.Radius.small.rawValue,
-                            style: .continuous
+        Button(action: {
+            itemTapped()
+        }) {
+            VStack(spacing: NCConstants.Margins.small.rawValue) {
+                ZStack(alignment: .topTrailing) {
+                    Image(uiImage: .checkmark)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .background(
+                            RoundedRectangle(
+                                cornerRadius: NCConstants.Radius.small.rawValue,
+                                style: .continuous
+                            )
+                            .stroke(Color(UIColor.outline02!), lineWidth: 1)
                         )
-                        .stroke(Color(UIColor.outline02!), lineWidth: 1)
-                    )
-                LikeButton(isLiked: $isLiked, likedImage: likedImage, dislikedImage: dislikedImage)
-            }
-            VStack () {
-                Text(advertisement.title ?? "Title not provided")
-                    .textStyle(.subtitle02)
-                    .foregroundStyle(Color(UIColor.text01!))
-                    .lineLimit(2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(String(format: "%.2f€", advertisement.price ?? "0"))
-                    .textStyle(.body02)
-                    .foregroundStyle(Color(UIColor.text02!))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    LikeButton(isLiked: $isLiked, likedImage: likedImage, dislikedImage: dislikedImage)
+                }
+                VStack () {
+                    Text(advertisement.title ?? "Title not provided")
+                        .textStyle(.subtitle02)
+                        .foregroundStyle(Color(UIColor.text01!))
+                        .lineLimit(2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(String(format: "%.2f €", advertisement.price ?? "0"))
+                        .textStyle(.body02)
+                        .foregroundStyle(Color(UIColor.text02!))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
             }
         }
     }

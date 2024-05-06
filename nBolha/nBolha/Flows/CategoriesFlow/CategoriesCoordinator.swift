@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import nBolhaUI
+import nBolhaNetworking
 
 final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
@@ -52,6 +54,12 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
     
     func showFilterScreen() {
         //TODO: implement
+    }
+    
+    func showDetailScreen(selectedAdvertisement: Advertisement) {
+        DetailCoordinator(
+            navigationController: navigationController, advertisement: selectedAdvertisement
+        ).start()
     }
     
     // MARK: - UINavigationControllerDelegate

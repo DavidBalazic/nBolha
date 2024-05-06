@@ -8,14 +8,19 @@
 import Foundation
 import UIKit
 import Combine
+import nBolhaUI
+import nBolhaNetworking
 
 final class HomeCoordinator: NSObject, Coordinator, HomeNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
+    private var switchTab: (() -> Void)?
     
     init(
-        navigationController: UINavigationController? = nil
+        navigationController: UINavigationController? = nil,
+        switchTab: (() -> Void)?
     ) {
         self.navigationController = navigationController
+        self.switchTab = switchTab
     }
     
     @discardableResult
@@ -36,7 +41,14 @@ final class HomeCoordinator: NSObject, Coordinator, HomeNavigationDelegate, UINa
     // MARK: - HomeNavigationDelegate
     
     func showCategoriesScreen() {
-        CategoriesCoordinator(navigationController: navigationController).start()
+        switchTab?()
+        CategoriesCoordinator().start()
+    }
+    
+    func showDetailScreen(selectedAdvertisement: Advertisement) {
+        DetailCoordinator(
+            navigationController: navigationController, advertisement: selectedAdvertisement
+        ).start()
     }
     
     // MARK: - UINavigationControllerDelegate
