@@ -53,7 +53,6 @@
 		12E641EC2BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; };
 		12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5032D5292BB41813005FFF15 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */; };
-		5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5032D52A2BB460BE005FFF15 /* NChainUI */; };
 		503E51CB2BCFAE9400D97655 /* AdvertisementItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E51CA2BCFAE9400D97655 /* AdvertisementItemsView.swift */; };
 		5044F2512BB59E2A000AE10A /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5044F2502BB59E2A000AE10A /* Task+Extensions.swift */; };
 		50491C522BCE4D0A00FDB8DA /* TabBarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50491C512BCE4D0A00FDB8DA /* TabBarTab.swift */; };
@@ -689,7 +688,8 @@
 				50491C592BCEBC3100FDB8DA /* EmptyCategoriesView.swift */,
 				50491C5B2BCEBC5200FDB8DA /* CategoriesDetailView.swift */,
 			);
-			path = CategoriesFlow;
+			name = CategoriesFlow;
+			path = nBolha/Flows/CategoriesFlow;
 			sourceTree = "<group>";
 		};
 		50AE146C2BD6974F00B4EF77 /* DetailFlow */ = {
@@ -753,7 +753,8 @@
 				50491C512BCE4D0A00FDB8DA /* TabBarTab.swift */,
 				50491C532BCE63F700FDB8DA /* TabBarCoordinator.swift */,
 			);
-			path = TabBarFlow;
+			name = TabBarFlow;
+			path = nBolha/Flows/TabBarFlow;
 			sourceTree = "<group>";
 		};
 		50E7180F2BBD764A00B79C9C /* Api */ = {
