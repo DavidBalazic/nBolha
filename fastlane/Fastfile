@@ -1,0 +1,174 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  @api_key = nil
+  @project_name = nil
+  @prod_scheme = nil
+  @stg_scheme = nil
+  @dev_scheme = nil
+  @version = nil
+  @project_path = nil
+  @app_identifiers = nil
+
+  before_all do |lane, options|
+    @api_key = app_store_connect_api_key(
+      key_id: ENV['APP_STORE_CONNECT_KEY_ID'],
+      issuer_id: ENV['APP_STORE_CONNECT_ISSUER_ID'],
+      key_content: ENV['APP_STORE_CONNECT_API_KEY_CONTENT']
+    )
+    @project_name = "nBolha"
+    @prod_scheme = "Production"
+    @stg_scheme = "Staging"
+    @dev_scheme = "Development"
+    @version = get_version_number(target: @project_name)
+    @project_path = @project_name + ".xcodeproj"
+    # if not using app extensions it defaults to app identifier
+    @app_identifiers = ["com.nchain.nBolha"]
+
+  end
+  after_all do |lane|
+    reset_git_repo(force: true)
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(
+      scheme: @stg_scheme,
+      clean: true,
+      skip_slack: true
+    )
+  end
+
+  desc "Build and deploy a new build to Testflight"
+  lane :distribute_testflight do |options|
+    @scheme = nil
+
+    case ENV['SELECTED_SCHEME']
+    when "staging"
+      @scheme = @stg_scheme
+    when "production"
+      @scheme = @prod_scheme
+    when "development"
+      @scheme = @dev_scheme
+    else
+     UI.error "Incorrect scheme"
+    end
+
+    puts "Selected scheme"
+    puts @scheme
+
+    puts "External group name"
+    puts options[:group]
+
+    setup_ci
+
+    match(
+      type: "appstore",
+      readonly: true,
+      app_identifier: @app_identifiers,
+      api_key: @api_key
+    )
+
+    latest = latest_testflight_build_number(app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier))
+    build = increment_build_number(build_number: latest.to_i + 1)
+
+    gym(
+      clean: true,
+      scheme: @scheme,
+      export_method: "app-store",
+      archive_path: "./" + @project_name + "_archive",
+    )
+
+    external = options[:group] == "external"
+
+    upload_to_testflight(
+      api_key: @api_key,
+      app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier),
+      itc_provider: CredentialsManager::AppfileConfig.try_fetch_value(:itc_team_id),
+      distribute_external: external,
+      notify_external_testers: external,
+      groups: options[:group],
+      submit_beta_review: false
+    )
+  end
+
+  desc "Submit the app to App Store"
+  lane :app_store do
+    match(
+      type: "appstore",
+      app_identifier: @app_identifiers,
+      api_key: @api_key
+    )
+
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: @project_path,
+      team_id: CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+    )
+
+    gym(
+      clean: true,
+      scheme: @prod_scheme,
+      export_method: "app-store",
+      archive_path: "./" + @project_name + "_archive",
+    )
+
+    deliver(
+      api_key: @api_key,
+      force: true,
+      skip_metadata: true,
+      skip_screenshots: true,
+      skip_app_version_update: true,
+      precheck_include_in_app_purchases: false,
+    )
+  end
+
+  desc "Renew development certificates"
+  lane :renew_development_certs do
+    match(
+      type: "development",
+      api_key: @api_key,
+      force: true,
+    )
+  end
+
+  desc "Renew distribution certificates"
+  lane :renew_appstore_certs do
+    match(
+      type: "appstore",
+      api_key: @api_key,
+      force: true,
+    )
+  end
+
+  desc "Add new test devices from text file"
+    lane :register_test_devices do
+
+    register_devices(
+      devices_file: "ios-test-devices.txt",
+      api_key: @api_key
+    )
+
+    match(
+      type: "development",
+      app_identifier: @app_identifiers,
+      api_key: @api_key,
+      force: true
+    )
+  end
+end
