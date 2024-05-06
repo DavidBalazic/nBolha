@@ -18,7 +18,7 @@ public struct RadioButton: View {
         self.label = label
     }
     
-    public init<V: Hashable>(tag: V, selection: Binding<V?>, label: String = "") {
+    public init<V: Hashable>(tag: V, selection: Binding<V>, label: String = "") {
         self._isSelected = Binding(
             get: { selection.wrappedValue == tag },
             set: { _ in selection.wrappedValue = tag }

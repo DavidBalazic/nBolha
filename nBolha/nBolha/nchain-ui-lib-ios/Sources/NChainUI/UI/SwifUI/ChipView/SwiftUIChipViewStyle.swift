@@ -37,6 +37,22 @@ public struct ChipViewStyle {
         self.disabledBorderColor = disabledBorderColor ?? Color(.inverseOutline01)
         self.disabledTintColor = disabledTintColor ?? Color(.inverseOutline01)
     }
+    
+    public init(
+        disabledBackgroundColor: Color?,
+        disabledBorderColor: Color?,
+        disabledTintColor: Color?
+    ) {
+        self.selectedBackgroundColor = Color(.background05)
+        self.selectedBorderColor = .clear
+        self.selectedTintColor = Color(.brandSecondary)
+        self.unselectedBackgroundColor = .white
+        self.unselectedBorderColor = Color(.brandSecondary)
+        self.unselectedTintColor = Color(.brandSecondary)
+        self.disabledBackgroundColor = disabledBackgroundColor ?? .white
+        self.disabledBorderColor = disabledBorderColor ?? Color(.inverseOutline01)
+        self.disabledTintColor = disabledTintColor ?? Color(.inverseOutline01)
+    }
 }
 
 public let chipViewDefaultStyle = ChipViewStyle(

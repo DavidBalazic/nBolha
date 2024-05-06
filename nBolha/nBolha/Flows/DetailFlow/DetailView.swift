@@ -41,7 +41,8 @@ public struct DetailView: View {
                                 //TODO: wait for backend update
                                 title: "Maribor",
                                 size: .medium,
-                                state: .selected,
+                                style: .init(disabledBackgroundColor: Color(.background05!), disabledBorderColor: .clear, disabledTintColor: Color(.brandSecondary!)),
+                                state: .disabled,
                                 leadingIcon: Image(uiImage: .mapPin)
                             )
                         }
