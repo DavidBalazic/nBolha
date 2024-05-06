@@ -9,6 +9,7 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct SwiftUICheckBoxStyle: ToggleStyle {
+    let title: String
     let iconImage: Image
     let orientation: NCConstants.ViewOrientation
     let style: SwiftUICheckBox.Style
@@ -34,7 +35,13 @@ struct SwiftUICheckBoxStyle: ToggleStyle {
                             maxHeight: NCConstants.IconSize.huge.rawValue
                         )
                         .foregroundColor(isDisabled ? style.disabledIconColor : style.iconColor)
-                    configuration.label
+                    VStack(alignment: .leading) {
+                        Text(title)
+                            .textStyle(.subtitle02)
+                            .foregroundStyle(Color(.text01!))
+                        configuration.label
+                            .multilineTextAlignment(.leading)
+                    }
                 }
             } else {
                 VStack(

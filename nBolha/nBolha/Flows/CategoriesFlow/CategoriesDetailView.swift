@@ -12,6 +12,7 @@ import NChainUI
 struct CategoriesDetailView: View {
     @ObservedObject private var viewModel: CategoriesViewModel
     @State private var search = ""
+    @State private var showSheet = false
     
     init(
         viewModel: CategoriesViewModel
@@ -24,7 +25,9 @@ struct CategoriesDetailView: View {
         HStack {
             Text("Home")
             Spacer()
-            Button(action: tapped) {
+            Button(action: {
+                showSheet.toggle()
+            }) {
                 Image(.filter)
             }
         }
@@ -51,5 +54,10 @@ struct CategoriesDetailView: View {
             }
         }
         .padding(.horizontal, NCConstants.Margins.large.rawValue)
+        .sheet(isPresented: $showSheet) {
+            FilterView()
+                .presentationDetents([.fraction(0.95)])
+                .presentationDragIndicator(.hidden)
+        }
     }
 }

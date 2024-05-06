@@ -11,6 +11,7 @@ import SwiftUI
 public struct SwiftUICheckBox: View {
     @Binding private var checked: Bool
     @Environment(\.isEnabled) private var isEnabled
+    private let title: String
     private let text: String
     private let selectedIcon: Image
     private let unselectedIcon: Image
@@ -23,6 +24,7 @@ public struct SwiftUICheckBox: View {
     }
     
     public init(
+        title: String,
         text: String,
         checked: Binding<Bool>,
         selectedIcon: Image? = nil,
@@ -31,6 +33,7 @@ public struct SwiftUICheckBox: View {
         style: Style = checkMarkDefaultStyle,
         tapped: Action? = nil
     ) {
+        self.title = title
         self.text = text
         self._checked = checked
         self.selectedIcon = selectedIcon ?? Image(.icnCheckboxSelected)
@@ -48,6 +51,7 @@ public struct SwiftUICheckBox: View {
         })
         .toggleStyle(
             SwiftUICheckBoxStyle(
+                title: title,
                 iconImage: iconImage,
                 orientation: orientation,
                 style: style,
