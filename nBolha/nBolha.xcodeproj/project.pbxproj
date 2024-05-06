@@ -57,6 +57,9 @@
 		503454862BD7ABC80040EC16 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503454852BD7ABC80040EC16 /* LoginResponse.swift */; };
 		5036B93C2BDBA978004496E4 /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036B93B2BDBA978004496E4 /* WrappingHStack.swift */; };
 		5036B9472BDBDB0F004496E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5036B9462BDBDB0F004496E4 /* Assets.xcassets */; };
+		5036B9492BDBDFA4004496E4 /* GetWishlistWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036B9482BDBDFA4004496E4 /* GetWishlistWorker.swift */; };
+		5036B94B2BDBDFCC004496E4 /* DeleteWishlistWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036B94A2BDBDFCC004496E4 /* DeleteWishlistWorker.swift */; };
+		5036B94D2BDBDFF1004496E4 /* AddToWishlistWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036B94C2BDBDFF1004496E4 /* AddToWishlistWorker.swift */; };
 		503D19D62BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */; };
 		503D19D72BD7B65E009AA8DD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */; };
 		503D19D92BD7C8C1009AA8DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5AD732BD796AE00ED17A9 /* Constants.swift */; };
@@ -281,6 +284,9 @@
 		503454852BD7ABC80040EC16 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		5036B93B2BDBA978004496E4 /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
 		5036B9462BDBDB0F004496E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5036B9482BDBDFA4004496E4 /* GetWishlistWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWishlistWorker.swift; sourceTree = "<group>"; };
+		5036B94A2BDBDFCC004496E4 /* DeleteWishlistWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWishlistWorker.swift; sourceTree = "<group>"; };
+		5036B94C2BDBDFF1004496E4 /* AddToWishlistWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToWishlistWorker.swift; sourceTree = "<group>"; };
 		503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementRecentlyAddedWorker.swift; sourceTree = "<group>"; };
 		503D19DA2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementRecentlyViewedWorker.swift; sourceTree = "<group>"; };
 		503D19DC2BD7D5C5009AA8DD /* AdvertisementViewedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementViewedWorker.swift; sourceTree = "<group>"; };
@@ -603,6 +609,9 @@
 				503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */,
 				503D19DA2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift */,
 				503D19DC2BD7D5C5009AA8DD /* AdvertisementViewedWorker.swift */,
+				5036B9482BDBDFA4004496E4 /* GetWishlistWorker.swift */,
+				5036B94A2BDBDFCC004496E4 /* DeleteWishlistWorker.swift */,
+				5036B94C2BDBDFF1004496E4 /* AddToWishlistWorker.swift */,
 			);
 			path = Worker;
 			sourceTree = "<group>";
@@ -1330,7 +1339,10 @@
 				503D19D92BD7C8C1009AA8DD /* Constants.swift in Sources */,
 				12C3A7F82BAC6D4100C3FEE7 /* Generic.swift in Sources */,
 				50BC479B2BC400EF0015522B /* AdvertisementWorker.swift in Sources */,
+				5036B94D2BDBDFF1004496E4 /* AddToWishlistWorker.swift in Sources */,
+				5036B9492BDBDFA4004496E4 /* GetWishlistWorker.swift in Sources */,
 				50BC479D2BC4026E0015522B /* Advertisement.swift in Sources */,
+				5036B94B2BDBDFCC004496E4 /* DeleteWishlistWorker.swift in Sources */,
 				503D19DB2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift in Sources */,
 				12C3A7F22BAC6CBF00C3FEE7 /* HttpRequestManager.swift in Sources */,
 				12C3A7FE2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift in Sources */,

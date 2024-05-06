@@ -1,14 +1,16 @@
 //
-//  AdvertisementRecentWorker.swift
+//  GetWishlistWorker.swift
 //  nBolhaNetworking
 //
-//  Created by David Balažic on 23. 4. 24.
+//  Created by David Balažic on 26. 4. 24.
 //
 
-public class AdvertisementRecentlyAddedWorker: BaseNBolhaWorker<[Advertisement]> {
+import Foundation
+
+public class GetWishlistWorker: BaseNBolhaWorker<[Advertisement]> {
     
     public override func getUrl() -> String {
-        return super.getUrl() + NBolhaApi.Endpoint.advertisementRecentlyAdded.path
+        return super.getUrl() + NBolhaApi.Endpoint.getWishlist.path
     }
 
     public override func getHeaders() -> [String : String] {
