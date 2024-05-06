@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class DeleteWishlistWorker: BaseNBolhaWorker<[String]> {
+public class DeleteWishlistWorker: BaseNBolhaWorker<String> {
     var advertisementId: Int
     
     public init(

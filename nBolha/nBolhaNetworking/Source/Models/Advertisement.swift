@@ -17,7 +17,7 @@ public struct Advertisement: Codable, Hashable {
     public let categoryId: Int?
     public let images: [ImageObject]?
     public let address: Int?
-    public let isInWishlist: Bool?
+    public var isInWishlist: Bool?
 }
 
 public struct ImageObject: Codable, Hashable {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class AddToWishlistWorker: BaseNBolhaWorker<[String]> {
+public class AddToWishlistWorker: BaseNBolhaWorker<String> {
     var advertisementId: Int
     
     public init(
@@ -17,7 +17,10 @@ public class AddToWishlistWorker: BaseNBolhaWorker<[String]> {
     }
     
     public override func getUrl() -> String {
-        return super.getUrl() + NBolhaApi.Endpoint.addToWishlist.path
+        let baseUrl = super.getUrl()
+        let endpointPath = NBolhaApi.Endpoint.addToWishlist.path
+        let queryString = "advertisementId=\(advertisementId)"
+        return "\(baseUrl)\(endpointPath)?\(queryString)"
     }
 
     public override func getHeaders() -> [String : String] {
@@ -27,12 +30,6 @@ public class AddToWishlistWorker: BaseNBolhaWorker<[String]> {
             return [:]
         }
         return ["Authorization" : "bearer \(token)"]
-    }
-    
-    public override func getParameters() -> [String : Any] {
-        return [
-            "advertisementId": advertisementId
-        ]
     }
     
     public override func getMethod() -> HTTPMethod {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class AdvertisementViewedWorker: BaseNBolhaWorker<[Advertisement]> {
+public class AdvertisementViewedWorker: BaseNBolhaWorker<Advertisement> {
     private let advertisementId: Int
     
     public init(
