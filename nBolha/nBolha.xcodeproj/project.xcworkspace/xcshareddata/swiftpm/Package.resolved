@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "KeychainAccess",
-        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess",
-        "state": {
-          "branch": "master",
-          "revision": "e0c7eebc5a4465a3c4680764f26b7a61f567cdaf",
-          "version": null
-        }
-      },
-      {
         "package": "Lottie",
         "repositoryURL": "https://github.com/airbnb/lottie-ios",
         "state": {
@@ -26,15 +17,6 @@
           "branch": null,
           "revision": "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
           "version": "5.7.1"
-        }
-      },
-      {
-        "package": "SwiftUIX",
-        "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX.git",
-        "state": {
-          "branch": null,
-          "revision": "a5a22a1aaca885c229f475af049d75a6d9144de8",
-          "version": "0.1.9"
         }
       }
     ]
