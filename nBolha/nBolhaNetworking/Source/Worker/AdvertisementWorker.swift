@@ -10,7 +10,7 @@ import Foundation
 public class AdvertisementWorker: BaseNBolhaWorker<[Advertisement]> {
 
     public override func getUrl() -> String {
-        return super.getUrl() + NBolhaApi.Endpoint.advertisement.path
+        return super.getUrl() + NBolhaApi.Endpoint.advertisements.path
     }
 
     public override func getHeaders() -> [String : String] {

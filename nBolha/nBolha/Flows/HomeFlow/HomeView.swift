@@ -28,20 +28,25 @@ struct HomeView: View {
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(UIColor.brandTertiary!))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    if viewModel.advertisements.isEmpty {
+                    if viewModel.advertisementRecentlyViewed.isEmpty {
                         EmptyRecentlyViewedView(viewModel: viewModel)
                     } else {
-                        //TODO: implement
-                        EmptyRecentlyViewedView(viewModel: viewModel)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: NCConstants.Margins.large.rawValue) {
+                                ForEach(viewModel.advertisementRecentlyViewed, id: \.advertisementId) { advertisement in
+                                    RecentlyViewedView(advertisement: advertisement)
+                                }
+                            }
+                        }
                     }
                     Text("Recently added")
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(UIColor.brandTertiary!))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    if viewModel.advertisements.isEmpty {
+                    if viewModel.advertisementRecentlyAdded.isEmpty {
                         EmptyRecentlyAddedView()
                     } else {
-                        let pairs = viewModel.advertisements.suffix(6).reversed().chunked(into: 2)
+                        let pairs = viewModel.advertisementRecentlyAdded.chunked(into: 2)
                         ForEach(pairs, id: \.self) { pair in
                             HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
                                 ForEach(pair, id: \.advertisementId) { advertisement in

@@ -17,37 +17,59 @@ protocol HomeNavigationDelegate: AnyObject {
 final class HomeViewModel: ObservableObject {
     private let navigationDelegate: HomeNavigationDelegate?
     @Published var isLoading = false
-    @Published var advertisements: [Advertisement] = []
+    @Published var advertisementRecentlyAdded: [Advertisement] = []
+    @Published var advertisementRecentlyViewed: [Advertisement] = []
     
     init(
         navigationDelegate: HomeNavigationDelegate?
     ) {
         self.navigationDelegate = navigationDelegate
         Task {
-            await loadAdvertisements()
+            await loadRecentlyAdded()
+            await loadRecentlyViewed()
         }
     }
     
-    private func loadAdvertisements() async{
+    private func loadRecentlyAdded() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
         
-        let advertisementWorker = AdvertisementWorker()
-        advertisementWorker.execute { (response, error) in
+        let advertisementRecentlyAddedWorker = AdvertisementRecentlyAddedWorker()
+        advertisementRecentlyAddedWorker.execute { (response, error) in
             if let error = error {
                 print("Error loading advertisements: \(error)")
             } else {
-                self.advertisements = response ?? []
+                self.advertisementRecentlyAdded = response ?? []
             }
         }
     }
+    
+    private func loadRecentlyViewed() async {
+        guard !isLoading else { return }
+        isLoading = true
+        defer { isLoading = false }
+        
+        let advertisementRecentlyViewedWorker = AdvertisementRecentlyViewedWorker()
+        advertisementRecentlyViewedWorker.execute { (response, error) in
+            if let error = error {
+                print("Error loading advertisements: \(error)")
+            } else {
+                self.advertisementRecentlyViewed = response ?? []
+            }
+        }
+    }
+    
     
     func startExploringTapped() {
         navigationDelegate?.showCategoriesScreen()
     }
     
     func advertisementItemTapped(selectedAdvertisement: Advertisement) {
+        let advertisementId = selectedAdvertisement.advertisementId!
+        let advertisementViewedWorker = AdvertisementViewedWorker(advertisementId: advertisementId)
+        advertisementViewedWorker.execute()
+        
         navigationDelegate?.showDetailScreen(selectedAdvertisement: selectedAdvertisement)
     }
 }
