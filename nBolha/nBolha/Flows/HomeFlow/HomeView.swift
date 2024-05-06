@@ -51,8 +51,6 @@ struct HomeView: View {
                             HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
                                 ForEach(pair, id: \.advertisementId) { advertisement in
                                     AdvertisementItemsView(
-                                        likedImage: .likeBlack,
-                                        dislikedImage: .likeWhite,
                                         advertisement: advertisement,
                                         itemTapped: {
                                             viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
