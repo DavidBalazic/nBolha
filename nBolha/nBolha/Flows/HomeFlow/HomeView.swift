@@ -34,7 +34,22 @@ struct HomeView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: NCConstants.Margins.large.rawValue) {
                                 ForEach(viewModel.advertisementRecentlyViewed, id: \.advertisementId) { advertisement in
-                                    RecentlyViewedView(advertisement: advertisement)
+                                    RecentlyViewedView(
+                                        advertisement: advertisement,
+                                        itemTapped: {
+                                            viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
+                                        },
+                                        likeButtonTapped: {
+                                            guard let advertisementId = advertisement.advertisementId else {
+                                                return
+                                            }
+                                            if advertisement.isInWishlist ?? false {
+                                                viewModel.dislikeAdvertisement(advertisementId: advertisementId)
+                                            } else {
+                                                viewModel.likeAdvertisement(advertisementId: advertisementId)
+                                            }
+                                        }
+                                    )
                                 }
                             }
                         }
@@ -54,7 +69,17 @@ struct HomeView: View {
                                         advertisement: advertisement,
                                         itemTapped: {
                                             viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
-                                        }
+                                        },
+                                        likeButtonTapped: {
+                                            guard let advertisementId = advertisement.advertisementId else {
+                                                return
+                                            }
+                                            if advertisement.isInWishlist ?? false {
+                                                viewModel.dislikeAdvertisement(advertisementId: advertisementId)
+                                            } else {
+                                                viewModel.likeAdvertisement(advertisementId: advertisementId)
+                                            }
+                                        }                                    
                                     )
                                 }
                             }

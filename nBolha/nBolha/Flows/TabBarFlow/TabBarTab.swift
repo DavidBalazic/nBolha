@@ -25,6 +25,7 @@ final class TabBarTab {
     enum Item {
         case home
         case categories
+        case wishlist
         
         var image: UIImage? {
             switch self {
@@ -32,6 +33,8 @@ final class TabBarTab {
                 return .home
             case .categories:
                 return .categories
+            case .wishlist:
+                return .wishlist
             }
         }
         var tabBarIndex: Int {
@@ -40,6 +43,8 @@ final class TabBarTab {
                 0
             case .categories:
                 1
+            case .wishlist:
+                2
             }
         }
     }

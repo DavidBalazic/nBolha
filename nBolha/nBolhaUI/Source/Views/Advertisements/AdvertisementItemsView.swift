@@ -10,16 +10,18 @@ import nBolhaNetworking
 import NChainUI
 
 public struct AdvertisementItemsView: View {
-    @State private var isLiked = false
     let advertisement: Advertisement
     let itemTapped: () -> Void
+    let likeButtonTapped: () -> Void
     
     public init(
         advertisement: Advertisement,
-        itemTapped: @escaping () -> Void
+        itemTapped: @escaping () -> Void,
+        likeButtonTapped: @escaping () -> Void
     ) {
         self.advertisement = advertisement
         self.itemTapped = itemTapped
+        self.likeButtonTapped = likeButtonTapped
     }
     
     public var body: some View {
@@ -38,7 +40,11 @@ public struct AdvertisementItemsView: View {
                             )
                             .stroke(Color(UIColor.outline02!), lineWidth: 1)
                         )
-                    LikeButton(isLiked: $isLiked)
+                    LikeButton(
+                        isLiked: advertisement.isInWishlist ?? false,
+                        advertisementId: advertisement.advertisementId ?? 0,
+                        likeButtonTapped: likeButtonTapped
+                    )
                 }
                 VStack () {
                     Text(advertisement.title ?? "Title not provided")

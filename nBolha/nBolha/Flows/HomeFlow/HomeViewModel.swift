@@ -60,6 +60,39 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    func likeAdvertisement(advertisementId: Int) {
+        let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
+        likeWorker.execute { [weak self] (_, error) in
+            guard error == nil else {
+                return
+            }
+            
+            if let index = self?.advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisementRecentlyViewed[index].isInWishlist = true
+            }
+            if let index = self?.advertisementRecentlyAdded.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisementRecentlyAdded[index].isInWishlist = true
+            }
+        }
+    }
+    
+    func dislikeAdvertisement(advertisementId: Int) {
+        let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
+        dislikeWorker.execute { [weak self] (_, error) in
+            guard error == nil else {
+                return
+            }
+            
+            if let index = self?.advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisementRecentlyViewed[index].isInWishlist = false
+            }
+            if let index = self?.advertisementRecentlyAdded.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisementRecentlyAdded[index].isInWishlist = false
+            }
+        }
+    }
+    
+    // MARK: - HomeNavigationDelegate
     
     func startExploringTapped() {
         navigationDelegate?.showCategoriesScreen()

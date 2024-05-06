@@ -39,9 +39,16 @@ struct CarouselView: View {
         }
         .overlay(alignment: .topTrailing) {
             if showLikeButton {
-                LikeButton(isLiked: $isLiked)
-                    .padding(.top, NCConstants.Margins.small.rawValue)
-                    .padding(.trailing, NCConstants.Margins.small.rawValue)
+                //TODO: implement
+                LikeButton(
+                    isLiked: isLiked,
+                    advertisementId: 1,
+                    likeButtonTapped: {
+                        
+                    }
+                )
+                .padding(.top, NCConstants.Margins.small.rawValue)
+                .padding(.trailing, NCConstants.Margins.small.rawValue)
             }
             else {
                 CloseButton() {

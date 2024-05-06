@@ -7,19 +7,26 @@
 
 import SwiftUI
 import NChainUI
+import nBolhaNetworking
 
 public struct LikeButton: View {
-    @Binding var isLiked: Bool
+    let isLiked: Bool
+    let advertisementId: Int
+    let likeButtonTapped: () -> Void
     
     public init(
-        isLiked: Binding<Bool>
+        isLiked: Bool,
+        advertisementId: Int,
+        likeButtonTapped: @escaping () -> Void
     ) {
-        self._isLiked = isLiked
+        self.isLiked = isLiked
+        self.advertisementId = advertisementId
+        self.likeButtonTapped = likeButtonTapped
     }
     
     public var body: some View {
         Button(action: {
-            isLiked.toggle()
+            likeButtonTapped()
         }) {
             ZStack {
                 Circle()

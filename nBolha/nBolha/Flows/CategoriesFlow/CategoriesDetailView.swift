@@ -89,6 +89,9 @@ struct CategoriesDetailView: View {
                                 advertisement: advertisement,
                                 itemTapped: {
                                     viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
+                                }, 
+                                likeButtonTapped: {
+                                    //TODO: implement
                                 }
                             )
                         }
