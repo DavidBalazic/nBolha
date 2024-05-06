@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import nBolhaCore
 
 public class NBolhaApi {
     public static var baseUrl: URL {
