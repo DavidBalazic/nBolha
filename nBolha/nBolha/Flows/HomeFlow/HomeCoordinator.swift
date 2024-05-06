@@ -62,5 +62,9 @@ final class HomeCoordinator: NSObject, Coordinator, HomeNavigationDelegate, UINa
         titleView.addSubview(imageView)
         
         viewController.navigationItem.titleView = titleView
+        
+        let backButtonImage = UIImage(resource: .backButton)
+        self.navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
     }
 }
