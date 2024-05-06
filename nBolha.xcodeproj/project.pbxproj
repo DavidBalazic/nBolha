@@ -10,9 +10,9 @@
 		1218ED1C2BB1A37100B3445B /* StartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1B2BB1A37100B3445B /* StartupProcess.swift */; };
 		1218ED1F2BB1A3A400B3445B /* FontLoadStartupProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */; };
 		1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */; };
+		1220279C2BCD1C6A00B6222E /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 12E3BEC02BC8F45200901C7D /* NChainUI */; };
 		126BA8A32BAB1C03002B089B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8A22BAB1C03002B089B /* AppDelegate.swift */; };
 		126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AB2BAB1C04002B089B /* Assets.xcassets */; };
-		126BA8AF2BAB1C04002B089B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */; };
 		126BA8BA2BAB1C04002B089B /* nBolhaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8B92BAB1C04002B089B /* nBolhaTests.swift */; };
 		126BA8C42BAB1C04002B089B /* nBolhaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8C32BAB1C04002B089B /* nBolhaUITests.swift */; };
 		126BA8C62BAB1C04002B089B /* nBolhaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8C52BAB1C04002B089B /* nBolhaUITestsLaunchTests.swift */; };
@@ -22,10 +22,10 @@
 		126BA8F82BAB274C002B089B /* nBolhaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126BA8F72BAB274C002B089B /* nBolhaUITests.swift */; };
 		126BA8F92BAB274C002B089B /* nBolhaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 126BA8E92BAB274C002B089B /* nBolhaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		126BA8FC2BAB274C002B089B /* nBolhaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */; };
-		126BA8FD2BAB274C002B089B /* nBolhaUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		128241E32BB19F5B0008B8C6 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 128241E22BB19F5B0008B8C6 /* NChainUI */; };
 		128B42E42BACDEA90018438B /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E32BACDEA90018438B /* View+Extensions.swift */; };
 		128B42E62BACDEE60018438B /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B42E52BACDEE60018438B /* HostingController.swift */; };
+		12BB7B6B2BC94C7D00F023C8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		12C3A7EE2BAC6CBF00C3FEE7 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E72BAC6CBF00C3FEE7 /* HttpRequest.swift */; };
 		12C3A7EF2BAC6CBF00C3FEE7 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E82BAC6CBF00C3FEE7 /* Decodable+Extensions.swift */; };
 		12C3A7F02BAC6CBF00C3FEE7 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */; };
@@ -39,6 +39,7 @@
 		12C3A7FE2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FA2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift */; };
 		12C3A7FF2BAC6D4800C3FEE7 /* BasePaginationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FB2BAC6D4800C3FEE7 /* BasePaginationWorker.swift */; };
 		12C3A8002BAC6D4800C3FEE7 /* BaseResponseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C3A7FC2BAC6D4800C3FEE7 /* BaseResponseWorker.swift */; };
+		12E51AE22BCCF6A600FB4E06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12E51AE12BCCF6A600FB4E06 /* LaunchScreen.storyboard */; };
 		12E641B82BAC304C00C7005E /* nBolhaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; };
 		12E641BF2BAC304C00C7005E /* nBolhaCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E641BE2BAC304C00C7005E /* nBolhaCoreTests.swift */; };
 		12E641C02BAC304C00C7005E /* nBolhaCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E641B22BAC304B00C7005E /* nBolhaCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,14 +47,12 @@
 		12E641C42BAC304C00C7005E /* nBolhaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12E641CD2BAC32D200C7005E /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E641CC2BAC32D200C7005E /* Globals.swift */; };
 		12E641CF2BAC32E600C7005E /* nBolhaCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; };
-		12E641D02BAC32E600C7005E /* nBolhaCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641B02BAC304B00C7005E /* nBolhaCore.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		12E641E12BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; };
 		12E641E82BAC63F200C7005E /* nBolhaNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */; };
 		12E641E92BAC63F200C7005E /* nBolhaNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12E641EC2BAC63F200C7005E /* nBolhaNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; };
 		12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12E641D92BAC63F200C7005E /* nBolhaNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5032D5292BB41813005FFF15 /* Publisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5032D5282BB41813005FFF15 /* Publisher+Extensions.swift */; };
-		5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5032D52A2BB460BE005FFF15 /* NChainUI */; };
 		503454862BD7ABC80040EC16 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503454852BD7ABC80040EC16 /* LoginResponse.swift */; };
 		503D19D62BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */; };
 		503D19D72BD7B65E009AA8DD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */; };
@@ -209,20 +208,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				126BA8FD2BAB274C002B089B /* nBolhaUI.framework in Embed Frameworks */,
 				12E641ED2BAC63F200C7005E /* nBolhaNetworking.framework in Embed Frameworks */,
 				12E641C42BAC304C00C7005E /* nBolhaCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		12E641D32BAC32E600C7005E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				12E641D02BAC32E600C7005E /* nBolhaCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,11 +220,11 @@
 		1218ED1B2BB1A37100B3445B /* StartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcess.swift; sourceTree = "<group>"; };
 		1218ED1E2BB1A3A400B3445B /* FontLoadStartupProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLoadStartupProcess.swift; sourceTree = "<group>"; };
 		1218ED202BB1A3FC00B3445B /* StartupProcessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupProcessService.swift; sourceTree = "<group>"; };
+		12309AF22BCD47EB00E4BD00 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		126753062BC9468100645915 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126BA89F2BAB1C03002B089B /* nBolha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBolha.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		126BA8A22BAB1C03002B089B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nBolha/AppDelegate.swift; sourceTree = "<group>"; };
 		126BA8AB2BAB1C04002B089B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		126BA8AE2BAB1C04002B089B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		126BA8B02BAB1C04002B089B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		126BA8B52BAB1C04002B089B /* nBolhaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8B92BAB1C04002B089B /* nBolhaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaTests.swift; sourceTree = "<group>"; };
 		126BA8BF2BAB1C04002B089B /* nBolhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,7 +236,7 @@
 		126BA8E92BAB274C002B089B /* nBolhaUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nBolhaUI.h; sourceTree = "<group>"; };
 		126BA8F02BAB274C002B089B /* nBolhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126BA8F72BAB274C002B089B /* nBolhaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nBolhaUITests.swift; sourceTree = "<group>"; };
-		128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "nchain-ui-lib-ios"; sourceTree = "<group>"; };
+		128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "nchain-ui-lib-ios"; path = "nBolha/nchain-ui-lib-ios"; sourceTree = "<group>"; };
 		128B42E32BACDEA90018438B /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		128B42E52BACDEE60018438B /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		12C3A7E72BAC6CBF00C3FEE7 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
@@ -265,6 +252,7 @@
 		12C3A7FA2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePlainResponseWorker.swift; sourceTree = "<group>"; };
 		12C3A7FB2BAC6D4800C3FEE7 /* BasePaginationWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePaginationWorker.swift; sourceTree = "<group>"; };
 		12C3A7FC2BAC6D4800C3FEE7 /* BaseResponseWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponseWorker.swift; sourceTree = "<group>"; };
+		12E51AE12BCCF6A600FB4E06 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12E641B02BAC304B00C7005E /* nBolhaCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nBolhaCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E641B22BAC304B00C7005E /* nBolhaCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nBolhaCore.h; sourceTree = "<group>"; };
 		12E641B72BAC304C00C7005E /* nBolhaCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nBolhaCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -365,8 +353,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1220279C2BCD1C6A00B6222E /* NChainUI in Frameworks */,
+				12BB7B6B2BC94C7D00F023C8 /* (null) in Frameworks */,
 				12E641CF2BAC32E600C7005E /* nBolhaCore.framework in Frameworks */,
-				5032D52B2BB460BE005FFF15 /* NChainUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +424,6 @@
 				12E641DA2BAC63F200C7005E /* nBolhaNetworking */,
 				12E641E62BAC63F200C7005E /* nBolhaNetworkingTests */,
 				126BA8A02BAB1C03002B089B /* Products */,
-				12E641CE2BAC32E600C7005E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -461,10 +449,11 @@
 				126BA8D22BAB1CA7002B089B /* Flows */,
 				126BA8D32BAB1CAD002B089B /* Resources */,
 				126BA8D42BAB1CE2002B089B /* Utilities */,
+				12E51AE12BCCF6A600FB4E06 /* LaunchScreen.storyboard */,
+				12309AF22BCD47EB00E4BD00 /* Info.plist */,
 				126BA8A22BAB1C03002B089B /* AppDelegate.swift */,
-				126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */,
-				126BA8B02BAB1C04002B089B /* Info.plist */,
 				128241DF2BB19E420008B8C6 /* nchain-ui-lib-ios */,
+				126753062BC9468100645915 /* LaunchScreen.storyboard */,
 			);
 			path = nBolha;
 			sourceTree = "<group>";
@@ -474,7 +463,8 @@
 			children = (
 				126BA8B92BAB1C04002B089B /* nBolhaTests.swift */,
 			);
-			path = nBolhaTests;
+			name = nBolhaTests;
+			path = nBolha/nBolhaTests;
 			sourceTree = "<group>";
 		};
 		126BA8C22BAB1C04002B089B /* nBolhaUITests */ = {
@@ -483,7 +473,8 @@
 				126BA8C32BAB1C04002B089B /* nBolhaUITests.swift */,
 				126BA8C52BAB1C04002B089B /* nBolhaUITestsLaunchTests.swift */,
 			);
-			path = nBolhaUITests;
+			name = nBolhaUITests;
+			path = nBolha/nBolhaUITests;
 			sourceTree = "<group>";
 		};
 		126BA8D22BAB1CA7002B089B /* Flows */ = {
@@ -497,7 +488,7 @@
 				505BA4E22BADCF6800FE9F5A /* LoginFlow */,
 				126BA8D82BAB1DC4002B089B /* AppLaunch */,
 			);
-			path = Flows;
+			name = Flows;
 			sourceTree = "<group>";
 		};
 		126BA8D32BAB1CAD002B089B /* Resources */ = {
@@ -505,7 +496,8 @@
 			children = (
 				126BA8AB2BAB1C04002B089B /* Assets.xcassets */,
 			);
-			path = Resources;
+			name = Resources;
+			path = nBolha/Resources;
 			sourceTree = "<group>";
 		};
 		126BA8D42BAB1CE2002B089B /* Utilities */ = {
@@ -514,7 +506,8 @@
 				1218ED1D2BB1A39300B3445B /* Startup */,
 				126BA8D52BAB1D13002B089B /* Protocols */,
 			);
-			path = Utilities;
+			name = Utilities;
+			path = nBolha/Utilities;
 			sourceTree = "<group>";
 		};
 		126BA8D52BAB1D13002B089B /* Protocols */ = {
@@ -530,7 +523,8 @@
 			children = (
 				126BA8D92BAB1DE2002B089B /* AppLaunchCoordinator.swift */,
 			);
-			path = AppLaunch;
+			name = AppLaunch;
+			path = nBolha/Flows/AppLaunch;
 			sourceTree = "<group>";
 		};
 		126BA8E82BAB274C002B089B /* nBolhaUI */ = {
@@ -540,7 +534,8 @@
 				126BA9052BAB2788002B089B /* Source */,
 				126BA8E92BAB274C002B089B /* nBolhaUI.h */,
 			);
-			path = nBolhaUI;
+			name = nBolhaUI;
+			path = nBolha/nBolhaUI;
 			sourceTree = "<group>";
 		};
 		126BA8F62BAB274C002B089B /* nBolhaUITests */ = {
@@ -548,7 +543,8 @@
 			children = (
 				126BA8F72BAB274C002B089B /* nBolhaUITests.swift */,
 			);
-			path = nBolhaUITests;
+			name = nBolhaUITests;
+			path = nBolha/nBolhaUITests;
 			sourceTree = "<group>";
 		};
 		126BA9052BAB2788002B089B /* Source */ = {
@@ -617,7 +613,8 @@
 				12E641CB2BAC32C100C7005E /* Source */,
 				12E641B22BAC304B00C7005E /* nBolhaCore.h */,
 			);
-			path = nBolhaCore;
+			name = nBolhaCore;
+			path = nBolha/nBolhaCore;
 			sourceTree = "<group>";
 		};
 		12E641BD2BAC304C00C7005E /* nBolhaCoreTests */ = {
@@ -625,7 +622,8 @@
 			children = (
 				12E641BE2BAC304C00C7005E /* nBolhaCoreTests.swift */,
 			);
-			path = nBolhaCoreTests;
+			name = nBolhaCoreTests;
+			path = nBolha/nBolhaCoreTests;
 			sourceTree = "<group>";
 		};
 		12E641CB2BAC32C100C7005E /* Source */ = {
@@ -638,20 +636,14 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		12E641CE2BAC32E600C7005E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		12E641DA2BAC63F200C7005E /* nBolhaNetworking */ = {
 			isa = PBXGroup;
 			children = (
 				12E641F42BAC63F600C7005E /* Source */,
 				12E641DB2BAC63F200C7005E /* nBolhaNetworking.h */,
 			);
-			path = nBolhaNetworking;
+			name = nBolhaNetworking;
+			path = nBolha/nBolhaNetworking;
 			sourceTree = "<group>";
 		};
 		12E641E62BAC63F200C7005E /* nBolhaNetworkingTests */ = {
@@ -659,7 +651,8 @@
 			children = (
 				12E641E72BAC63F200C7005E /* nBolhaNetworkingTests.swift */,
 			);
-			path = nBolhaNetworkingTests;
+			name = nBolhaNetworkingTests;
+			path = nBolha/nBolhaNetworkingTests;
 			sourceTree = "<group>";
 		};
 		12E641F42BAC63F600C7005E /* Source */ = {
@@ -725,7 +718,8 @@
 				50907A752BB17B9F004301C5 /* NoConnectionView.swift */,
 				50907A772BB19B2C004301C5 /* LoginCoordinator.swift */,
 			);
-			path = LoginFlow;
+			name = LoginFlow;
+			path = nBolha/Flows/LoginFlow;
 			sourceTree = "<group>";
 		};
 		50805A832BC801B3003EB2CC /* CategoriesFlow */ = {
@@ -738,7 +732,8 @@
 				50491C592BCEBC3100FDB8DA /* EmptyCategoriesView.swift */,
 				50491C5B2BCEBC5200FDB8DA /* CategoriesDetailView.swift */,
 			);
-			path = CategoriesFlow;
+			name = CategoriesFlow;
+			path = nBolha/Flows/CategoriesFlow;
 			sourceTree = "<group>";
 		};
 		50AE146C2BD6974F00B4EF77 /* DetailFlow */ = {
@@ -750,7 +745,8 @@
 				50AE14752BD6A70600B4EF77 /* CarouselView.swift */,
 				50AE14732BD6A6F500B4EF77 /* CarouselViewDialog.swift */,
 			);
-			path = DetailFlow;
+			name = DetailFlow;
+			path = nBolha/Flows/DetailFlow;
 			sourceTree = "<group>";
 		};
 		50BBE6182BB55680004AA5BB /* Utilities */ = {
@@ -790,7 +786,8 @@
 				50BC47982BC3E7860015522B /* EmptyRecentlyViewedView.swift */,
 				50E2F1512BC6CF9300553B4F /* RecentlyViewedView.swift */,
 			);
-			path = HomeFlow;
+			name = HomeFlow;
+			path = nBolha/Flows/HomeFlow;
 			sourceTree = "<group>";
 		};
 		50CE31472BCD66A2004F9566 /* TabBarFlow */ = {
@@ -801,7 +798,8 @@
 				50491C512BCE4D0A00FDB8DA /* TabBarTab.swift */,
 				50491C532BCE63F700FDB8DA /* TabBarCoordinator.swift */,
 			);
-			path = TabBarFlow;
+			name = TabBarFlow;
+			path = nBolha/Flows/TabBarFlow;
 			sourceTree = "<group>";
 		};
 		50E7180F2BBD764A00B79C9C /* Api */ = {
@@ -923,7 +921,6 @@
 				126BA8E32BAB274C002B089B /* Sources */,
 				126BA8E42BAB274C002B089B /* Frameworks */,
 				126BA8E52BAB274C002B089B /* Resources */,
-				12E641D32BAC32E600C7005E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -932,7 +929,7 @@
 			);
 			name = nBolhaUI;
 			packageProductDependencies = (
-				5032D52A2BB460BE005FFF15 /* NChainUI */,
+				12E3BEC02BC8F45200901C7D /* NChainUI */,
 			);
 			productName = nBolhaUI;
 			productReference = 126BA8E72BAB274C002B089B /* nBolhaUI.framework */;
@@ -1116,8 +1113,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				126BA8AF2BAB1C04002B089B /* LaunchScreen.storyboard in Resources */,
 				126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */,
+				12E51AE22BCCF6A600FB4E06 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1394,17 +1391,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		126BA8AD2BAB1C04002B089B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				126BA8AE2BAB1C04002B089B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		126BA8C72BAB1C04002B089B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1532,11 +1518,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 53L833R9DC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nBolha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1562,11 +1549,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 53L833R9DC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nBolha/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2079,7 +2067,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = NChainUI;
 		};
-		5032D52A2BB460BE005FFF15 /* NChainUI */ = {
+		12E3BEC02BC8F45200901C7D /* NChainUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NChainUI;
 		};
