@@ -22,7 +22,9 @@ final class WishlistCoordinator: NSObject, Coordinator, WishlistNavigationDelega
         let viewModel = WishlistViewModel(
             navigationDelegate: self
         )
-        let view = WishlistView()
+        let view = WishlistView(
+            viewModel: viewModel
+        )
         
         let navController = navigationController ?? UINavigationController()
         navigationController = navController

@@ -14,20 +14,30 @@ protocol WishlistNavigationDelegate: AnyObject {
 
 final class WishlistViewModel: ObservableObject {
     private let navigationDelegate: WishlistNavigationDelegate?
+    @Published var isLoading = false
+    @Published var wishlistAdvertisements: [Advertisement] = []
     
     init(
         navigationDelegate: WishlistNavigationDelegate?
     ) {
         self.navigationDelegate = navigationDelegate
+        Task {
+            await loadWishlist()
+        }
     }
     
-    private func likeAdvertisement(advertisementId: Int) {
-        let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
-        likeWorker.execute()
-    }
-    
-    private func dislikeAdvertisement(advertisementId: Int) {
-        let likeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
-        likeWorker.execute()
+    func loadWishlist() async {
+        guard !isLoading else { return }
+        isLoading = true
+        defer { isLoading = false }
+        
+        let getWishlistWorker = GetWishlistWorker()
+        getWishlistWorker.execute { (response, error) in
+            if let error = error {
+                print("Error loading advertisements: \(error)")
+            } else {
+                self.wishlistAdvertisements = response ?? []
+            }
+        }
     }
 }

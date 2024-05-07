@@ -32,4 +32,24 @@ final class DetailViewModel: ObservableObject {
     func enableNavigations() {
         navigationDelegate?.enableNavigations()
     }
+    
+    func likeAdvertisement(advertisementId: Int) {
+        let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
+        likeWorker.execute { [weak self] (_, error) in
+            guard error == nil else {
+                return
+            }
+            self?.advertisement.isInWishlist = true
+        }
+    }
+    
+    func dislikeAdvertisement(advertisementId: Int) {
+        let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
+        dislikeWorker.execute { [weak self] (_, error) in
+            guard error == nil else {
+                return
+            }
+            self?.advertisement.isInWishlist = false
+        }
+    }
 }

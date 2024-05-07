@@ -11,7 +11,7 @@ import NChainUI
 
 struct CategoriesDetailView: View {
     @ObservedObject private var viewModel: CategoriesViewModel
-    @ObservedObject private var filterViewModel : FilterViewModel
+    @ObservedObject private var filterViewModel: FilterViewModel
     @State private var search = ""
     @State private var isFilterTapped = false
     @State private var showChipView = false
@@ -91,7 +91,14 @@ struct CategoriesDetailView: View {
                                     viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
                                 }, 
                                 likeButtonTapped: {
-                                    //TODO: implement
+                                    guard let advertisementId = advertisement.advertisementId else {
+                                        return
+                                    }
+                                    if advertisement.isInWishlist ?? false {
+                                        viewModel.dislikeAdvertisement(advertisementId: advertisementId)
+                                    } else {
+                                        viewModel.likeAdvertisement(advertisementId: advertisementId)
+                                    }
                                 }
                             )
                         }

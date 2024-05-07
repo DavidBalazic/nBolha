@@ -30,7 +30,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    private func loadRecentlyAdded() async {
+    func loadRecentlyAdded() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
@@ -45,7 +45,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    private func loadRecentlyViewed() async {
+    func loadRecentlyViewed() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }

@@ -88,6 +88,12 @@ struct HomeView: View {
                 }
             }
             .padding(.horizontal, NCConstants.Margins.large.rawValue)
+            .onAppear {
+                Task {
+                    await viewModel.loadRecentlyViewed()
+                    await viewModel.loadRecentlyAdded()
+                }
+            }
         }
     }
 }

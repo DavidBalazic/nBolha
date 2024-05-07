@@ -706,8 +706,8 @@
 		502823342BE8A80E0019C2C7 /* WishlistFlow */ = {
 			isa = PBXGroup;
 			children = (
-				502823352BE8A8360019C2C7 /* WishlistViewModel.swift */,
 				502823372BE8AC1D0019C2C7 /* WishlistView.swift */,
+				502823352BE8A8360019C2C7 /* WishlistViewModel.swift */,
 				502823392BE8AF7F0019C2C7 /* WishlistCoordinator.swift */,
 			);
 			path = WishlistFlow;

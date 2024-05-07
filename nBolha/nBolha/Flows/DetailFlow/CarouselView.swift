@@ -8,12 +8,14 @@
 import SwiftUI
 import nBolhaUI
 import NChainUI
+import nBolhaNetworking
 
 struct CarouselView: View {
     let images: [String] = ["Illustrations", "Illustrations2", "Illustrations3"]
     let showLikeButton: Bool
+    let advertisement: Advertisement
+    let likeButtonTapped: (() -> Void)?
     @State private var currentIndex = 0
-    @State private var isLiked = false
     @Binding var isDialogPresented: Bool
     
     var body: some View {
@@ -38,17 +40,15 @@ struct CarouselView: View {
             }
         }
         .overlay(alignment: .topTrailing) {
-            if showLikeButton {
-                //TODO: implement
+            if showLikeButton, let likeButtonTapped = likeButtonTapped {
                 LikeButton(
-                    isLiked: isLiked,
-                    advertisementId: 1,
-                    likeButtonTapped: {
-                        
-                    }
+                    isLiked: advertisement.isInWishlist ?? false,
+                    advertisementId: advertisement.advertisementId ?? 0,
+                    likeButtonTapped: likeButtonTapped
                 )
                 .padding(.top, NCConstants.Margins.small.rawValue)
                 .padding(.trailing, NCConstants.Margins.small.rawValue)
+                
             }
             else {
                 CloseButton() {

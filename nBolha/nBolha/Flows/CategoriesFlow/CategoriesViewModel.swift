@@ -11,7 +11,6 @@ import nBolhaNetworking
 protocol CategoriesNavigationDelegate: AnyObject {
     func showCategoriesDetailScreen()
     func showCategoriesScreen()
-    func showFilterScreen()
     func showDetailScreen(selectedAdvertisement: Advertisement)
 }
 
@@ -30,7 +29,7 @@ final class CategoriesViewModel: ObservableObject {
         }
     }
     
-    private func loadAdvertisements() async{
+    func loadAdvertisements() async{
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
@@ -41,6 +40,32 @@ final class CategoriesViewModel: ObservableObject {
                 print("Error loading advertisements: \(error)")
             } else {
                 self.advertisements = response ?? []
+            }
+        }
+    }
+    
+    func likeAdvertisement(advertisementId: Int) {
+        let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
+        likeWorker.execute { [weak self] (_, error) in
+            guard error == nil else {
+                return
+            }
+            
+            if let index = self?.advertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisements[index].isInWishlist = true
+            }
+        }
+    }
+    
+    func dislikeAdvertisement(advertisementId: Int) {
+        let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
+        dislikeWorker.execute { [weak self] (_, error) in
+            guard error == nil else {
+                return
+            }
+            
+            if let index = self?.advertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisements[index].isInWishlist = false
             }
         }
     }
@@ -59,9 +84,5 @@ final class CategoriesViewModel: ObservableObject {
         advertisementViewedWorker.execute()
         
         navigationDelegate?.showDetailScreen(selectedAdvertisement: selectedAdvertisement)
-    }
-    
-    func showFilterTapped() {
-        navigationDelegate?.showFilterScreen()
     }
 }
