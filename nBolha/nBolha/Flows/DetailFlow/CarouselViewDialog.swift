@@ -25,6 +25,7 @@ struct CarouselViewDialog: View {
                 showLikeButton: false,
                 advertisement: advertisement,
                 likeButtonTapped: nil,
+                dislikeButtonTapped: nil,
                 isDialogPresented: $isDialogPresented
             )
         }

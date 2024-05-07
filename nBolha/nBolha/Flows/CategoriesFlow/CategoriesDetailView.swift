@@ -91,14 +91,10 @@ struct CategoriesDetailView: View {
                                     viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
                                 }, 
                                 likeButtonTapped: {
-                                    guard let advertisementId = advertisement.advertisementId else {
-                                        return
-                                    }
-                                    if advertisement.isInWishlist ?? false {
-                                        viewModel.dislikeAdvertisement(advertisementId: advertisementId)
-                                    } else {
-                                        viewModel.likeAdvertisement(advertisementId: advertisementId)
-                                    }
+                                    viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                },
+                                dislikeButtonTapped: {
+                                    viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
                                 }
                             )
                         }
@@ -108,9 +104,14 @@ struct CategoriesDetailView: View {
         }
         .padding(.horizontal, NCConstants.Margins.large.rawValue)
         .sheet(isPresented: $isFilterTapped) {
-            FilterView(viewModel: filterViewModel, isFilterTapped: $isFilterTapped, selectedRadioButton: filterViewModel.selectedRadioButton, selectedCheckBoxes: filterViewModel.selectedCheckBoxes)
-                .presentationDetents([.fraction(0.95)])
-                .presentationDragIndicator(.hidden)
+            FilterView(
+                viewModel: filterViewModel,
+                isFilterTapped: $isFilterTapped,
+                selectedRadioButton: filterViewModel.selectedRadioButton,
+                selectedCheckBoxes: filterViewModel.selectedCheckBoxes
+            )
+            .presentationDetents([.fraction(0.95)])
+            .presentationDragIndicator(.hidden)
         }
     }
 }

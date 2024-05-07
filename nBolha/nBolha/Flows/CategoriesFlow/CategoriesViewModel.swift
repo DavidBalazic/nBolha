@@ -44,12 +44,10 @@ final class CategoriesViewModel: ObservableObject {
         }
     }
     
-    func likeAdvertisement(advertisementId: Int) {
+    private func likeAdvertisement(advertisementId: Int) async {
         let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
         likeWorker.execute { [weak self] (_, error) in
-            guard error == nil else {
-                return
-            }
+            guard error == nil else { return }
             
             if let index = self?.advertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
                 self?.advertisements[index].isInWishlist = true
@@ -57,17 +55,23 @@ final class CategoriesViewModel: ObservableObject {
         }
     }
     
-    func dislikeAdvertisement(advertisementId: Int) {
+    private func dislikeAdvertisement(advertisementId: Int) async {
         let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
         dislikeWorker.execute { [weak self] (_, error) in
-            guard error == nil else {
-                return
-            }
+            guard error == nil else { return }
             
             if let index = self?.advertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
                 self?.advertisements[index].isInWishlist = false
             }
         }
+    }
+    
+    func likeAdvertisementTapped(advertisementId: Int) {
+        Task { await likeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func dislikeAdvertisementTapped(advertisementId: Int) {
+        Task { await dislikeAdvertisement(advertisementId: advertisementId) }
     }
     
     func categoriesItemTapped() {

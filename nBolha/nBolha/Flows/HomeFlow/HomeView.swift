@@ -40,14 +40,10 @@ struct HomeView: View {
                                             viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
                                         },
                                         likeButtonTapped: {
-                                            guard let advertisementId = advertisement.advertisementId else {
-                                                return
-                                            }
-                                            if advertisement.isInWishlist ?? false {
-                                                viewModel.dislikeAdvertisement(advertisementId: advertisementId)
-                                            } else {
-                                                viewModel.likeAdvertisement(advertisementId: advertisementId)
-                                            }
+                                            viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                        },
+                                        dislikeButtonTapped: {
+                                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
                                         }
                                     )
                                 }
@@ -71,15 +67,11 @@ struct HomeView: View {
                                             viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
                                         },
                                         likeButtonTapped: {
-                                            guard let advertisementId = advertisement.advertisementId else {
-                                                return
-                                            }
-                                            if advertisement.isInWishlist ?? false {
-                                                viewModel.dislikeAdvertisement(advertisementId: advertisementId)
-                                            } else {
-                                                viewModel.likeAdvertisement(advertisementId: advertisementId)
-                                            }
-                                        }                                    
+                                            viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                        },
+                                        dislikeButtonTapped: {
+                                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                        }
                                     )
                                 }
                             }

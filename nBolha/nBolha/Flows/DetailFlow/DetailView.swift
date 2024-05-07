@@ -28,14 +28,10 @@ public struct DetailView: View {
                     showLikeButton: true,
                     advertisement: viewModel.advertisement,
                     likeButtonTapped: {
-                        guard let advertisementId = viewModel.advertisement.advertisementId else {
-                            return
-                        }
-                        if viewModel.advertisement.isInWishlist ?? false {
-                            viewModel.dislikeAdvertisement(advertisementId: advertisementId)
-                        } else {
-                            viewModel.likeAdvertisement(advertisementId: advertisementId)
-                        }
+                        viewModel.likeAdvertisementTapped(advertisementId: viewModel.advertisement.advertisementId ?? 0)
+                    },
+                    dislikeButtonTapped: {
+                        viewModel.dislikeAdvertisementTapped(advertisementId: viewModel.advertisement.advertisementId ?? 0)
                     },
                     isDialogPresented: $isDialogPresented
                 )
@@ -124,16 +120,6 @@ public struct DetailView: View {
             if isDialogPresented {
                 CarouselViewDialog(
                     advertisement: viewModel.advertisement,
-//                    likeButtonTapped: {
-//                        guard let advertisementId = viewModel.advertisement.advertisementId else {
-//                            return
-//                        }
-//                        if viewModel.advertisement.isInWishlist ?? false {
-//                            viewModel.dislikeAdvertisement(advertisementId: advertisementId)
-//                        } else {
-//                            viewModel.likeAdvertisement(advertisementId: advertisementId)
-//                        }
-//                    },
                     isDialogPresented: $isDialogPresented
                 )
                 .onAppear {

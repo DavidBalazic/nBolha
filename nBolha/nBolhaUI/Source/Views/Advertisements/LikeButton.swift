@@ -13,20 +13,27 @@ public struct LikeButton: View {
     let isLiked: Bool
     let advertisementId: Int
     let likeButtonTapped: () -> Void
+    let dislikeButtonTapped: () -> Void
     
     public init(
         isLiked: Bool,
         advertisementId: Int,
-        likeButtonTapped: @escaping () -> Void
+        likeButtonTapped: @escaping () -> Void,
+        dislikeButtonTapped: @escaping () -> Void
     ) {
         self.isLiked = isLiked
         self.advertisementId = advertisementId
         self.likeButtonTapped = likeButtonTapped
+        self.dislikeButtonTapped = dislikeButtonTapped
     }
     
     public var body: some View {
         Button(action: {
-            likeButtonTapped()
+            if !isLiked {
+                likeButtonTapped()
+            } else {
+                dislikeButtonTapped()
+            }
         }) {
             ZStack {
                 Circle()

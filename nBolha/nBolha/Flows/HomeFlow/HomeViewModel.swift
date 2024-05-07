@@ -60,12 +60,10 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func likeAdvertisement(advertisementId: Int) {
+    private func likeAdvertisement(advertisementId: Int) async {
         let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
         likeWorker.execute { [weak self] (_, error) in
-            guard error == nil else {
-                return
-            }
+            guard error == nil else { return }
             
             if let index = self?.advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
                 self?.advertisementRecentlyViewed[index].isInWishlist = true
@@ -76,12 +74,10 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func dislikeAdvertisement(advertisementId: Int) {
+    private func dislikeAdvertisement(advertisementId: Int) async {
         let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
         dislikeWorker.execute { [weak self] (_, error) in
-            guard error == nil else {
-                return
-            }
+            guard error == nil else { return }
             
             if let index = self?.advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
                 self?.advertisementRecentlyViewed[index].isInWishlist = false
@@ -90,6 +86,14 @@ final class HomeViewModel: ObservableObject {
                 self?.advertisementRecentlyAdded[index].isInWishlist = false
             }
         }
+    }
+    
+    func likeAdvertisementTapped(advertisementId: Int) {
+        Task { await likeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func dislikeAdvertisementTapped(advertisementId: Int) {
+        Task { await dislikeAdvertisement(advertisementId: advertisementId) }
     }
     
     // MARK: - HomeNavigationDelegate

@@ -15,6 +15,7 @@ struct CarouselView: View {
     let showLikeButton: Bool
     let advertisement: Advertisement
     let likeButtonTapped: (() -> Void)?
+    let dislikeButtonTapped: (() -> Void)?
     @State private var currentIndex = 0
     @Binding var isDialogPresented: Bool
     
@@ -40,11 +41,12 @@ struct CarouselView: View {
             }
         }
         .overlay(alignment: .topTrailing) {
-            if showLikeButton, let likeButtonTapped = likeButtonTapped {
+            if showLikeButton, let likeButtonTapped = likeButtonTapped, let dislikeButtonTapped = dislikeButtonTapped {
                 LikeButton(
                     isLiked: advertisement.isInWishlist ?? false,
                     advertisementId: advertisement.advertisementId ?? 0,
-                    likeButtonTapped: likeButtonTapped
+                    likeButtonTapped: likeButtonTapped,
+                    dislikeButtonTapped: dislikeButtonTapped
                 )
                 .padding(.top, NCConstants.Margins.small.rawValue)
                 .padding(.trailing, NCConstants.Margins.small.rawValue)

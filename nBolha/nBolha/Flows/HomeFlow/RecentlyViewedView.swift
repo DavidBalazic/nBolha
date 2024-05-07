@@ -14,15 +14,18 @@ struct RecentlyViewedView: View {
     let advertisement: Advertisement
     let itemTapped: () -> Void
     let likeButtonTapped: () -> Void
+    let dislikeButtonTapped: () -> Void
     
     public init(
         advertisement: Advertisement,
         itemTapped: @escaping () -> Void,
-        likeButtonTapped: @escaping () -> Void
+        likeButtonTapped: @escaping () -> Void,
+        dislikeButtonTapped: @escaping () -> Void
     ) {
         self.advertisement = advertisement
         self.itemTapped = itemTapped
         self.likeButtonTapped = likeButtonTapped
+        self.dislikeButtonTapped = dislikeButtonTapped
     }
     
     var body: some View {
@@ -45,7 +48,8 @@ struct RecentlyViewedView: View {
                     LikeButton(
                         isLiked: advertisement.isInWishlist ?? false,
                         advertisementId: advertisement.advertisementId ?? 0,
-                        likeButtonTapped: likeButtonTapped
+                        likeButtonTapped: likeButtonTapped,
+                        dislikeButtonTapped: dislikeButtonTapped
                     )
                 }
             }

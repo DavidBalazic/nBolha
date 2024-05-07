@@ -33,23 +33,29 @@ final class DetailViewModel: ObservableObject {
         navigationDelegate?.enableNavigations()
     }
     
-    func likeAdvertisement(advertisementId: Int) {
+    private func likeAdvertisement(advertisementId: Int) async {
         let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
         likeWorker.execute { [weak self] (_, error) in
-            guard error == nil else {
-                return
-            }
+            guard error == nil else { return }
+            
             self?.advertisement.isInWishlist = true
         }
     }
     
-    func dislikeAdvertisement(advertisementId: Int) {
+    private func dislikeAdvertisement(advertisementId: Int) async {
         let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
         dislikeWorker.execute { [weak self] (_, error) in
-            guard error == nil else {
-                return
-            }
+            guard error == nil else { return }
+            
             self?.advertisement.isInWishlist = false
         }
+    }
+    
+    func likeAdvertisementTapped(advertisementId: Int) {
+        Task { await likeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func dislikeAdvertisementTapped(advertisementId: Int) {
+        Task { await dislikeAdvertisement(advertisementId: advertisementId) }
     }
 }
