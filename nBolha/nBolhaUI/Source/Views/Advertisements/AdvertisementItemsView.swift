@@ -40,11 +40,12 @@ public struct AdvertisementItemsView: View {
                         )
                     LikeButton(isLiked: $isLiked)
                 }
-                VStack () {
+                VStack(alignment: .leading) {
                     Text(advertisement.title ?? "Title not provided")
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(UIColor.text01!))
                         .lineLimit(2)
+                        .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text(String(format: "%.2f €", advertisement.price ?? "0"))
                         .textStyle(.body02)
