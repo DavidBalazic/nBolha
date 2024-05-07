@@ -79,7 +79,7 @@ final class CategoriesViewModel: ObservableObject {
     }
     
     func advertisementItemTapped(selectedAdvertisement: Advertisement) {
-        let advertisementId = selectedAdvertisement.advertisementId!
+        guard let advertisementId = selectedAdvertisement.advertisementId else { return }
         let advertisementViewedWorker = AdvertisementViewedWorker(advertisementId: advertisementId)
         advertisementViewedWorker.execute()
         
