@@ -30,7 +30,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    private func loadRecentlyAdded() async {
+    func loadRecentlyAdded() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
@@ -45,7 +45,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    private func loadRecentlyViewed() async {
+    func loadRecentlyViewed() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
@@ -60,6 +60,43 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    private func likeAdvertisement(advertisementId: Int) async {
+        let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
+        likeWorker.execute { [weak self] (_, error) in
+            guard error == nil else { return }
+            
+            if let index = self?.advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisementRecentlyViewed[index].isInWishlist = true
+            }
+            if let index = self?.advertisementRecentlyAdded.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisementRecentlyAdded[index].isInWishlist = true
+            }
+        }
+    }
+    
+    private func dislikeAdvertisement(advertisementId: Int) async {
+        let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
+        dislikeWorker.execute { [weak self] (_, error) in
+            guard error == nil else { return }
+            
+            if let index = self?.advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisementRecentlyViewed[index].isInWishlist = false
+            }
+            if let index = self?.advertisementRecentlyAdded.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.advertisementRecentlyAdded[index].isInWishlist = false
+            }
+        }
+    }
+    
+    func likeAdvertisementTapped(advertisementId: Int) {
+        Task { await likeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func dislikeAdvertisementTapped(advertisementId: Int) {
+        Task { await dislikeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    // MARK: - HomeNavigationDelegate
     
     func startExploringTapped() {
         navigationDelegate?.showCategoriesScreen()

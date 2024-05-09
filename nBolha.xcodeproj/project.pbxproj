@@ -58,6 +58,9 @@
 		503454862BD7ABC80040EC16 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503454852BD7ABC80040EC16 /* LoginResponse.swift */; };
 		5036B93C2BDBA978004496E4 /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036B93B2BDBA978004496E4 /* WrappingHStack.swift */; };
 		5036B9472BDBDB0F004496E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5036B9462BDBDB0F004496E4 /* Assets.xcassets */; };
+		5036B9492BDBDFA4004496E4 /* GetWishlistWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036B9482BDBDFA4004496E4 /* GetWishlistWorker.swift */; };
+		5036B94B2BDBDFCC004496E4 /* DeleteWishlistWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036B94A2BDBDFCC004496E4 /* DeleteWishlistWorker.swift */; };
+		5036B94D2BDBDFF1004496E4 /* AddToWishlistWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036B94C2BDBDFF1004496E4 /* AddToWishlistWorker.swift */; };
 		503D19D62BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */; };
 		503D19D72BD7B65E009AA8DD /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */; };
 		503D19D92BD7C8C1009AA8DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5AD732BD796AE00ED17A9 /* Constants.swift */; };
@@ -273,6 +276,9 @@
 		503454852BD7ABC80040EC16 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		5036B93B2BDBA978004496E4 /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
 		5036B9462BDBDB0F004496E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5036B9482BDBDFA4004496E4 /* GetWishlistWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWishlistWorker.swift; sourceTree = "<group>"; };
+		5036B94A2BDBDFCC004496E4 /* DeleteWishlistWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWishlistWorker.swift; sourceTree = "<group>"; };
+		5036B94C2BDBDFF1004496E4 /* AddToWishlistWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToWishlistWorker.swift; sourceTree = "<group>"; };
 		503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementRecentlyAddedWorker.swift; sourceTree = "<group>"; };
 		503D19DA2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementRecentlyViewedWorker.swift; sourceTree = "<group>"; };
 		503D19DC2BD7D5C5009AA8DD /* AdvertisementViewedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementViewedWorker.swift; sourceTree = "<group>"; };
@@ -490,6 +496,7 @@
 		126BA8D22BAB1CA7002B089B /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				502823342BE8A80E0019C2C7 /* WishlistFlow */,
 				503D19E02BD7E390009AA8DD /* FilterFlow */,
 				50AE146C2BD6974F00B4EF77 /* DetailFlow */,
 				50CE31472BCD66A2004F9566 /* TabBarFlow */,
@@ -604,6 +611,9 @@
 				503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */,
 				503D19DA2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift */,
 				503D19DC2BD7D5C5009AA8DD /* AdvertisementViewedWorker.swift */,
+				5036B9482BDBDFA4004496E4 /* GetWishlistWorker.swift */,
+				5036B94A2BDBDFCC004496E4 /* DeleteWishlistWorker.swift */,
+				5036B94C2BDBDFF1004496E4 /* AddToWishlistWorker.swift */,
 			);
 			path = Worker;
 			sourceTree = "<group>";
@@ -683,6 +693,17 @@
 				12C3A7E92BAC6CBF00C3FEE7 /* Pagination.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		502823342BE8A80E0019C2C7 /* WishlistFlow */ = {
+			isa = PBXGroup;
+			children = (
+				502823372BE8AC1D0019C2C7 /* WishlistView.swift */,
+				502823352BE8A8360019C2C7 /* WishlistViewModel.swift */,
+				502823392BE8AF7F0019C2C7 /* WishlistCoordinator.swift */,
+			);
+			name = WishlistFlow;
+			path = nBolha/Flows/WishlistFlow;
 			sourceTree = "<group>";
 		};
 		5032D5272BB4167D005FFF15 /* Extensions */ = {
@@ -1120,7 +1141,6 @@
 			mainGroup = 126BA8962BAB1C03002B089B;
 			packageReferences = (
 				50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				503D19E32BD7EDFA009AA8DD /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 126BA8A02BAB1C03002B089B /* Products */;
 			projectDirPath = "";
@@ -1221,11 +1241,13 @@
 				50805A872BC80207003EB2CC /* CategoriesViewModel.swift in Sources */,
 				50491C542BCE63F700FDB8DA /* TabBarCoordinator.swift in Sources */,
 				50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */,
+				502823382BE8AC1D0019C2C7 /* WishlistView.swift in Sources */,
 				50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */,
 				50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */,
 				50AE14742BD6A6F500B4EF77 /* CarouselViewDialog.swift in Sources */,
 				50491C522BCE4D0A00FDB8DA /* TabBarTab.swift in Sources */,
 				503D19E22BD7E3B3009AA8DD /* FilterView.swift in Sources */,
+				502823362BE8A8360019C2C7 /* WishlistViewModel.swift in Sources */,
 				505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */,
 				50C506A12BBFE80A0014526C /* HomeView.swift in Sources */,
 				50805A852BC801E0003EB2CC /* CategoriesView.swift in Sources */,
@@ -1238,6 +1260,7 @@
 				50805A892BC8036F003EB2CC /* CategoriesCoordinator.swift in Sources */,
 				50E2F1522BC6CF9300553B4F /* RecentlyViewedView.swift in Sources */,
 				50BC47972BC3DC880015522B /* EmptyRecentlyAddedView.swift in Sources */,
+				5028233A2BE8AF7F0019C2C7 /* WishlistCoordinator.swift in Sources */,
 				50907A722BB17567004301C5 /* LoginViewModel.swift in Sources */,
 				50491C5A2BCEBC3100FDB8DA /* EmptyCategoriesView.swift in Sources */,
 				50BC47992BC3E7860015522B /* EmptyRecentlyViewedView.swift in Sources */,
@@ -1334,7 +1357,10 @@
 				503D19D92BD7C8C1009AA8DD /* Constants.swift in Sources */,
 				12C3A7F82BAC6D4100C3FEE7 /* Generic.swift in Sources */,
 				50BC479B2BC400EF0015522B /* AdvertisementWorker.swift in Sources */,
+				5036B94D2BDBDFF1004496E4 /* AddToWishlistWorker.swift in Sources */,
+				5036B9492BDBDFA4004496E4 /* GetWishlistWorker.swift in Sources */,
 				50BC479D2BC4026E0015522B /* Advertisement.swift in Sources */,
+				5036B94B2BDBDFCC004496E4 /* DeleteWishlistWorker.swift in Sources */,
 				503D19DB2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift in Sources */,
 				12C3A7F22BAC6CBF00C3FEE7 /* HttpRequestManager.swift in Sources */,
 				12C3A7FE2BAC6D4800C3FEE7 /* BasePlainResponseWorker.swift in Sources */,
@@ -2079,14 +2105,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		503D19E32BD7EDFA009AA8DD /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.9;
-			};
-		};
 		50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";

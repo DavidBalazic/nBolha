@@ -34,7 +34,18 @@ struct HomeView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: NCConstants.Margins.large.rawValue) {
                                 ForEach(viewModel.advertisementRecentlyViewed, id: \.advertisementId) { advertisement in
-                                    RecentlyViewedView(advertisement: advertisement)
+                                    RecentlyViewedView(
+                                        advertisement: advertisement,
+                                        itemTapped: {
+                                            viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
+                                        },
+                                        likeButtonTapped: {
+                                            viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                        },
+                                        dislikeButtonTapped: {
+                                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                        }
+                                    )
                                 }
                             }
                         }
@@ -54,6 +65,12 @@ struct HomeView: View {
                                         advertisement: advertisement,
                                         itemTapped: {
                                             viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
+                                        },
+                                        likeButtonTapped: {
+                                            viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                        },
+                                        dislikeButtonTapped: {
+                                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
                                         }
                                     )
                                 }
@@ -63,6 +80,12 @@ struct HomeView: View {
                 }
             }
             .padding(.horizontal, NCConstants.Margins.large.rawValue)
+            .onAppear {
+                Task {
+                    await viewModel.loadRecentlyViewed()
+                    await viewModel.loadRecentlyAdded()
+                }
+            }
         }
     }
 }
