@@ -1,14 +1,23 @@
 //
-//  AdvertisementRecentWorker.swift
+//  DeleteWishlistWorker.swift
 //  nBolhaNetworking
 //
-//  Created by David Balažic on 23. 4. 24.
+//  Created by David Balažic on 26. 4. 24.
 //
 
-public class AdvertisementRecentlyAddedWorker: BaseNBolhaWorker<[Advertisement]> {
+import Foundation
+
+public class DeleteWishlistWorker: BaseNBolhaWorker<String> {
+    var advertisementId: Int
+    
+    public init(
+        advertisementId: Int
+    ) {
+        self.advertisementId = advertisementId
+    }
     
     public override func getUrl() -> String {
-        return super.getUrl() + NBolhaApi.Endpoint.advertisementRecentlyAdded.path
+        return super.getUrl() + NBolhaApi.Endpoint.deleteWishlist(id: advertisementId).path
     }
 
     public override func getHeaders() -> [String : String] {
@@ -21,6 +30,6 @@ public class AdvertisementRecentlyAddedWorker: BaseNBolhaWorker<[Advertisement]>
     }
     
     public override func getMethod() -> HTTPMethod {
-        return .get
+        return .delete
     }
 }

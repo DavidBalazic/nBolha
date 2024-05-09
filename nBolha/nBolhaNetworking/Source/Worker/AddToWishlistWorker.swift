@@ -1,23 +1,26 @@
 //
-//  AdvertisementViewedWorker.swift
+//  AddToWishlistWorker.swift
 //  nBolhaNetworking
 //
-//  Created by David Balažic on 23. 4. 24.
+//  Created by David Balažic on 26. 4. 24.
 //
 
 import Foundation
 
-public class AdvertisementViewedWorker: BaseNBolhaWorker<Advertisement> {
-    private let advertisementId: Int
+public class AddToWishlistWorker: BaseNBolhaWorker<String> {
+    var advertisementId: Int
     
     public init(
         advertisementId: Int
     ) {
         self.advertisementId = advertisementId
     }
-
+    
     public override func getUrl() -> String {
-        return super.getUrl() + NBolhaApi.Endpoint.advertisement(id: advertisementId).path
+        let baseUrl = super.getUrl()
+        let endpointPath = NBolhaApi.Endpoint.addToWishlist.path
+        let queryString = "advertisementId=\(advertisementId)"
+        return "\(baseUrl)\(endpointPath)?\(queryString)"
     }
 
     public override func getHeaders() -> [String : String] {
@@ -30,6 +33,6 @@ public class AdvertisementViewedWorker: BaseNBolhaWorker<Advertisement> {
     }
     
     public override func getMethod() -> HTTPMethod {
-        return .get
+        return .post
     }
 }
