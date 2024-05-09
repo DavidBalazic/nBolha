@@ -99,7 +99,7 @@ public struct DetailView: View {
                                 size: .large
                             ),
                             tapped: {
-                                //TODO: implement
+                                viewModel.contactSellerTapped()
                             }
                         )
                         .fixedSize()
