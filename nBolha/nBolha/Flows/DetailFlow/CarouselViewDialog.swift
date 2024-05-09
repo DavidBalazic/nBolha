@@ -7,8 +7,10 @@
 
 import SwiftUI
 import NChainUI
+import nBolhaNetworking
 
 struct CarouselViewDialog: View {
+    let advertisement: Advertisement
     @Binding var isDialogPresented: Bool
     
     var body: some View {
@@ -19,7 +21,13 @@ struct CarouselViewDialog: View {
                 .onTapGesture {
                     isDialogPresented = false
                 }
-            CarouselView(showLikeButton: false, isDialogPresented: $isDialogPresented)
+            CarouselView(
+                showLikeButton: false,
+                advertisement: advertisement,
+                likeButtonTapped: nil,
+                dislikeButtonTapped: nil,
+                isDialogPresented: $isDialogPresented
+            )
         }
     }
 }

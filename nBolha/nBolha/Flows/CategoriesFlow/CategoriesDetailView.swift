@@ -11,7 +11,7 @@ import NChainUI
 
 struct CategoriesDetailView: View {
     @ObservedObject private var viewModel: CategoriesViewModel
-    @ObservedObject private var filterViewModel : FilterViewModel
+    @ObservedObject private var filterViewModel: FilterViewModel
     @State private var search = ""
     @State private var isFilterTapped = false
     @State private var showChipView = false
@@ -89,6 +89,12 @@ struct CategoriesDetailView: View {
                                 advertisement: advertisement,
                                 itemTapped: {
                                     viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
+                                }, 
+                                likeButtonTapped: {
+                                    viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                },
+                                dislikeButtonTapped: {
+                                    viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
                                 }
                             )
                         }
@@ -98,9 +104,14 @@ struct CategoriesDetailView: View {
         }
         .padding(.horizontal, NCConstants.Margins.large.rawValue)
         .sheet(isPresented: $isFilterTapped) {
-            FilterView(viewModel: filterViewModel, isFilterTapped: $isFilterTapped, selectedRadioButton: filterViewModel.selectedRadioButton, selectedCheckBoxes: filterViewModel.selectedCheckBoxes)
-                .presentationDetents([.fraction(0.95)])
-                .presentationDragIndicator(.hidden)
+            FilterView(
+                viewModel: filterViewModel,
+                isFilterTapped: $isFilterTapped,
+                selectedRadioButton: filterViewModel.selectedRadioButton,
+                selectedCheckBoxes: filterViewModel.selectedCheckBoxes
+            )
+            .presentationDetents([.fraction(0.95)])
+            .presentationDragIndicator(.hidden)
         }
     }
 }

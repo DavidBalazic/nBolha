@@ -7,7 +7,6 @@
 
 public class AdvertisementRecentlyViewedWorker: BaseNBolhaWorker<[Advertisement]> {
     
-
     public override func getUrl() -> String {
         return super.getUrl() + NBolhaApi.Endpoint.advertisementRecentlyViewed.path
     }

@@ -24,8 +24,18 @@ public struct DetailView: View {
     public var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                CarouselView(showLikeButton: true, isDialogPresented: $isDialogPresented)
-                    .padding(.bottom, NCConstants.Margins.extraLarge.rawValue)
+                CarouselView(
+                    showLikeButton: true,
+                    advertisement: viewModel.advertisement,
+                    likeButtonTapped: {
+                        viewModel.likeAdvertisementTapped(advertisementId: viewModel.advertisement.advertisementId ?? 0)
+                    },
+                    dislikeButtonTapped: {
+                        viewModel.dislikeAdvertisementTapped(advertisementId: viewModel.advertisement.advertisementId ?? 0)
+                    },
+                    isDialogPresented: $isDialogPresented
+                )
+                .padding(.bottom, NCConstants.Margins.extraLarge.rawValue)
                 VStack(spacing: NCConstants.Margins.extraLarge.rawValue) {
                     VStack(spacing: NCConstants.Margins.large.rawValue) {
                         Text(viewModel.advertisement.title ?? "No title")
@@ -108,13 +118,16 @@ public struct DetailView: View {
                 .padding(.horizontal, NCConstants.Margins.large.rawValue)
             }
             if isDialogPresented {
-                CarouselViewDialog(isDialogPresented: $isDialogPresented)
-                    .onAppear {
-                        viewModel.disableNavigations()
-                    }
-                    .onDisappear {
-                        viewModel.enableNavigations()
-                    }
+                CarouselViewDialog(
+                    advertisement: viewModel.advertisement,
+                    isDialogPresented: $isDialogPresented
+                )
+                .onAppear {
+                    viewModel.disableNavigations()
+                }
+                .onDisappear {
+                    viewModel.enableNavigations()
+                }
             }
         }
     }
