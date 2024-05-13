@@ -88,7 +88,7 @@ public struct SwiftUITextInput: View {
                             height: 24,
                             alignment: .center
                         )
-                    ZStack(alignment: self.title.isEmpty ? .top : .leading) {
+                    ZStack(alignment: self.type == .description ? .top : .leading) {
                         Color.clear
                             .contentShape(Rectangle())
                             .onTapGesture {
@@ -113,6 +113,7 @@ public struct SwiftUITextInput: View {
                             isEnabled: isEnabled,
                             type: type
                         )
+                        .offset(y: title.isEmpty && self.type != .description ? -8 : 0)
                     }
                     .frame(height: self.type == .description ? 116 : 48)
                 }
@@ -209,6 +210,7 @@ public struct SwiftUITextInput: View {
                             )
                     } else {
                         SecureField("", text: $text)
+//                            .offset(y: 8)
                             .onTapGesture {
                                 errorText = nil
                             }

@@ -7,12 +7,41 @@
 
 import SwiftUI
 import NChainUI
+import PhotosUI
+import nBolhaUI
 
 struct UploadItemView: View {
     @ObservedObject private var viewModel: UploadItemViewModel
     @State private var title = ""
     @FocusState private var isTitleFocused: Bool
     @State private var titleError: String?
+    enum Category: String, CaseIterable {
+        case unselected = "Select..."
+        case home = "Home"
+        case construction = "Construction"
+        case automative = "Automative"
+        case sport = "Sport"
+        case audiovisual = "Audiovisual"
+        case literature = "Literature"
+        case hobbies = "Hobbies"
+        case apparel = "Apparel"
+        case services = "Services"
+    }
+    @State private var category: Category = .unselected
+    enum Condition: String, CaseIterable {
+        case unselected = "Select..."
+        case withTags = "New with tags"
+        case withoutTags = "New without tags"
+        case veryGood = "Very good"
+        case satisfactory = "Satisfactory"
+    }
+    @State private var condition: Condition = .unselected
+    enum Location: String, CaseIterable {
+        case unselected = "Select..."
+        case maribor = "Maribor"
+        case ljubljana = "Ljubljana"
+    }
+    @State private var location: Location = .unselected
     
     init(
         viewModel: UploadItemViewModel
@@ -38,9 +67,9 @@ struct UploadItemView: View {
                         .textStyle(.caption02)
                         .foregroundStyle(Color(.text02!))
                         .multilineTextAlignment(.center)
+                        .padding(.horizontal, 56)
+                        .padding(.bottom, viewModel.selectedImages.isEmpty ? 37 : 24)
                 }
-                .padding(.horizontal, 56)
-                .padding(.vertical, 37)
                 .frame(maxWidth: .infinity)
                 .background(Color(.background05!))
                 .cornerRadius(8)
@@ -80,19 +109,52 @@ struct UploadItemView: View {
                     Text("Category *")
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(.text01!))
-                    TextField("", text: $title)
+                    Menu {
+                        Picker(selection: $category, label: Text("")) {
+                            ForEach(Category.allCases.filter { $0 != .unselected },  id: \.self) { option in
+                                Text(option.rawValue)
+                            }
+                        }
+                    } label: {
+                        DropdownList(
+                            text: category.rawValue,
+                            errorText: $titleError
+                        )
+                    }
                 }
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Condition *")
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(.text01!))
-                    TextField("", text: $title)
+                    Menu {
+                        Picker(selection: $condition, label: Text("")) {
+                            ForEach(Condition.allCases.filter { $0 != .unselected },  id: \.self) { option in
+                                Text(option.rawValue)
+                            }
+                        }
+                    } label: {
+                        DropdownList(
+                            text: condition.rawValue,
+                            errorText: $titleError
+                        )
+                    }
                 }
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Location *")
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(.text01!))
-                    TextField("", text: $title)
+                    Menu {
+                        Picker(selection: $location, label: Text("")) {
+                            ForEach(Location.allCases.filter { $0 != .unselected },  id: \.self) { option in
+                                Text(option.rawValue)
+                            }
+                        }
+                    } label: {
+                        DropdownList(
+                            text: location.rawValue,
+                            errorText: $titleError
+                        )
+                    }
                 }
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Price (in €) *")

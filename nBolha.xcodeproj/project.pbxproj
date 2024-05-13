@@ -88,6 +88,8 @@
 		50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A752BB17B9F004301C5 /* NoConnectionView.swift */; };
 		50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A772BB19B2C004301C5 /* LoginCoordinator.swift */; };
 		50908AB12BC52CF200C5378B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50908AB02BC52CF100C5378B /* SearchBar.swift */; };
+		50952BE32BF1DFDC00993F4B /* DropdownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BE22BF1DFDC00993F4B /* DropdownList.swift */; };
+		50952BE52BF1F73D00993F4B /* DropdownListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BE42BF1F73D00993F4B /* DropdownListView.swift */; };
 		50A5AD6F2BD78BFE00ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD6E2BD78BFE00ED17A9 /* KeychainAccess */; };
 		50A5AD712BD78DC400ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD702BD78DC400ED17A9 /* KeychainAccess */; };
 		50A8B7752BECB390006B7DF5 /* UploadItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8B7742BECB390006B7DF5 /* UploadItemView.swift */; };
@@ -310,6 +312,8 @@
 		50907A752BB17B9F004301C5 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
 		50907A772BB19B2C004301C5 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		50908AB02BC52CF100C5378B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		50952BE22BF1DFDC00993F4B /* DropdownList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownList.swift; sourceTree = "<group>"; };
+		50952BE42BF1F73D00993F4B /* DropdownListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownListView.swift; sourceTree = "<group>"; };
 		50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		50A5AD732BD796AE00ED17A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		50A8B7742BECB390006B7DF5 /* UploadItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadItemView.swift; sourceTree = "<group>"; };
@@ -595,6 +599,7 @@
 				128B42E52BACDEE60018438B /* HostingController.swift */,
 				50908AB02BC52CF100C5378B /* SearchBar.swift */,
 				50B746272BD8DD580077CFCB /* RadioButton.swift */,
+				50952BE22BF1DFDC00993F4B /* DropdownList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -803,6 +808,7 @@
 				50A8B7742BECB390006B7DF5 /* UploadItemView.swift */,
 				50A8B7762BECB3A8006B7DF5 /* UploadItemViewModel.swift */,
 				50A8B7782BECB3BF006B7DF5 /* UploadItemCoordinator.swift */,
+				50952BE42BF1F73D00993F4B /* DropdownListView.swift */,
 			);
 			path = UploadItemFlow;
 			sourceTree = "<group>";
@@ -1254,6 +1260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50CE31492BCD66C8004F9566 /* TabBarViewModel.swift in Sources */,
+				50952BE52BF1F73D00993F4B /* DropdownListView.swift in Sources */,
 				50F0E1182BB6BAD30065242A /* WindowNotificationStartupProcess.swift in Sources */,
 				50AE14722BD6A6CA00B4EF77 /* DetailViewModel.swift in Sources */,
 				50491C5C2BCEBC5200FDB8DA /* CategoriesDetailView.swift in Sources */,
@@ -1318,6 +1325,7 @@
 			files = (
 				50908AB12BC52CF200C5378B /* SearchBar.swift in Sources */,
 				128B42E62BACDEE60018438B /* HostingController.swift in Sources */,
+				50952BE32BF1DFDC00993F4B /* DropdownList.swift in Sources */,
 				50BBE62B2BB570F9004AA5BB /* WindowNotificationService.swift in Sources */,
 				50E2F14E2BC6CEF600553B4F /* Array+Extensions.swift in Sources */,
 				50BBE6222BB557D8004AA5BB /* WindowNotificationViewModel.swift in Sources */,
