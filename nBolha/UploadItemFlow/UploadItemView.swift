@@ -52,17 +52,38 @@ struct UploadItemView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 16) {
-                VStack(spacing: 16) {
-                    SwiftUIButton(
-                        text: "Add photos",
-                        leadingIcon: .init(image: Image(.plus), size: .large),
-                        style: .outlined,
-                        size: .small
-                    ) {
-                       //TODO: implement
-                        print("tapped")
+                VStack {
+                    if !viewModel.selectedImages.isEmpty {
+                        ImageView(viewModel: viewModel)
                     }
-                    .fixedSize()
+                    PhotosPicker(selection: $viewModel.pickerItems, maxSelectionCount: 5, matching: .images) {
+                        HStack(spacing: 8) {
+                            Image(.plus)
+                                .renderingMode(.template)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundColor(Color(.brandPrimary!))
+                                .frame(
+                                    maxWidth: 18,
+                                    maxHeight: 18
+                                )
+                            Text("Add photos")
+                                .textStyle(.subtitle03)
+                                .foregroundStyle(Color(.brandPrimary!))
+                        }
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 12)
+                        .cornerRadius(8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color(.brandPrimary!), lineWidth: 1)
+                        )
+                    }
+                    .padding(.bottom, 16)
+                    .padding(.top, viewModel.selectedImages.isEmpty ? 37 : 0)
+                    .onChange(of: viewModel.pickerItems) {
+                        viewModel.updatePickerItems()
+                    }
                     Text("Add up to 5 photos (.jpg, .gif or .png, max. 2MB)")
                         .textStyle(.caption02)
                         .foregroundStyle(Color(.text02!))
