@@ -12,36 +12,9 @@ import nBolhaUI
 
 struct UploadItemView: View {
     @ObservedObject private var viewModel: UploadItemViewModel
-    @State private var title = ""
     @FocusState private var isTitleFocused: Bool
-    @State private var titleError: String?
-    enum Category: String, CaseIterable {
-        case unselected = "Select..."
-        case home = "Home"
-        case construction = "Construction"
-        case automative = "Automative"
-        case sport = "Sport"
-        case audiovisual = "Audiovisual"
-        case literature = "Literature"
-        case hobbies = "Hobbies"
-        case apparel = "Apparel"
-        case services = "Services"
-    }
-    @State private var category: Category = .unselected
-    enum Condition: String, CaseIterable {
-        case unselected = "Select..."
-        case withTags = "New with tags"
-        case withoutTags = "New without tags"
-        case veryGood = "Very good"
-        case satisfactory = "Satisfactory"
-    }
-    @State private var condition: Condition = .unselected
-    enum Location: String, CaseIterable {
-        case unselected = "Select..."
-        case maribor = "Maribor"
-        case ljubljana = "Ljubljana"
-    }
-    @State private var location: Location = .unselected
+    @FocusState private var isDescriptionFocused: Bool
+    @FocusState private var isPriceFocused: Bool
     
     init(
         viewModel: UploadItemViewModel
@@ -109,8 +82,8 @@ struct UploadItemView: View {
                     SwiftUITextInput(
                         title: "",
                         type: .primary,
-                        text: $title,
-                        errorText: $titleError,
+                        text: $viewModel.title,
+                        errorText: isTitleFocused ? .constant(nil) : $viewModel.errorTitleText,
                         isFocused: $isTitleFocused
                     )
                 }
@@ -121,9 +94,9 @@ struct UploadItemView: View {
                     SwiftUITextInput(
                         title: "",
                         type: .description,
-                        text: $title,
-                        errorText: $titleError,
-                        isFocused: $isTitleFocused
+                        text: $viewModel.description,
+                        errorText: $viewModel.errorDescriptionText,
+                        isFocused: $isDescriptionFocused
                     )
                 }
                 VStack(alignment: .leading, spacing: 8) {
@@ -131,16 +104,21 @@ struct UploadItemView: View {
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(.text01!))
                     Menu {
-                        Picker(selection: $category, label: Text("")) {
-                            ForEach(Category.allCases.filter { $0 != .unselected },  id: \.self) { option in
+                        Picker(selection: $viewModel.category, label: Text("")) {
+                            ForEach(UploadItemViewModel.Category.allCases.filter { $0 != .unselected },  id: \.self) { option in
                                 Text(option.rawValue)
                             }
                         }
                     } label: {
                         DropdownList(
-                            text: category.rawValue,
-                            errorText: $titleError
+                            text: viewModel.category.rawValue,
+                            errorText: $viewModel.errorCategoryText
                         )
+                    }
+                    .onTapGesture {
+                        isTitleFocused = false
+                        isDescriptionFocused = false
+                        isPriceFocused = false
                     }
                 }
                 VStack(alignment: .leading, spacing: 8) {
@@ -148,16 +126,21 @@ struct UploadItemView: View {
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(.text01!))
                     Menu {
-                        Picker(selection: $condition, label: Text("")) {
-                            ForEach(Condition.allCases.filter { $0 != .unselected },  id: \.self) { option in
+                        Picker(selection: $viewModel.condition, label: Text("")) {
+                            ForEach(UploadItemViewModel.Condition.allCases.filter { $0 != .unselected },  id: \.self) { option in
                                 Text(option.rawValue)
                             }
                         }
                     } label: {
                         DropdownList(
-                            text: condition.rawValue,
-                            errorText: $titleError
+                            text: viewModel.condition.rawValue,
+                            errorText: $viewModel.errorConditionText
                         )
+                    }
+                    .onTapGesture {
+                        isTitleFocused = false
+                        isDescriptionFocused = false
+                        isPriceFocused = false
                     }
                 }
                 VStack(alignment: .leading, spacing: 8) {
@@ -165,16 +148,21 @@ struct UploadItemView: View {
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(.text01!))
                     Menu {
-                        Picker(selection: $location, label: Text("")) {
-                            ForEach(Location.allCases.filter { $0 != .unselected },  id: \.self) { option in
+                        Picker(selection: $viewModel.location, label: Text("")) {
+                            ForEach(UploadItemViewModel.Location.allCases.filter { $0 != .unselected },  id: \.self) { option in
                                 Text(option.rawValue)
                             }
                         }
                     } label: {
                         DropdownList(
-                            text: location.rawValue,
-                            errorText: $titleError
+                            text: viewModel.location.rawValue,
+                            errorText: $viewModel.errorLocationText
                         )
+                    }
+                    .onTapGesture {
+                        isTitleFocused = false
+                        isDescriptionFocused = false
+                        isPriceFocused = false
                     }
                 }
                 VStack(alignment: .leading, spacing: 8) {
@@ -184,18 +172,23 @@ struct UploadItemView: View {
                     SwiftUITextInput(
                         title: "",
                         type: .primary,
-                        text: $title,
-                        errorText: $titleError,
-                        isFocused: $isTitleFocused
+                        text: $viewModel.price,
+                        errorText: isPriceFocused ? .constant(nil) : $viewModel.errorPriceText,
+                        isFocused: $isPriceFocused
                     )
+                    .keyboardType(.decimalPad)
                 }
             }
             SwiftUIButton(
                 text: "Upload item",
-                trailingIcon: .init(image: Image(.sparkles), size: .huge)
-            ) {
-                //TODO: implement
-            }
+                trailingIcon: .init(image: Image(.sparkles), size: .huge),
+                tapped: {
+                    viewModel.uploadItemTapped()
+                    isTitleFocused = false
+                    isDescriptionFocused = false
+                    isPriceFocused = false
+                }
+            )
             .fixedSize()
             .padding(.top, 16)
         }
