@@ -97,7 +97,8 @@ public struct DetailView: View {
                             Text("Condition: ")
                                 .textStyle(.subtitle02)
                                 .foregroundStyle(Color(UIColor.text01!))
-                            Text(viewModel.advertisement.condition ?? "No condition")
+                            Text("")
+                                //TODO: wait for backend update
                                 .textStyle(.body02)
                                 .foregroundStyle(Color(UIColor.text01!))
                             Spacer()

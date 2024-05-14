@@ -59,9 +59,9 @@ final class DetailViewModel: ObservableObject{
     
     func dislikeAdvertisementTapped(advertisementId: Int) {
         Task { await dislikeAdvertisement(advertisementId: advertisementId) }
+    }
     
     func contactSellerTapped() {
         navigationDelegate?.showMailApp()
     }
-
 }
