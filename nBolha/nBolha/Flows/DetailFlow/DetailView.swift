@@ -81,7 +81,7 @@ public struct DetailView: View {
                                     Text(showTextLimit ? "View more" : "View less")
                                         .textStyle(.subtitle03)
                                         .foregroundStyle(Color(UIColor.brandSecondary!))
-                                    Image(uiImage: showTextLimit ? .chevronUp : .chevronDown)
+                                    Image(uiImage: showTextLimit ? .chevronDown : .chevronUp)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 18, height: 18)
@@ -109,7 +109,7 @@ public struct DetailView: View {
                                 size: .large
                             ),
                             tapped: {
-                                //TODO: implement
+                                viewModel.contactSellerTapped()
                             }
                         )
                         .fixedSize()

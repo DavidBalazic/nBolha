@@ -7,13 +7,15 @@
 
 import Foundation
 import nBolhaNetworking
+import MessageUI
 
 protocol DetailNavigationDelegate: AnyObject {
     func disableNavigations()
     func enableNavigations()
+    func showMailApp()
 }
 
-final class DetailViewModel: ObservableObject {
+final class DetailViewModel: ObservableObject{
     private let navigationDelegate: DetailNavigationDelegate?
     @Published var advertisement: Advertisement
     
@@ -57,5 +59,9 @@ final class DetailViewModel: ObservableObject {
     
     func dislikeAdvertisementTapped(advertisementId: Int) {
         Task { await dislikeAdvertisement(advertisementId: advertisementId) }
+    
+    func contactSellerTapped() {
+        navigationDelegate?.showMailApp()
     }
+
 }
