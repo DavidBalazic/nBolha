@@ -86,6 +86,9 @@
 		50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A752BB17B9F004301C5 /* NoConnectionView.swift */; };
 		50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A772BB19B2C004301C5 /* LoginCoordinator.swift */; };
 		50908AB12BC52CF200C5378B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50908AB02BC52CF100C5378B /* SearchBar.swift */; };
+		509A8FEE2BF37E630029C50A /* WishlistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FEB2BF37E630029C50A /* WishlistCoordinator.swift */; };
+		509A8FEF2BF37E630029C50A /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FEC2BF37E630029C50A /* WishlistView.swift */; };
+		509A8FF02BF37E630029C50A /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FED2BF37E630029C50A /* WishlistViewModel.swift */; };
 		50A5AD6F2BD78BFE00ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD6E2BD78BFE00ED17A9 /* KeychainAccess */; };
 		50A5AD712BD78DC400ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD702BD78DC400ED17A9 /* KeychainAccess */; };
 		50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE146D2BD6976900B4EF77 /* DetailCoordinator.swift */; };
@@ -303,6 +306,9 @@
 		50907A752BB17B9F004301C5 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
 		50907A772BB19B2C004301C5 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		50908AB02BC52CF100C5378B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		509A8FEB2BF37E630029C50A /* WishlistCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistCoordinator.swift; sourceTree = "<group>"; };
+		509A8FEC2BF37E630029C50A /* WishlistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
+		509A8FED2BF37E630029C50A /* WishlistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 		50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		50A5AD732BD796AE00ED17A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		50AE146D2BD6976900B4EF77 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
@@ -698,9 +704,9 @@
 		502823342BE8A80E0019C2C7 /* WishlistFlow */ = {
 			isa = PBXGroup;
 			children = (
-				502823372BE8AC1D0019C2C7 /* WishlistView.swift */,
-				502823352BE8A8360019C2C7 /* WishlistViewModel.swift */,
-				502823392BE8AF7F0019C2C7 /* WishlistCoordinator.swift */,
+				509A8FEB2BF37E630029C50A /* WishlistCoordinator.swift */,
+				509A8FEC2BF37E630029C50A /* WishlistView.swift */,
+				509A8FED2BF37E630029C50A /* WishlistViewModel.swift */,
 			);
 			name = WishlistFlow;
 			path = nBolha/Flows/WishlistFlow;
@@ -1238,16 +1244,17 @@
 				50AE14722BD6A6CA00B4EF77 /* DetailViewModel.swift in Sources */,
 				50491C5C2BCEBC5200FDB8DA /* CategoriesDetailView.swift in Sources */,
 				1218ED212BB1A3FC00B3445B /* StartupProcessService.swift in Sources */,
+				509A8FF02BF37E630029C50A /* WishlistViewModel.swift in Sources */,
 				50805A872BC80207003EB2CC /* CategoriesViewModel.swift in Sources */,
 				50491C542BCE63F700FDB8DA /* TabBarCoordinator.swift in Sources */,
 				50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */,
-				502823382BE8AC1D0019C2C7 /* WishlistView.swift in Sources */,
+				509A8FEF2BF37E630029C50A /* WishlistView.swift in Sources */,
 				50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */,
+				509A8FEE2BF37E630029C50A /* WishlistCoordinator.swift in Sources */,
 				50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */,
 				50AE14742BD6A6F500B4EF77 /* CarouselViewDialog.swift in Sources */,
 				50491C522BCE4D0A00FDB8DA /* TabBarTab.swift in Sources */,
 				503D19E22BD7E3B3009AA8DD /* FilterView.swift in Sources */,
-				502823362BE8A8360019C2C7 /* WishlistViewModel.swift in Sources */,
 				505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */,
 				50C506A12BBFE80A0014526C /* HomeView.swift in Sources */,
 				50805A852BC801E0003EB2CC /* CategoriesView.swift in Sources */,
@@ -1260,7 +1267,6 @@
 				50805A892BC8036F003EB2CC /* CategoriesCoordinator.swift in Sources */,
 				50E2F1522BC6CF9300553B4F /* RecentlyViewedView.swift in Sources */,
 				50BC47972BC3DC880015522B /* EmptyRecentlyAddedView.swift in Sources */,
-				5028233A2BE8AF7F0019C2C7 /* WishlistCoordinator.swift in Sources */,
 				50907A722BB17567004301C5 /* LoginViewModel.swift in Sources */,
 				50491C5A2BCEBC3100FDB8DA /* EmptyCategoriesView.swift in Sources */,
 				50BC47992BC3E7860015522B /* EmptyRecentlyViewedView.swift in Sources */,
