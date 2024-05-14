@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import nBolhaNetworking
 
 final class AppLaunchCoordinator: NSObject {
     private var navigationController: UINavigationController?
@@ -20,8 +21,14 @@ final class AppLaunchCoordinator: NSObject {
     func start() {
         navigationController = UINavigationController()
         window.rootViewController = navigationController
-        LoginCoordinator(
-            navigationController: navigationController
-        ).start()
+        if let token = KeyChainManager(service: Constants.keychainServiceIdentifier).get(forKey: "sessionTokenID") {
+            TabBarCoordinator(
+                navigationController: navigationController
+            ).start()
+        } else {
+            LoginCoordinator(
+                navigationController: navigationController
+            ).start()
+        }
     }
 }
