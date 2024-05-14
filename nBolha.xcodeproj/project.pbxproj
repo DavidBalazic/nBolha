@@ -92,6 +92,7 @@
 		50952BE72BF20DC900993F4B /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BE62BF20DC900993F4B /* ImageView.swift */; };
 		50952BE92BF20DDE00993F4B /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BE82BF20DDE00993F4B /* ImageItem.swift */; };
 		50952BED2BF20E3E00993F4B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BEC2BF20E3E00993F4B /* UIView+Extensions.swift */; };
+		50952BEF2BF243B800993F4B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BEE2BF243B800993F4B /* AddPhotoView.swift */; };
 		50A5AD6F2BD78BFE00ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD6E2BD78BFE00ED17A9 /* KeychainAccess */; };
 		50A5AD712BD78DC400ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD702BD78DC400ED17A9 /* KeychainAccess */; };
 		50A8B7752BECB390006B7DF5 /* UploadItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8B7742BECB390006B7DF5 /* UploadItemView.swift */; };
@@ -318,6 +319,7 @@
 		50952BE62BF20DC900993F4B /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		50952BE82BF20DDE00993F4B /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		50952BEC2BF20E3E00993F4B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		50952BEE2BF243B800993F4B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		50A5AD6B2BD789CE00ED17A9 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		50A5AD732BD796AE00ED17A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		50A8B7742BECB390006B7DF5 /* UploadItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadItemView.swift; sourceTree = "<group>"; };
@@ -815,6 +817,7 @@
 				50A8B7782BECB3BF006B7DF5 /* UploadItemCoordinator.swift */,
 				50952BE62BF20DC900993F4B /* ImageView.swift */,
 				50952BE82BF20DDE00993F4B /* ImageItem.swift */,
+				50952BEE2BF243B800993F4B /* AddPhotoView.swift */,
 			);
 			path = UploadItemFlow;
 			sourceTree = "<group>";
@@ -1284,6 +1287,7 @@
 				50491C522BCE4D0A00FDB8DA /* TabBarTab.swift in Sources */,
 				503D19E22BD7E3B3009AA8DD /* FilterView.swift in Sources */,
 				50A8B7772BECB3A8006B7DF5 /* UploadItemViewModel.swift in Sources */,
+				50952BEF2BF243B800993F4B /* AddPhotoView.swift in Sources */,
 				502823362BE8A8360019C2C7 /* WishlistViewModel.swift in Sources */,
 				50A8B7752BECB390006B7DF5 /* UploadItemView.swift in Sources */,
 				505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */,

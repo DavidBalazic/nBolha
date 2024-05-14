@@ -30,6 +30,7 @@ final class UploadItemViewModel: ObservableObject {
     @Published var errorCategoryText: String?
     @Published var errorConditionText: String?
     @Published var errorLocationText: String?
+    @Published var errorAddPhotosText: String?
     
     enum Category: String, CaseIterable {
         case unselected = "Select..."
@@ -105,6 +106,12 @@ final class UploadItemViewModel: ObservableObject {
             }
             .receive(on: DispatchQueue.main)
             .assign(to: &$errorLocationText)
+        
+        $selectedImages
+            .dropFirst()
+            .map { $0.isEmpty ? "Please add a minimum of 1 photo" : nil }
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$errorAddPhotosText)
     }
     
     private func validateFields() {
@@ -114,6 +121,7 @@ final class UploadItemViewModel: ObservableObject {
         errorCategoryText = category == .unselected ? "Please select category" : nil
         errorConditionText = condition == .unselected ? "Please select condition" : nil
         errorLocationText = location == .unselected ? "Please select location" : nil
+        errorAddPhotosText = selectedImages.isEmpty ? "Please add a minimum of 1 photo" : nil
     }
     
     func uploadItemTapped() {
