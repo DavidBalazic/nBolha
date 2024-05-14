@@ -12,11 +12,11 @@ public struct Advertisement: Codable, Hashable {
     public let title: String?
     public let description: String?
     public let price: Double?
-    public let condition: String?
     public let created_At: String?
-    public let categoryId: Int?
     public let images: [ImageObject]?
     public let address: Int?
+    public let category: Int?
+    public let condition: Int?
     public var isInWishlist: Bool?
 }
 
