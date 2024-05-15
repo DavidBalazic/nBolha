@@ -11,6 +11,7 @@ import SwiftUI
 import Combine
 import nBolhaNetworking
 import nBolhaCore
+import nBolhaUI
 
 protocol UploadItemNavigationDelegate: AnyObject {
  
@@ -34,6 +35,7 @@ final class UploadItemViewModel: ObservableObject {
     @Published var errorConditionText: String?
     @Published var errorLocationText: String?
     @Published var errorAddPhotosText: String?
+    private let notificationService: WindowNotificationService
     
     enum Category: String, CaseIterable {
         case unselected = "Select..."
@@ -61,9 +63,11 @@ final class UploadItemViewModel: ObservableObject {
     }
     
     init(
-        navigationDelegate: UploadItemNavigationDelegate?
+        navigationDelegate: UploadItemNavigationDelegate?,
+        notificationService: WindowNotificationService = DefaultWindowNotificationService()
     ) {
         self.navigationDelegate = navigationDelegate
+        self.notificationService = notificationService
         initializeObserving()
     }
     
@@ -178,8 +182,6 @@ final class UploadItemViewModel: ObservableObject {
     func uploadItemTapped() async {
         validateFields()
         guard isUploadAllowed() else { return }
-//        validateFields()
-//        guard !title.isEmpty, title.count < 50, description.count < 1000, !price.isEmpty, let price = Double(price), price <= 999999, category != .unselected, condition != .unselected, location != .unselected, !selectedImages.isEmpty else { return }
         await uploadItem()
     }
     
@@ -224,8 +226,7 @@ final class UploadItemViewModel: ObservableObject {
                                 print("Failed to create UIImage from image data.")
                             }
                         } else {
-                            //TODO: implement
-                            print("Image size exceeds 2MB limit.")
+                            self.notificationService.notify.send(NotificationView.Notification.PhotoUploadFailed)
                         }
                     } else {
                         print("No supported content type found.")

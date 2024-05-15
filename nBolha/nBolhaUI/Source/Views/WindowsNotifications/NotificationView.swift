@@ -29,6 +29,14 @@ public struct NotificationView: View {
                 errorDescription: "Please try again later."
             )
         }
+        
+        public static var PhotoUploadFailed: Notification {
+            return Notification(
+                type: .warning,
+                errorMessage: "Photo upload failed",
+                errorDescription: "Please try again."
+            )
+        }
 
         public init(
             type: `Type`,
