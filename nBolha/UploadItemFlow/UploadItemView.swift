@@ -37,7 +37,7 @@ struct UploadItemView: View {
                         title: "",
                         type: .primary,
                         text: $viewModel.title,
-                        errorText: isTitleFocused ? .constant(nil) : $viewModel.errorTitleText,
+                        errorText: isTitleFocused && viewModel.title.isEmpty ? .constant(nil) : $viewModel.errorTitleText,
                         isFocused: $isTitleFocused
                     )
                 }

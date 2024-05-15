@@ -34,7 +34,6 @@ final class UploadItemViewModel: ObservableObject {
     @Published var errorConditionText: String?
     @Published var errorLocationText: String?
     @Published var errorAddPhotosText: String?
-    private var cancellables = Set<AnyCancellable>()
     
     enum Category: String, CaseIterable {
         case unselected = "Select..."
@@ -71,7 +70,15 @@ final class UploadItemViewModel: ObservableObject {
     private func initializeObserving() {
         $title
             .dropFirst()
-            .map { $0.isEmpty ? "Please enter title" : nil }
+            .map { title in
+                if title.isEmpty {
+                    return "Please enter title"
+                } else if title.count > 50 {
+                    return "\(title.count)/50"
+                } else {
+                    return nil
+                }
+            }
             .receive(on: DispatchQueue.main)
             .assign(to: &$errorTitleText)
            
@@ -129,19 +136,50 @@ final class UploadItemViewModel: ObservableObject {
     }
     
     private func validateFields() {
-        errorTitleText = title.isEmpty ? "Please enter title" : nil
+        errorTitleText = {
+            if title.isEmpty {
+                return "Please enter title"
+            } else if title.count > 50 {
+                return "\(title.count)/50"
+            } else {
+                return nil
+            }
+        }()
         errorDescriptionText = description.count > 1000 ? "\(description.count)/1000"  : nil
-        errorPriceText = price.isEmpty ? "Please enter price" : nil
+        errorPriceText  = {
+            if price.isEmpty {
+                return "Please enter price"
+            } else if let priceValue = Double(price), priceValue > 999999 {
+                return "Price is from 0€ to 999.999€"
+            } else {
+                return nil
+            }
+        }()
         errorCategoryText = category == .unselected ? "Please select category" : nil
         errorConditionText = condition == .unselected ? "Please select condition" : nil
         errorLocationText = location == .unselected ? "Please select location" : nil
         errorAddPhotosText = selectedImages.isEmpty ? "Please add a minimum of 1 photo" : nil
     }
     
+    private func isUploadAllowed() -> Bool {
+        return !title.isEmpty &&
+                title.count < 50 &&
+                description.count < 1000 &&
+                !price.isEmpty &&
+                Double(price) != nil &&
+                Double(price)! <= 999999 &&
+                category != .unselected &&
+                condition != .unselected &&
+                location != .unselected &&
+                !selectedImages.isEmpty
+    }
+    
     @MainActor
     func uploadItemTapped() async {
         validateFields()
-        //TODO: implement
+        guard isUploadAllowed() else { return }
+//        validateFields()
+//        guard !title.isEmpty, title.count < 50, description.count < 1000, !price.isEmpty, let price = Double(price), price <= 999999, category != .unselected, condition != .unselected, location != .unselected, !selectedImages.isEmpty else { return }
         await uploadItem()
     }
     
