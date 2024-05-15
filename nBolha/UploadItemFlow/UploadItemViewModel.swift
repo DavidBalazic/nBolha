@@ -34,6 +34,7 @@ final class UploadItemViewModel: ObservableObject {
     @Published var errorConditionText: String?
     @Published var errorLocationText: String?
     @Published var errorAddPhotosText: String?
+    private var cancellables = Set<AnyCancellable>()
     
     enum Category: String, CaseIterable {
         case unselected = "Select..."
@@ -83,6 +84,16 @@ final class UploadItemViewModel: ObservableObject {
         $price
             .dropFirst()
             .map { $0.isEmpty ? "Please enter price" : nil }
+            .combineLatest($price.validPricePublisher)
+            .map { inputError, validPrice in
+                if let inputError = inputError {
+                    return inputError
+                } else if !validPrice {
+                    return "Price is from 0€ to 999.999€"
+                } else {
+                    return nil
+                }
+            }
             .receive(on: DispatchQueue.main)
             .assign(to: &$errorPriceText)
         

@@ -22,7 +22,16 @@ public extension Publisher where Output == String, Failure == Never {
                 let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
                 return emailPredicate.evaluate(with: email)
             }.eraseToAnyPublisher()
-        }
+    }
+    var validPricePublisher: AnyPublisher<Bool, Never> {
+        map { price in
+            let numericPrice = price.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: ".")
+            guard let priceDouble = Double(numericPrice) else {
+                return false
+            }
+            return priceDouble <= 999999
+        }.eraseToAnyPublisher()
+    }
 }
 
 public extension Publisher where Self.Failure == Never {
