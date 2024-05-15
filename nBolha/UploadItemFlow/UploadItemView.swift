@@ -137,7 +137,7 @@ struct UploadItemView: View {
                 text: "Upload item",
                 trailingIcon: .init(image: Image(.sparkles), size: .huge),
                 tapped: {
-                    viewModel.uploadItemTapped()
+                    Task { await viewModel.uploadItemTapped() }
                     isTitleFocused = false
                     isDescriptionFocused = false
                     isPriceFocused = false

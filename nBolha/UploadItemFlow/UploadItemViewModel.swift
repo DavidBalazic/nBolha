@@ -9,6 +9,8 @@ import Foundation
 import PhotosUI
 import SwiftUI
 import Combine
+import nBolhaNetworking
+import nBolhaCore
 
 protocol UploadItemNavigationDelegate: AnyObject {
  
@@ -16,6 +18,7 @@ protocol UploadItemNavigationDelegate: AnyObject {
 
 final class UploadItemViewModel: ObservableObject {
     private let navigationDelegate: UploadItemNavigationDelegate?
+    @Published var isLoading = false
     @Published var pickerItems = [PhotosPickerItem]()
     @Published var selectedImages = [UIImage]()
     @Published var title: String = ""
@@ -36,7 +39,7 @@ final class UploadItemViewModel: ObservableObject {
         case unselected = "Select..."
         case home = "Home"
         case construction = "Construction"
-        case automative = "Automative"
+        case automotive = "Automotive"
         case sport = "Sport"
         case audiovisual = "Audiovisual"
         case literature = "Literature"
@@ -73,7 +76,7 @@ final class UploadItemViewModel: ObservableObject {
            
         $description
             .dropFirst()
-            .map { $0.count > 10 ? "\($0.count)/1000" : nil }
+            .map { $0.count > 1000 ? "\($0.count)/1000" : nil }
             .receive(on: DispatchQueue.main)
             .assign(to: &$errorDescriptionText)
         
@@ -116,7 +119,7 @@ final class UploadItemViewModel: ObservableObject {
     
     private func validateFields() {
         errorTitleText = title.isEmpty ? "Please enter title" : nil
-        errorDescriptionText = description.count > 10 ? "\(description.count)/1000"  : nil
+        errorDescriptionText = description.count > 1000 ? "\(description.count)/1000"  : nil
         errorPriceText = price.isEmpty ? "Please enter price" : nil
         errorCategoryText = category == .unselected ? "Please select category" : nil
         errorConditionText = condition == .unselected ? "Please select condition" : nil
@@ -124,19 +127,57 @@ final class UploadItemViewModel: ObservableObject {
         errorAddPhotosText = selectedImages.isEmpty ? "Please add a minimum of 1 photo" : nil
     }
     
-    func uploadItemTapped() {
+    @MainActor
+    func uploadItemTapped() async {
         validateFields()
         //TODO: implement
+        await uploadItem()
+    }
+    
+    @MainActor
+    private func uploadItem() async {
+        guard !isLoading else { return }
+        isLoading = true
+        defer { isLoading = false }
+        
+        let postAdvertisementWorker = PostAdvertisementWorker(
+            //TODO: wait for backend update and implement
+            title: title,
+            description: description,
+            price: Double(price) ?? 0.0,
+            address: location.rawValue,
+            category: category.rawValue,
+            condition: "Very_good",
+            images: selectedImages
+        )
+        postAdvertisementWorker.execute { (response, error) in
+            if let response = response {
+                print("Response \(response)")
+            } else if let error = error {
+                print("error: \(error)")
+            }
+        }
     }
     
     func updatePickerItems() {
         selectedImages = []
+        
         for item in pickerItems {
             item.loadTransferable(type: Data.self) { result in
                 switch result {
                 case .success(let imageData):
-                    if let imageData {
-                        self.selectedImages.append(UIImage(data: imageData)!)
+                    if let imageData = imageData {
+                        let maxSizeInBytes: Int = 2 * 1024 * 1024
+                        if imageData.count <= maxSizeInBytes {
+                            if let image = UIImage(data: imageData) {
+                                self.selectedImages.append(image)
+                            } else {
+                                print("Failed to create UIImage from image data.")
+                            }
+                        } else {
+                            //TODO: implement
+                            print("Image size exceeds 2MB limit.")
+                        }
                     } else {
                         print("No supported content type found.")
                     }
