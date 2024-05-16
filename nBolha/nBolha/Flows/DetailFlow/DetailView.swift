@@ -81,7 +81,7 @@ public struct DetailView: View {
                                     Text(showTextLimit ? "View more" : "View less")
                                         .textStyle(.subtitle03)
                                         .foregroundStyle(Color(UIColor.brandSecondary!))
-                                    Image(uiImage: showTextLimit ? .chevronUp : .chevronDown)
+                                    Image(uiImage: showTextLimit ? .chevronDown : .chevronUp)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 18, height: 18)
@@ -97,7 +97,8 @@ public struct DetailView: View {
                             Text("Condition: ")
                                 .textStyle(.subtitle02)
                                 .foregroundStyle(Color(UIColor.text01!))
-                            Text(viewModel.advertisement.condition ?? "No condition")
+                            Text("")
+                                //TODO: wait for backend update
                                 .textStyle(.body02)
                                 .foregroundStyle(Color(UIColor.text01!))
                             Spacer()
@@ -109,7 +110,7 @@ public struct DetailView: View {
                                 size: .large
                             ),
                             tapped: {
-                                //TODO: implement
+                                viewModel.contactSellerTapped()
                             }
                         )
                         .fixedSize()
