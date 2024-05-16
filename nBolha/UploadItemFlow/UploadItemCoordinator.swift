@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import NChainUI
 
 final class UploadItemCoordinator: NSObject, Coordinator, UploadItemNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
@@ -32,6 +33,15 @@ final class UploadItemCoordinator: NSObject, Coordinator, UploadItemNavigationDe
         
         navController.pushViewController(view.asViewController, animated: true)
         return navController
+    }
+    
+    // MARK: - UINavigationControllerDelegate
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        navigationController.navigationBar.topItem?.title = "Add new item"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.brandTertiary!, NSAttributedString.Key.font: UIFont.subtitle02]
+        navigationController.navigationBar.titleTextAttributes = textAttributes
+        
     }
 }
 
