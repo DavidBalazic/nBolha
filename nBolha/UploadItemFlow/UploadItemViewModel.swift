@@ -20,7 +20,13 @@ protocol UploadItemNavigationDelegate: AnyObject {
 final class UploadItemViewModel: ObservableObject {
     private let navigationDelegate: UploadItemNavigationDelegate?
     @Published var isLoading = false
-    @Published var pickerItems = [PhotosPickerItem]()
+    @Published var pickerItems = [PhotosPickerItem]() {
+        didSet {
+            Task {
+                try await loadTransferables(from: pickerItems)
+            }
+        }
+    }
     @Published var selectedImages = [UIImage]()
     @Published var title: String = ""
     @Published var description: String = ""
@@ -210,34 +216,28 @@ final class UploadItemViewModel: ObservableObject {
         }
     }
     
-    func updatePickerItems() {
-        selectedImages = []
-        
-        for item in pickerItems {
-            item.loadTransferable(type: Data.self) { result in
-                switch result {
-                case .success(let imageData):
-                    if let imageData = imageData {
-                        let maxSizeInBytes: Int = 2 * 1024 * 1024
-                        if imageData.count <= maxSizeInBytes {
-                            if let image = UIImage(data: imageData) {
-                                self.selectedImages.append(image)
-                            } else {
-                                print("Failed to create UIImage from image data.")
-                            }
-                        } else {
-                            self.notificationService.notify.send(NotificationView.Notification.PhotoUploadFailed)
-                        }
-                    } else {
-                        print("No supported content type found.")
+    func loadTransferables(from selection: [PhotosPickerItem]?) async throws {
+        var tempImages = [UIImage]()
+        guard let selection = selection else { return }
+        for item in selection {
+            if let data = try await item.loadTransferable(type: Data.self) {
+                let maxSizeInBytes = 2 * 1024 * 1024
+                if data.count <= maxSizeInBytes {
+                    if let uiImage = UIImage(data: data) {
+                        tempImages.append(uiImage)
                     }
-                case .failure(let error):
-                    print(error)
+                }
+                else {
+                    self.notificationService.notify.send(NotificationView.Notification.PhotoUploadFailed)
+                    self.selectedImages.removeAll()
+                    self.pickerItems.removeAll()
+                    return
                 }
             }
         }
+        self.selectedImages = tempImages
     }
-    
+        
     func removeImage(at index: Int) {
         self.selectedImages.remove(at: index)
         self.pickerItems.remove(at: index)
@@ -254,28 +254,12 @@ final class UploadItemViewModel: ObservableObject {
             selectedImages.swapAt(index, index - 1)
             pickerItems.swapAt(index, index - 1)
         }
-        else {
-            let removedItem = selectedImages[index]
-            selectedImages.remove(at: index)
-            selectedImages.append(removedItem)
-            let removedPickerItem = pickerItems[index]
-            pickerItems.remove(at: index)
-            pickerItems.append(removedPickerItem)
-        }
     }
     
     func moveImageDown(at index: Int) {
         if index < selectedImages.count - 1 {
             selectedImages.swapAt(index, index + 1)
             pickerItems.swapAt(index, index + 1)
-        }
-        else {
-            let removedItem = selectedImages[index]
-            selectedImages.remove(at: index)
-            selectedImages.insert(removedItem, at: 0)
-            let removedPickerItem = pickerItems[index]
-            pickerItems.remove(at: index)
-            pickerItems.insert(removedPickerItem, at: 0)
         }
     }
 }
