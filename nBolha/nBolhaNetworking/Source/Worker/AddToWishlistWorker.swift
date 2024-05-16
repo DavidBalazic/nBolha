@@ -17,10 +17,7 @@ public class AddToWishlistWorker: BaseNBolhaWorker<String> {
     }
     
     public override func getUrl() -> String {
-        let baseUrl = super.getUrl()
-        let endpointPath = NBolhaApi.Endpoint.addToWishlist.path
-        let queryString = "advertisementId=\(advertisementId)"
-        return "\(baseUrl)\(endpointPath)?\(queryString)"
+        return super.getUrl() + NBolhaApi.Endpoint.addToWishlist(id: advertisementId).path
     }
 
     public override func getHeaders() -> [String : String] {

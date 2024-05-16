@@ -21,14 +21,17 @@ final class AppLaunchCoordinator: NSObject {
     func start() {
         navigationController = UINavigationController()
         window.rootViewController = navigationController
-        if let token = KeyChainManager(service: Constants.keychainServiceIdentifier).get(forKey: "sessionTokenID") {
-            TabBarCoordinator(
-                navigationController: navigationController
-            ).start()
-        } else {
-            LoginCoordinator(
-                navigationController: navigationController
-            ).start()
-        }
+//        if let token = KeyChainManager(service: Constants.keychainServiceIdentifier).get(forKey: "sessionTokenID") {
+//            TabBarCoordinator(
+//                navigationController: navigationController
+//            ).start()
+//        } else {
+//            LoginCoordinator(
+//                navigationController: navigationController
+//            ).start()
+//        }
+        LoginCoordinator(
+            navigationController: navigationController
+        ).start()
     }
 }

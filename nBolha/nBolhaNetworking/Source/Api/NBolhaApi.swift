@@ -22,7 +22,7 @@ public class NBolhaApi {
         case advertisementRecentlyViewed
         case advertisement(id: Int)
         case getWishlist
-        case addToWishlist
+        case addToWishlist(id: Int)
         case deleteWishlist(id: Int)
         
         var path: String {
@@ -32,15 +32,15 @@ public class NBolhaApi {
             case .advertisements:
                 return "Advertisement/GetAll"
             case .advertisementRecentlyAdded:
-                return "Advertisement/Recent"
+                return "Advertisement/RecentlyAdded"
             case .advertisementRecentlyViewed:
-                return "Advertisement/RecentViewed"
+                return "Advertisement/RecentlyViewed"
             case .advertisement(id: let id):
                 return "Advertisement/\(id)"
             case .getWishlist:
                 return "Wishlist/GetWishlist"
-            case .addToWishlist:
-                return "Wishlist/AddToWishlist"
+            case .addToWishlist(id: let id):
+                return "Wishlist/\(id)"
             case .deleteWishlist(id: let id):
                 return "Wishlist/\(id)"
             }
