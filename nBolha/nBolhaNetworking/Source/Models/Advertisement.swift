@@ -23,5 +23,9 @@ public struct Advertisement: Codable, Hashable {
 }
 
 public struct ImageObject: Codable, Hashable {
-    let imageAddress: String
+    public let imageAddress: String
+    
+    public var fullImageURL: URL? {
+        return URL(string: "\(NBolhaApi.baseUrl.absoluteString)\(imageAddress)")
+    }
 }

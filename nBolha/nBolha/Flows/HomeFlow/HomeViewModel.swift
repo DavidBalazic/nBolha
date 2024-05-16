@@ -11,7 +11,7 @@ import UIKit
 
 protocol HomeNavigationDelegate: AnyObject {
     func showCategoriesScreen()
-    func showDetailScreen(selectedAdvertisement: Advertisement)
+    func showDetailScreen(advertisementId: Int)
 }
 
 final class HomeViewModel: ObservableObject {
@@ -102,11 +102,7 @@ final class HomeViewModel: ObservableObject {
         navigationDelegate?.showCategoriesScreen()
     }
     
-    func advertisementItemTapped(selectedAdvertisement: Advertisement) {
-        guard let advertisementId = selectedAdvertisement.advertisementId else { return }
-        let advertisementViewedWorker = AdvertisementViewedWorker(advertisementId: advertisementId)
-        advertisementViewedWorker.execute()
-        
-        navigationDelegate?.showDetailScreen(selectedAdvertisement: selectedAdvertisement)
+    func advertisementItemTapped(advertisementId: Int) {
+        navigationDelegate?.showDetailScreen(advertisementId: advertisementId)
     }
 }

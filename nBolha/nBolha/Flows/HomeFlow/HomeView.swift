@@ -37,7 +37,7 @@ struct HomeView: View {
                                     RecentlyViewedView(
                                         advertisement: advertisement,
                                         itemTapped: {
-                                            viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
+                                            viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
                                         },
                                         likeButtonTapped: {
                                             viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
@@ -64,7 +64,7 @@ struct HomeView: View {
                                     AdvertisementItemsView(
                                         advertisement: advertisement,
                                         itemTapped: {
-                                            viewModel.advertisementItemTapped(selectedAdvertisement: advertisement)
+                                            viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
                                         },
                                         likeButtonTapped: {
                                             viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)

@@ -34,9 +34,14 @@ struct RecentlyViewedView: View {
         }) {
             VStack {
                 ZStack(alignment: .topTrailing) {
-                    Image(.illustrations)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    if let imageObject = advertisement.images?.first, let imageURL = imageObject.fullImageURL {
+                        AsyncImage(url: imageURL) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } placeholder: {
+                            ProgressView()
+                        }
                         .frame(width: 130, height: 130)
                         .background(
                             RoundedRectangle(
@@ -45,6 +50,7 @@ struct RecentlyViewedView: View {
                             )
                             .stroke(Color(UIColor.outline02!), lineWidth: 1)
                         )
+                    }
                     LikeButton(
                         isLiked: advertisement.isInWishlist ?? false,
                         advertisementId: advertisement.advertisementId ?? 0,
