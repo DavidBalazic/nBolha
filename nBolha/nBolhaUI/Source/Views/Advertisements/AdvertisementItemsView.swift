@@ -42,6 +42,7 @@ public struct AdvertisementItemsView: View {
                             ProgressView()
                         }
                         .frame(height: 166)
+                        .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(
                                 cornerRadius: NCConstants.Radius.small.rawValue,
