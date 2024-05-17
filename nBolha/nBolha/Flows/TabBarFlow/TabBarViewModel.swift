@@ -20,6 +20,7 @@ final class TabBarViewModel {
         [
             .init(item: .home),
             .init(item: .categories),
+            .init(item: .uploadItem),
             .init(item: .wishlist)
         ]
     }()
@@ -65,6 +66,10 @@ final class TabBarViewModel {
             
         case .wishlist:
             let coordinator = WishlistCoordinator()
+            return setup(coordinator.start())
+            
+        case .uploadItem:
+            let coordinator = UploadItemCoordinator()
             return setup(coordinator.start())
         }
     }

@@ -24,6 +24,7 @@ public class NBolhaApi {
         case getWishlist
         case addToWishlist
         case deleteWishlist(id: Int)
+        case postAdvertisement
         
         var path: String {
             switch self {
@@ -43,6 +44,8 @@ public class NBolhaApi {
                 return "Wishlist/AddToWishlist"
             case .deleteWishlist(id: let id):
                 return "Wishlist/\(id)"
+            case .postAdvertisement:
+                return "Advertisement/PostAdvertisement"
             }
         }
     }
