@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-@available(iOS 15.0, *)
+@available(iOS 16.0, *)
 public struct SwiftUITextInput: View {
     public enum `Type` {
         case primary
         case password
+        case description
     }
     
     // MARK: - Variables
@@ -87,7 +88,7 @@ public struct SwiftUITextInput: View {
                             height: 24,
                             alignment: .center
                         )
-                    ZStack(alignment: .leading) {
+                    ZStack(alignment: self.type == .description ? .top : .leading) {
                         Color.clear
                             .contentShape(Rectangle())
                             .onTapGesture {
@@ -112,19 +113,20 @@ public struct SwiftUITextInput: View {
                             isEnabled: isEnabled,
                             type: type
                         )
+                        .offset(y: title.isEmpty && self.type != .description ? -8 : 0)
                     }
-                    .frame(height: 48)
+                    .frame(height: self.type == .description ? 116 : 48)
                 }
                 
                        .padding(.horizontal, 12)
                        .overlay(isEditing ? RoundedRectangle(cornerRadius: 4)
                             .stroke(Color(.inverseOutline02), lineWidth: 3)
-                            .frame(height: 52) : nil
+                            .frame(height: self.type == .description ? 120 : 52) : nil
                        )
                        .padding(.horizontal, -2)
                        .overlay(RoundedRectangle(cornerRadius: isEditing ? 2 : 4)
                             .stroke(borderColor, lineWidth: 1)
-                            .frame(height: 48)
+                            .frame(height: self.type == .description ? 116 : 48)
                        )
             }
             .focused(isFocused)
@@ -179,16 +181,18 @@ public struct SwiftUITextInput: View {
             self.type = type
         }
         
-        private var defaultTextField: TextField<Text> {
-            TextField("", text: $text, onEditingChanged: { edit in
-                if edit {
-                    errorText = nil
+        private var defaultTextField: some View {
+            TextField("", text: $text, axis: self.type == .description ? .vertical : .horizontal)
+                .onChange(of: isEditing) { edit in
+                    if edit {
+                        errorText = nil
+                    }
                 }
-            })
+                .padding(.bottom, type == .description ? 12 : 0)
         }
         
         var body: some View {
-            if type == .primary {
+            if type == .primary || type == .description {
                 defaultTextField
                     .styleInputView(
                         isEnabled: isEnabled,
@@ -206,6 +210,7 @@ public struct SwiftUITextInput: View {
                             )
                     } else {
                         SecureField("", text: $text)
+//                            .offset(y: 8)
                             .onTapGesture {
                                 errorText = nil
                             }
