@@ -13,20 +13,21 @@ import MessageUI
 
 final class DetailCoordinator: NSObject, Coordinator, DetailNavigationDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
     private weak var navigationController: UINavigationController?
-    private var advertisement: Advertisement
+    private var advertisementId: Int
     
     init(
         navigationController: UINavigationController? = nil,
-        advertisement: Advertisement
+        advertisementId: Int
     ) {
         self.navigationController = navigationController
-        self.advertisement = advertisement
+        self.advertisementId = advertisementId
     }
     
     @discardableResult
     func start() -> UIViewController {
         let viewModel = DetailViewModel(
-            navigationDelegate: self, advertisement: advertisement
+            navigationDelegate: self, 
+            advertisementId: advertisementId
         )
         let view = DetailView(viewModel: viewModel)
         

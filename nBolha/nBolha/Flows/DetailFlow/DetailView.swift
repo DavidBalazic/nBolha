@@ -28,28 +28,27 @@ public struct DetailView: View {
                     showLikeButton: true,
                     advertisement: viewModel.advertisement,
                     likeButtonTapped: {
-                        viewModel.likeAdvertisementTapped(advertisementId: viewModel.advertisement.advertisementId ?? 0)
+                        viewModel.likeAdvertisementTapped(advertisementId: viewModel.advertisement?.advertisementId ?? 0)
                     },
                     dislikeButtonTapped: {
-                        viewModel.dislikeAdvertisementTapped(advertisementId: viewModel.advertisement.advertisementId ?? 0)
+                        viewModel.dislikeAdvertisementTapped(advertisementId: viewModel.advertisement?.advertisementId ?? 0)
                     },
                     isDialogPresented: $isDialogPresented
                 )
                 .padding(.bottom, NCConstants.Margins.extraLarge.rawValue)
                 VStack(spacing: NCConstants.Margins.extraLarge.rawValue) {
                     VStack(spacing: NCConstants.Margins.large.rawValue) {
-                        Text(viewModel.advertisement.title ?? "No title")
+                        Text(viewModel.advertisement?.title ?? "No title")
                             .textStyle(.subtitle01)
                             .foregroundStyle(Color(UIColor.text01!))
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HStack {
-                            Text(String(format: "%.2f €", viewModel.advertisement.price ?? "0"))
+                            Text(String(format: "%.2f €", viewModel.advertisement?.price ?? "0"))
                                 .textStyle(.subtitle01)
                                 .foregroundStyle(Color(UIColor.text01!))
                             Spacer()
                             SwifUIChipView(
-                                //TODO: wait for backend update
-                                title: "Maribor",
+                                title: viewModel.advertisement?.address ?? "No address",
                                 size: .medium,
                                 style: .init(disabledBackgroundColor: Color(.background05!), disabledBorderColor: .clear, disabledTintColor: Color(.brandSecondary!)),
                                 state: .disabled,
@@ -58,7 +57,7 @@ public struct DetailView: View {
                         }
                     }
                     VStack(alignment: .leading, spacing: NCConstants.Margins.small.rawValue) {
-                        Text(viewModel.advertisement.description ?? "No description")
+                        Text(viewModel.advertisement?.description ?? "No description")
                             .textStyle(.body02)
                             .foregroundStyle(Color(UIColor.text01!))
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -97,8 +96,7 @@ public struct DetailView: View {
                             Text("Condition: ")
                                 .textStyle(.subtitle02)
                                 .foregroundStyle(Color(UIColor.text01!))
-                            Text("")
-                                //TODO: wait for backend update
+                            Text(viewModel.advertisement?.condition ?? "No condition")
                                 .textStyle(.body02)
                                 .foregroundStyle(Color(UIColor.text01!))
                             Spacer()

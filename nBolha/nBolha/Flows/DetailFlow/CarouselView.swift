@@ -11,9 +11,8 @@ import NChainUI
 import nBolhaNetworking
 
 struct CarouselView: View {
-    let images: [String] = ["Illustrations", "Illustrations2", "Illustrations3"]
     let showLikeButton: Bool
-    let advertisement: Advertisement
+    let advertisement: Advertisement?
     let likeButtonTapped: (() -> Void)?
     let dislikeButtonTapped: (() -> Void)?
     @State private var currentIndex = 0
@@ -23,13 +22,20 @@ struct CarouselView: View {
         VStack {
             GeometryReader { geometry in
                 TabView(selection:$currentIndex){
-                    ForEach(0..<images.count,id: \.self){ imageIndex in
+                    ForEach(advertisement?.images?.indices ?? 0..<0, id: \.self){ index in
                         ZStack(alignment: .topTrailing) {
-                            Image(images[imageIndex])
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+                            if let imageURL = advertisement?.images?[index].fullImageURL{
+                                AsyncImage(url: imageURL) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .tag(index)
+                                } placeholder: {
+                                    ProgressView()
+                                }
                                 .frame(width: geometry.size.width)
-                                .tag(imageIndex)
+
+                            }
                         }
                         .onTapGesture {
                             isDialogPresented = true
@@ -43,8 +49,8 @@ struct CarouselView: View {
         .overlay(alignment: .topTrailing) {
             if showLikeButton, let likeButtonTapped = likeButtonTapped, let dislikeButtonTapped = dislikeButtonTapped {
                 LikeButton(
-                    isLiked: advertisement.isInWishlist ?? false,
-                    advertisementId: advertisement.advertisementId ?? 0,
+                    isLiked: advertisement?.isInWishlist ?? false,
+                    advertisementId: advertisement?.advertisementId ?? 0,
                     likeButtonTapped: likeButtonTapped,
                     dislikeButtonTapped: dislikeButtonTapped
                 )

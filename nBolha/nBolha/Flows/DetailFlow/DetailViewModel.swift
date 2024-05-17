@@ -17,14 +17,34 @@ protocol DetailNavigationDelegate: AnyObject {
 
 final class DetailViewModel: ObservableObject{
     private let navigationDelegate: DetailNavigationDelegate?
-    @Published var advertisement: Advertisement
+    private let advertisementId: Int
+    @Published var isLoading = false
+    @Published var advertisement: Advertisement?
     
     init(
         navigationDelegate: DetailNavigationDelegate?,
-        advertisement: Advertisement
+        advertisementId: Int
     ) {
         self.navigationDelegate = navigationDelegate
-        self.advertisement = advertisement
+        self.advertisementId = advertisementId
+        Task {
+            await loadDetailAdvertisement(advertisementId: advertisementId)
+        }
+    }
+    
+    private func loadDetailAdvertisement(advertisementId: Int) async {
+        guard !isLoading else { return }
+        isLoading = true
+        defer { isLoading = false }
+        
+        let advertisementViewedWorker = AdvertisementViewedWorker(advertisementId: advertisementId)
+        advertisementViewedWorker.execute { response, error in
+            if let error = error {
+                print("Error loading advertisements: \(error)")
+            } else {
+                self.advertisement = response
+            }
+        }
     }
     
     func disableNavigations() {
@@ -40,7 +60,7 @@ final class DetailViewModel: ObservableObject{
         likeWorker.execute { [weak self] (_, error) in
             guard error == nil else { return }
             
-            self?.advertisement.isInWishlist = true
+            self?.advertisement?.isInWishlist = true
         }
     }
     
@@ -49,7 +69,7 @@ final class DetailViewModel: ObservableObject{
         dislikeWorker.execute { [weak self] (_, error) in
             guard error == nil else { return }
             
-            self?.advertisement.isInWishlist = false
+            self?.advertisement?.isInWishlist = false
         }
     }
     

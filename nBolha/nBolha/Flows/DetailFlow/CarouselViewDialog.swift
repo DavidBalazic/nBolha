@@ -10,7 +10,7 @@ import NChainUI
 import nBolhaNetworking
 
 struct CarouselViewDialog: View {
-    let advertisement: Advertisement
+    let advertisement: Advertisement?
     @Binding var isDialogPresented: Bool
     
     var body: some View {

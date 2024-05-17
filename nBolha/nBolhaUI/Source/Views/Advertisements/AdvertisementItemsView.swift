@@ -33,9 +33,16 @@ public struct AdvertisementItemsView: View {
         }) {
             VStack(spacing: NCConstants.Margins.small.rawValue) {
                 ZStack(alignment: .topTrailing) {
-                    Image(uiImage: .checkmark)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    if let imageObject = advertisement.images?.first, let imageURL = imageObject.fullImageURL {
+                        AsyncImage(url: imageURL) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(height: 166)
+                        .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(
                                 cornerRadius: NCConstants.Radius.small.rawValue,
@@ -43,6 +50,7 @@ public struct AdvertisementItemsView: View {
                             )
                             .stroke(Color(UIColor.outline02!), lineWidth: 1)
                         )
+                    }
                     LikeButton(
                         isLiked: advertisement.isInWishlist ?? false,
                         advertisementId: advertisement.advertisementId ?? 0,

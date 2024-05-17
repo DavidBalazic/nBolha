@@ -11,7 +11,7 @@ import nBolhaNetworking
 protocol CategoriesNavigationDelegate: AnyObject {
     func showCategoriesDetailScreen()
     func showCategoriesScreen()
-    func showDetailScreen(selectedAdvertisement: Advertisement)
+    func showDetailScreen(advertisementId: Int)
 }
 
 final class CategoriesViewModel: ObservableObject {
@@ -82,11 +82,7 @@ final class CategoriesViewModel: ObservableObject {
         navigationDelegate?.showCategoriesScreen()
     }
     
-    func advertisementItemTapped(selectedAdvertisement: Advertisement) {
-        guard let advertisementId = selectedAdvertisement.advertisementId else { return }
-        let advertisementViewedWorker = AdvertisementViewedWorker(advertisementId: advertisementId)
-        advertisementViewedWorker.execute()
-        
-        navigationDelegate?.showDetailScreen(selectedAdvertisement: selectedAdvertisement)
+    func advertisementItemTapped(advertisementId: Int) {
+        navigationDelegate?.showDetailScreen(advertisementId: advertisementId)
     }
 }

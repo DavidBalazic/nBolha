@@ -9,7 +9,7 @@ import Foundation
 
 public class NBolhaApi {
     public static var baseUrl: URL {
-        guard let url = URL(string: "http://65.21.57.27:5080/api/") else {
+        guard let url = URL(string: "http://65.21.57.27:5080") else {
             fatalError("BASE_URL not convertible to URL")
         }
         return url
@@ -22,30 +22,30 @@ public class NBolhaApi {
         case advertisementRecentlyViewed
         case advertisement(id: Int)
         case getWishlist
-        case addToWishlist
+        case addToWishlist(id: Int)
         case deleteWishlist(id: Int)
         case postAdvertisement
         
         var path: String {
             switch self {
             case .login:
-                return "User/Login"
+                return "/api/User/Login"
             case .advertisements:
-                return "Advertisement/GetAll"
+                return "/api/Advertisement/GetAll"
             case .advertisementRecentlyAdded:
-                return "Advertisement/Recent"
+                return "/api/Advertisement/RecentlyAdded"
             case .advertisementRecentlyViewed:
-                return "Advertisement/RecentViewed"
+                return "/api/Advertisement/RecentlyViewed"
             case .advertisement(id: let id):
-                return "Advertisement/\(id)"
+                return "/api/Advertisement/\(id)"
             case .getWishlist:
-                return "Wishlist/GetWishlist"
-            case .addToWishlist:
-                return "Wishlist/AddToWishlist"
+                return "/api/Wishlist/GetWishlist"
+            case .addToWishlist(id: let id):
+                return "/api/Wishlist/\(id)"
             case .deleteWishlist(id: let id):
-                return "Wishlist/\(id)"
+                return "/api/Wishlist/\(id)"
             case .postAdvertisement:
-                return "Advertisement/PostAdvertisement"
+                return "/api/Advertisement/PostAdvertisement"
             }
         }
     }

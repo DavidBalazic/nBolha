@@ -14,12 +14,18 @@ public struct Advertisement: Codable, Hashable {
     public let price: Double?
     public let created_At: String?
     public let images: [ImageObject]?
-    public let address: Int?
-    public let category: Int?
-    public let condition: Int?
+    public let address: String?
+    public let category: String?
+    public let condition: String?
     public var isInWishlist: Bool?
+    public var user_id: Int?
+    public var username: String?
 }
 
 public struct ImageObject: Codable, Hashable {
-    let imageAddress: String
+    public let imageAddress: String
+    
+    public var fullImageURL: URL? {
+        return URL(string: "\(NBolhaApi.baseUrl.absoluteString)\(imageAddress)")
+    }
 }

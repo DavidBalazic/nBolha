@@ -43,9 +43,6 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
         let filterViewModel = FilterViewModel(
             navigationDelegate: self
         )
-        let wishlistViewModel = WishlistViewModel(
-            navigationDelegate: self
-        )
         let view = CategoriesDetailView(
             viewModel: viewModel,
             filterViewModel: filterViewModel
@@ -61,9 +58,10 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
         //TODO: implement
     }
     
-    func showDetailScreen(selectedAdvertisement: Advertisement) {
+    func showDetailScreen(advertisementId: Int) {
         DetailCoordinator(
-            navigationController: navigationController, advertisement: selectedAdvertisement
+            navigationController: navigationController, 
+            advertisementId: advertisementId
         ).start()
     }
     

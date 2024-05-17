@@ -45,9 +45,10 @@ final class HomeCoordinator: NSObject, Coordinator, HomeNavigationDelegate, UINa
         CategoriesCoordinator().start()
     }
     
-    func showDetailScreen(selectedAdvertisement: Advertisement) {
+    func showDetailScreen(advertisementId: Int) {
         DetailCoordinator(
-            navigationController: navigationController, advertisement: selectedAdvertisement
+            navigationController: navigationController, 
+            advertisementId: advertisementId
         ).start()
     }
     
