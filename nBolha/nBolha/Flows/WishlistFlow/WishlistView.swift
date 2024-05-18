@@ -20,13 +20,13 @@ struct WishlistView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 24) {
+            VStack(spacing: NCConstants.Margins.extraLarge.rawValue) {
                 Text("My wishlist")
                     .textStyle(.subtitle02)
                     .foregroundStyle(Color(.brandTertiary!))
                     .frame(maxWidth: .infinity, alignment: .leading)
                 if viewModel.wishlistAdvertisements.isEmpty {
-                    
+                    EmptyWishlistView()
                 } else {
                     let pairs = viewModel.wishlistAdvertisements.chunked(into: 2)
                     ForEach(pairs, id: \.self) { pair in
@@ -37,9 +37,7 @@ struct WishlistView: View {
                                     itemTapped: {
                                         viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
                                     },
-                                    likeButtonTapped: {
-
-                                    },
+                                    likeButtonTapped: { },
                                     dislikeButtonTapped: {
                                         viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
                                     }
@@ -50,7 +48,7 @@ struct WishlistView: View {
                 }
             }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, NCConstants.Margins.large.rawValue)
         .onAppear {
             Task { await viewModel.loadWishlist() }
         }
