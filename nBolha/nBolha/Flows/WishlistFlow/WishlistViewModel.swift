@@ -9,7 +9,7 @@ import Foundation
 import nBolhaNetworking
 
 protocol WishlistNavigationDelegate: AnyObject {
- 
+    func showDetailScreen(advertisementId: Int)
 }
 
 final class WishlistViewModel: ObservableObject {
@@ -39,5 +39,24 @@ final class WishlistViewModel: ObservableObject {
                 self.wishlistAdvertisements = response ?? []
             }
         }
+    }
+    
+    private func dislikeAdvertisement(advertisementId: Int) async {
+        let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
+        dislikeWorker.execute { [weak self] (_, error) in
+            guard error == nil else { return }
+            
+            if let index = self?.wishlistAdvertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                self?.wishlistAdvertisements.remove(at: index)
+            }
+        }
+    }
+    
+    func dislikeAdvertisementTapped(advertisementId: Int) {
+        Task { await dislikeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func advertisementItemTapped(advertisementId: Int) {
+        navigationDelegate?.showDetailScreen(advertisementId: advertisementId)
     }
 }
