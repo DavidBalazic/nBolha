@@ -7,6 +7,7 @@
 
 import Foundation
 import nBolhaNetworking
+import nBolhaUI
 
 protocol CategoriesNavigationDelegate: AnyObject {
     func showCategoriesDetailScreen(category: String)
@@ -19,7 +20,9 @@ final class CategoriesViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var advertisements: [Advertisement] = []
     @Published var category: String?
-    
+    @Published var conditions: [Condition] = []
+    @Published var order: SortBy = .newest
+
     init(
         navigationDelegate: CategoriesNavigationDelegate?
     ) {
@@ -33,16 +36,20 @@ final class CategoriesViewModel: ObservableObject {
         self.navigationDelegate = navigationDelegate
         self.category = category
         Task {
-            await loadCategoryAdvertisements(category: category)
+            await loadFilteredAdvertisements()
         }
     }
     
-    func loadCategoryAdvertisements(category: String) async {
+    private func loadFilteredAdvertisements() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
         
-        let filterAdvertisementWorker = FilterAdvertisementWorker(category: category)
+        let filterAdvertisementWorker = FilterAdvertisementWorker(
+            category: category,
+            orderBy: order.rawValue,
+            conditions: conditions.map { $0.rawValue }
+        )
         filterAdvertisementWorker.execute { (response, error) in
             if let error = error {
                 print("Error loading advertisements: \(error)")
@@ -72,6 +79,21 @@ final class CategoriesViewModel: ObservableObject {
                 self?.advertisements[index].isInWishlist = false
             }
         }
+    }
+    
+    func removeFilterTapped(value: String) {
+        if let condition = Condition(rawValue: value), let index = conditions.firstIndex(of: condition) {
+            conditions.remove(at: index)
+        } else if SortBy(rawValue: value) != nil {
+            order = .newest
+        }
+        Task { await loadFilteredAdvertisements() }
+    }
+    
+    func applyFiltersTapped(selectedCheckBoxes: [Condition], selectedRadioButton: SortBy) {
+        self.conditions = selectedCheckBoxes
+        self.order = selectedRadioButton
+        Task { await loadFilteredAdvertisements() }
     }
     
     func likeAdvertisementTapped(advertisementId: Int) {

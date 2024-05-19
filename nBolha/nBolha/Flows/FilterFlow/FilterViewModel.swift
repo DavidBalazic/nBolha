@@ -6,24 +6,31 @@
 //
 
 import Foundation
+import nBolhaNetworking
+import nBolhaUI
 
-protocol FilterNavigationDelegate: AnyObject {
- 
-}
-
-final class FilterViewModel: ObservableObject {
-    private let navigationDelegate: FilterNavigationDelegate?
-    @Published var selectedRadioButton: FilterView.SortBy = FilterView.SortBy.newest
-    @Published var selectedCheckBoxes: [FilterView.Condition] = []
+class FilterViewModel: ObservableObject {
+    @Published var selectedRadioButton: SortBy
+    @Published var selectedCheckBoxes: [Condition]
     
     init(
-        navigationDelegate: FilterNavigationDelegate?
+        selectedRadioButton: SortBy = .newest,
+        selectedCheckBoxes: [Condition] = []
     ) {
-        self.navigationDelegate = navigationDelegate
-    }
-    
-    func setSelectedOptions(selectedCheckBoxes: [FilterView.Condition], selectedRadioButton: FilterView.SortBy) {
         self.selectedCheckBoxes = selectedCheckBoxes
         self.selectedRadioButton = selectedRadioButton
+    }
+    
+    func resetFilters() {
+        selectedRadioButton = .newest
+        selectedCheckBoxes = []
+    }
+
+    func toggleCondition(_ condition: Condition) {
+        if let index = selectedCheckBoxes.firstIndex(of: condition) {
+            selectedCheckBoxes.remove(at: index)
+        } else {
+            selectedCheckBoxes.append(condition)
+        }
     }
 }

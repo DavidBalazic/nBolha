@@ -10,7 +10,7 @@ import UIKit
 import nBolhaUI
 import nBolhaNetworking
 
-final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDelegate, FilterNavigationDelegate, WishlistNavigationDelegate, UINavigationControllerDelegate {
+final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
     
     init(
@@ -41,12 +41,8 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
             navigationDelegate: self,
             category: category
         )
-        let filterViewModel = FilterViewModel(
-            navigationDelegate: self
-        )
         let view = CategoriesDetailView(
-            viewModel: viewModel,
-            filterViewModel: filterViewModel
+            viewModel: viewModel
         )
         
         navigationController?.pushViewController(
