@@ -28,24 +28,26 @@ struct CategoriesDetailView: View {
         SearchBar(text: $search)
         VStack(spacing: NCConstants.Margins.large.rawValue) {
             HStack {
-                Text("Home")
+                Text(viewModel.category ?? "")
                     .textStyle(.subtitle02)
                     .foregroundStyle(Color(.brandTertiary!))
                 Spacer()
-                Button(action: {
-                    isFilterTapped.toggle()
-                }) {
-                    ZStack(alignment: .topTrailing) {
-                        Image(.filter)
-                            .frame(width: 20, height: 20)
-                        if !filterViewModel.selectedCheckBoxes.isEmpty || filterViewModel.selectedRadioButton != .newest {
-                            Text("\(filterViewModel.selectedCheckBoxes.count + (filterViewModel.selectedRadioButton != .newest ? 1 : 0))")
-                                .font(.system(size: 10, weight: .bold))
-                                .foregroundColor(Color(.background01!))
-                                .frame(width: 12, height: 12)
-                                .background(Color(.brandPrimary!))
-                                .clipShape(Circle())
-                                .offset(x: 4, y: -4)
+                if !viewModel.advertisements.isEmpty {
+                    Button(action: {
+                        isFilterTapped.toggle()
+                    }) {
+                        ZStack(alignment: .topTrailing) {
+                            Image(.filter)
+                                .frame(width: 20, height: 20)
+                            if !filterViewModel.selectedCheckBoxes.isEmpty || filterViewModel.selectedRadioButton != .newest {
+                                Text("\(filterViewModel.selectedCheckBoxes.count + (filterViewModel.selectedRadioButton != .newest ? 1 : 0))")
+                                    .font(.system(size: 10, weight: .bold))
+                                    .foregroundColor(Color(.background01!))
+                                    .frame(width: 12, height: 12)
+                                    .background(Color(.brandPrimary!))
+                                    .clipShape(Circle())
+                                    .offset(x: 4, y: -4)
+                            }
                         }
                     }
                 }
@@ -79,7 +81,11 @@ struct CategoriesDetailView: View {
         .padding(.bottom, NCConstants.Margins.extraLarge.rawValue)
         ScrollView(showsIndicators: false) {
             if viewModel.advertisements.isEmpty {
-                EmptyCategoriesView(category: "Home")
+                EmptyCategoriesView(
+                    browseCategoriesTapped: {
+                        viewModel.browseCategoriesTapped()
+                    }
+                )
             } else {
                 let pairs = viewModel.advertisements.chunked(into: 2)
                 ForEach(pairs, id: \.self) { pair in

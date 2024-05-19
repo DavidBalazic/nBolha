@@ -9,7 +9,7 @@ import Foundation
 import nBolhaNetworking
 
 protocol CategoriesNavigationDelegate: AnyObject {
-    func showCategoriesDetailScreen()
+    func showCategoriesDetailScreen(category: String)
     func showCategoriesScreen()
     func showDetailScreen(advertisementId: Int)
 }
@@ -18,24 +18,32 @@ final class CategoriesViewModel: ObservableObject {
     private let navigationDelegate: CategoriesNavigationDelegate?
     @Published var isLoading = false
     @Published var advertisements: [Advertisement] = []
-    @Published var selectedAdvertisement: Advertisement?
+    @Published var category: String?
     
     init(
         navigationDelegate: CategoriesNavigationDelegate?
     ) {
         self.navigationDelegate = navigationDelegate
+    }
+    
+    init(
+        navigationDelegate: CategoriesNavigationDelegate?,
+        category: String
+    ) {
+        self.navigationDelegate = navigationDelegate
+        self.category = category
         Task {
-            await loadAdvertisements()
+            await loadCategoryAdvertisements(category: category)
         }
     }
     
-    func loadAdvertisements() async{
+    func loadCategoryAdvertisements(category: String) async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
         
-        let advertisementWorker = AdvertisementWorker()
-        advertisementWorker.execute { (response, error) in
+        let filterAdvertisementWorker = FilterAdvertisementWorker(category: category)
+        filterAdvertisementWorker.execute { (response, error) in
             if let error = error {
                 print("Error loading advertisements: \(error)")
             } else {
@@ -74,8 +82,8 @@ final class CategoriesViewModel: ObservableObject {
         Task { await dislikeAdvertisement(advertisementId: advertisementId) }
     }
     
-    func categoriesItemTapped() {
-        navigationDelegate?.showCategoriesDetailScreen()
+    func categoriesItemTapped(category: String) {
+        navigationDelegate?.showCategoriesDetailScreen(category: category)
     }
     
     func browseCategoriesTapped() {

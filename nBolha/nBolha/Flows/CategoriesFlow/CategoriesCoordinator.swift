@@ -36,9 +36,10 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
     
     // MARK: - CategoriesNavigationDelegate
     
-    func showCategoriesDetailScreen() {
+    func showCategoriesDetailScreen(category: String) {
         let viewModel = CategoriesViewModel(
-            navigationDelegate: self
+            navigationDelegate: self,
+            category: category
         )
         let filterViewModel = FilterViewModel(
             navigationDelegate: self
@@ -55,7 +56,7 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
     }
     
     func showCategoriesScreen() {
-        //TODO: implement
+        CategoriesCoordinator().start()
     }
     
     func showDetailScreen(advertisementId: Int) {
