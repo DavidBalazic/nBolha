@@ -736,6 +736,7 @@
 				509A8FEB2BF37E630029C50A /* WishlistCoordinator.swift */,
 				509A8FEC2BF37E630029C50A /* WishlistView.swift */,
 				509A8FED2BF37E630029C50A /* WishlistViewModel.swift */,
+				506D3E892BF8A23D0010F5E2 /* EmptyWishlistView.swift */,
 			);
 			name = WishlistFlow;
 			path = nBolha/Flows/WishlistFlow;

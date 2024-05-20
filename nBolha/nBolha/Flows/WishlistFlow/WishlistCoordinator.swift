@@ -33,4 +33,13 @@ final class WishlistCoordinator: NSObject, Coordinator, WishlistNavigationDelega
         navController.pushViewController(view.asViewController, animated: true)
         return navController
     }
+    
+    // MARK: - WishlistNavigationDelegate
+    
+    func showDetailScreen(advertisementId: Int) {
+        DetailCoordinator(
+            navigationController: navigationController,
+            advertisementId: advertisementId
+        ).start()
+    }
 }
