@@ -86,15 +86,15 @@
 		50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A752BB17B9F004301C5 /* NoConnectionView.swift */; };
 		50907A782BB19B2C004301C5 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A772BB19B2C004301C5 /* LoginCoordinator.swift */; };
 		50908AB12BC52CF200C5378B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50908AB02BC52CF100C5378B /* SearchBar.swift */; };
-		509A8FEE2BF37E630029C50A /* WishlistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FEB2BF37E630029C50A /* WishlistCoordinator.swift */; };
-		509A8FEF2BF37E630029C50A /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FEC2BF37E630029C50A /* WishlistView.swift */; };
-		509A8FF02BF37E630029C50A /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FED2BF37E630029C50A /* WishlistViewModel.swift */; };
 		50952BE32BF1DFDC00993F4B /* DropdownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BE22BF1DFDC00993F4B /* DropdownList.swift */; };
 		50952BE72BF20DC900993F4B /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BE62BF20DC900993F4B /* ImageView.swift */; };
 		50952BE92BF20DDE00993F4B /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BE82BF20DDE00993F4B /* ImageItem.swift */; };
 		50952BED2BF20E3E00993F4B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BEC2BF20E3E00993F4B /* UIView+Extensions.swift */; };
 		50952BEF2BF243B800993F4B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50952BEE2BF243B800993F4B /* AddPhotoView.swift */; };
 		509A8FEA2BF34C0B0029C50A /* PostAdvertisementWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FE92BF34C0B0029C50A /* PostAdvertisementWorker.swift */; };
+		509A8FEE2BF37E630029C50A /* WishlistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FEB2BF37E630029C50A /* WishlistCoordinator.swift */; };
+		509A8FEF2BF37E630029C50A /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FEC2BF37E630029C50A /* WishlistView.swift */; };
+		509A8FF02BF37E630029C50A /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A8FED2BF37E630029C50A /* WishlistViewModel.swift */; };
 		50A5AD6F2BD78BFE00ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD6E2BD78BFE00ED17A9 /* KeychainAccess */; };
 		50A5AD712BD78DC400ED17A9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 50A5AD702BD78DC400ED17A9 /* KeychainAccess */; };
 		50A8B7752BECB390006B7DF5 /* UploadItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8B7742BECB390006B7DF5 /* UploadItemView.swift */; };
@@ -106,6 +106,7 @@
 		50AE14742BD6A6F500B4EF77 /* CarouselViewDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14732BD6A6F500B4EF77 /* CarouselViewDialog.swift */; };
 		50AE14762BD6A70600B4EF77 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14752BD6A70600B4EF77 /* CarouselView.swift */; };
 		50AE14782BD6A81400B4EF77 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE14772BD6A81400B4EF77 /* CloseButton.swift */; };
+		50B2CE922BFB45B200432329 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2CE912BFB45B200432329 /* NotificationCenter.swift */; };
 		50B746282BD8DD580077CFCB /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B746272BD8DD580077CFCB /* RadioButton.swift */; };
 		50BBE6202BB5576E004AA5BB /* WindowNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */; };
 		50BBE6222BB557D8004AA5BB /* WindowNotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */; };
@@ -335,6 +336,7 @@
 		50AE14732BD6A6F500B4EF77 /* CarouselViewDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewDialog.swift; sourceTree = "<group>"; };
 		50AE14752BD6A70600B4EF77 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		50AE14772BD6A81400B4EF77 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		50B2CE912BFB45B200432329 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		50B746272BD8DD580077CFCB /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		50BBE61F2BB5576E004AA5BB /* WindowNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationsView.swift; sourceTree = "<group>"; };
 		50BBE6212BB557D8004AA5BB /* WindowNotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNotificationViewModel.swift; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 		12E641F42BAC63F600C7005E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				50B2CE8C2BFB454800432329 /* Extensions */,
 				503D19D82BD7C8A9009AA8DD /* Keychain */,
 				50E7180F2BBD764A00B79C9C /* Api */,
 				12C3A7E62BAC6CB500C3FEE7 /* Models */,
@@ -839,6 +842,14 @@
 			);
 			name = DetailFlow;
 			path = nBolha/Flows/DetailFlow;
+			sourceTree = "<group>";
+		};
+		50B2CE8C2BFB454800432329 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				50B2CE912BFB45B200432329 /* NotificationCenter.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		50BBE6182BB55680004AA5BB /* Utilities */ = {
@@ -1285,7 +1296,6 @@
 				50491C542BCE63F700FDB8DA /* TabBarCoordinator.swift in Sources */,
 				50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */,
 				50952BED2BF20E3E00993F4B /* UIView+Extensions.swift in Sources */,
-				502823382BE8AC1D0019C2C7 /* WishlistView.swift in Sources */,
 				50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */,
 				50952BE92BF20DDE00993F4B /* ImageItem.swift in Sources */,
 				509A8FEF2BF37E630029C50A /* WishlistView.swift in Sources */,
@@ -1298,7 +1308,6 @@
 				503D19E22BD7E3B3009AA8DD /* FilterView.swift in Sources */,
 				50A8B7772BECB3A8006B7DF5 /* UploadItemViewModel.swift in Sources */,
 				50952BEF2BF243B800993F4B /* AddPhotoView.swift in Sources */,
-				502823362BE8A8360019C2C7 /* WishlistViewModel.swift in Sources */,
 				50A8B7752BECB390006B7DF5 /* UploadItemView.swift in Sources */,
 				505BA4E42BADCF7D00FE9F5A /* LoginView.swift in Sources */,
 				50C506A12BBFE80A0014526C /* HomeView.swift in Sources */,
@@ -1407,6 +1416,7 @@
 				12C3A7F02BAC6CBF00C3FEE7 /* Pagination.swift in Sources */,
 				12C3A7F12BAC6CBF00C3FEE7 /* APIURLHandler.swift in Sources */,
 				503D19D92BD7C8C1009AA8DD /* Constants.swift in Sources */,
+				50B2CE922BFB45B200432329 /* NotificationCenter.swift in Sources */,
 				12C3A7F82BAC6D4100C3FEE7 /* Generic.swift in Sources */,
 				50BC479B2BC400EF0015522B /* AdvertisementWorker.swift in Sources */,
 				5036B94D2BDBDFF1004496E4 /* AddToWishlistWorker.swift in Sources */,

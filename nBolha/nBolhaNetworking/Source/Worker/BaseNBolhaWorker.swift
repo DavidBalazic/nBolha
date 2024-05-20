@@ -19,10 +19,17 @@ public class BaseNBolhaWorker<T: Decodable>: APICallWorker {
     }
     
     public override func processResponse(response: HTTPResponse) {
+        if response.statusCode == 401 {
+            handleTokenExpiredError()
+        }
        guard let data = response.data, response.error == nil else { return }
        guard let payload = T.parse(from: data, type: T.self) else { return }
     
        result = payload
+    }
+    
+    private func handleTokenExpiredError() {
+        NotificationCenter.default.post(name: .tokenExpiredNotification, object: nil)
     }
     
     public override func getUrl() -> String {
