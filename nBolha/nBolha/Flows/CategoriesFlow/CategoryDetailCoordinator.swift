@@ -1,28 +1,34 @@
 //
-//  CategoryDetailCoordinator.swift
+//  CategoriesCoordinator.swift
 //  nBolha
 //
-//  Created by David Balažic on 20. 5. 24.
+//  Created by David Balažic on 11. 4. 24.
 //
 
 import Foundation
 import UIKit
+import nBolhaUI
+import nBolhaNetworking
 
-final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDelegate, UINavigationControllerDelegate {
+final class CategoryDetailCoordinator: NSObject, Coordinator, CategoryDetailNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
+    private var category: String
     
     init(
-        navigationController: UINavigationController? = nil
+        navigationController: UINavigationController? = nil,
+        category: String
     ) {
         self.navigationController = navigationController
+        self.category = category
     }
     
     @discardableResult
     func start() -> UIViewController {
-        let viewModel = CategoriesViewModel(
-            navigationDelegate: self
+        let viewModel = CategoryDetailViewModel(
+            navigationDelegate: self,
+            category: category
         )
-        let view = CategoriesView(viewModel: viewModel)
+        let view = CategoryDetailView(viewModel: viewModel)
         
         let navController = navigationController ?? UINavigationController()
         navigationController = navController
@@ -34,10 +40,14 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
     
     // MARK: - CategoriesNavigationDelegate
     
-    func showCategoriesDetailScreen(category: String) {
-        CategoryDetailCoordinator(
-            navigationController: navigationController,
-            category: category
+    func showCategoriesScreen() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func showDetailScreen(advertisementId: Int) {
+        DetailCoordinator(
+            navigationController: navigationController, 
+            advertisementId: advertisementId
         ).start()
     }
     
