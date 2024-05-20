@@ -41,7 +41,7 @@ final class CategoryDetailCoordinator: NSObject, Coordinator, CategoryDetailNavi
     // MARK: - CategoriesNavigationDelegate
     
     func showCategoriesScreen() {
-        CategoriesCoordinator().start()
+        navigationController?.popViewController(animated: true)
     }
     
     func showDetailScreen(advertisementId: Int) {

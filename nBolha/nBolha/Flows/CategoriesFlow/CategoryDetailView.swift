@@ -29,7 +29,7 @@ struct CategoryDetailView: View {
                     .textStyle(.subtitle02)
                     .foregroundStyle(Color(.brandTertiary!))
                 Spacer()
-                if !viewModel.advertisements.isEmpty {
+                if !viewModel.advertisements.isEmpty || !viewModel.conditions.isEmpty {
                     Button(action: {
                         isFilterTapped.toggle()
                     }) {

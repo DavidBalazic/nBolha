@@ -10,7 +10,6 @@ import nBolhaNetworking
 
 protocol CategoriesNavigationDelegate: AnyObject {
     func showCategoriesDetailScreen(category: String)
-//    func showCategoriesScreen()
 }
 
 final class CategoriesViewModel: ObservableObject {
@@ -26,4 +25,3 @@ final class CategoriesViewModel: ObservableObject {
         navigationDelegate?.showCategoriesDetailScreen(category: category)
     }
 }
-
