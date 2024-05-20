@@ -16,19 +16,45 @@ final class AppLaunchCoordinator: NSObject {
     init(window: UIWindow) {
         self.window = window
         super.init()
+        setupNotificationObserver()
+    }
+    
+    private func setupNotificationObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleTokenExpired),
+            name: .tokenExpiredNotification,
+            object: nil
+        )
+    }
+    
+    @objc private func handleTokenExpired() {
+        DispatchQueue.main.async {
+            self.launchLoginCoordinator()
+        }
     }
 
     func start() {
         navigationController = UINavigationController()
         window.rootViewController = navigationController
-        if let token = KeyChainManager(service: Constants.keychainServiceIdentifier).get(forKey: "sessionTokenID") {
+        if KeyChainManager(service: Constants.keychainServiceIdentifier).get(forKey: "sessionTokenID") != nil {
             TabBarCoordinator(
                 navigationController: navigationController
             ).start()
         } else {
-            LoginCoordinator(
-                navigationController: navigationController
-            ).start()
+            launchLoginCoordinator()
         }
+    }
+    
+    private func launchLoginCoordinator() {
+        LoginCoordinator(navigationController: navigationController).start()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: .tokenExpiredNotification,
+            object: nil
+        )
     }
 }
