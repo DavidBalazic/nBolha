@@ -9,14 +9,14 @@ import SwiftUI
 import nBolhaUI
 import NChainUI
 
-struct CategoriesDetailView: View {
-    @ObservedObject private var viewModel: CategoriesViewModel
+struct CategoryDetailView: View {
+    @ObservedObject private var viewModel: CategoryDetailViewModel
     @State private var search = ""
     @State private var isFilterTapped = false
     @State private var showChipView = false
     
     init(
-        viewModel: CategoriesViewModel
+        viewModel: CategoryDetailViewModel
     ) {
         self.viewModel = viewModel
     }
