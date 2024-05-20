@@ -25,7 +25,7 @@ struct CategoriesItemView: View {
     
     var body: some View {
         Button(action: {
-            viewModel.categoriesItemTapped()
+            viewModel.categoriesItemTapped(category: categoryTitle)
         }) {
             HStack {
                 Text(categoryTitle)

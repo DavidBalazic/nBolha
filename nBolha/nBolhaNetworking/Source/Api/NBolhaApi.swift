@@ -25,6 +25,7 @@ public class NBolhaApi {
         case addToWishlist(id: Int)
         case deleteWishlist(id: Int)
         case postAdvertisement
+        case filterAdvertisement
         
         var path: String {
             switch self {
@@ -46,6 +47,8 @@ public class NBolhaApi {
                 return "/api/Wishlist/\(id)"
             case .postAdvertisement:
                 return "/api/Advertisement/PostAdvertisement"
+            case .filterAdvertisement:
+                return "/api/Advertisement/Filter"
             }
         }
     }

@@ -12,44 +12,22 @@ import NChainUI
 struct FilterView: View {
     @ObservedObject private var viewModel: FilterViewModel
     @Binding var isFilterTapped: Bool
-    @State private var isCheckedWithTags = false
-    @State private var isCheckedWithoutTags = false
-    @State private var isCheckedGood = false
-    @State private var isCheckedSatisfactory = false
-    @State var selectedRadioButton: SortBy
-    @State private var selectedCheckBoxes: [Condition]
-    
-    enum SortBy: String {
-        case newest = "Newest to oldest"
-        case oldest = "Oldest to newest"
-        case lowToHigh = "Price: low to high"
-        case highToLow = "Price: high to low"
-    }
-    
-    enum Condition: String {
-        case withTags = "New with tags"
-        case withoutTags = "New without tags"
-        case veryGood = "Very good"
-        case satisfactory = "Satisfactory"
-    }
+    let applyFilters: ([Condition], SortBy) -> Void
     
     init(
         viewModel: FilterViewModel,
-        isFilterTapped: Binding<Bool>,
-        selectedRadioButton: SortBy,
-        selectedCheckBoxes: [Condition]
+         isFilterTapped: Binding<Bool>,
+         applyFilters: @escaping ([Condition], SortBy) -> Void
     ) {
         self.viewModel = viewModel
         self._isFilterTapped = isFilterTapped
-        self.selectedRadioButton = selectedRadioButton
-        self.selectedCheckBoxes = selectedCheckBoxes
+        self.applyFilters = applyFilters
     }
-    
+
     var body: some View {
         HStack {
             Button(action: {
-                selectedRadioButton = .newest
-                selectedCheckBoxes = []
+                viewModel.resetFilters()
             }) {
                 Text("Reset")
                     .textStyle(.body02)
@@ -79,10 +57,10 @@ struct FilterView: View {
                             .foregroundStyle(Color(UIColor.brandPrimary!))
                         Spacer()
                     }
-                    RadioButton(tag: .newest, selection: $selectedRadioButton, label: "Newest to oldest")
-                    RadioButton(tag: .oldest, selection: $selectedRadioButton, label: "Oldest to newest")
-                    RadioButton(tag: .lowToHigh, selection: $selectedRadioButton, label: "Price: low to high")
-                    RadioButton(tag: .highToLow, selection: $selectedRadioButton, label: "Price: high to low")
+                    RadioButton(tag: .newest, selection: $viewModel.selectedRadioButton, label: "Newest to oldest")
+                    RadioButton(tag: .oldest, selection: $viewModel.selectedRadioButton, label: "Oldest to newest")
+                    RadioButton(tag: .lowToHigh, selection: $viewModel.selectedRadioButton, label: "Price: low to high")
+                    RadioButton(tag: .highToLow, selection: $viewModel.selectedRadioButton, label: "Price: high to low")
                 }
                 VStack(alignment: .leading, spacing: NCConstants.Margins.medium.rawValue) {
                     HStack {
@@ -93,18 +71,14 @@ struct FilterView: View {
                         Spacer()
                     }
                     SwiftUICheckBox(
-                        title: Condition.withTags.rawValue,
+                        title: "New with tags",
                         text: "A brand-new, unused item with tags or original packaging.",
                         checked: Binding(
                             get: {
-                                selectedCheckBoxes.contains(.withTags)
+                                viewModel.selectedCheckBoxes.contains(.withTags)
                             },
                             set: { isChecked in
-                                if isChecked {
-                                    selectedCheckBoxes.append(.withTags)
-                                } else {
-                                    selectedCheckBoxes.removeAll { $0 == .withTags }
-                                }
+                                viewModel.toggleCondition(.withTags)
                             }
                         ),
                         style: SwiftUICheckBox.Style(
@@ -115,18 +89,14 @@ struct FilterView: View {
                         )
                     )
                     SwiftUICheckBox(
-                        title: Condition.withoutTags.rawValue,
+                        title: "New without tags",
                         text: "A brand-new, unused item without tags or original packaging.",
                         checked: Binding(
                             get: {
-                                selectedCheckBoxes.contains(.withoutTags)
+                                viewModel.selectedCheckBoxes.contains(.withoutTags)
                             },
                             set: { isChecked in
-                                if isChecked {
-                                    selectedCheckBoxes.append(.withoutTags)
-                                } else {
-                                    selectedCheckBoxes.removeAll { $0 == .withoutTags }
-                                }
+                                viewModel.toggleCondition(.withoutTags)
                             }
                         ),
                         style: SwiftUICheckBox.Style(
@@ -137,18 +107,14 @@ struct FilterView: View {
                         )
                     )
                     SwiftUICheckBox(
-                        title: Condition.veryGood.rawValue,
+                        title: "Very good",
                         text: "A lightly used item that may have slight imperfections.",
                         checked: Binding(
                             get: {
-                                selectedCheckBoxes.contains(.veryGood)
+                                viewModel.selectedCheckBoxes.contains(.veryGood)
                             },
                             set: { isChecked in
-                                if isChecked {
-                                    selectedCheckBoxes.append(.veryGood)
-                                } else {
-                                    selectedCheckBoxes.removeAll { $0 == .veryGood }
-                                }
+                                viewModel.toggleCondition(.veryGood)
                             }
                         ),
                         style: SwiftUICheckBox.Style(
@@ -159,18 +125,14 @@ struct FilterView: View {
                         )
                     )
                     SwiftUICheckBox(
-                        title: Condition.satisfactory.rawValue,
-                        text: "A frequently used item with imperfections and signs of wear.", 
+                        title: "Satisfactory",
+                        text: "A frequently used item with imperfections and signs of wear.",
                         checked: Binding(
                             get: {
-                                selectedCheckBoxes.contains(.satisfactory)
+                                viewModel.selectedCheckBoxes.contains(.satisfactory)
                             },
                             set: { isChecked in
-                                if isChecked {
-                                    selectedCheckBoxes.append(.satisfactory)
-                                } else {
-                                    selectedCheckBoxes.removeAll { $0 == .satisfactory }
-                                }
+                                viewModel.toggleCondition(.satisfactory)
                             }
                         ),
                         style: SwiftUICheckBox.Style(
@@ -187,7 +149,7 @@ struct FilterView: View {
             .padding(.bottom, NCConstants.Margins.extraLarge.rawValue)
         }
         SwiftUIButton(text: "View results") {
-            viewModel.setSelectedOptions(selectedCheckBoxes: selectedCheckBoxes, selectedRadioButton: selectedRadioButton)
+            applyFilters(viewModel.selectedCheckBoxes, viewModel.selectedRadioButton)
             isFilterTapped.toggle()
         }
         .padding(.horizontal, 20)
