@@ -12,6 +12,7 @@ import UIKit
 protocol HomeNavigationDelegate: AnyObject {
     func showCategoriesScreen()
     func showDetailScreen(advertisementId: Int)
+    func showCategoryDetailScreen(search: String)
 }
 
 final class HomeViewModel: ObservableObject {
@@ -19,6 +20,8 @@ final class HomeViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var advertisementRecentlyAdded: [Advertisement] = []
     @Published var advertisementRecentlyViewed: [Advertisement] = []
+    @Published var search = ""
+    @Published var isEditing = false
     
     init(
         navigationDelegate: HomeNavigationDelegate?
@@ -104,5 +107,11 @@ final class HomeViewModel: ObservableObject {
     
     func advertisementItemTapped(advertisementId: Int) {
         navigationDelegate?.showDetailScreen(advertisementId: advertisementId)
+    }
+    
+    func applySearchTapped(search: String) {
+        self.search = ""
+        self.isEditing = false
+        navigationDelegate?.showCategoryDetailScreen(search: search)
     }
 }

@@ -11,7 +11,6 @@ import NChainUI
 
 struct CategoryDetailView: View {
     @ObservedObject private var viewModel: CategoryDetailViewModel
-    @State private var search = ""
     @State private var isFilterTapped = false
     @State private var showChipView = false
     
@@ -22,10 +21,14 @@ struct CategoryDetailView: View {
     }
     
     var body: some View {
-        SearchBar(text: $search)
+        SearchBar(text: $viewModel.search, isEditing: $viewModel.isEditing)
+            .submitLabel(.search)
+            .onSubmit {
+                viewModel.applySearchTapped()
+            }
         VStack(spacing: NCConstants.Margins.large.rawValue) {
             HStack {
-                Text(viewModel.category ?? "")
+                Text(viewModel.category ?? "All results")
                     .textStyle(.subtitle02)
                     .foregroundStyle(Color(.brandTertiary!))
                 Spacer()

@@ -21,13 +21,17 @@ final class CategoryDetailViewModel: ObservableObject {
     @Published var category: String?
     @Published var conditions: [Condition] = []
     @Published var order: SortBy = .newest
+    @Published var search = ""
+    @Published var isEditing = false
     
     init(
         navigationDelegate: CategoryDetailNavigationDelegate?,
-        category: String
+        category: String? = nil,
+        search: String? = nil
     ) {
         self.navigationDelegate = navigationDelegate
         self.category = category
+        self.search = search ?? ""
         Task {
             await loadFilteredAdvertisements()
         }
@@ -40,6 +44,7 @@ final class CategoryDetailViewModel: ObservableObject {
         
         let filterAdvertisementWorker = FilterAdvertisementWorker(
             category: category,
+            keyword: search,
             orderBy: order.rawValue,
             conditions: conditions.map { $0.rawValue }
         )
@@ -86,6 +91,11 @@ final class CategoryDetailViewModel: ObservableObject {
     func applyFiltersTapped(selectedCheckBoxes: [Condition], selectedRadioButton: SortBy) {
         self.conditions = selectedCheckBoxes
         self.order = selectedRadioButton
+        Task { await loadFilteredAdvertisements() }
+    }
+    
+    func applySearchTapped() {
+        self.isEditing = false
         Task { await loadFilteredAdvertisements() }
     }
     
