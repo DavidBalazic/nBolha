@@ -81,7 +81,7 @@ final class ProfileViewModel: ObservableObject {
                 }
             }
             else {
-                //TODO: show notification
+                self.notificationService.notify.send(NotificationView.Notification.PhotoUploadFailed)
                 return
             }
         }

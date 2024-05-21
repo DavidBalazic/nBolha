@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import NChainUI
+import nBolhaNetworking
 
 final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
@@ -43,9 +44,13 @@ final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate
             advertisementId: advertisementId
         ).start()
     }
+    
     // MARK: - UINavigationControllerDelegate
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        let signOutAction = UIAction(title: "Sign Out", image: .signOut) { _ in
+            self.signOut()
+        }
         let signOutMenu = UIMenu(title: "", children: [signOutAction])
         
         let ellipsisButton = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: nil)
@@ -55,8 +60,9 @@ final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate
         viewController.navigationItem.rightBarButtonItem = ellipsisButton
     }
     
-    let signOutAction = UIAction(title: "Sign out", image: .signOut) { _ in
-        //TODO: implement
-        print("Sign Out tapped")
+    private func signOut() {
+        let keychainManager = KeyChainManager(service: Constants.keychainServiceIdentifier)
+        keychainManager.remove("sessionTokenID")
+        NotificationCenter.default.post(name: .tokenExpiredNotification, object: nil)
     }
 }
