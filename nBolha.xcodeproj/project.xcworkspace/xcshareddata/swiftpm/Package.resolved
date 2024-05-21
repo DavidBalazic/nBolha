@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "KeychainAccess",
-        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess",
-        "state": {
-          "branch": "master",
-          "revision": "e0c7eebc5a4465a3c4680764f26b7a61f567cdaf",
-          "version": null
-        }
-      },
-      {
         "package": "Lottie",
         "repositoryURL": "https://github.com/airbnb/lottie-ios",
         "state": {

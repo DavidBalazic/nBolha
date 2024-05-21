@@ -840,7 +840,8 @@
 				50952BE82BF20DDE00993F4B /* ImageItem.swift */,
 				50952BEE2BF243B800993F4B /* AddPhotoView.swift */,
 			);
-			path = UploadItemFlow;
+			name = UploadItemFlow;
+			path = nBolha/Flows/UploadItemFlow;
 			sourceTree = "<group>";
 		};
 		50AE146C2BD6974F00B4EF77 /* DetailFlow */ = {
