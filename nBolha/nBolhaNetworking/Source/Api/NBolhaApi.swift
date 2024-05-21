@@ -26,6 +26,11 @@ public class NBolhaApi {
         case deleteWishlist(id: Int)
         case postAdvertisement
         case filterAdvertisement
+        case userInfo
+        case userAdvertisements
+        case deleteAdvertisement(id: Int)
+        case uploadProfilePicture
+        case deleteProfilePicture
         
         var path: String {
             switch self {
@@ -49,6 +54,16 @@ public class NBolhaApi {
                 return "/api/Advertisement/PostAdvertisement"
             case .filterAdvertisement:
                 return "/api/Advertisement/Filter"
+            case .userInfo:
+                return "/api/User/UserInfo"
+            case .userAdvertisements:
+                return "/api/Advertisement/UserProfile"
+            case .deleteAdvertisement(id: let id):
+                return "/api/Advertisement/\(id)"
+            case .uploadProfilePicture:
+                return "/api/User/UploadProfilePicture"
+            case .deleteProfilePicture:
+                return "/api/User/RemoveProfilePicture"
             }
         }
     }

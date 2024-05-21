@@ -49,8 +49,8 @@ public class UploadProfilePictureWorker: BaseNBolhaWorker<String> {
                 with: imageData,
                 fileName: "image",
                 forKey: "file",
-                mimeType: .jpg,
-                mimeFileFormat: .jpg
+                mimeType: .jpeg,
+                mimeFileFormat: .jpeg
             ))
             
             executeMultipartRequest(data: multipart)

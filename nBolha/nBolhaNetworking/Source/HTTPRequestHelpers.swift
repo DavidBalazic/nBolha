@@ -52,7 +52,7 @@ public struct MultipartMedia: MultiPart {
         var value: String {
             switch self {
             case .jpeg:
-                return "image/jpg"
+                return "image/jpeg"
             case .png:
                 return "image/png"
             case .pdf:
@@ -72,7 +72,7 @@ public struct MultipartMedia: MultiPart {
         var value: String {
             switch self {
             case .jpeg:
-                return ".jpg"
+                return ".jpeg"
             case .png:
                 return ".png"
             case .pdf:
