@@ -94,6 +94,11 @@
 		50805A852BC801E0003EB2CC /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50805A842BC801E0003EB2CC /* CategoriesView.swift */; };
 		50805A872BC80207003EB2CC /* CategoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50805A862BC80207003EB2CC /* CategoryDetailViewModel.swift */; };
 		50805A892BC8036F003EB2CC /* CategoryDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50805A882BC8036F003EB2CC /* CategoryDetailCoordinator.swift */; };
+		50845DEE2BFDC3900087D471 /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 50845DED2BFDC38F0087D471 /* loading_animation.json */; };
+		50845DF12BFDC5620087D471 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 50845DF02BFDC5620087D471 /* Lottie */; };
+		50845DF52BFDC7570087D471 /* ActivityIndicatorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503B62A92BFCDE10001C04C6 /* ActivityIndicatorViewModifier.swift */; };
+		50845DF72BFDC75C0087D471 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503B62A72BFCDDF9001C04C6 /* ActivityIndicatorView.swift */; };
+		50845DF92BFDCCDD0087D471 /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 50845DED2BFDC38F0087D471 /* loading_animation.json */; };
 		508470E92BDA2721001DB77C /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508470E82BDA2721001DB77C /* FilterViewModel.swift */; };
 		50907A722BB17567004301C5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A712BB17567004301C5 /* LoginViewModel.swift */; };
 		50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50907A752BB17B9F004301C5 /* NoConnectionView.swift */; };
@@ -320,6 +325,8 @@
 		503B62A02BFCD355001C04C6 /* GetWishlistWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetWishlistWorker.swift; sourceTree = "<group>"; };
 		503B62A22BFCD360001C04C6 /* UploadProfilePictureWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadProfilePictureWorker.swift; sourceTree = "<group>"; };
 		503B62A42BFCD555001C04C6 /* GetUserAdvertisementsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserAdvertisementsWorker.swift; sourceTree = "<group>"; };
+		503B62A72BFCDDF9001C04C6 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		503B62A92BFCDE10001C04C6 /* ActivityIndicatorViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewModifier.swift; sourceTree = "<group>"; };
 		503D19D52BD7B507009AA8DD /* AdvertisementRecentlyAddedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementRecentlyAddedWorker.swift; sourceTree = "<group>"; };
 		503D19DA2BD7CBD8009AA8DD /* AdvertisementRecentlyViewedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementRecentlyViewedWorker.swift; sourceTree = "<group>"; };
 		503D19DC2BD7D5C5009AA8DD /* AdvertisementViewedWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementViewedWorker.swift; sourceTree = "<group>"; };
@@ -340,6 +347,7 @@
 		50805A842BC801E0003EB2CC /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		50805A862BC80207003EB2CC /* CategoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewModel.swift; sourceTree = "<group>"; };
 		50805A882BC8036F003EB2CC /* CategoryDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailCoordinator.swift; sourceTree = "<group>"; };
+		50845DED2BFDC38F0087D471 /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		508470E82BDA2721001DB77C /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		50907A712BB17567004301C5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		50907A752BB17B9F004301C5 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
@@ -406,6 +414,7 @@
 				12E641C32BAC304C00C7005E /* nBolhaCore.framework in Frameworks */,
 				128241E32BB19F5B0008B8C6 /* NChainUI in Frameworks */,
 				50A5AD712BD78DC400ED17A9 /* KeychainAccess in Frameworks */,
+				50845DF12BFDC5620087D471 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +647,7 @@
 		128B42E12BACDE550018438B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				503B62A62BFCDDD8001C04C6 /* ActivityIndicator */,
 				503E51C92BCFAE6B00D97655 /* Advertisements */,
 				50E718122BBD773600B79C9C /* TermsAndConditions */,
 				50BBE61E2BB55746004AA5BB /* WindowsNotifications */,
@@ -816,6 +826,16 @@
 			);
 			name = ProfileFlow;
 			path = nBolha/Flows/TabBarFlow;
+			sourceTree = "<group>";
+		};
+		503B62A62BFCDDD8001C04C6 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				503B62A72BFCDDF9001C04C6 /* ActivityIndicatorView.swift */,
+				503B62A92BFCDE10001C04C6 /* ActivityIndicatorViewModifier.swift */,
+				50845DED2BFDC38F0087D471 /* loading_animation.json */,
+			);
+			path = ActivityIndicator;
 			sourceTree = "<group>";
 		};
 		503D19D82BD7C8A9009AA8DD /* Keychain */ = {
@@ -1034,6 +1054,7 @@
 			packageProductDependencies = (
 				128241E22BB19F5B0008B8C6 /* NChainUI */,
 				50A5AD702BD78DC400ED17A9 /* KeychainAccess */,
+				50845DF02BFDC5620087D471 /* Lottie */,
 			);
 			productName = nBolha;
 			productReference = 126BA89F2BAB1C03002B089B /* nBolha.app */;
@@ -1251,6 +1272,7 @@
 			mainGroup = 126BA8962BAB1C03002B089B;
 			packageReferences = (
 				50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				50845DEF2BFDC5620087D471 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 126BA8A02BAB1C03002B089B /* Products */;
 			projectDirPath = "";
@@ -1276,6 +1298,7 @@
 			files = (
 				126BA8AC2BAB1C04002B089B /* Assets.xcassets in Resources */,
 				12E51AE22BCCF6A600FB4E06 /* LaunchScreen.storyboard in Resources */,
+				50845DF92BFDCCDD0087D471 /* loading_animation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1298,6 +1321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5036B9472BDBDB0F004496E4 /* Assets.xcassets in Resources */,
+				50845DEE2BFDC3900087D471 /* loading_animation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,10 +1382,12 @@
 				50805A872BC80207003EB2CC /* CategoryDetailViewModel.swift in Sources */,
 				50491C542BCE63F700FDB8DA /* TabBarCoordinator.swift in Sources */,
 				503B62912BFCCFD8001C04C6 /* EmptyProfileView.swift in Sources */,
+				50845DF72BFDC75C0087D471 /* ActivityIndicatorView.swift in Sources */,
 				50907A762BB17B9F004301C5 /* NoConnectionView.swift in Sources */,
 				50952BED2BF20E3E00993F4B /* UIView+Extensions.swift in Sources */,
 				50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */,
 				50952BE92BF20DDE00993F4B /* ImageItem.swift in Sources */,
+				50845DF52BFDC7570087D471 /* ActivityIndicatorViewModifier.swift in Sources */,
 				509A8FEF2BF37E630029C50A /* WishlistView.swift in Sources */,
 				50AE146E2BD6976900B4EF77 /* DetailCoordinator.swift in Sources */,
 				509A8FEE2BF37E630029C50A /* WishlistCoordinator.swift in Sources */,
@@ -2242,6 +2268,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		50845DEF2BFDC5620087D471 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
 		50A5AD6D2BD78BDD00ED17A9 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
@@ -2260,6 +2294,11 @@
 		12E3BEC02BC8F45200901C7D /* NChainUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NChainUI;
+		};
+		50845DF02BFDC5620087D471 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50845DEF2BFDC5620087D471 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		50A5AD6E2BD78BFE00ED17A9 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;

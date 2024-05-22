@@ -52,5 +52,6 @@ struct WishlistView: View {
         .onAppear {
             Task { await viewModel.loadWishlist() }
         }
+        .activityIndicator(show: $viewModel.isLoading)
     }
 }

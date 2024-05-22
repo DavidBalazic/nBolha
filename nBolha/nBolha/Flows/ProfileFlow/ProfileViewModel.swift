@@ -44,8 +44,14 @@ final class ProfileViewModel: ObservableObject {
     
     func loadProfileInfo() async {
         guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        defer {
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        }
         
         let getUserInfoWorker = GetUserInfoWorker()
         getUserInfoWorker.execute { (response, error) in
@@ -59,8 +65,14 @@ final class ProfileViewModel: ObservableObject {
     
     func loadProfileAdvertisements() async {
         guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        defer {
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        }
         
         let getUserAdvertisementsWorker = GetUserAdvertisementsWorker()
         getUserAdvertisementsWorker.execute { (response, error) in

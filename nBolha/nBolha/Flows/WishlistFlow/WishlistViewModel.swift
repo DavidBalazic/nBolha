@@ -28,8 +28,14 @@ final class WishlistViewModel: ObservableObject {
     
     func loadWishlist() async {
         guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        defer {
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        }
         
         let getWishlistWorker = GetWishlistWorker()
         getWishlistWorker.execute { (response, error) in

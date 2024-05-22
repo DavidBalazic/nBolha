@@ -35,8 +35,14 @@ final class HomeViewModel: ObservableObject {
     
     func loadRecentlyAdded() async {
         guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        defer {
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        }
         
         let advertisementRecentlyAddedWorker = AdvertisementRecentlyAddedWorker()
         advertisementRecentlyAddedWorker.execute { (response, error) in
@@ -50,8 +56,14 @@ final class HomeViewModel: ObservableObject {
     
     func loadRecentlyViewed() async {
         guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        defer {
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        }
         
         let advertisementRecentlyViewedWorker = AdvertisementRecentlyViewedWorker()
         advertisementRecentlyViewedWorker.execute { (response, error) in
