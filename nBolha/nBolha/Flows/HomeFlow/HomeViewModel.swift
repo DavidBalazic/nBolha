@@ -12,6 +12,7 @@ import UIKit
 protocol HomeNavigationDelegate: AnyObject {
     func showCategoriesScreen()
     func showDetailScreen(advertisementId: Int)
+    func showCategoryDetailScreen(search: String)
 }
 
 final class HomeViewModel: ObservableObject {
@@ -19,6 +20,8 @@ final class HomeViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var advertisementRecentlyAdded: [Advertisement] = []
     @Published var advertisementRecentlyViewed: [Advertisement] = []
+    @Published var search = ""
+    @Published var isEditing = false
     
     init(
         navigationDelegate: HomeNavigationDelegate?
@@ -32,8 +35,14 @@ final class HomeViewModel: ObservableObject {
     
     func loadRecentlyAdded() async {
         guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        defer {
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        }
         
         let advertisementRecentlyAddedWorker = AdvertisementRecentlyAddedWorker()
         advertisementRecentlyAddedWorker.execute { (response, error) in
@@ -47,8 +56,14 @@ final class HomeViewModel: ObservableObject {
     
     func loadRecentlyViewed() async {
         guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
+        DispatchQueue.main.async {
+            self.isLoading = true
+        }
+        defer {
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        }
         
         let advertisementRecentlyViewedWorker = AdvertisementRecentlyViewedWorker()
         advertisementRecentlyViewedWorker.execute { (response, error) in
@@ -104,5 +119,11 @@ final class HomeViewModel: ObservableObject {
     
     func advertisementItemTapped(advertisementId: Int) {
         navigationDelegate?.showDetailScreen(advertisementId: advertisementId)
+    }
+    
+    func applySearchTapped(search: String) {
+        self.search = ""
+        isEditing = false
+        navigationDelegate?.showCategoryDetailScreen(search: search)
     }
 }

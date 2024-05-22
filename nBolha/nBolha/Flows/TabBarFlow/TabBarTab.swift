@@ -27,6 +27,7 @@ final class TabBarTab {
         case categories
         case wishlist
         case uploadItem
+        case profile
         
         var image: UIImage? {
             switch self {
@@ -38,6 +39,8 @@ final class TabBarTab {
                 return .wishlist
             case .uploadItem:
                 return .uploadItem
+            case .profile:
+                return .profile
             }
         }
         var tabBarIndex: Int {
@@ -50,6 +53,8 @@ final class TabBarTab {
                 2
             case .uploadItem:
                 3
+            case .profile:
+                4
             }
         }
     }

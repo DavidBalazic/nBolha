@@ -10,12 +10,14 @@ import NChainUI
 
 public struct SearchBar: View {
     @Binding var text: String
-    @State private var isEditing = false
+    @Binding var isEditing: Bool
     
     public init(
-        text: Binding<String>
+        text: Binding<String>,
+        isEditing: Binding<Bool>
     ) {
         self._text = text
+        self._isEditing = isEditing
     }
     
     public var body: some View {

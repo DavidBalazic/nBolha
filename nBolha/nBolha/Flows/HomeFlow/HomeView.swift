@@ -11,7 +11,6 @@ import nBolhaUI
 
 struct HomeView: View {
     @ObservedObject private var viewModel: HomeViewModel
-    @State private var search = ""
     
     init(
         viewModel: HomeViewModel
@@ -21,7 +20,11 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            SearchBar(text: $search)
+            SearchBar(text: $viewModel.search, isEditing: $viewModel.isEditing)
+                .submitLabel(.search)
+                .onSubmit {
+                    viewModel.applySearchTapped(search: viewModel.search)
+                }
             ScrollView(showsIndicators: false) {
                 VStack {
                     Text("Recently viewed")

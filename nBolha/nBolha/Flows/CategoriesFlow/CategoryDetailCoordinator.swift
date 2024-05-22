@@ -12,21 +12,25 @@ import nBolhaNetworking
 
 final class CategoryDetailCoordinator: NSObject, Coordinator, CategoryDetailNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
-    private var category: String
+    private var category: String?
+    private var search: String?
     
     init(
         navigationController: UINavigationController? = nil,
-        category: String
+        category: String? = nil,
+        search: String? = nil
     ) {
         self.navigationController = navigationController
         self.category = category
+        self.search = search
     }
     
     @discardableResult
     func start() -> UIViewController {
         let viewModel = CategoryDetailViewModel(
             navigationDelegate: self,
-            category: category
+            category: category,
+            search: search
         )
         let view = CategoryDetailView(viewModel: viewModel)
         

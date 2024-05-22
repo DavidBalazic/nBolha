@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct PriceFormatter {
-    static func formatPrice(_ price: Double) -> String {
+public struct PriceFormatter {
+    public static func formatPrice(_ price: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.currencyCode = "EUR"

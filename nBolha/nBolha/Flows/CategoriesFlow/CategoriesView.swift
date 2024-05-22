@@ -11,7 +11,6 @@ import NChainUI
 
 struct CategoriesView: View {
     @ObservedObject private var viewModel: CategoriesViewModel
-    @State private var search = ""
     
     init(
         viewModel: CategoriesViewModel
@@ -21,7 +20,11 @@ struct CategoriesView: View {
     
     var body: some View {
         VStack {
-            SearchBar(text: $search)
+            SearchBar(text: $viewModel.search, isEditing: $viewModel.isEditing)
+                .submitLabel(.search)
+                .onSubmit {
+                    viewModel.applySearchTapped(search: viewModel.search)
+                }
             ScrollView(showsIndicators: false) {
                 VStack(spacing: NCConstants.Margins.large.rawValue) {
                     CategoriesItemView(viewModel: viewModel, categoryTitle: "Home", categoryImage: .homeCategory)

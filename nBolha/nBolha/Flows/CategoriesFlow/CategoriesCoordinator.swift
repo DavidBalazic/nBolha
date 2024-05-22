@@ -41,6 +41,13 @@ final class CategoriesCoordinator: NSObject, Coordinator, CategoriesNavigationDe
         ).start()
     }
     
+    func showCategoryDetailScreen(search: String) {
+        CategoryDetailCoordinator(
+            navigationController: navigationController,
+            search: search
+        ).start()
+    }
+    
     // MARK: - UINavigationControllerDelegate
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
