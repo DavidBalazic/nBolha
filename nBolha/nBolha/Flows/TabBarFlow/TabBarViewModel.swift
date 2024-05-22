@@ -11,6 +11,7 @@ import UIKit
 
 protocol TabBarNavigationDelegate: AnyObject {
     func showCategories()
+    func showProfile()
 }
 
 final class TabBarViewModel {
@@ -70,7 +71,7 @@ final class TabBarViewModel {
             return setup(coordinator.start())
             
         case .uploadItem:
-            let coordinator = UploadItemCoordinator()
+            let coordinator = UploadItemCoordinator(navigationDelegate: navigationDelegate)
             return setup(coordinator.start())
         case .profile:
             let viewModel = ProfileViewModel(navigationDelegate: nil)

@@ -14,19 +14,13 @@ import nBolhaCore
 import nBolhaUI
 
 protocol UploadItemNavigationDelegate: AnyObject {
- 
+    func showProfileScreen()
 }
 
 final class UploadItemViewModel: ObservableObject {
     private let navigationDelegate: UploadItemNavigationDelegate?
+    private let notificationService: WindowNotificationService
     @Published var isLoading = false
-    @Published var pickerItems = [PhotosPickerItem]() {
-        didSet {
-            Task {
-                try await loadTransferables(from: pickerItems)
-            }
-        }
-    }
     @Published var selectedImages = [UIImage]()
     @Published var title: String = ""
     @Published var description: String = ""
@@ -41,7 +35,13 @@ final class UploadItemViewModel: ObservableObject {
     @Published var errorConditionText: String?
     @Published var errorLocationText: String?
     @Published var errorAddPhotosText: String?
-    private let notificationService: WindowNotificationService
+    @Published var pickerItems = [PhotosPickerItem]() {
+        didSet {
+            Task {
+                try await loadTransferables(from: pickerItems)
+            }
+        }
+    }
     
     enum Category: String, CaseIterable {
         case unselected = "Select..."
@@ -209,7 +209,7 @@ final class UploadItemViewModel: ObservableObject {
         )
         postAdvertisementWorker.execute { (response, error) in
             if let response = response {
-                print("Response \(response)")
+                self.navigationDelegate?.showProfileScreen()
             } else if let error = error {
                 print("error: \(error)")
             }

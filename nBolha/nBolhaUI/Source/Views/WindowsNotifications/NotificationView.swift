@@ -37,6 +37,14 @@ public struct NotificationView: View {
                 errorDescription: "Please try again."
             )
         }
+        
+        public static var PhotoUploadSuccess: Notification {
+            return Notification(
+                type: .success,
+                errorMessage: "Upload complete",
+                errorDescription: "Great news! Your item uploaded successfully."
+            )
+        }
 
         public init(
             type: `Type`,
@@ -50,13 +58,24 @@ public struct NotificationView: View {
 
         public enum `Type`: Equatable {
             case warning
+            case success
 
             var titleImage: Image {
-                return Image(uiImage: .icnAlert ?? UIImage())
+                switch self {
+                case .warning:
+                    return Image(uiImage: .icnAlert)
+                case .success:
+                    return Image(uiImage: .success)
+                }
             }
 
             var color: Color {
-                return Color(.inverseError!)
+                switch self {
+                case .warning:
+                    return Color(.inverseError!)
+                case .success:
+                    return Color(.inverseSuccess!)
+                }
             }
         }
     }

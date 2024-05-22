@@ -42,4 +42,13 @@ final class TabBarCoordinator: Coordinator, TabBarNavigationDelegate {
     func showCategories() {
         tabBarController?.selectedIndex = 1
     }
+    
+    func showProfile() {
+        tabBarController?.selectedIndex = 4
+        let viewModel = ProfileViewModel(
+            navigationDelegate: nil,
+            showSuccessMessage: true
+        )
+        ProfileCoordinator(viewModel: viewModel).start()
+    }
 }
