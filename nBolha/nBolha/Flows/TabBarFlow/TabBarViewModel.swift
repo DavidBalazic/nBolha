@@ -73,7 +73,8 @@ final class TabBarViewModel {
             let coordinator = UploadItemCoordinator()
             return setup(coordinator.start())
         case .profile:
-            let coordinator = ProfileCoordinator()
+            let viewModel = ProfileViewModel(navigationDelegate: nil)
+            let coordinator = ProfileCoordinator(viewModel: viewModel)
             return setup(coordinator.start())
         }
     }

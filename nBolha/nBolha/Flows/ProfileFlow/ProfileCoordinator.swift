@@ -12,16 +12,19 @@ import nBolhaNetworking
 
 final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
+    private var viewModel: ProfileViewModel
     
     init(
-        navigationController: UINavigationController? = nil
+        navigationController: UINavigationController? = nil,
+        viewModel: ProfileViewModel
     ) {
         self.navigationController = navigationController
+        self.viewModel = viewModel
     }
     
     @discardableResult
     func start() -> UIViewController {
-        let viewModel = ProfileViewModel(
+        viewModel = ProfileViewModel(
             navigationDelegate: self
         )
         let view = ProfileView(
@@ -49,7 +52,7 @@ final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         let signOutAction = UIAction(title: "Sign Out", image: .signOut) { _ in
-            self.signOut()
+            self.viewModel.signOutTapped()
         }
         let signOutMenu = UIMenu(title: "", children: [signOutAction])
         
@@ -58,11 +61,5 @@ final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate
         ellipsisButton.menu = signOutMenu
         
         viewController.navigationItem.rightBarButtonItem = ellipsisButton
-    }
-    
-    private func signOut() {
-        let keychainManager = KeyChainManager(service: Constants.keychainServiceIdentifier)
-        keychainManager.remove("sessionTokenID")
-        NotificationCenter.default.post(name: .tokenExpiredNotification, object: nil)
     }
 }

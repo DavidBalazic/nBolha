@@ -18,6 +18,7 @@ protocol ProfileNavigationDelegate: AnyObject {
 final class ProfileViewModel: ObservableObject {
     private let navigationDelegate: ProfileNavigationDelegate?
     private let notificationService: WindowNotificationService
+    private let keychaninManager = KeyChainManager(service: Constants.keychainServiceIdentifier)
     @Published var isLoading = false
     @Published var profileAdvertisements: [Advertisement] = []
     @Published var profile: User?
@@ -141,5 +142,10 @@ final class ProfileViewModel: ObservableObject {
     
     func deleteAdvertisementTapped() async {
         await deleteAdvertisement()
+    }
+    
+    func signOutTapped() {
+        keychaninManager.remove("sessionTokenID")
+        NotificationCenter.default.post(name: .tokenExpiredNotification, object: nil)
     }
 }
