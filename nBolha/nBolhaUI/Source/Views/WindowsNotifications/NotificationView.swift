@@ -38,6 +38,14 @@ public struct NotificationView: View {
             )
         }
         
+        public static var UploadFailed: Notification {
+            return Notification(
+                type: .warning,
+                errorMessage: "Upload failed",
+                errorDescription: "Sorry about that. There was an error while uploading your item. Please try again."
+            )
+        }
+        
         public static var PhotoUploadSuccess: Notification {
             return Notification(
                 type: .success,

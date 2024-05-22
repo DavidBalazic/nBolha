@@ -150,6 +150,7 @@ final class ProfileViewModel: ObservableObject {
     
     func signOutTapped() {
         keychaninManager.remove("sessionTokenID")
+        keychaninManager.remove("userEmail")
         NotificationCenter.default.post(name: .tokenExpiredNotification, object: nil)
     }
 }

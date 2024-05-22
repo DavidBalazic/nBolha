@@ -20,6 +20,7 @@ protocol UploadItemNavigationDelegate: AnyObject {
 final class UploadItemViewModel: ObservableObject {
     private let navigationDelegate: UploadItemNavigationDelegate?
     private let notificationService: WindowNotificationService
+    private var cancellables = Set<AnyCancellable>()
     @Published var isLoading = false
     @Published var selectedImages = [UIImage]()
     @Published var title: String = ""
@@ -37,6 +38,7 @@ final class UploadItemViewModel: ObservableObject {
     @Published var errorAddPhotosText: String?
     @Published var pickerItems = [PhotosPickerItem]() {
         didSet {
+            guard pickerItems.count != 0 else { return }
             Task {
                 try await loadTransferables(from: pickerItems)
             }
@@ -90,13 +92,19 @@ final class UploadItemViewModel: ObservableObject {
                 }
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorTitleText)
-           
+            .sink { [weak self] newText in
+                self?.errorTitleText = newText
+            }
+            .store(in: &cancellables)
+        
         $description
             .dropFirst()
             .map { $0.count > 1000 ? "\($0.count)/1000" : nil }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorDescriptionText)
+            .sink { [weak self] newText in
+                self?.errorDescriptionText = newText
+            }
+            .store(in: &cancellables)
         
         $price
             .dropFirst()
@@ -112,7 +120,10 @@ final class UploadItemViewModel: ObservableObject {
                 }
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorPriceText)
+            .sink { [weak self] newText in
+                self?.errorPriceText = newText
+            }
+            .store(in: &cancellables)
         
         $category
             .dropFirst()
@@ -120,7 +131,10 @@ final class UploadItemViewModel: ObservableObject {
                 category == .unselected ? "Please select category" : nil
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorCategoryText)
+            .sink { [weak self] newText in
+                self?.errorCategoryText = newText
+            }
+            .store(in: &cancellables)
         
         $condition
             .dropFirst()
@@ -128,7 +142,10 @@ final class UploadItemViewModel: ObservableObject {
                 condition == .unselected ? "Please select condition" : nil
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorConditionText)
+            .sink { [weak self] newText in
+                self?.errorConditionText = newText
+            }
+            .store(in: &cancellables)
         
         $location
             .dropFirst()
@@ -136,13 +153,19 @@ final class UploadItemViewModel: ObservableObject {
                 location == .unselected ? "Please select location" : nil
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorLocationText)
+            .sink { [weak self] newText in
+                self?.errorLocationText = newText
+            }
+            .store(in: &cancellables)
         
         $selectedImages
             .dropFirst()
             .map { $0.isEmpty ? "Please add a minimum of 1 photo" : nil }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorAddPhotosText)
+            .sink { [weak self] newText in
+                self?.errorAddPhotosText = newText
+            }
+            .store(in: &cancellables)
     }
     
     private func validateFields() {
@@ -184,6 +207,19 @@ final class UploadItemViewModel: ObservableObject {
                 !selectedImages.isEmpty
     }
     
+    private func resetFields() {
+        cancellables.removeAll()
+        title = ""
+        description = ""
+        price = ""
+        category = .unselected
+        condition = .unselected
+        location = .unselected
+        selectedImages.removeAll()
+        pickerItems.removeAll()
+        initializeObserving()
+    }
+    
     @MainActor
     func uploadItemTapped() async {
         validateFields()
@@ -209,16 +245,17 @@ final class UploadItemViewModel: ObservableObject {
         )
         postAdvertisementWorker.execute { (response, error) in
             if let response = response {
+                self.resetFields()
                 self.navigationDelegate?.showProfileScreen()
             } else if let error = error {
-                print("error: \(error)")
+                self.notificationService.notify.send(NotificationView.Notification.UploadFailed)
             }
         }
     }
     
     func loadTransferables(from selection: [PhotosPickerItem]?) async throws {
-        var tempImages = [UIImage]()
         guard let selection = selection else { return }
+        var tempImages = [UIImage]()
         for item in selection {
             if let data = try await item.loadTransferable(type: Data.self) {
                 let maxSizeInBytes = 2 * 1024 * 1024
