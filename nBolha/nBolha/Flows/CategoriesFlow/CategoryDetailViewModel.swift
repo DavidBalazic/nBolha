@@ -89,13 +89,13 @@ final class CategoryDetailViewModel: ObservableObject {
     }
     
     func applyFiltersTapped(selectedCheckBoxes: [Condition], selectedRadioButton: SortBy) {
-        self.conditions = selectedCheckBoxes
-        self.order = selectedRadioButton
+        conditions = selectedCheckBoxes
+        order = selectedRadioButton
         Task { await loadFilteredAdvertisements() }
     }
     
     func applySearchTapped() {
-        self.isEditing = false
+        isEditing = false
         Task { await loadFilteredAdvertisements() }
     }
     

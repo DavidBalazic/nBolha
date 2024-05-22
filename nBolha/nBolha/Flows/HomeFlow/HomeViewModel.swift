@@ -123,7 +123,7 @@ final class HomeViewModel: ObservableObject {
     
     func applySearchTapped(search: String) {
         self.search = ""
-        self.isEditing = false
+        isEditing = false
         navigationDelegate?.showCategoryDetailScreen(search: search)
     }
 }
