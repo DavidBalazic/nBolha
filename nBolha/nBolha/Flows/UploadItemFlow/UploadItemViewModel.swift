@@ -21,6 +21,7 @@ final class UploadItemViewModel: ObservableObject {
     private let navigationDelegate: UploadItemNavigationDelegate?
     private let notificationService: WindowNotificationService
     private var cancellables = Set<AnyCancellable>()
+    private var shouldLoadTransferables = true
     @Published var isLoading = false
     @Published var selectedImages = [UIImage]()
     @Published var title: String = ""
@@ -38,9 +39,10 @@ final class UploadItemViewModel: ObservableObject {
     @Published var errorAddPhotosText: String?
     @Published var pickerItems = [PhotosPickerItem]() {
         didSet {
-            guard pickerItems.count != 0 else { return }
-            Task {
-                try await loadTransferables(from: pickerItems)
+            if shouldLoadTransferables {
+                Task {
+                    try await loadTransferables(from: pickerItems)
+                }
             }
         }
     }
@@ -208,6 +210,9 @@ final class UploadItemViewModel: ObservableObject {
     }
     
     private func resetFields() {
+        shouldLoadTransferables = false
+        defer { shouldLoadTransferables = true }
+        
         cancellables.removeAll()
         title = ""
         description = ""
