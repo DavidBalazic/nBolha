@@ -56,7 +56,7 @@ struct AddPhotoView: View {
                 }
                 .padding(.bottom, 16)
                 .padding(.top, viewModel.selectedImages.isEmpty ? 37 : 0)
-                Text("Add up to 5 photos (.jpg, .gif or .png, max. 2MB)")
+                Text("Add up to 5 photos (.jpg, .gif or .png, max. 2MB) *")
                     .textStyle(.caption02)
                     .foregroundStyle(Color(.text02!))
                     .multilineTextAlignment(.center)

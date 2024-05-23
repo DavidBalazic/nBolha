@@ -123,10 +123,9 @@ struct UploadItemView: View {
                     Text("Price (in €) *")
                         .textStyle(.subtitle02)
                         .foregroundStyle(Color(.text01!))
-                    SwiftUITextInput(
+                    PriceTextInput(
                         title: "",
-                        type: .primary,
-                        text: $viewModel.price,
+                        amount: $viewModel.price,
                         errorText: isPriceFocused ? .constant(nil) : $viewModel.errorPriceText,
                         isFocused: $isPriceFocused
                     )

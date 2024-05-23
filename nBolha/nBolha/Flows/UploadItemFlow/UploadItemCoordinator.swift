@@ -11,11 +11,14 @@ import NChainUI
 
 final class UploadItemCoordinator: NSObject, Coordinator, UploadItemNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
+    private let navigationDelegate: TabBarNavigationDelegate?
     
     init(
-        navigationController: UINavigationController? = nil
+        navigationController: UINavigationController? = nil,
+        navigationDelegate: TabBarNavigationDelegate?
     ) {
         self.navigationController = navigationController
+        self.navigationDelegate = navigationDelegate
     }
     
     @discardableResult
@@ -33,6 +36,10 @@ final class UploadItemCoordinator: NSObject, Coordinator, UploadItemNavigationDe
         
         navController.pushViewController(view.asViewController, animated: true)
         return navController
+    }
+    
+    func showProfileScreen() {
+        navigationDelegate?.showProfile()
     }
     
     // MARK: - UINavigationControllerDelegate
