@@ -26,7 +26,7 @@ final class UploadItemViewModel: ObservableObject {
     @Published var selectedImages = [UIImage]()
     @Published var title: String = ""
     @Published var description: String = ""
-    @Published var price: String = ""
+    @Published var price: Double?
     @Published var errorTitleText: String?
     @Published var errorDescriptionText: String?
     @Published var errorPriceText: String?
@@ -121,12 +121,10 @@ final class UploadItemViewModel: ObservableObject {
         
         $price
             .dropFirst()
-            .map { $0.isEmpty ? "Please enter price" : nil }
-            .combineLatest($price.validPricePublisher)
-            .map { inputError, validPrice in
-                if let inputError = inputError {
-                    return inputError
-                } else if !validPrice {
+            .map { price in
+                if price == nil {
+                    return "Please enter price"
+                } else if let price = price, price > 999999 {
                     return "Price is from 0€ to 999.999€"
                 } else {
                     return nil
@@ -193,9 +191,9 @@ final class UploadItemViewModel: ObservableObject {
         }()
         errorDescriptionText = description.count > 1000 ? "\(description.count)/1000"  : nil
         errorPriceText  = {
-            if price.isEmpty {
+            if price == nil {
                 return "Please enter price"
-            } else if let priceValue = Double(price), priceValue > 999999 {
+            } else if let price = price, price > 999999 {
                 return "Price is from 0€ to 999.999€"
             } else {
                 return nil
@@ -211,9 +209,8 @@ final class UploadItemViewModel: ObservableObject {
         return !title.isEmpty &&
                 title.count < 50 &&
                 description.count < 1000 &&
-                !price.isEmpty &&
-                Double(price) != nil &&
-                Double(price)! <= 999999 &&
+                price != nil &&
+                price! <= 999999 &&
                 category != .unselected &&
                 condition != .unselected &&
                 location != .unselected &&
@@ -227,7 +224,7 @@ final class UploadItemViewModel: ObservableObject {
         cancellables.removeAll()
         title = ""
         description = ""
-        price = ""
+        price = nil
         category = .unselected
         condition = .unselected
         location = .unselected
@@ -252,7 +249,7 @@ final class UploadItemViewModel: ObservableObject {
         let postAdvertisementWorker = PostAdvertisementWorker(
             title: title,
             description: description,
-            price: Double(price) ?? 0.0,
+            price: price ?? 0.0,
             address: location.rawValue,
             category: category.rawValue,
             condition: condition.backendValue,
