@@ -16,6 +16,8 @@ struct CarouselView: View {
     let likeButtonTapped: (() -> Void)?
     let dislikeButtonTapped: (() -> Void)?
     @State private var currentIndex = 0
+    @State private var currentZoom = 0.0
+    @State private var totalZoom = 1.0
     @Binding var isDialogPresented: Bool
     
     var body: some View {
@@ -30,6 +32,17 @@ struct CarouselView: View {
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .tag(index)
+                                        .scaleEffect(currentZoom + totalZoom)
+                                        .gesture(
+                                            MagnificationGesture()
+                                                .onChanged { value in
+                                                    currentZoom = min(max( value.magnitude, 0.2), 5.0) - 1
+                                                }
+                                                .onEnded { value in
+                                                    totalZoom += currentZoom
+                                                    currentZoom = 0
+                                                }
+                                        )
                                 } placeholder: {
                                     ProgressView()
                                 }
@@ -44,6 +57,10 @@ struct CarouselView: View {
                 }
                 .tabViewStyle(PageTabViewStyle())
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                .onChange(of: currentIndex) { newValue in
+                    currentZoom = 0
+                    totalZoom = 1
+                }
             }
         }
         .overlay(alignment: .topTrailing) {
