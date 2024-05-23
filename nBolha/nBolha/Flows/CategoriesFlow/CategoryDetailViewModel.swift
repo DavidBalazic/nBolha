@@ -45,8 +45,8 @@ final class CategoryDetailViewModel: ObservableObject {
         let filterAdvertisementWorker = FilterAdvertisementWorker(
             category: category,
             keyword: search,
-            orderBy: order.rawValue,
-            conditions: conditions.map { $0.rawValue }
+            orderBy: order.backendValue,
+            conditions: conditions.map { $0.backendValue }
         )
         filterAdvertisementWorker.execute { (response, error) in
             if let error = error {
