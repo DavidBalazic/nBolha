@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import NChainUI
+import nBolhaUI
 
 public struct DetailView: View {
     @ObservedObject private var viewModel: DetailViewModel
@@ -43,7 +44,7 @@ public struct DetailView: View {
                             .foregroundStyle(Color(UIColor.text01!))
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HStack {
-                            Text(String(format: "%.2f €", viewModel.advertisement?.price ?? "0"))
+                            Text(PriceFormatter.formatPrice(viewModel.advertisement?.price ?? 0))
                                 .textStyle(.subtitle01)
                                 .foregroundStyle(Color(UIColor.text01!))
                             Spacer()
