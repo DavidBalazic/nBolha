@@ -81,8 +81,8 @@ struct HomeView: View {
                         }
                     }
                 }
+                .padding(.horizontal,  NCConstants.Margins.large.rawValue)
             }
-            .padding(.horizontal, NCConstants.Margins.large.rawValue)
             .onAppear {
                 Task {
                     await viewModel.loadRecentlyViewed()

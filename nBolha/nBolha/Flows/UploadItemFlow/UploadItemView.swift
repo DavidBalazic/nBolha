@@ -132,6 +132,7 @@ struct UploadItemView: View {
                     .keyboardType(.decimalPad)
                 }
             }
+            .padding(.horizontal, 16)
             SwiftUIButton(
                 text: "Upload item",
                 trailingIcon: .init(image: Image(.sparkles), size: .huge),
@@ -145,6 +146,5 @@ struct UploadItemView: View {
             .fixedSize()
             .padding(.top, 16)
         }
-        .padding(.horizontal, 16)
     }
 }

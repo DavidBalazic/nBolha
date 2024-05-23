@@ -37,8 +37,8 @@ struct CategoriesView: View {
                     CategoriesItemView(viewModel: viewModel, categoryTitle: "Apparel", categoryImage: .apparelCategory)
                     CategoriesItemView(viewModel: viewModel, categoryTitle: "Services", categoryImage: .servicesCategory)
                 }
+                .padding(.horizontal, NCConstants.Margins.large.rawValue)
             }
-            .padding(.horizontal, NCConstants.Margins.large.rawValue)
         }
     }
 }
