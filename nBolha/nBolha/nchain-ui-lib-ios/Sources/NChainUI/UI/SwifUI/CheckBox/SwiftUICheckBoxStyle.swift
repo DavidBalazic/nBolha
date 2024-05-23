@@ -15,6 +15,7 @@ struct SwiftUICheckBoxStyle: ToggleStyle {
     let style: SwiftUICheckBox.Style
     let isDisabled: Bool
     let tapped: Action?
+    let isChecked: Bool
     
     func makeBody(configuration: Configuration) -> some View {
         Button (action: {
@@ -34,7 +35,7 @@ struct SwiftUICheckBoxStyle: ToggleStyle {
                             maxWidth: NCConstants.IconSize.huge.rawValue,
                             maxHeight: NCConstants.IconSize.huge.rawValue
                         )
-                        .foregroundColor(isDisabled ? style.disabledIconColor : style.iconColor)
+                        .foregroundColor(isChecked ? style.disabledIconColor : style.iconColor)
                     VStack(alignment: .leading) {
                         Text(title)
                             .textStyle(.subtitle02)
