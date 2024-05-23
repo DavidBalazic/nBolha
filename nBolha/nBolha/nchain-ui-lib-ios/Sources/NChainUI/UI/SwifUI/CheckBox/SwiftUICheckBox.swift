@@ -56,7 +56,8 @@ public struct SwiftUICheckBox: View {
                 orientation: orientation,
                 style: style,
                 isDisabled: !isEnabled,
-                tapped: tapped
+                tapped: tapped,
+                isChecked: checked
             )
         )
     }
