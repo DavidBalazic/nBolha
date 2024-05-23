@@ -14,23 +14,19 @@ import nBolhaCore
 import nBolhaUI
 
 protocol UploadItemNavigationDelegate: AnyObject {
- 
+    func showProfileScreen()
 }
 
 final class UploadItemViewModel: ObservableObject {
     private let navigationDelegate: UploadItemNavigationDelegate?
+    private let notificationService: WindowNotificationService
+    private var cancellables = Set<AnyCancellable>()
+    private var shouldLoadTransferables = true
     @Published var isLoading = false
-    @Published var pickerItems = [PhotosPickerItem]() {
-        didSet {
-            Task {
-                try await loadTransferables(from: pickerItems)
-            }
-        }
-    }
     @Published var selectedImages = [UIImage]()
     @Published var title: String = ""
     @Published var description: String = ""
-    @Published var price: String = ""
+    @Published var price: Double?
     @Published var errorTitleText: String?
     @Published var errorDescriptionText: String?
     @Published var errorPriceText: String?
@@ -41,7 +37,15 @@ final class UploadItemViewModel: ObservableObject {
     @Published var errorConditionText: String?
     @Published var errorLocationText: String?
     @Published var errorAddPhotosText: String?
-    private let notificationService: WindowNotificationService
+    @Published var pickerItems = [PhotosPickerItem]() {
+        didSet {
+            if shouldLoadTransferables {
+                Task {
+                    try await loadTransferables(from: pickerItems)
+                }
+            }
+        }
+    }
     
     enum Category: String, CaseIterable {
         case unselected = "Select..."
@@ -61,11 +65,22 @@ final class UploadItemViewModel: ObservableObject {
         case withoutTags = "New without tags"
         case veryGood = "Very good"
         case satisfactory = "Satisfactory"
+        
+        var backendValue: String {
+            switch self {
+            case .unselected: return ""
+            case .withTags: return "New_with_tags"
+            case .withoutTags: return "New_without_tags"
+            case .veryGood: return "Very_good"
+            case .satisfactory: return "Satisfactory"
+            }
+        }
     }
     enum Location: String, CaseIterable {
         case unselected = "Select..."
         case maribor = "Maribor"
         case ljubljana = "Ljubljana"
+        case other = "Other"
     }
     
     init(
@@ -90,29 +105,36 @@ final class UploadItemViewModel: ObservableObject {
                 }
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorTitleText)
-           
+            .sink { [weak self] newText in
+                self?.errorTitleText = newText
+            }
+            .store(in: &cancellables)
+        
         $description
             .dropFirst()
             .map { $0.count > 1000 ? "\($0.count)/1000" : nil }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorDescriptionText)
+            .sink { [weak self] newText in
+                self?.errorDescriptionText = newText
+            }
+            .store(in: &cancellables)
         
         $price
             .dropFirst()
-            .map { $0.isEmpty ? "Please enter price" : nil }
-            .combineLatest($price.validPricePublisher)
-            .map { inputError, validPrice in
-                if let inputError = inputError {
-                    return inputError
-                } else if !validPrice {
+            .map { price in
+                if price == nil {
+                    return "Please enter price"
+                } else if let price = price, price > 999999 {
                     return "Price is from 0€ to 999.999€"
                 } else {
                     return nil
                 }
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorPriceText)
+            .sink { [weak self] newText in
+                self?.errorPriceText = newText
+            }
+            .store(in: &cancellables)
         
         $category
             .dropFirst()
@@ -120,7 +142,10 @@ final class UploadItemViewModel: ObservableObject {
                 category == .unselected ? "Please select category" : nil
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorCategoryText)
+            .sink { [weak self] newText in
+                self?.errorCategoryText = newText
+            }
+            .store(in: &cancellables)
         
         $condition
             .dropFirst()
@@ -128,7 +153,10 @@ final class UploadItemViewModel: ObservableObject {
                 condition == .unselected ? "Please select condition" : nil
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorConditionText)
+            .sink { [weak self] newText in
+                self?.errorConditionText = newText
+            }
+            .store(in: &cancellables)
         
         $location
             .dropFirst()
@@ -136,13 +164,19 @@ final class UploadItemViewModel: ObservableObject {
                 location == .unselected ? "Please select location" : nil
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorLocationText)
+            .sink { [weak self] newText in
+                self?.errorLocationText = newText
+            }
+            .store(in: &cancellables)
         
         $selectedImages
             .dropFirst()
             .map { $0.isEmpty ? "Please add a minimum of 1 photo" : nil }
             .receive(on: DispatchQueue.main)
-            .assign(to: &$errorAddPhotosText)
+            .sink { [weak self] newText in
+                self?.errorAddPhotosText = newText
+            }
+            .store(in: &cancellables)
     }
     
     private func validateFields() {
@@ -157,9 +191,9 @@ final class UploadItemViewModel: ObservableObject {
         }()
         errorDescriptionText = description.count > 1000 ? "\(description.count)/1000"  : nil
         errorPriceText  = {
-            if price.isEmpty {
+            if price == nil {
                 return "Please enter price"
-            } else if let priceValue = Double(price), priceValue > 999999 {
+            } else if let price = price, price > 999999 {
                 return "Price is from 0€ to 999.999€"
             } else {
                 return nil
@@ -175,13 +209,28 @@ final class UploadItemViewModel: ObservableObject {
         return !title.isEmpty &&
                 title.count < 50 &&
                 description.count < 1000 &&
-                !price.isEmpty &&
-                Double(price) != nil &&
-                Double(price)! <= 999999 &&
+                price != nil &&
+                price! <= 999999 &&
                 category != .unselected &&
                 condition != .unselected &&
                 location != .unselected &&
                 !selectedImages.isEmpty
+    }
+    
+    private func resetFields() {
+        shouldLoadTransferables = false
+        defer { shouldLoadTransferables = true }
+        
+        cancellables.removeAll()
+        title = ""
+        description = ""
+        price = nil
+        category = .unselected
+        condition = .unselected
+        location = .unselected
+        selectedImages.removeAll()
+        pickerItems.removeAll()
+        initializeObserving()
     }
     
     @MainActor
@@ -198,27 +247,27 @@ final class UploadItemViewModel: ObservableObject {
         defer { isLoading = false }
         
         let postAdvertisementWorker = PostAdvertisementWorker(
-            //TODO: wait for backend update and implement
             title: title,
             description: description,
-            price: Double(price) ?? 0.0,
+            price: price ?? 0.0,
             address: location.rawValue,
             category: category.rawValue,
-            condition: "Very_good",
+            condition: condition.backendValue,
             images: selectedImages
         )
         postAdvertisementWorker.execute { (response, error) in
-            if let response = response {
-                print("Response \(response)")
-            } else if let error = error {
-                print("error: \(error)")
+            if response != nil {
+                self.resetFields()
+                self.navigationDelegate?.showProfileScreen()
+            } else if error != nil {
+                self.notificationService.notify.send(NotificationView.Notification.UploadFailed)
             }
         }
     }
     
     func loadTransferables(from selection: [PhotosPickerItem]?) async throws {
-        var tempImages = [UIImage]()
         guard let selection = selection else { return }
+        var tempImages = [UIImage]()
         for item in selection {
             if let data = try await item.loadTransferable(type: Data.self) {
                 let maxSizeInBytes = 2 * 1024 * 1024

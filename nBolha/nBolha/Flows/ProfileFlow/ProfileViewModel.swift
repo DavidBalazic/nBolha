@@ -33,10 +33,14 @@ final class ProfileViewModel: ObservableObject {
     
     init(
         navigationDelegate: ProfileNavigationDelegate?,
-        notificationService: WindowNotificationService = DefaultWindowNotificationService()
+        notificationService: WindowNotificationService = DefaultWindowNotificationService(),
+        showSuccessMessage: Bool = false
     ) {
         self.navigationDelegate = navigationDelegate
         self.notificationService = notificationService
+        if showSuccessMessage {
+            notificationService.notify.send(NotificationView.Notification.PhotoUploadSuccess)
+        }
         Task {
             await loadProfileAdvertisements()
             await loadProfileInfo()
@@ -146,6 +150,7 @@ final class ProfileViewModel: ObservableObject {
     
     func signOutTapped() {
         keychaninManager.remove("sessionTokenID")
+        keychaninManager.remove("userEmail")
         NotificationCenter.default.post(name: .tokenExpiredNotification, object: nil)
     }
 }
