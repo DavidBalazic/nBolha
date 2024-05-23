@@ -65,11 +65,22 @@ final class UploadItemViewModel: ObservableObject {
         case withoutTags = "New without tags"
         case veryGood = "Very good"
         case satisfactory = "Satisfactory"
+        
+        var backendValue: String {
+            switch self {
+            case .unselected: return ""
+            case .withTags: return "New_with_tags"
+            case .withoutTags: return "New_without_tags"
+            case .veryGood: return "Very_good"
+            case .satisfactory: return "Satisfactory"
+            }
+        }
     }
     enum Location: String, CaseIterable {
         case unselected = "Select..."
         case maribor = "Maribor"
         case ljubljana = "Ljubljana"
+        case other = "Other"
     }
     
     init(
@@ -239,20 +250,19 @@ final class UploadItemViewModel: ObservableObject {
         defer { isLoading = false }
         
         let postAdvertisementWorker = PostAdvertisementWorker(
-            //TODO: wait for backend update and implement
             title: title,
             description: description,
             price: Double(price) ?? 0.0,
             address: location.rawValue,
             category: category.rawValue,
-            condition: "Very_good",
+            condition: condition.backendValue,
             images: selectedImages
         )
         postAdvertisementWorker.execute { (response, error) in
-            if let response = response {
+            if response != nil {
                 self.resetFields()
                 self.navigationDelegate?.showProfileScreen()
-            } else if let error = error {
+            } else if error != nil {
                 self.notificationService.notify.send(NotificationView.Notification.UploadFailed)
             }
         }

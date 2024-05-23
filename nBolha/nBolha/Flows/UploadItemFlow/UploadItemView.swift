@@ -146,6 +146,7 @@ struct UploadItemView: View {
             .fixedSize()
             .padding(.top, 16)
         }
+        .activityIndicator(show: $viewModel.isLoading)
         .padding(.horizontal, 16)
     }
 }
