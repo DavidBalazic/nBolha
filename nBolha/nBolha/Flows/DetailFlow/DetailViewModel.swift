@@ -12,7 +12,7 @@ import MessageUI
 protocol DetailNavigationDelegate: AnyObject {
     func disableNavigations()
     func enableNavigations()
-    func showMailApp()
+    func showMailApp(recipientEmail: String, subject: String)
 }
 
 final class DetailViewModel: ObservableObject{
@@ -82,6 +82,9 @@ final class DetailViewModel: ObservableObject{
     }
     
     func contactSellerTapped() {
-        navigationDelegate?.showMailApp()
+        navigationDelegate?.showMailApp(
+            recipientEmail: advertisement?.username ?? "",
+            subject: advertisement?.title ?? ""
+        )
     }
 }
