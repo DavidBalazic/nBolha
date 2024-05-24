@@ -101,6 +101,8 @@ final class DetailCoordinator: NSObject, Coordinator, DetailNavigationDelegate, 
     // MARK: - UINavigationControllerDelegate
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-       //TODO: implement
+        let backButtonImage = UIImage(resource: .backButton)
+        self.navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
     }
 }

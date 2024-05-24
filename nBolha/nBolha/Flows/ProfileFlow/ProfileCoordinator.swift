@@ -61,5 +61,9 @@ final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate
         ellipsisButton.menu = signOutMenu
         
         viewController.navigationItem.rightBarButtonItem = ellipsisButton
+        
+        let backButtonImage = UIImage(resource: .backButton)
+        self.navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
     }
 }
