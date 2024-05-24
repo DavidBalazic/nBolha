@@ -16,7 +16,7 @@ protocol ProfileNavigationDelegate: AnyObject {
 }
 
 final class ProfileViewModel: ObservableObject {
-    private let navigationDelegate: ProfileNavigationDelegate?
+    var navigationDelegate: ProfileNavigationDelegate?
     private let notificationService: WindowNotificationService
     private let keychaninManager = KeyChainManager(service: Constants.keychainServiceIdentifier)
     @Published var isLoading = false
@@ -42,7 +42,6 @@ final class ProfileViewModel: ObservableObject {
             notificationService.notify.send(NotificationView.Notification.PhotoUploadSuccess)
         }
         Task {
-            await loadProfileAdvertisements()
             await loadProfileInfo()
         }
     }

@@ -24,9 +24,7 @@ final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate
     
     @discardableResult
     func start() -> UIViewController {
-        viewModel = ProfileViewModel(
-            navigationDelegate: self
-        )
+        viewModel.navigationDelegate = self
         let view = ProfileView(
             viewModel: viewModel
         )
