@@ -40,24 +40,11 @@ final class LoginCoordinator: Coordinator, LoginNavigationDelegate {
     }
     
     func showTermsScreen() {
-        let webView = WebView(
-            url: DocumentURL.terms.url
-        )
-        navigationController?.pushViewController(
-            webView.asViewController,
-            animated: true
-        )
+        
     }
     
     func showPrivacyScreen() {
-        let webView = WebView(
-            url: DocumentURL.privacyPolicy.url
-        )
-      
-        navigationController?.pushViewController(
-            webView.asViewController,
-            animated: true
-        )
+        
     }
     
     func showNoConnectionScreen() {
@@ -68,5 +55,4 @@ final class LoginCoordinator: Coordinator, LoginNavigationDelegate {
             animated: true
         )
     }
-    
 }

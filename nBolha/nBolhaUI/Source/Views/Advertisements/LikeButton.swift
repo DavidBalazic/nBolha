@@ -42,8 +42,7 @@ public struct LikeButton: View {
                     .shadow(radius: 36, x: 0, y: NCConstants.Margins.small.rawValue)
                 Image(uiImage: isLiked ? .likeBlack : .likeWhite)
             }
+            .padding(8)
         }
-        .padding(.top, NCConstants.Margins.small.rawValue)
-        .padding(.trailing, NCConstants.Margins.small.rawValue)
     }
 }

@@ -8,11 +8,10 @@
 import Foundation
 import SwiftUI
 import NChainUI
+import nBolhaUI
 
 public struct DetailView: View {
     @ObservedObject private var viewModel: DetailViewModel
-    @State private var showButton = false
-    @State private var showTextLimit = false
     @State private var isDialogPresented = false
     
     init(
@@ -43,7 +42,7 @@ public struct DetailView: View {
                             .foregroundStyle(Color(UIColor.text01!))
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HStack {
-                            Text(String(format: "%.2f €", viewModel.advertisement?.price ?? "0"))
+                            Text(PriceFormatter.formatPrice(viewModel.advertisement?.price ?? 0))
                                 .textStyle(.subtitle01)
                                 .foregroundStyle(Color(UIColor.text01!))
                             Spacer()
@@ -61,36 +60,26 @@ public struct DetailView: View {
                             .textStyle(.body02)
                             .foregroundStyle(Color(UIColor.text01!))
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .lineLimit(showTextLimit ? 4 : nil)
-                            .background(GeometryReader { geometry in
-                                Color.clear.onAppear {
-                                    let lines = Int(geometry.size.height / UIFont.body02.lineHeight)
-                                    if lines >= 4 {
-                                        showButton = true
-                                        showTextLimit = true
-                                    }
-                                }
-                            })
+                            .lineLimit(viewModel.shouldShowTextLimit ? 4 : nil)
                         
-                        if showButton {
+                        if viewModel.showButton {
                             Button(action: {
-                                showTextLimit.toggle()
+                                viewModel.toggleTextLimit()
                             }) {
                                 HStack {
-                                    Text(showTextLimit ? "View more" : "View less")
+                                    Text(viewModel.shouldShowTextLimit ? "View more" : "View less")
                                         .textStyle(.subtitle03)
                                         .foregroundStyle(Color(UIColor.brandSecondary!))
-                                    Image(uiImage: showTextLimit ? .chevronDown : .chevronUp)
+                                    Image(uiImage: viewModel.shouldShowTextLimit ? .chevronDown : .chevronUp)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 18, height: 18)
                                         .foregroundColor(Color(UIColor.brandSecondary!))
-                                       
+                                    
                                 }
                             }
                         }
                     }
-                    
                     VStack(spacing: NCConstants.Margins.huge.rawValue) {
                         HStack {
                             Text("Condition: ")
