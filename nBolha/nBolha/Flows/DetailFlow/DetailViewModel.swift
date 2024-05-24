@@ -20,6 +20,8 @@ final class DetailViewModel: ObservableObject{
     private let advertisementId: Int
     @Published var isLoading = false
     @Published var advertisement: Advertisement?
+    @Published var shouldShowTextLimit = false
+    @Published var showButton = false
     
     init(
         navigationDelegate: DetailNavigationDelegate?,
@@ -43,8 +45,24 @@ final class DetailViewModel: ObservableObject{
                 print("Error loading advertisements: \(error)")
             } else {
                 self.advertisement = response
+                self.calculateTextLimit()
             }
         }
+    }
+    
+    private func calculateTextLimit() {
+        guard let advertisement = advertisement else { return }
+        if let description = advertisement.description {
+            let lineHeight = UIFont.body02.lineHeight
+            let height = description.height(withConstrainedWidth: UIScreen.main.bounds.width, font: UIFont.body02)
+            let numberOfLines = Int(height / lineHeight)
+            shouldShowTextLimit = numberOfLines > 4
+            self.showButton = numberOfLines > 4
+        }
+    }
+    
+    func toggleTextLimit() {
+        shouldShowTextLimit.toggle()
     }
     
     func disableNavigations() {
