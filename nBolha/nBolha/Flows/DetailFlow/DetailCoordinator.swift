@@ -52,25 +52,23 @@ final class DetailCoordinator: NSObject, Coordinator, DetailNavigationDelegate, 
         navigationController?.tabBarController?.tabBar.isUserInteractionEnabled = true
     }
     
-    func showMailApp() {
-        let keychainManager = KeyChainManager(service: Constants.keychainServiceIdentifier)
-        if let recipientEmail = keychainManager.get(forKey: "userEmail") {
-            let subject = ""
-            let body = ""
+    func showMailApp(recipientEmail: String, subject: String) {
+        let recipientEmail = recipientEmail
+        let subject = subject
+        let body = ""
+        
+        // Show default mail composer
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([recipientEmail])
+            mail.setSubject(subject)
+            mail.setMessageBody(body, isHTML: false)
             
-            // Show default mail composer
-            if MFMailComposeViewController.canSendMail() {
-                let mail = MFMailComposeViewController()
-                mail.mailComposeDelegate = self
-                mail.setToRecipients([recipientEmail])
-                mail.setSubject(subject)
-                mail.setMessageBody(body, isHTML: false)
-                
-                navigationController?.present(mail, animated: true)
-                
-            } else if let emailUrl = createEmailUrl(to: recipientEmail, subject: subject, body: body) {
-                UIApplication.shared.open(emailUrl)
-            }
+            navigationController?.present(mail, animated: true)
+            
+        } else if let emailUrl = createEmailUrl(to: recipientEmail, subject: subject, body: body) {
+            UIApplication.shared.open(emailUrl)
         }
     }
     private func createEmailUrl(to: String, subject: String, body: String) -> URL? {
@@ -103,6 +101,8 @@ final class DetailCoordinator: NSObject, Coordinator, DetailNavigationDelegate, 
     // MARK: - UINavigationControllerDelegate
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-       //TODO: implement
+        let backButtonImage = UIImage(resource: .backButton)
+        self.navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
     }
 }

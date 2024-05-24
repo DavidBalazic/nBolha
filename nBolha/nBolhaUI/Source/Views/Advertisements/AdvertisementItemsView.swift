@@ -34,12 +34,24 @@ public struct AdvertisementItemsView: View {
             VStack(spacing: NCConstants.Margins.small.rawValue) {
                 ZStack(alignment: .topTrailing) {
                     if let imageObject = advertisement.images?.first, let imageURL = imageObject.fullImageURL {
-                        AsyncImage(url: imageURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            ProgressView()
+                        AsyncImage(url: imageURL) { phase in
+                            switch phase {
+                            case .empty:
+                                ProgressView()
+                                
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                
+                            case .failure:
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                
+                            @unknown default:
+                                EmptyView()
+                            }
                         }
                         .frame(height: 166)
                         .frame(maxWidth: .infinity)

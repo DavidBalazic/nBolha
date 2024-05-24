@@ -80,11 +80,8 @@ final class LoginViewModel: ObservableObject {
         loginWorker.execute { (response, error) in
             if let response = response {
                 let token = response.token
-                let email = response.username
                 let sessionTokenId = "sessionTokenID"
-                let userEmail = "userEmail"
                 self.keychaninManager.set(token, forKey: sessionTokenId)
-                self.keychaninManager.set(email, forKey: userEmail)
                 self.navigationDelegate?.showHomeScreen()
             } else if error is NetworkingBadRequestError {
                 self.notificationService.notify.send(NotificationView.Notification.LoginFailed)

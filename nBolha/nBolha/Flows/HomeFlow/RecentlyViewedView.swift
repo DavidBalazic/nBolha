@@ -35,12 +35,21 @@ struct RecentlyViewedView: View {
             VStack {
                 ZStack(alignment: .topTrailing) {
                     if let imageObject = advertisement.images?.first, let imageURL = imageObject.fullImageURL {
-                        AsyncImage(url: imageURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            ProgressView()
+                        AsyncImage(url: imageURL) { phase in
+                            switch phase {
+                            case .empty:
+                                ProgressView()
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            case .failure:
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            @unknown default:
+                                EmptyView()
+                            }
                         }
                         .frame(width: 130, height: 130)
                         .background(
