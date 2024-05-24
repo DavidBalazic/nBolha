@@ -77,31 +77,32 @@ struct CategoryDetailView: View {
             }
         }
         .padding(.horizontal, NCConstants.Margins.large.rawValue)
-        .padding(.bottom, NCConstants.Margins.extraLarge.rawValue)
         ScrollView(showsIndicators: false) {
-            if viewModel.advertisements.isEmpty {
-                EmptyCategoriesView(
-                    browseCategoriesTapped: {
-                        viewModel.browseCategoriesTapped()
-                    }
-                )
-            } else {
-                let pairs = viewModel.advertisements.chunked(into: 2)
-                ForEach(pairs, id: \.self) { pair in
-                    HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
-                        ForEach(pair, id: \.advertisementId) { advertisement in
-                            AdvertisementItemsView(
-                                advertisement: advertisement,
-                                itemTapped: {
-                                    viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                },
-                                likeButtonTapped: {
-                                    viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                },
-                                dislikeButtonTapped: {
-                                    viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                }
-                            )
+            VStack {
+                if viewModel.advertisements.isEmpty {
+                    EmptyCategoriesView(
+                        browseCategoriesTapped: {
+                            viewModel.browseCategoriesTapped()
+                        }
+                    )
+                } else {
+                    let pairs = viewModel.advertisements.chunked(into: 2)
+                    ForEach(pairs, id: \.self) { pair in
+                        HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
+                            ForEach(pair, id: \.advertisementId) { advertisement in
+                                AdvertisementItemsView(
+                                    advertisement: advertisement,
+                                    itemTapped: {
+                                        viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                    },
+                                    likeButtonTapped: {
+                                        viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                    },
+                                    dislikeButtonTapped: {
+                                        viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                    }
+                                )
+                            }
                         }
                         if pair.count == 1 {
                             Spacer().frame(maxWidth: .infinity)
@@ -109,8 +110,9 @@ struct CategoryDetailView: View {
                     }
                 }
             }
+            .padding(.horizontal, NCConstants.Margins.large.rawValue)
+            .padding(.top, NCConstants.Margins.extraLarge.rawValue)
         }
-        .padding(.horizontal, NCConstants.Margins.large.rawValue)
         .sheet(isPresented: $isFilterTapped) {
             FilterView(
                 viewModel: FilterViewModel(
