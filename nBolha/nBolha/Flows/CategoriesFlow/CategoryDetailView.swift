@@ -103,9 +103,9 @@ struct CategoryDetailView: View {
                                     }
                                 )
                             }
-                        }
-                        if pair.count == 1 {
-                            Spacer().frame(maxWidth: .infinity)
+                            if pair.count == 1 {
+                                Spacer().frame(maxWidth: .infinity)
+                            }
                         }
                     }
                 }
