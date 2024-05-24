@@ -43,6 +43,9 @@ struct WishlistView: View {
                                     }
                                 )
                             }
+                            if pair.count == 1 {
+                                Spacer().frame(maxWidth: .infinity)
+                            }
                         }
                     }
                 }
