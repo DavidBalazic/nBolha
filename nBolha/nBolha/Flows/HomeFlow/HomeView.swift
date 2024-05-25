@@ -26,53 +26,9 @@ struct HomeView: View {
                     viewModel.applySearchTapped(search: viewModel.search)
                 }
             ScrollView(showsIndicators: false) {
-                VStack {
-                    Text("Recently viewed")
-                        .textStyle(.subtitle02)
-                        .foregroundStyle(Color(UIColor.brandTertiary!))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    if viewModel.advertisementRecentlyViewed.isEmpty {
-                        EmptyRecentlyViewedView(viewModel: viewModel)
-                    } else {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: NCConstants.Margins.large.rawValue) {
-                                ForEach(viewModel.advertisementRecentlyViewed, id: \.advertisementId) { advertisement in
-                                    RecentlyViewedView(
-                                        advertisement: advertisement,
-                                        itemTapped: {
-                                            viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                        },
-                                        likeButtonTapped: {
-                                            viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                        },
-                                        dislikeButtonTapped: {
-                                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                        }
-                                    )
-                                }
-                            }
-                        }
-                    }
-                    Text("Recently added")
-                        .textStyle(.subtitle02)
-                        .foregroundStyle(Color(UIColor.brandTertiary!))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    if viewModel.advertisementRecentlyAdded.isEmpty {
-                        EmptyRecentlyAddedView()
-                    } else {
-                        AdvertisementGridView(
-                            advertisements: viewModel.advertisementRecentlyAdded,
-                            itemTapped: { advertisement in
-                                viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
-                            },
-                            likeButtonTapped: { advertisement in
-                                viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                            },
-                            dislikeButtonTapped: { advertisement in
-                                viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                            }
-                        )
-                    }
+                VStack(spacing: 20) {
+                    recentlyViewed()
+                    recentlyAdded()
                 }
                 .padding(.horizontal,  NCConstants.Margins.large.rawValue)
             }
@@ -81,6 +37,66 @@ struct HomeView: View {
                     await viewModel.loadRecentlyViewed()
                     await viewModel.loadRecentlyAdded()
                 }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func sectionHeader(title: String) -> some View {
+        Text(title)
+            .textStyle(.subtitle02)
+            .foregroundStyle(Color(UIColor.brandTertiary!))
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    @ViewBuilder
+    private func recentlyViewed() -> some View {
+        VStack(spacing: NCConstants.Margins.large.rawValue) {
+            sectionHeader(title: "Recently viewed")
+            if viewModel.advertisementRecentlyViewed.isEmpty {
+                EmptyRecentlyViewedView(viewModel: viewModel)
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: NCConstants.Margins.large.rawValue) {
+                        ForEach(viewModel.advertisementRecentlyViewed, id: \.advertisementId) { advertisement in
+                            RecentlyViewedView(
+                                advertisement: advertisement,
+                                itemTapped: {
+                                    viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                },
+                                likeButtonTapped: {
+                                    viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                },
+                                dislikeButtonTapped: {
+                                    viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                                }
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func recentlyAdded() -> some View {
+        VStack(spacing: NCConstants.Margins.large.rawValue) {
+            sectionHeader(title: "Recently added")
+            if viewModel.advertisementRecentlyAdded.isEmpty {
+                EmptyRecentlyAddedView()
+            } else {
+                AdvertisementGridView(
+                    advertisements: viewModel.advertisementRecentlyAdded,
+                    itemTapped: { advertisement in
+                        viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
+                    },
+                    likeButtonTapped: { advertisement in
+                        viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                    },
+                    dislikeButtonTapped: { advertisement in
+                        viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                    }
+                )
             }
         }
     }

@@ -26,6 +26,28 @@ struct CategoryDetailView: View {
             .onSubmit {
                 viewModel.applySearchTapped()
             }
+        filterContent()
+        ScrollView(showsIndicators: false) {
+            advertisementsView()
+        }
+        .sheet(isPresented: $isFilterTapped) {
+            FilterView(
+                viewModel: FilterViewModel(
+                    selectedRadioButton: viewModel.order,
+                    selectedCheckBoxes: viewModel.conditions
+                ),
+                isFilterTapped: $isFilterTapped,
+                applyFilters: { selectedCheckBoxes, selectedRadioButton in
+                    viewModel.applyFiltersTapped(selectedCheckBoxes: selectedCheckBoxes, selectedRadioButton: selectedRadioButton)
+                }
+            )
+            .presentationDetents([.fraction(0.95)])
+            .presentationDragIndicator(.hidden)
+        }
+    }
+    
+    @ViewBuilder
+    private func filterContent() -> some View {
         VStack(spacing: NCConstants.Margins.large.rawValue) {
             HStack {
                 Text(viewModel.category ?? "All results")
@@ -77,45 +99,33 @@ struct CategoryDetailView: View {
             }
         }
         .padding(.horizontal, NCConstants.Margins.large.rawValue)
-        ScrollView(showsIndicators: false) {
-            VStack {
-                if viewModel.advertisements.isEmpty {
-                    EmptyCategoriesView(
-                        browseCategoriesTapped: {
-                            viewModel.browseCategoriesTapped()
-                        }
-                    )
-                } else {
-                    AdvertisementGridView(
-                        advertisements: viewModel.advertisements,
-                        itemTapped: { advertisement in
-                            viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
-                        },
-                        likeButtonTapped: { advertisement in
-                            viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                        },
-                        dislikeButtonTapped: { advertisement in
-                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                        }
-                    )
-                }
+    }
+    
+    @ViewBuilder
+    private func advertisementsView() -> some View {
+        VStack {
+            if viewModel.advertisements.isEmpty {
+                EmptyCategoriesView(
+                    browseCategoriesTapped: {
+                        viewModel.browseCategoriesTapped()
+                    }
+                )
+            } else {
+                AdvertisementGridView(
+                    advertisements: viewModel.advertisements,
+                    itemTapped: { advertisement in
+                        viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
+                    },
+                    likeButtonTapped: { advertisement in
+                        viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                    },
+                    dislikeButtonTapped: { advertisement in
+                        viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                    }
+                )
             }
-            .padding(.horizontal, NCConstants.Margins.large.rawValue)
-            .padding(.top, NCConstants.Margins.extraLarge.rawValue)
         }
-        .sheet(isPresented: $isFilterTapped) {
-            FilterView(
-                viewModel: FilterViewModel(
-                    selectedRadioButton: viewModel.order,
-                    selectedCheckBoxes: viewModel.conditions
-                ),
-                isFilterTapped: $isFilterTapped,
-                applyFilters: { selectedCheckBoxes, selectedRadioButton in
-                    viewModel.applyFiltersTapped(selectedCheckBoxes: selectedCheckBoxes, selectedRadioButton: selectedRadioButton)
-                }
-            )
-            .presentationDetents([.fraction(0.95)])
-            .presentationDragIndicator(.hidden)
-        }
+        .padding(.horizontal, NCConstants.Margins.large.rawValue)
+        .padding(.top, NCConstants.Margins.extraLarge.rawValue)
     }
 }

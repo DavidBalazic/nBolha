@@ -21,6 +21,7 @@ struct EmptyProfileView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, NCConstants.Margins.extraLarge.rawValue)
         }
+        .frame(maxWidth: .infinity, alignment: .center)
         .padding(.vertical, 56)
         .padding(.top, 32)
     }

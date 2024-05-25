@@ -21,31 +21,34 @@ struct WishlistView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: NCConstants.Margins.extraLarge.rawValue) {
-                Text("My wishlist")
-                    .textStyle(.subtitle02)
-                    .foregroundStyle(Color(.brandTertiary!))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                if viewModel.wishlistAdvertisements.isEmpty {
-                    EmptyWishlistView()
-                } else {
-                    AdvertisementGridView(
-                        advertisements: viewModel.wishlistAdvertisements,
-                        itemTapped: { advertisement in
-                            viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
-                        },
-                        likeButtonTapped: { _ in 
-                        },
-                        dislikeButtonTapped: { advertisement in
-                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                        }
-                    )
-                }
+                wishlistAdvertisements()
             }
             .padding(.horizontal, NCConstants.Margins.large.rawValue)
         }
         .onAppear {
             Task { await viewModel.loadWishlist() }
         }
-        .activityIndicator(show: $viewModel.isLoading)
+    }
+    
+    @ViewBuilder
+    private func wishlistAdvertisements() -> some View {
+        Text("My wishlist")
+            .textStyle(.subtitle02)
+            .foregroundStyle(Color(.brandTertiary!))
+            .frame(maxWidth: .infinity, alignment: .leading)
+        if viewModel.wishlistAdvertisements.isEmpty {
+            EmptyWishlistView()
+        } else {
+            AdvertisementGridView(
+                advertisements: viewModel.wishlistAdvertisements,
+                itemTapped: { advertisement in
+                    viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
+                },
+                likeButtonTapped: { _ in },
+                dislikeButtonTapped: { advertisement in
+                    viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                }
+            )
+        }
     }
 }
