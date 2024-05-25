@@ -86,28 +86,18 @@ struct CategoryDetailView: View {
                         }
                     )
                 } else {
-                    let pairs = viewModel.advertisements.chunked(into: 2)
-                    ForEach(pairs, id: \.self) { pair in
-                        HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
-                            ForEach(pair, id: \.advertisementId) { advertisement in
-                                AdvertisementItemsView(
-                                    advertisement: advertisement,
-                                    itemTapped: {
-                                        viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                    },
-                                    likeButtonTapped: {
-                                        viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                    },
-                                    dislikeButtonTapped: {
-                                        viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                    }
-                                )
-                            }
-                            if pair.count == 1 {
-                                Spacer().frame(maxWidth: .infinity)
-                            }
+                    AdvertisementGridView(
+                        advertisements: viewModel.advertisements,
+                        itemTapped: { advertisement in
+                            viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
+                        },
+                        likeButtonTapped: { advertisement in
+                            viewModel.likeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
+                        },
+                        dislikeButtonTapped: { advertisement in
+                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
                         }
-                    }
+                    )
                 }
             }
             .padding(.horizontal, NCConstants.Margins.large.rawValue)
