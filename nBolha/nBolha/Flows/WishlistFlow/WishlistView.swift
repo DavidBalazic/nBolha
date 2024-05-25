@@ -28,26 +28,17 @@ struct WishlistView: View {
                 if viewModel.wishlistAdvertisements.isEmpty {
                     EmptyWishlistView()
                 } else {
-                    let pairs = viewModel.wishlistAdvertisements.chunked(into: 2)
-                    ForEach(pairs, id: \.self) { pair in
-                        HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
-                            ForEach(pair, id: \.advertisementId) { advertisement in
-                                AdvertisementItemsView(
-                                    advertisement: advertisement,
-                                    itemTapped: {
-                                        viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                    },
-                                    likeButtonTapped: { },
-                                    dislikeButtonTapped: {
-                                        viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
-                                    }
-                                )
-                            }
-                            if pair.count == 1 {
-                                Spacer().frame(maxWidth: .infinity)
-                            }
+                    AdvertisementGridView(
+                        advertisements: viewModel.wishlistAdvertisements,
+                        itemTapped: { advertisement in
+                            viewModel.advertisementItemTapped(advertisementId: advertisement.advertisementId ?? 0)
+                        },
+                        likeButtonTapped: { _ in 
+                        },
+                        dislikeButtonTapped: { advertisement in
+                            viewModel.dislikeAdvertisementTapped(advertisementId: advertisement.advertisementId ?? 0)
                         }
-                    }
+                    )
                 }
             }
             .padding(.horizontal, NCConstants.Margins.large.rawValue)

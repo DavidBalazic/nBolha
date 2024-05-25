@@ -147,6 +147,7 @@
 		50CE31492BCD66C8004F9566 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CE31482BCD66C8004F9566 /* TabBarViewModel.swift */; };
 		50CE314D2BCD66F5004F9566 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CE314C2BCD66F5004F9566 /* TabBarController.swift */; };
 		50D50B072BB2FE3D00748CC3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D50B062BB2FE3D00748CC3 /* Globals.swift */; };
+		50DF5C1E2C02585F00448706 /* AdvertisemetGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DF5C1D2C02585F00448706 /* AdvertisemetGridView.swift */; };
 		50E2F14E2BC6CEF600553B4F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2F14D2BC6CEF600553B4F /* Array+Extensions.swift */; };
 		50E2F1502BC6CF1600553B4F /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2F14F2BC6CF1600553B4F /* LikeButton.swift */; };
 		50E2F1522BC6CF9300553B4F /* RecentlyViewedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E2F1512BC6CF9300553B4F /* RecentlyViewedView.swift */; };
@@ -397,6 +398,7 @@
 		50CE31482BCD66C8004F9566 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		50CE314C2BCD66F5004F9566 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		50D50B062BB2FE3D00748CC3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		50DF5C1D2C02585F00448706 /* AdvertisemetGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisemetGridView.swift; sourceTree = "<group>"; };
 		50E2F14D2BC6CEF600553B4F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		50E2F14F2BC6CF1600553B4F /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		50E2F1512BC6CF9300553B4F /* RecentlyViewedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyViewedView.swift; sourceTree = "<group>"; };
@@ -867,6 +869,7 @@
 				50E2F14F2BC6CF1600553B4F /* LikeButton.swift */,
 				503E51CA2BCFAE9400D97655 /* AdvertisementItemsView.swift */,
 				50AE14772BD6A81400B4EF77 /* CloseButton.swift */,
+				50DF5C1D2C02585F00448706 /* AdvertisemetGridView.swift */,
 			);
 			path = Advertisements;
 			sourceTree = "<group>";
@@ -1470,6 +1473,7 @@
 				50AE14782BD6A81400B4EF77 /* CloseButton.swift in Sources */,
 				50C5069E2BBFDD540014526C /* WebView.swift in Sources */,
 				5055474A2BB2D2B800566B99 /* TermsAndConditionView.swift in Sources */,
+				50DF5C1E2C02585F00448706 /* AdvertisemetGridView.swift in Sources */,
 				50B746282BD8DD580077CFCB /* RadioButton.swift in Sources */,
 				50D50B072BB2FE3D00748CC3 /* Globals.swift in Sources */,
 				50BBE62C2BB570F9004AA5BB /* WindowNotificationInstallation.swift in Sources */,
