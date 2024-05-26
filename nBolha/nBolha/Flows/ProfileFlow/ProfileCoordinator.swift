@@ -12,21 +12,26 @@ import nBolhaNetworking
 
 final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate, UINavigationControllerDelegate {
     private weak var navigationController: UINavigationController?
-    private var viewModel: ProfileViewModel
+    private var viewModel: ProfileViewModel?
+    private let showSuccessMessage: Bool
     
     init(
         navigationController: UINavigationController? = nil,
-        viewModel: ProfileViewModel
+        showSuccessMessage: Bool = false
+
     ) {
         self.navigationController = navigationController
-        self.viewModel = viewModel
+        self.showSuccessMessage = showSuccessMessage
     }
     
     @discardableResult
     func start() -> UIViewController {
-        viewModel.navigationDelegate = self
+        viewModel = ProfileViewModel(
+            navigationDelegate: self,
+            showSuccessMessage: showSuccessMessage
+        )
         let view = ProfileView(
-            viewModel: viewModel
+            viewModel: viewModel!
         )
         
         let navController = navigationController ?? UINavigationController()
@@ -50,7 +55,7 @@ final class ProfileCoordinator: NSObject, Coordinator, ProfileNavigationDelegate
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         let signOutAction = UIAction(title: "Sign Out", image: .signOut) { _ in
-            self.viewModel.signOutTapped()
+            self.viewModel?.signOutTapped()
         }
         let signOutMenu = UIMenu(title: "", children: [signOutAction])
         

@@ -16,7 +16,7 @@ protocol ProfileNavigationDelegate: AnyObject {
 }
 
 final class ProfileViewModel: ObservableObject {
-    var navigationDelegate: ProfileNavigationDelegate?
+    private let navigationDelegate: ProfileNavigationDelegate?
     private let notificationService: WindowNotificationService
     private let keychaninManager = KeyChainManager(service: Constants.keychainServiceIdentifier)
     @Published var isLoading = false
