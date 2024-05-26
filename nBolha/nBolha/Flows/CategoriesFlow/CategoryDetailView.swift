@@ -30,6 +30,7 @@ struct CategoryDetailView: View {
         ScrollView(showsIndicators: false) {
             advertisementsView()
         }
+        .activityIndicator(show: $viewModel.isLoading)
         .onAppear {
             viewModel.onAppear()
         }
@@ -107,7 +108,7 @@ struct CategoryDetailView: View {
     @ViewBuilder
     private func advertisementsView() -> some View {
         VStack {
-            if viewModel.advertisements.isEmpty {
+            if viewModel.advertisements.isEmpty && !viewModel.isLoading {
                 EmptyCategoriesView(
                     browseCategoriesTapped: {
                         viewModel.browseCategoriesTapped()

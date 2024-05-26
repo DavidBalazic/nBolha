@@ -29,62 +29,65 @@ final class HomeViewModel: ObservableObject {
         self.navigationDelegate = navigationDelegate
     }
     
-    func loadRecentlyAdded() async {
+    @MainActor
+    private func loadRecentlyAdded() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
         
-        
         let advertisementRecentlyAddedWorker = AdvertisementRecentlyAddedWorker()
-        advertisementRecentlyAddedWorker.execute { (response, error) in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                self.advertisementRecentlyAdded = response ?? []
-            }
+        do {
+            let response = try await advertisementRecentlyAddedWorker.execute()
+            advertisementRecentlyAdded = response ?? []
+        } catch {
+            print("Error loading advertisements: \(error)")
         }
     }
     
-    func loadRecentlyViewed() async {
+    @MainActor
+    private func loadRecentlyViewed() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
         
         let advertisementRecentlyViewedWorker = AdvertisementRecentlyViewedWorker()
-        advertisementRecentlyViewedWorker.execute { (response, error) in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                self.advertisementRecentlyViewed = response ?? []
-            }
+        do {
+            let response = try await advertisementRecentlyViewedWorker.execute()
+            advertisementRecentlyViewed = response ?? []
+        } catch {
+            print("Error loading advertisements: \(error)")
         }
     }
     
+    @MainActor
     private func likeAdvertisement(advertisementId: Int) async {
         let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
-        likeWorker.execute { [weak self] (_, error) in
-            guard error == nil else { return }
-            
-            if let index = self?.advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
-                self?.advertisementRecentlyViewed[index].isInWishlist = true
+        do {
+            _ = try await likeWorker.execute()
+            if let index = advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                advertisementRecentlyViewed[index].isInWishlist = true
             }
-            if let index = self?.advertisementRecentlyAdded.firstIndex(where: { $0.advertisementId == advertisementId }) {
-                self?.advertisementRecentlyAdded[index].isInWishlist = true
+            if let index = advertisementRecentlyAdded.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                advertisementRecentlyAdded[index].isInWishlist = true
             }
+        } catch {
+            print("Error liking advertisement: \(error)")
         }
     }
     
+    @MainActor
     private func dislikeAdvertisement(advertisementId: Int) async {
         let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
-        dislikeWorker.execute { [weak self] (_, error) in
-            guard error == nil else { return }
-            
-            if let index = self?.advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
-                self?.advertisementRecentlyViewed[index].isInWishlist = false
+        do {
+            _ = try await dislikeWorker.execute()
+            if let index = advertisementRecentlyViewed.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                advertisementRecentlyViewed[index].isInWishlist = false
             }
-            if let index = self?.advertisementRecentlyAdded.firstIndex(where: { $0.advertisementId == advertisementId }) {
-                self?.advertisementRecentlyAdded[index].isInWishlist = false
+            if let index = advertisementRecentlyAdded.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                advertisementRecentlyAdded[index].isInWishlist = false
             }
+        } catch {
+            print("Error disliking advertisement: \(error)")
         }
     }
     

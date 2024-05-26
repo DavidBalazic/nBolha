@@ -23,35 +23,31 @@ final class WishlistViewModel: ObservableObject {
         self.navigationDelegate = navigationDelegate
     }
     
-    func loadWishlist() async {
+    @MainActor
+    private func loadWishlist() async {
         guard !isLoading else { return }
-        DispatchQueue.main.async {
-            self.isLoading = true
-        }
-        defer {
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
-        }
+        isLoading = true
+        defer { isLoading = false }
         
         let getWishlistWorker = GetWishlistWorker()
-        getWishlistWorker.execute { (response, error) in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                self.wishlistAdvertisements = response ?? []
-            }
+        do {
+            let response = try await getWishlistWorker.execute()
+            wishlistAdvertisements = response ?? []
+        } catch {
+            print("Error loading advertisements: \(error)")
         }
     }
     
+    @MainActor
     private func dislikeAdvertisement(advertisementId: Int) async {
         let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
-        dislikeWorker.execute { [weak self] (_, error) in
-            guard error == nil else { return }
-            
-            if let index = self?.wishlistAdvertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
-                self?.wishlistAdvertisements.remove(at: index)
+        do {
+            _ = try await dislikeWorker.execute()
+            if let index = wishlistAdvertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                wishlistAdvertisements.remove(at: index)
             }
+        } catch {
+            print("Error disliking advertisement: \(error)")
         }
     }
     

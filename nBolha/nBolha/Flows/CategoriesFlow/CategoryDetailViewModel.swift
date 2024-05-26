@@ -34,6 +34,7 @@ final class CategoryDetailViewModel: ObservableObject {
         self.search = search ?? ""
     }
     
+    @MainActor
     private func loadFilteredAdvertisements() async {
         guard !isLoading else { return }
         isLoading = true
@@ -45,34 +46,37 @@ final class CategoryDetailViewModel: ObservableObject {
             orderBy: order.backendValue,
             conditions: conditions.map { $0.backendValue }
         )
-        filterAdvertisementWorker.execute { (response, error) in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                self.advertisements = response ?? []
-            }
+        do {
+            let response = try await filterAdvertisementWorker.execute()
+            advertisements = response ?? []
+        } catch {
+            print("Error loading advertisements: \(error)")
         }
     }
     
+    @MainActor
     private func likeAdvertisement(advertisementId: Int) async {
         let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
-        likeWorker.execute { [weak self] (_, error) in
-            guard error == nil else { return }
-            
-            if let index = self?.advertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
-                self?.advertisements[index].isInWishlist = true
+        do {
+            _ = try await likeWorker.execute()
+            if let index = advertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                advertisements[index].isInWishlist = true
             }
+        } catch {
+            print("Error liking advertisement: \(error)")
         }
     }
     
+    @MainActor
     private func dislikeAdvertisement(advertisementId: Int) async {
         let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
-        dislikeWorker.execute { [weak self] (_, error) in
-            guard error == nil else { return }
-            
-            if let index = self?.advertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
-                self?.advertisements[index].isInWishlist = false
+        do {
+            _ = try await dislikeWorker.execute()
+            if let index = advertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                advertisements[index].isInWishlist = false
             }
+        } catch {
+            print("Error disliking advertisement: \(error)")
         }
     }
     

@@ -26,9 +26,10 @@ struct ProfileView: View {
                 listingsContent()
             }
             .padding(.horizontal, NCConstants.Margins.large.rawValue)
-            .onAppear {
-                viewModel.onAppear()
-            }
+        }
+        .activityIndicator(show: $viewModel.isLoading)
+        .onAppear {
+            viewModel.onAppear()
         }
         .alert(isPresented: $showDeleteAlert) {
             Alert(
@@ -105,7 +106,10 @@ struct ProfileView: View {
             .textStyle(.subtitle02)
             .foregroundStyle(Color(UIColor.text01!))
             .frame(maxWidth: .infinity, alignment: .leading)
-        if !viewModel.profileAdvertisements.isEmpty {
+        if viewModel.profileAdvertisements.isEmpty && !viewModel.isLoading {
+            EmptyProfileView()
+        }
+        else {
             let pairs = viewModel.profileAdvertisements.chunked(into: 2)
             ForEach(pairs, id: \.self) { pair in
                 HStack(alignment: .top, spacing: NCConstants.Margins.large.rawValue) {
@@ -125,8 +129,6 @@ struct ProfileView: View {
                     }
                 }
             }
-        } else {
-            EmptyProfileView()
         }
     }
 }

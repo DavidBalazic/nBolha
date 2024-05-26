@@ -18,6 +18,18 @@ public class BaseNBolhaWorker<T: Decodable>: APICallWorker {
         execute()
     }
     
+    public func execute() async throws -> T? {
+        return try await withCheckedThrowingContinuation { continuation in
+            execute { result, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume(returning: result)
+                }
+            }
+        }
+    }
+    
     public override func processResponse(response: HTTPResponse) {
         if response.statusCode == 401 {
             handleTokenExpiredError()
