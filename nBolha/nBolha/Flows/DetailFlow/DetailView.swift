@@ -57,6 +57,9 @@ public struct DetailView: View {
                 }
             }
         }
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
     
     @ViewBuilder

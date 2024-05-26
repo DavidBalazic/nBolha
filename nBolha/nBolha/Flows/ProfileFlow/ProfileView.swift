@@ -27,7 +27,7 @@ struct ProfileView: View {
             }
             .padding(.horizontal, NCConstants.Margins.large.rawValue)
             .onAppear {
-                Task{ await viewModel.loadProfileAdvertisements() }
+                viewModel.onAppear()
             }
         }
         .alert(isPresented: $showDeleteAlert) {

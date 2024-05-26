@@ -29,9 +29,6 @@ final class DetailViewModel: ObservableObject{
     ) {
         self.navigationDelegate = navigationDelegate
         self.advertisementId = advertisementId
-        Task {
-            await loadDetailAdvertisement(advertisementId: advertisementId)
-        }
     }
     
     private func loadDetailAdvertisement(advertisementId: Int) async {
@@ -97,6 +94,10 @@ final class DetailViewModel: ObservableObject{
     
     func dislikeAdvertisementTapped(advertisementId: Int) {
         Task { await dislikeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func onAppear() {
+        Task { await loadDetailAdvertisement(advertisementId: advertisementId) }
     }
     
     func contactSellerTapped() {
