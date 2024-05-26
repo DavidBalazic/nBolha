@@ -33,10 +33,7 @@ struct HomeView: View {
                 .padding(.horizontal,  NCConstants.Margins.large.rawValue)
             }
             .onAppear {
-                Task {
-                    await viewModel.loadRecentlyViewed()
-                    await viewModel.loadRecentlyAdded()
-                }
+                viewModel.onAppear()
             }
         }
     }
@@ -53,7 +50,7 @@ struct HomeView: View {
     private func recentlyViewed() -> some View {
         VStack(spacing: NCConstants.Margins.large.rawValue) {
             sectionHeader(title: "Recently viewed")
-            if viewModel.advertisementRecentlyViewed.isEmpty {
+            if viewModel.advertisementRecentlyViewed.isEmpty && !viewModel.isLoading {
                 EmptyRecentlyViewedView(viewModel: viewModel)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -82,7 +79,7 @@ struct HomeView: View {
     private func recentlyAdded() -> some View {
         VStack(spacing: NCConstants.Margins.large.rawValue) {
             sectionHeader(title: "Recently added")
-            if viewModel.advertisementRecentlyAdded.isEmpty {
+            if viewModel.advertisementRecentlyAdded.isEmpty && !viewModel.isLoading {
                 EmptyRecentlyAddedView()
             } else {
                 AdvertisementGridView(

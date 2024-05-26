@@ -30,6 +30,9 @@ struct CategoryDetailView: View {
         ScrollView(showsIndicators: false) {
             advertisementsView()
         }
+        .onAppear {
+            viewModel.onAppear()
+        }
         .sheet(isPresented: $isFilterTapped) {
             FilterView(
                 viewModel: FilterViewModel(

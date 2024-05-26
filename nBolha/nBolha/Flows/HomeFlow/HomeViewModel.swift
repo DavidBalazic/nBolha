@@ -27,22 +27,13 @@ final class HomeViewModel: ObservableObject {
         navigationDelegate: HomeNavigationDelegate?
     ) {
         self.navigationDelegate = navigationDelegate
-        Task {
-            await loadRecentlyAdded()
-            await loadRecentlyViewed()
-        }
     }
     
     func loadRecentlyAdded() async {
         guard !isLoading else { return }
-        DispatchQueue.main.async {
-            self.isLoading = true
-        }
-        defer {
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
-        }
+        isLoading = true
+        defer { isLoading = false }
+        
         
         let advertisementRecentlyAddedWorker = AdvertisementRecentlyAddedWorker()
         advertisementRecentlyAddedWorker.execute { (response, error) in
@@ -56,14 +47,8 @@ final class HomeViewModel: ObservableObject {
     
     func loadRecentlyViewed() async {
         guard !isLoading else { return }
-        DispatchQueue.main.async {
-            self.isLoading = true
-        }
-        defer {
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
-        }
+        isLoading = true
+        defer { isLoading = false }
         
         let advertisementRecentlyViewedWorker = AdvertisementRecentlyViewedWorker()
         advertisementRecentlyViewedWorker.execute { (response, error) in
@@ -109,6 +94,13 @@ final class HomeViewModel: ObservableObject {
     
     func dislikeAdvertisementTapped(advertisementId: Int) {
         Task { await dislikeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func onAppear() {
+        Task {
+            await loadRecentlyViewed()
+            await loadRecentlyAdded()
+        }
     }
     
     // MARK: - HomeNavigationDelegate

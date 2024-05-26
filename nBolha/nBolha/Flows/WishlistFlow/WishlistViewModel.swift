@@ -21,9 +21,6 @@ final class WishlistViewModel: ObservableObject {
         navigationDelegate: WishlistNavigationDelegate?
     ) {
         self.navigationDelegate = navigationDelegate
-        Task {
-            await loadWishlist()
-        }
     }
     
     func loadWishlist() async {
@@ -60,6 +57,10 @@ final class WishlistViewModel: ObservableObject {
     
     func dislikeAdvertisementTapped(advertisementId: Int) {
         Task { await dislikeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func onAppear() {
+        Task { await loadWishlist() }
     }
     
     func advertisementItemTapped(advertisementId: Int) {

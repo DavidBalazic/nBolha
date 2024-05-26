@@ -32,9 +32,6 @@ final class CategoryDetailViewModel: ObservableObject {
         self.navigationDelegate = navigationDelegate
         self.category = category
         self.search = search ?? ""
-        Task {
-            await loadFilteredAdvertisements()
-        }
     }
     
     private func loadFilteredAdvertisements() async {
@@ -105,6 +102,10 @@ final class CategoryDetailViewModel: ObservableObject {
     
     func dislikeAdvertisementTapped(advertisementId: Int) {
         Task { await dislikeAdvertisement(advertisementId: advertisementId) }
+    }
+    
+    func onAppear() {
+        Task { await loadFilteredAdvertisements()}
     }
     
     func browseCategoriesTapped() {

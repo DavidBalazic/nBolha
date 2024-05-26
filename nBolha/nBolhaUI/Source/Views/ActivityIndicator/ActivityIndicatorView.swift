@@ -8,7 +8,6 @@
 import SwiftUI
 import Lottie
 
-/// Lottie loader indicator view with transparent dark background for activity progress on the screen
 public struct ActivityIndicatorView: View {
     public let isShown: Bool
 
@@ -19,8 +18,7 @@ public struct ActivityIndicatorView: View {
     public var body: some View {
         ZStack {
             if isShown {
-                Color.black
-                    .opacity(0.6)
+                Color.white
                 LottieView(
                     animation: LottieAnimation.named("loading_animation")
                 )

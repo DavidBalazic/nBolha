@@ -21,7 +21,6 @@ protocol LoginNavigationDelegate: AnyObject {
 
 final class LoginViewModel: ObservableObject {
     private let navigationDelegate: LoginNavigationDelegate?
-    @Published var isLoading = false
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var errorEmailText: String?
@@ -72,10 +71,6 @@ final class LoginViewModel: ObservableObject {
     
     @MainActor
     private func login() async {
-        guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
-        
         let loginWorker = LoginWorker(username: email, password: password)
         loginWorker.execute { (response, error) in
             if let response = response {

@@ -48,14 +48,8 @@ final class ProfileViewModel: ObservableObject {
     
     func loadProfileInfo() async {
         guard !isLoading else { return }
-        DispatchQueue.main.async {
-            self.isLoading = true
-        }
-        defer {
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
-        }
+        isLoading = true
+        defer { isLoading = false }
         
         let getUserInfoWorker = GetUserInfoWorker()
         getUserInfoWorker.execute { (response, error) in
@@ -69,14 +63,8 @@ final class ProfileViewModel: ObservableObject {
     
     func loadProfileAdvertisements() async {
         guard !isLoading else { return }
-        DispatchQueue.main.async {
-            self.isLoading = true
-        }
-        defer {
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
-        }
+        isLoading = true
+        defer { isLoading = false }
         
         let getUserAdvertisementsWorker = GetUserAdvertisementsWorker()
         getUserAdvertisementsWorker.execute { (response, error) in
@@ -139,16 +127,20 @@ final class ProfileViewModel: ObservableObject {
         self.advertisementToDelete = advertisement
     }
     
-    func advertisementItemTapped(advertisementId: Int) {
-        navigationDelegate?.showDetailScreen(advertisementId: advertisementId)
-    }
-    
     func deleteAdvertisementTapped() async {
         await deleteAdvertisement()
+    }
+    
+    func onAppear() {
+        Task { await loadProfileAdvertisements() }
     }
     
     func signOutTapped() {
         keychaninManager.remove("sessionTokenID")
         NotificationCenter.default.post(name: .tokenExpiredNotification, object: nil)
+    }
+    
+    func advertisementItemTapped(advertisementId: Int) {
+        navigationDelegate?.showDetailScreen(advertisementId: advertisementId)
     }
 }
