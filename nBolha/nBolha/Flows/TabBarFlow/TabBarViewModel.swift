@@ -75,8 +75,7 @@ final class TabBarViewModel {
             return setup(coordinator.start())
             
         case .profile:
-            let viewModel = ProfileViewModel(navigationDelegate: nil)
-            let coordinator = ProfileCoordinator(viewModel: viewModel)
+            let coordinator = ProfileCoordinator()
             return setup(coordinator.start())
         }
     }
