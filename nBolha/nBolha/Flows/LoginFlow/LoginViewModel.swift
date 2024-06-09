@@ -72,20 +72,18 @@ final class LoginViewModel: ObservableObject {
     @MainActor
     private func login() async {
         let loginWorker = LoginWorker(username: email, password: password)
-        loginWorker.execute { (response, error) in
-            if let response = response {
-                let token = response.token
-                let sessionTokenId = "sessionTokenID"
-                self.keychaninManager.set(token, forKey: sessionTokenId)
-                self.navigationDelegate?.showHomeScreen()
-            } else if error is NetworkingBadRequestError {
-                self.notificationService.notify.send(NotificationView.Notification.LoginFailed)
-            } else if response == nil, error == nil {
-                //TODO: handle no internet connection
-                self.navigationDelegate?.showNoConnectionScreen()
-            } else {
-                self.notificationService.notify.send(NotificationView.Notification.Other)
+        do {
+            guard let response = try await loginWorker.execute() else {
+                return
             }
+            let token = response.token
+            let sessionTokenId = "sessionTokenID"
+            self.keychaninManager.set(token, forKey: sessionTokenId)
+            self.navigationDelegate?.showHomeScreen()
+        } catch let error as NetworkingBadRequestError {
+            self.notificationService.notify.send(NotificationView.Notification.LoginFailed)
+        } catch {
+            self.notificationService.notify.send(NotificationView.Notification.Other)
         }
     }
  }
