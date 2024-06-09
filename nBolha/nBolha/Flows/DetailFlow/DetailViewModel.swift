@@ -18,7 +18,6 @@ protocol DetailNavigationDelegate: AnyObject {
 final class DetailViewModel: ObservableObject{
     private let navigationDelegate: DetailNavigationDelegate?
     private let advertisementId: Int
-    @Published var isLoading = false
     @Published var advertisement: Advertisement?
     @Published var shouldShowTextLimit = false
     @Published var showButton = false
@@ -31,19 +30,15 @@ final class DetailViewModel: ObservableObject{
         self.advertisementId = advertisementId
     }
     
+    @MainActor
     private func loadDetailAdvertisement(advertisementId: Int) async {
-        guard !isLoading else { return }
-        isLoading = true
-        defer { isLoading = false }
-        
         let advertisementViewedWorker = AdvertisementViewedWorker(advertisementId: advertisementId)
-        advertisementViewedWorker.execute { response, error in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                self.advertisement = response
-                self.calculateTextLimit()
-            }
+        do {
+            let response = try await advertisementViewedWorker.execute()
+            advertisement = response
+            calculateTextLimit()
+        } catch {
+            print("Error loading advertisements: \(error)")
         }
     }
     
@@ -70,21 +65,25 @@ final class DetailViewModel: ObservableObject{
         navigationDelegate?.enableNavigations()
     }
     
+    @MainActor
     private func likeAdvertisement(advertisementId: Int) async {
         let likeWorker = AddToWishlistWorker(advertisementId: advertisementId)
-        likeWorker.execute { [weak self] (_, error) in
-            guard error == nil else { return }
-            
-            self?.advertisement?.isInWishlist = true
+        do {
+            _ = try await likeWorker.execute()
+            advertisement?.isInWishlist = true
+        } catch {
+            print("Error liking advertisement: \(error)")
         }
     }
     
+    @MainActor
     private func dislikeAdvertisement(advertisementId: Int) async {
         let dislikeWorker = DeleteWishlistWorker(advertisementId: advertisementId)
-        dislikeWorker.execute { [weak self] (_, error) in
-            guard error == nil else { return }
-            
-            self?.advertisement?.isInWishlist = false
+        do {
+            _ = try await dislikeWorker.execute()
+            advertisement?.isInWishlist = false
+        } catch {
+            print("Error disliking advertisement: \(error)")
         }
     }
     

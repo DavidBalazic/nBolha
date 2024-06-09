@@ -50,6 +50,7 @@ struct UploadItemView: View {
             .fixedSize()
             .padding(.top, NCConstants.Margins.large.rawValue)
         }
+        .activityIndicator(show: $viewModel.isLoading)
     }
     
     @ViewBuilder

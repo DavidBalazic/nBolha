@@ -36,7 +36,7 @@ struct WishlistView: View {
             .textStyle(.subtitle02)
             .foregroundStyle(Color(.brandTertiary!))
             .frame(maxWidth: .infinity, alignment: .leading)
-        if viewModel.wishlistAdvertisements.isEmpty {
+        if viewModel.wishlistAdvertisements.isEmpty && !viewModel.isLoading {
             EmptyWishlistView()
         } else {
             AdvertisementGridView(

@@ -32,9 +32,10 @@ struct HomeView: View {
                 }
                 .padding(.horizontal,  NCConstants.Margins.large.rawValue)
             }
-            .onAppear {
-                viewModel.onAppear()
-            }
+        }
+        .activityIndicator(show: $viewModel.isLoading)
+        .onAppear {
+            viewModel.onAppear()
         }
     }
     

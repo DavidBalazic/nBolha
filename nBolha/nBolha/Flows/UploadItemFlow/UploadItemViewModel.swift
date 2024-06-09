@@ -255,16 +255,16 @@ final class UploadItemViewModel: ObservableObject {
             condition: condition.backendValue,
             images: selectedImages
         )
-        postAdvertisementWorker.execute { (response, error) in
-            if response != nil {
-                self.resetFields()
-                self.navigationDelegate?.showProfileScreen()
-            } else if error != nil {
-                self.notificationService.notify.send(NotificationView.Notification.UploadFailed)
-            }
+        do {
+            _ = try await postAdvertisementWorker.execute()
+            resetFields()
+            navigationDelegate?.showProfileScreen()
+        } catch {
+            notificationService.notify.send(NotificationView.Notification.UploadFailed)
         }
     }
     
+    @MainActor
     func loadTransferables(from selection: [PhotosPickerItem]?) async throws {
         guard let selection = selection else { return }
         var tempImages = [UIImage]()

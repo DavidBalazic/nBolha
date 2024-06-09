@@ -46,33 +46,33 @@ final class ProfileViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func loadProfileInfo() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
         
         let getUserInfoWorker = GetUserInfoWorker()
-        getUserInfoWorker.execute { (response, error) in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                self.profile = response
-            }
+        do {
+            let response = try await GetUserInfoWorker().execute()
+            self.profile = response
+        } catch {
+            print("Error loading profile information: \(error)")
         }
     }
     
+    @MainActor
     func loadProfileAdvertisements() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
         
         let getUserAdvertisementsWorker = GetUserAdvertisementsWorker()
-        getUserAdvertisementsWorker.execute { (response, error) in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                self.profileAdvertisements = response ?? []
-            }
+        do {
+            let response = try await GetUserAdvertisementsWorker().execute()
+            self.profileAdvertisements = response ?? []
+        } catch {
+            print("Error loading profile advertisements: \(error)")
         }
     }
     
@@ -91,35 +91,32 @@ final class ProfileViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func uploadProfilePicture(profileImage: UIImage) async {
-        let uploadProfilePictureWorker = UploadProfilePictureWorker(image: profileImage)
-        uploadProfilePictureWorker.execute { response, error in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                Task {
-                    await self.loadProfileInfo()
-                }
-            }
+        do {
+            _ = try await UploadProfilePictureWorker(image: profileImage).execute()
+            await loadProfileInfo()
+        } catch {
+            print("Error uploading profile picture: \(error)")
         }
     }
     
+    @MainActor
     func deleteAdvertisement() async {
         guard !isLoading else { return }
         isLoading = true
         defer { isLoading = false }
         
         guard let advertisementId = advertisementToDelete?.advertisementId else { return }
-        let deleteAdvertisementWorker = DeleteAdvertisementWorker(advertisementId: advertisementId)
-        deleteAdvertisementWorker.execute { (response, error) in
-            if let error = error {
-                print("Error loading advertisements: \(error)")
-            } else {
-                if let index = self.profileAdvertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
-                    self.profileAdvertisements.remove(at: index)
-                    self.advertisementToDelete = nil
-                }
+        do {
+            _ = try await DeleteAdvertisementWorker(advertisementId: advertisementId).execute()
+            
+            if let index = profileAdvertisements.firstIndex(where: { $0.advertisementId == advertisementId }) {
+                profileAdvertisements.remove(at: index)
+                advertisementToDelete = nil
             }
+        } catch {
+            print("Error deleting advertisement: \(error)")
         }
     }
     
